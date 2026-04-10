@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>משלחת אל עיר האזמרגד</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:#000;font-family:'Segoe UI',Arial,sans-serif;direction:rtl;overflow:hidden;-webkit-tap-highlight-color:transparent}
+
+/* ── INTRO ── */
+#intro{position:fixed;inset:0;background:linear-gradient(160deg,#060e1c 0%,#0f2040 60%,#060e1c 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:200;padding:24px 20px;text-align:center}
+.i-title{font-size:clamp(26px,5vw,52px);font-weight:900;color:#d4af37;text-shadow:0 0 40px rgba(212,175,55,.5);letter-spacing:2px;margin-bottom:6px}
+.i-sub{font-size:clamp(12px,2vw,16px);color:#4a7aa0;letter-spacing:4px;text-transform:uppercase;margin-bottom:32px}
+.i-box{max-width:520px;background:rgba(255,255,255,.04);border:1px solid rgba(212,175,55,.2);border-radius:14px;padding:24px 28px;color:#c5d5e8;font-size:clamp(14px,2.2vw,17px);line-height:1.85;margin-bottom:36px}
+.btn-start{background:linear-gradient(135deg,#c9a227,#f0c940);color:#060e1c;border:none;padding:15px 52px;font-size:clamp(15px,2.5vw,20px);font-weight:700;border-radius:50px;cursor:pointer;letter-spacing:.5px;box-shadow:0 4px 24px rgba(212,175,55,.45);transition:transform .2s,box-shadow .2s}
+.btn-start:hover{transform:scale(1.05);box-shadow:0 6px 32px rgba(212,175,55,.65)}
+.btn-start:active{transform:scale(.97)}
+
+/* ── PROGRESS ── */
+#prog{position:fixed;top:0;left:0;right:0;height:5px;z-index:100;display:none;background:rgba(0,0,0,.6)}
+#prog-fill{position:absolute;top:0;left:0;bottom:0;background:linear-gradient(90deg,#c9a227,#f0c940);width:0%;transition:width .6s ease}
+#prog-dot{position:absolute;top:50%;width:12px;height:12px;background:#f0c940;border-radius:50%;transform:translate(-50%,-50%);left:0%;transition:left .6s ease;box-shadow:0 0 8px rgba(240,201,64,.9)}
+
+/* ── GAME STAGE ── */
+#stage{position:fixed;inset:0;display:none;overflow:hidden}
+#bg-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+#scenery-layer{position:absolute;inset:0;z-index:2;pointer-events:none}
+#player-vid{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;top:0;left:0}
+#player-canvas{position:absolute;bottom:0;right:10%;height:78%;width:auto;z-index:3;pointer-events:none}
+#effect-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:4;mix-blend-mode:screen;pointer-events:none}
+#rivals-layer{position:absolute;inset:0;z-index:5;pointer-events:none}
+#stage-overlay{position:absolute;inset:0;background:rgba(0,0,0,.22);z-index:6;pointer-events:none}
+
+/* ── OPENING NARR ── */
+#o-narr{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);max-width:540px;width:88%;background:rgba(4,12,28,.82);border:1px solid rgba(212,175,55,.3);border-radius:12px;padding:26px 30px;color:#e8dcc8;font-size:clamp(14px,2.3vw,17px);line-height:1.85;text-align:center;z-index:25;opacity:0;transition:opacity .7s;pointer-events:none}
+#o-narr.show{opacity:1}
+
+/* ── CHAPTER HEADER ── */
+#chap{position:fixed;inset:0;background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;z-index:80;opacity:0;pointer-events:none;transition:opacity .45s}
+#chap.show{opacity:1}
+#chap-txt{font-size:clamp(20px,4.5vw,44px);font-weight:900;color:#d4af37;text-shadow:0 0 30px rgba(212,175,55,.7);letter-spacing:3px;text-align:center;padding:0 20px}
+
+/* ── MISSION PROMPT ── */
+#prompt{position:fixed;top:14px;left:50%;transform:translateX(-50%);max-width:640px;width:92%;background:rgba(4,12,28,.88);border:1px solid rgba(212,175,55,.35);border-radius:10px;padding:12px 18px;color:#e0d4bc;font-size:clamp(12px,1.9vw,15px);line-height:1.65;text-align:center;z-index:20;opacity:0;transition:opacity .4s;pointer-events:none}
+#prompt.show{opacity:1}
+#prompt-q{margin-top:7px;color:#d4af37;font-weight:700;font-size:clamp(13px,2.1vw,16px)}
+
+/* ── TOOLS PANEL ── */
+#tools{position:fixed;bottom:0;left:0;right:0;height:110px;background:linear-gradient(to top,rgba(4,12,28,.97),rgba(4,12,28,.85));border-top:1px solid rgba(212,175,55,.25);z-index:30;display:flex;align-items:center;justify-content:center;gap:clamp(12px,3vw,28px);padding:0 16px;transform:translateY(100%);transition:transform .38s cubic-bezier(.34,1.56,.64,1)}
+#tools.open{transform:translateY(0)}
+.t-slot{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;max-width:100px;cursor:pointer;position:relative;transition:transform .18s;opacity:0;transition:opacity .3s,transform .18s}
+.t-slot.ready{opacity:1}
+.t-slot:hover{transform:scale(1.12)}
+.t-slot:active{transform:scale(.93)}
+.t-img{width:clamp(56px,14vw,72px);height:clamp(56px,14vw,72px);object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,.7));display:block}
+.t-slot:hover .t-img{filter:drop-shadow(0 3px 10px rgba(212,175,55,.55))}
+.t-lbl{font-size:10px;color:rgba(255,255,255,.55);margin-top:3px;text-align:center;max-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* ── TOOLTIP ── */
+#tip{position:fixed;background:rgba(4,12,28,.96);border:1px solid rgba(212,175,55,.5);color:#fff;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:600;z-index:110;pointer-events:none;opacity:0;transition:opacity .18s;white-space:nowrap;direction:rtl}
+#tip.show{opacity:1}
+
+/* ── POST-BEAT ── */
+#beat{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);max-width:480px;width:86%;background:rgba(4,12,28,.9);border:1px solid rgba(212,175,55,.4);border-radius:12px;padding:20px 26px;color:#f0e8d0;font-size:clamp(14px,2.3vw,17px);line-height:1.8;text-align:center;z-index:60;opacity:0;transition:opacity .38s;pointer-events:none}
+#beat.show{opacity:1}
+
+/* ── TRANSITION LINE ── */
+#tline{position:fixed;bottom:70px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.7);font-size:clamp(15px,2.5vw,19px);font-style:italic;letter-spacing:2px;z-index:25;opacity:0;transition:opacity .35s;pointer-events:none;text-shadow:0 2px 8px rgba(0,0,0,.9)}
+#tline.show{opacity:1}
+
+/* ── FLYING TOOL ── */
+.fly-tool{position:fixed;pointer-events:none;z-index:70;width:72px;height:72px;object-fit:contain}
+
+/* ── SCENE PULSE ── */
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.018)}}
+#stage.pulse{animation:pulse 1.1s ease-in-out infinite}
+
+/* ── LEAD FORM ── */
+#lead{position:fixed;inset:0;background:linear-gradient(160deg,#060e1c 0%,#0f2040 60%,#060e1c 100%);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:150;padding:30px 20px;overflow-y:auto}
+.lead-box{max-width:460px;width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(212,175,55,.28);border-radius:16px;padding:32px 28px}
+.lead-title{font-size:clamp(20px,4vw,30px);font-weight:900;color:#d4af37;text-align:center;margin-bottom:6px}
+.lead-sub{font-size:14px;color:#5a8ab0;text-align:center;margin-bottom:24px}
+.f-row{margin-bottom:14px}
+.f-row label{display:block;color:#b5c8dc;font-size:13px;font-weight:600;margin-bottom:5px}
+.f-row input[type=text],.f-row input[type=email],.f-row input[type=tel]{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:11px 13px;color:#fff;font-size:14px;direction:rtl;transition:border-color .2s;font-family:inherit}
+.f-row input:focus{outline:none;border-color:#d4af37}
+.f-row input.err{border-color:#e05050}
+.f-check{display:flex;align-items:center;gap:9px;margin:10px 0 22px;color:#b5c8dc;font-size:13px;cursor:pointer}
+.f-check input{width:17px;height:17px;cursor:pointer;accent-color:#d4af37}
+.btn-reveal{width:100%;background:linear-gradient(135deg,#c9a227,#f0c940);color:#060e1c;border:none;padding:14px;font-size:clamp(15px,2.5vw,18px);font-weight:700;border-radius:50px;cursor:pointer;box-shadow:0 4px 20px rgba(212,175,55,.4);transition:transform .18s}
+.btn-reveal:hover{transform:scale(1.02)}
+.btn-reveal:active{transform:scale(.97)}
+
+/* ── RESULTS ── */
+#results{position:fixed;inset:0;background:linear-gradient(160deg,#060e1c 0%,#0f2040 60%,#060e1c 100%);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:150;padding:30px 20px;overflow-y:auto}
+.r-box{max-width:540px;width:100%;text-align:center}
+.r-trophy{font-size:clamp(52px,10vw,80px);margin-bottom:14px;filter:drop-shadow(0 0 20px rgba(212,175,55,.6))}
+.r-lbl{font-size:12px;color:#4a7aa0;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px}
+.r-name{font-size:clamp(30px,6vw,52px);font-weight:900;color:#d4af37;text-shadow:0 0 30px rgba(212,175,55,.45);margin-bottom:20px;line-height:1.2}
+.r-desc{font-size:clamp(14px,2.3vw,17px);color:#c5d5e8;line-height:1.85;background:rgba(255,255,255,.04);border:1px solid rgba(212,175,55,.18);border-radius:12px;padding:22px 26px;margin-bottom:24px}
+.r-stats{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:28px}
+.r-badge{background:rgba(255,255,255,.06);border:1px solid rgba(212,175,55,.22);border-radius:50px;padding:7px 18px;color:#d4af37;font-size:13px;font-weight:600}
+.btn-again{background:transparent;border:2px solid rgba(212,175,55,.45);color:#d4af37;padding:11px 38px;font-size:15px;border-radius:50px;cursor:pointer;transition:all .2s;font-family:inherit}
+.btn-again:hover{background:rgba(212,175,55,.1)}
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<div id="intro">
+  <div class="i-title">משלחת אל עיר האזמרגד</div>
+  <div class="i-sub">Emerald City Expedition</div>
+  <div class="i-box">
+    אתה חלק ממשלחת מחקר יוקרתית שנשלחה לאתר את "עיר האזמרגד" האבודה.
+    התחרות היא מול צוותים אחרים, והפרס הוא תהילת עולם ותגמול כספי אדיר.
+  </div>
+  <button class="btn-start" onclick="startGame()">התחל במשלחת</button>
+</div>
+
+<!-- PROGRESS -->
+<div id="prog"><div id="prog-fill"></div><div id="prog-dot"></div></div>
+
+<!-- STAGE -->
+<div id="stage">
+  <video id="bg-vid" autoplay muted loop playsinline></video>
+  <div id="scenery-layer"></div>
+  <video id="player-vid" autoplay muted loop playsinline></video>
+  <canvas id="player-canvas"></canvas>
+  <video id="effect-vid" autoplay muted loop playsinline style="display:none"></video>
+  <div id="rivals-layer"></div>
+  <div id="stage-overlay"></div>
+  <div id="o-narr"></div>
+</div>
+
+<!-- PROMPT -->
+<div id="prompt"><div id="prompt-s"></div><div id="prompt-q"></div></div>
+
+<!-- TOOLS -->
+<div id="tools">
+  <div class="t-slot" id="ts0" onclick="chooseTool(0)"><img class="t-img" id="ti0"><div class="t-lbl" id="tl0"></div></div>
+  <div class="t-slot" id="ts1" onclick="chooseTool(1)"><img class="t-img" id="ti1"><div class="t-lbl" id="tl1"></div></div>
+  <div class="t-slot" id="ts2" onclick="chooseTool(2)"><img class="t-img" id="ti2"><div class="t-lbl" id="tl2"></div></div>
+</div>
+
+<!-- TOOLTIP -->
+<div id="tip"></div>
+
+<!-- CHAPTER HEADER -->
+<div id="chap"><div id="chap-txt"></div></div>
+
+<!-- TRANSITION LINE -->
+<div id="tline"></div>
+
+<!-- POST-BEAT -->
+<div id="beat"></div>
+
+<!-- LEAD FORM -->
+<div id="lead">
+  <div class="lead-box">
+    <div class="lead-title">המסע הסתיים</div>
+    <div class="lead-sub">גלה את הפרופיל הפיננסי שלך</div>
+    <div class="f-row"><label>שם מלא *</label><input type="text" id="fn" placeholder="שם פרטי ושם משפחה"></div>
+    <div class="f-row"><label>מייל *</label><input type="email" id="fe" placeholder="your@email.com" dir="ltr"></div>
+    <div class="f-row"><label>נייד *</label><input type="tel" id="fp" placeholder="050-0000000" dir="ltr"></div>
+    <label class="f-check"><input type="checkbox" id="fu"> אני רוצה לקבל עדכונים</label>
+    <button class="btn-reveal" onclick="submitLead()">גלה את הפרופיל שלי</button>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div id="results">
+  <div class="r-box">
+    <div class="r-trophy" id="r-trophy"></div>
+    <div class="r-lbl">הפרופיל הפיננסי שלך</div>
+    <div class="r-name" id="r-name"></div>
+    <div class="r-desc" id="r-desc"></div>
+    <div class="r-stats" id="r-stats"></div>
+    <button class="btn-again" onclick="restartGame()">שחק שוב</button>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+//  GAME DATA
+// ═══════════════════════════════════════════════════════
+
+const CHAPTERS = {
+  1:  'מערכה ראשונה — הצניחה וההתמקמות',
+  3:  'מערכה שנייה — המרדף בג\'ונגל',
+  6:  'מערכה שלישית — המירוץ הממונע',
+  9:  'מערכה רביעית — בבטן האדמה',
+  12: 'מערכה חמישית — עיר האזמרגד וההכרעה'
+};
+
+const SEQ = [
+  // ── OPENING ──────────────────────────────────────────
+  { type:'open',
+    bg:'backgrounds/bg_airplane.mp4', player:'player/anim_waiting.mp4',
+    scenery:['scenery/plane_fuselage.png'], effect:null, rivals:[],
+    text:'המטוס ממריא לעבר הלא נודע. הרוח שורקת מבעד לסדקי הדלת. אתה חלק ממשלחת קצה האופק — ומהרגע שהדלת תיפתח, שום דבר לא יהיה כפי שהיה.',
+    dur:3600 },
+
+  // ── MISSION 1 ─────────────────────────────────────────
+  { type:'choice', m:1, trait:'risk',
+    bg:'backgrounds/bg_airplane.mp4', player:'poses_video/anim_falling.mp4',
+    scenery:['scenery/plane_fuselage.png'],
+    effect:'effects/parachute_loop.mp4',
+    rivals:[{file:'rivals/parachute_blue_top.png', css:'top:8%;left:8%;width:110px;opacity:.75'}],
+    prompt:'דלת המטוס נפתחת בבת אחת ורוח פרצים שואבת הכל החוצה. המתחרים כבר באוויר, הופכים לנקודות קטנות מעל הג\'ונגל הירוק. הקרקע מתקרבת במהירות וחייבים לקפוץ עכשיו.',
+    q:'איך נתקדם?',
+    tools:[
+      {f:'tools/מצנח_מ01.png',   n:'מצנח עגול רחב', pts:1},
+      {f:'tools/גלשן_מ01.png',   n:'גלשן רחיפה',   pts:2},
+      {f:'tools/כנפיים_מ01.png', n:'חליפת כנפיים', pts:3}
+    ],
+    beat:'אתה יוצא לחלל הפתוח. הרוח שואגת. הג\'ונגל מתקרב.' },
+
+  // ── TRANSITION ────────────────────────────────────────
+  { type:'trans', dur:2000,
+    bg:'backgrounds/bg_jungle_clearing.mp4', player:'player/anim_running.mp4',
+    scenery:['scenery/two_jungle_trees.png'], effect:null,
+    rivals:[{sprite:true, frames:['rivals/rival_male_run_1.png','rivals/rival_male_run_2.png','rivals/rival_male_run_3.png','rivals/rival_male_run_4.png'], css:'bottom:18%;left:6%;width:55px'}],
+    line:'נחיתה בג\'ונגל...' },
+
+  // ── MISSION 2 ─────────────────────────────────────────
+  { type:'choice', m:2, trait:'stability',
+    bg:'backgrounds/bg_jungle_clearing.mp4', player:'player/anim_reach_forward.mp4',
+    scenery:['scenery/מבנה_רעועה_מלפנים_02.png'], effect:null, rivals:[],
+    prompt:'הנחיתה הושלמה בלב סבך עבות והשמש שוקעת. ממול עומד מבנה אבן עתיק ששימש פעם כבסיס צבאי; חצי מהגג קרס. סערה טרופית עומדת להתפרץ, הברקים כבר מעל.',
+    q:'יש לך רעיון מה לעשות?',
+    tools:[
+      {f:'tools/ברזנט_מ02.png',  n:'יריעת ברזנט',   pts:1},
+      {f:'tools/פטיש_מ02.jpg',   n:'פטיש ומסמרים', pts:2},
+      {f:'tools/אוהל_מ02.png',   n:'אוהל סיירים',   pts:3}
+    ],
+    beat:'הסערה מתפרצת. אתה מוצא מחסה ברגע האחרון לפני הגשם.' },
+
+  // ── TRANSITION ────────────────────────────────────────
+  { type:'trans', dur:1800,
+    bg:'backgrounds/bg_jungle_path.mp4', player:'player/anim_running.mp4',
+    scenery:[], effect:null, rivals:[],
+    line:'בוקר חדש. השביל מתפצל...' },
+
+  // ── MISSION 3 ─────────────────────────────────────────
+  { type:'choice', m:3, trait:'fomo',
+    bg:'backgrounds/bg_jungle_clearing.mp4', player:'player/anim_look_around.mp4',
+    scenery:['scenery/signpost_arrows.png','scenery/atv_static.png'],
+    effect:'effects/atv_vibration_loop.mp4', rivals:[],
+    prompt:'הבוקר עלה והגעת לצ\'ק-פוינט נטוש. המפה מורה על שביל צר וישר, אבל מצד שמאל ציר עפר רחב עם עשרות עקבות צמיגים טריות ורעש מנועים שמתרחק.',
+    q:'הקבוצות האחרות בורחות שמאלה. מה נבחר?',
+    tools:[
+      {f:'tools/מפה_מקומטת_מ03.png',      n:'המפה המקומטת',      pts:1},
+      {f:'tools/משקפת_שדה_מ03.png',       n:'משקפת שדה',         pts:2},
+      {f:'tools/מפתח_טרקטורון_מ03.png',   n:'מפתח לטרקטורון',   pts:3}
+    ],
+    beat:'אתה מקבל את ההחלטה ומתקדם. הג\'ונגל בולע את הצלילים.' },
+
+  // ── TRANSITION ────────────────────────────────────────
+  { type:'trans', dur:1700,
+    bg:'backgrounds/bg_cliff.mp4', player:'player/anim_running.mp4',
+    scenery:[], effect:null, rivals:[],
+    line:'הנתיב מוביל לצוק...' },
+
+  // ── MISSION 4 ─────────────────────────────────────────
+  { type:'choice', m:4, trait:'risk',
+    bg:'backgrounds/bg_cliff.mp4', player:'player/anim_reach_forward.mp4',
+    scenery:['scenery/bridge_planks.png','scenery/wood_pile.png'],
+    effect:'effects/bridge_sway_loop.mp4', rivals:[],
+    prompt:'השביל נקטע בתהום עמוקה. גשר חבלים רעוע תלוי מצד לצד, לוחות העץ חסרים. ערימת קרשים זרוקה בפתח. הצוות המוביל כבר בצד השני, מנפנף וממשיך.',
+    q:'איך עוברים לצד השני?',
+    tools:[
+      {f:'tools/לוחות_עץ_פטיש_מ04.png', n:'לוחות עץ ופטיש', pts:1},
+      {f:'tools/רתמת_אבטחה_מ04.png',    n:'רתמת אבטחה',    pts:2},
+      {f:'tools/רובה_חבלים_מ04.png',    n:'רובה חבלים',    pts:3}
+    ],
+    beat:'הגשר מחזיק. אתה חוצה לצד השני בזמן שנשמע רעש קריסה מאחור.' },
+
+  // ── TRANSITION ────────────────────────────────────────
+  { type:'trans', dur:1700,
+    bg:'backgrounds/bg_jungle_path.mp4', player:'player/anim_running.mp4',
+    scenery:[], effect:null, rivals:[],
+    line:'צמחייה סבוכה...' },
+
+  // ── MISSION 5 ─────────────────────────────────────────
+  { type:'choice', m:5, trait:'impulsive',
+    bg:'backgrounds/bg_jungle_path.mp4', player:'player/anim_look_around.mp4',
+    scenery:[], effect:'effects/bush_shaking_loop.mp4', rivals:[],
+    prompt:'הליכה שקטה בין העצים ופתאום השיח מימין מתחיל לרעוד בטירוף. משהו גדול זז שם בפנים, נשימות כבדות נשמעות. זינוק עלול לקרות בכל שנייה.',
+    q:'מה שולפים מהחגורה?',
+    tools:[
+      {f:'tools/פנס_עוצמתי_מ05.png', n:'פנס עוצמתי', pts:1},
+      {f:'tools/רשת_הגנה_מ05.png',   n:'רשת הגנה',   pts:2},
+      {f:'tools/לפיד_בוער_מ05.png',  n:'לפיד בוער',  pts:3}
+    ],
+    beat:'הרעש דועך. מה שהיה בשיח נסוג לחושך. אתה ממשיך.' },
+
+  // ── TRANSITION ────────────────────────────────────────
+  { type:'trans', dur:2000,
+    bg:'backgrounds/bg_jungle_clearing.mp4', player:'player/anim_running.mp4',
+    scenery:['scenery/jeep_hood_open.png'], effect:null, rivals:[],
+    line:'יציאה אל דרך עפר...' },
+
+  // ── MISSION 6 ─────────────────────────────────────────
+  { type:'choice', m:6, trait:'stability',
+    bg:'backgrounds/bg_jungle_clearing.mp4', player:'player/anim_crouch.mp4',
+    scenery:['scenery/jeep_hood_open.png'],
+    effect:'effects/engine_smoke_loop.mp4', rivals:[],
+    prompt:'ג\'יפ ישן עומד בשולי הדרך. המנוע משתעל ומוציא עשן סמיך, בקושי סוחב בעליות. ענני האבק של המתחרים נראים רחוק קדימה באופק.',
+    q:'איך ממשיכים מכאן?',
+    tools:[
+      {f:'tools/ג\'ריקן_שמן_מ06.png',       n:'ג\'ריקן שמן',      pts:1},
+      {f:'tools/ערכת_כלי_עבודה_מ06.png',    n:'ערכת כלי עבודה', pts:2},
+      {f:'tools/אופני_הרים_מ06.png',         n:'אופני הרים',      pts:3}
+    ],
+    beat:'הג\'יפ מקשקש אבל ממשיך. ענן האבק של המתחרים עדיין נראה באופק.' },
+
+  // ── TRANSITION ────────────────────────────────────────
+  { type:'trans', dur:2000,
+    bg:'backgrounds/bg_temple.mp4', player:'player/anim_running.mp4',
+    scenery:['scenery/three_parked_cars.png'], effect:null, rivals:[],
+    line:'מקדש ענקי מתגלה בין העצים...' },
+
+  // ── MISSION 7 ─────────────────────────────────────────
+  { type:'choice', m:7, trait:'fomo',
+    bg:'backgrounds/bg_temple.mp4', player:'player/anim_look_around.mp4',
+    scenery:['scenery/three_parked_cars.png'], effect:null, rivals:[],
+    prompt:'בזמן הדהירה לעבר היעד מתגלה כניסה חבויה למקדש קטן. שלושה רכבים של מתחרים חונים שם. מכשיר קשר זרוק ליד הכניסה משמיע קולות התלהבות.',
+    q:'כולם כבר בפנים. איך נתקדם?',
+    tools:[
+      {f:'tools/דגל_משימה_מ07.png', n:'דגל המשימה המקורי', pts:1},
+      {f:'tools/פריסקופ_מ07.png',   n:'פריסקופ',           pts:2},
+      {f:'tools/לום_ברזל_מ07.png',  n:'לום ברזל',          pts:3}
+    ],
+    beat:'אתה מחליט ומתקדם. המקדש נבלע מאחוריך.' },
+
+  // ── TRANSITION ────────────────────────────────────────
+  { type:'trans', dur:1900,
+    bg:'backgrounds/bg_cliff.mp4', player:'player/anim_running.mp4',
+    scenery:['scenery/rock_pile_blocked.png'], effect:null, rivals:[],
+    line:'קיר סלע ענק חוסם את הדרך...' },
+
+  // ── MISSION 8 ─────────────────────────────────────────
+  { type:'choice', m:8, trait:'risk',
+    bg:'backgrounds/bg_cliff.mp4', player:'player/anim_climbing.mp4',
+    scenery:['scenery/rock_pile_blocked.png','scenery/climbing_rope.png'],
+    effect:null, rivals:[],
+    prompt:'סלע אנכי חלק בגובה של בניין חוסם את הדרך. הגשם שהתחיל לרדת הופך את האבן לחלקה כמו קרח, אבל סימני נעליים טריים נראים — מישהו טיפס כאן ממש עכשיו.',
+    q:'במה נאחזים כדי לעלות?',
+    tools:[
+      {f:'tools/סולם_חבלים_מ08.png',  n:'סולם חבלים',   pts:1},
+      {f:'tools/חבל_קשרים_מ08.png',   n:'חבל עם קשרים', pts:2},
+      {f:'tools/טפרי_טיפוס_מ08.png',  n:'טפרי טיפוס',   pts:3}
+    ],
+    beat:'הגשם מכביד אבל אתה מגיע לפסגה. מנהרה חשוכה נפתחת לפניך.' },
+
+  // ── TRANSITION ────────────────────────────────────────
+  { type:'trans', dur:1800,
+    bg:'backgrounds/bg_gate.mp4', player:'player/anim_running.mp4',
+    scenery:['scenery/steel_gate_asset.png'], effect:null, rivals:[],
+    line:'שער פלדה בכניסה למנהרה...' },
+
+  // ── MISSION 9 ─────────────────────────────────────────
+  { type:'choice', m:9, trait:'stability',
+    bg:'backgrounds/bg_cave.mp4', player:'player/anim_reach_forward.mp4',
+    scenery:['scenery/security_keypad.png'], effect:null, rivals:[],
+    prompt:'שער פלדה מסיבי חוסם את הכניסה למנהרות העיר. לוח המקשים הישן מהבהב באדום; ללא הקשת הקוד הנכון ב-60 שניות, השער יינעל הרמטית.',
+    q:'איך פותחים את המעבר?',
+    tools:[
+      {f:'tools/שמן_לשימון_מ09.png', n:'שמן לשימון צירים', pts:1},
+      {f:'tools/רב_כלי_מ09.png',     n:'רב-כלי',           pts:2},
+      {f:'tools/מבער_ריתוך_מ09.png', n:'מבער ריתוך',       pts:3}
+    ],
+    beat:'השער נסוג. אתה נכנס למנהרה. רק החושך לפניך.' },
+
+  // ── TRANSITION ────────────────────────────────────────
+  { type:'trans', dur:1800,
+    bg:'backgrounds/bg_cave.mp4', player:'player/anim_running.mp4',
+    scenery:[], effect:null, rivals:[],
+    line:'מנהרה חשוכה. קולות מים.' },
+
+  // ── MISSION 10 ────────────────────────────────────────
+  { type:'choice', m:10, trait:'impulsive',
+    bg:'backgrounds/bg_cave.mp4', player:'player/anim_crouch.mp4',
+    scenery:['scenery/heavy_blanket.png'],
+    effect:'effects/box_vibrating_loop.mp4', rivals:[],
+    prompt:'בתוך המנהרה החשוכה נמצאה קופסה שחורה שרועדת ומשמיעה קולות תקתוק מהירים. הצג הדיגיטלי עליה סופר לאחור: 3... 2... 1...',
+    q:'מה נעשה?',
+    tools:[
+      {f:'tools/מצלמה_זעירה_מ10.png', n:'מצלמה זעירה',       pts:1},
+      {f:'tools/שמיכת_מיגון_מ10.png', n:'שמיכת מיגון',       pts:2},
+      {f:'tools/קאטר_מ10.png',        n:'קאטר לחיתוך חוטים', pts:3}
+    ],
+    beat:'שקט. הקופסה מפסיקה לרעוד. אתה ממשיך לאור שבקצה המנהרה.' },
+
+  // ── TRANSITION ────────────────────────────────────────
+  { type:'trans', dur:1800,
+    bg:'backgrounds/bg_cliff.mp4', player:'player/anim_running.mp4',
+    scenery:[], effect:'effects/water_curtain_loop.mp4', rivals:[],
+    line:'אור בקצה המנהרה...' },
+
+  // ── MISSION 11 ────────────────────────────────────────
+  { type:'choice', m:11, trait:'risk',
+    bg:'backgrounds/bg_cliff.mp4', player:'poses_video/anim_falling.mp4',
+    scenery:['scenery/rappel_rope.png'],
+    effect:'effects/water_curtain_loop.mp4', rivals:[],
+    prompt:'המנהרה נגמרת במצוק בגובה 50 מטר מעל מפל מים אדיר. בתחתית נראית סירת המילוט האחרונה. המנוע שלה כבר פועל והיא מתחילה להתרחק.',
+    q:'איך יורדים למים למטה?',
+    tools:[
+      {f:'tools/חבל_סנפלינג_מ11.png', n:'חבל סנפלינג', pts:1},
+      {f:'tools/בנג\'י_מ11.png',       n:'חבל בנג\'י',  pts:2},
+      {f:'tools/מצנח_מ11.png',        n:'מצנח בסיס',   pts:3}
+    ],
+    beat:'אתה צונח לעבר המים. הסירה ממתינה.' },
+
+  // ── TRANSITION ────────────────────────────────────────
+  { type:'trans', dur:1800,
+    bg:'backgrounds/bg_jungle_clearing.mp4', player:'player/anim_running.mp4',
+    scenery:[], effect:null, rivals:[],
+    line:'הגדה. הנהר גועש.' },
+
+  // ── MISSION 12 ────────────────────────────────────────
+  { type:'choice', m:12, trait:'fomo',
+    bg:'backgrounds/bg_cave.mp4', player:'player/anim_look_around.mp4',
+    scenery:[], effect:null, rivals:[],
+    prompt:'סירת המילוט מחכה בגדה, אבל סירה של צוות מתחרה עוגנת בפתח מערה חשוכה מאחורי המפל. עקבות רטובים מובילים פנימה בזמן שהסירה המרכזית עומדת לעזוב.',
+    q:'הצוות המוביל נעלם במערה. לאן פונים?',
+    tools:[
+      {f:'tools/כרטיס_סירה_מ12.png',    n:'כרטיס עלייה לסירה', pts:1},
+      {f:'tools/מצלמה_פלאש_מ12.png',    n:'מצלמה עם פלאש',    pts:2},
+      {f:'tools/לפיד_מ12.png',           n:'לפיד יד בוער',      pts:3}
+    ],
+    beat:'אתה מחליט. מהר. המים מתחילים לעלות.' },
+
+  // ── TRANSITION ────────────────────────────────────────
+  { type:'trans', dur:1800,
+    bg:'backgrounds/bg_cave.mp4', player:'player/anim_running.mp4',
+    scenery:[], effect:null, rivals:[],
+    line:'שערי העיר המוזהבת...' },
+
+  // ── MISSION 13 ────────────────────────────────────────
+  { type:'choice', m:13, trait:'stability',
+    bg:'backgrounds/bg_cave.mp4', player:'player/anim_look_around.mp4',
+    scenery:[], effect:'effects/drone_hover_loop.mp4', rivals:[],
+    prompt:'מתגלה שהמפה הייתה זיוף — הובילה לנקודה לא נכונה. קו הסיום קרוב, אבל הכיוון אבד לגמרי בתוך הסבך הסמיך.',
+    q:'איך מוצאים את הדרך?',
+    tools:[
+      {f:'tools/סרגל_מ13.png', n:'סרגל ומחק',  pts:1},
+      {f:'tools/מצפן_מ13.png', n:'מצפן כיס',   pts:2},
+      {f:'tools/רחפן_מ13.png', n:'רחפן ניווט', pts:3}
+    ],
+    beat:'הכיוון נמצא. אתה פונה לעבר המזבח המרכזי.' },
+
+  // ── TRANSITION ────────────────────────────────────────
+  { type:'trans', dur:1800,
+    bg:'backgrounds/bg_cave.mp4', player:'player/anim_running.mp4',
+    scenery:['scenery/altar_stone.png'], effect:null, rivals:[],
+    line:'היכל המזבח. דממה.' },
+
+  // ── MISSION 14 ────────────────────────────────────────
+  { type:'choice', m:14, trait:'risk',
+    bg:'backgrounds/bg_gate.mp4', player:'player/anim_reach_forward.mp4',
+    scenery:['scenery/altar_stone.png','scenery/open_wooden_chest.png'],
+    effect:null, rivals:[],
+    prompt:'הגעת לחדר המרכזי של העיר האבודה. על המזבח: שקית מטבעות פתוחה, תיבת עץ כבדה ונעולה, וכדור בדולח שחור. שומרים מתקרבים.',
+    q:'מה מרימים מהמזבח?',
+    tools:[
+      {f:'tools/שקית_מטבעות_מ14.png', n:'שקית מטבעות',    pts:1},
+      {f:'tools/תיבת_עץ_מ14.png',     n:'תיבת עץ נעולה',  pts:2},
+      {f:'tools/כדור_בדולח_מ14.png',  n:'כדור בדולח כהה', pts:3}
+    ],
+    beat:'הפריט בידיים שלך. השומרים נשמעים קרוב. ריצה מטורפת ליציאה.' },
+
+  // ── TRANSITION ────────────────────────────────────────
+  { type:'trans', dur:1600,
+    bg:'backgrounds/bg_jungle_clearing.mp4', player:'player/anim_running.mp4',
+    scenery:[], effect:null, rivals:[],
+    line:'ריצה ליציאה!' },
+
+  // ── MISSION 15 ────────────────────────────────────────
+  { type:'choice', m:15, trait:'fomo',
+    bg:'backgrounds/bg_jungle_clearing.mp4', player:'player/anim_look_around.mp4',
+    scenery:['scenery/finish_banner.png'],
+    effect:'effects/flare_smoke_loop.mp4', rivals:[],
+    prompt:'קו הסיום נמצא ממש ממול, ריק ושקט. פתאום זיקוקים נורים מכיוון אחר. צלילי מוזיקה וצחוק נשמעים — כל המתחרים שם עכשיו.',
+    q:'כולם שם, רק כאן ריק. מה נעשה?',
+    tools:[
+      {f:'tools/דגל_סיום_מ15.png', n:'דגל סיום לבן',   pts:1},
+      {f:'tools/מגאפון_מ15.png',   n:'מגאפון',          pts:2},
+      {f:'tools/זיקוק_מ15.png',    n:'זיקוק צבעוני',    pts:3}
+    ],
+    beat:'המסע הסתיים. עכשיו — ההכרעה האמיתית.' }
+];
+
+const PROFILES = [
+  { lo:1.0, hi:1.5, name:'הסלע האיתן',       trophy:'🪨',
+    desc:'לא מזיזים אותך מהמסלול. אתה משקיע שקול, רגוע, שיודע בדיוק לאן הוא הולך מבלי להסתכל לצדדים.' },
+  { lo:1.6, hi:2.4, name:'הנווט הגמיש',       trophy:'🧭',
+    desc:'אתה יודע מתי להאיץ ומתי לעצור. השילוב המושלם בין זהירות להעזה הופך אותך למשקיע חכם ומאוזן.' },
+  { lo:2.5, hi:3.0, name:'הצ\'יטה מהג\'ונגל', trophy:'🐆',
+    desc:'אתה חי על הקצה. זיהוי הזדמנויות מהיר, תעוזה מקסימלית ותגובה חדה הופכים אותך לטורף פיננסי אמיתי.' }
+];
+
+const TRAIT_MAP = {
+  risk:{label:'סיכון',         missions:[1,4,8,11,14]},
+  stability:{label:'יציבות',       missions:[2,6,9,13]},
+  impulsive:{label:'אימפולסיביות',missions:[5,10]},
+  fomo:{label:'FOMO',           missions:[3,7,12,15]}
+};
+
+// ═══════════════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════════════
+let idx = 0;
+let scores = {};
+let locked = false;
+let rivalSpriteTimers = [];
+let tipTimer = null;
+let chromaRAF = null;
+
+// ═══════════════════════════════════════════════════════
+//  CHROMA KEY
+// ═══════════════════════════════════════════════════════
+function startChroma(vid, canvas) {
+  if (chromaRAF) { cancelAnimationFrame(chromaRAF); chromaRAF = null; }
+  canvas.width = 320; canvas.height = 568;
+  const ctx = canvas.getContext('2d', {willReadFrequently:true});
+  function frame() {
+    if (vid.readyState >= 2 && !vid.paused) {
+      ctx.drawImage(vid, 0, 0, canvas.width, canvas.height);
+      try {
+        const id = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const d = id.data;
+        for (let i = 0; i < d.length; i += 4) {
+          const r=d[i], g=d[i+1], b=d[i+2];
+          if (g > 90 && g > r * 1.32 && g > b * 1.32) d[i+3] = 0;
+        }
+        ctx.putImageData(id, 0, 0);
+      } catch(e) {}
+    }
+    chromaRAF = requestAnimationFrame(frame);
+  }
+  vid.oncanplay = () => vid.play().catch(()=>{});
+  vid.onplay = () => { chromaRAF = requestAnimationFrame(frame); };
+  if (!vid.paused) requestAnimationFrame(frame);
+}
+
+// ═══════════════════════════════════════════════════════
+//  ASSET LOADING
+// ═══════════════════════════════════════════════════════
+let lastBg = '', lastPlayer = '', lastEffect = '';
+
+function loadScene(sc) {
+  const bv = document.getElementById('bg-vid');
+  const pv = document.getElementById('player-vid');
+  const pc = document.getElementById('player-canvas');
+  const ev = document.getElementById('effect-vid');
+
+  if (sc.bg !== lastBg) {
+    bv.src = sc.bg; bv.load(); bv.play().catch(()=>{});
+    lastBg = sc.bg;
+  }
+  if (sc.player !== lastPlayer) {
+    pv.src = sc.player; pv.load(); pv.play().catch(()=>{});
+    lastPlayer = sc.player;
+    startChroma(pv, pc);
+  }
+  if ((sc.effect || '') !== lastEffect) {
+    if (sc.effect) {
+      ev.style.display = '';
+      ev.src = sc.effect; ev.load(); ev.play().catch(()=>{});
+    } else {
+      ev.style.display = 'none'; ev.src = ''; ev.removeAttribute('src');
+    }
+    lastEffect = sc.effect || '';
+  }
+  loadScenery(sc.scenery || []);
+  loadRivals(sc.rivals || []);
+}
+
+function loadScenery(files) {
+  const layer = document.getElementById('scenery-layer');
+  layer.innerHTML = '';
+  files.forEach((f, i) => {
+    const img = document.createElement('img');
+    img.src = f;
+    img.style.cssText = 'position:absolute;bottom:0;max-height:58%;object-fit:contain;pointer-events:none;';
+    // alternate left/right placement
+    img.style[i % 2 === 0 ? 'right' : 'left'] = '0';
+    img.style.zIndex = 2;
+    layer.appendChild(img);
+  });
+}
+
+function loadRivals(rivals) {
+  rivalSpriteTimers.forEach(clearInterval);
+  rivalSpriteTimers = [];
+  const layer = document.getElementById('rivals-layer');
+  layer.innerHTML = '';
+  rivals.forEach(r => {
+    const img = document.createElement('img');
+    img.style.cssText = 'position:absolute;pointer-events:none;' + (r.css || '');
+    if (r.sprite && r.frames) {
+      img.src = r.frames[0];
+      let f = 0;
+      const t = setInterval(() => {
+        f = (f + 1) % r.frames.length;
+        img.src = r.frames[f];
+      }, 140);
+      rivalSpriteTimers.push(t);
+    } else {
+      img.src = r.file || '';
+    }
+    layer.appendChild(img);
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+//  PROGRESS
+// ═══════════════════════════════════════════════════════
+function setProgress(mNum) {
+  const pct = ((mNum - 1) / 15) * 100;
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-dot').style.left = 'calc(' + pct + '% - 6px)';
+}
+
+// ═══════════════════════════════════════════════════════
+//  TOOLTIP
+// ═══════════════════════════════════════════════════════
+function showTip(text, x, y) {
+  const el = document.getElementById('tip');
+  el.textContent = text;
+  const tx = Math.min(x - 8, window.innerWidth - 180);
+  el.style.left = tx + 'px';
+  el.style.top = (y - 48) + 'px';
+  el.classList.add('show');
+  if (tipTimer) clearTimeout(tipTimer);
+  tipTimer = setTimeout(() => el.classList.remove('show'), 2200);
+}
+function hideTip() {
+  document.getElementById('tip').classList.remove('show');
+  if (tipTimer) clearTimeout(tipTimer);
+}
+
+// ═══════════════════════════════════════════════════════
+//  GEAR TOSS
+// ═══════════════════════════════════════════════════════
+function toss(slotIdx, done) {
+  const slot = document.getElementById('ts' + slotIdx);
+  const canvas = document.getElementById('player-canvas');
+  const sr = slot.getBoundingClientRect();
+  const cr = canvas.getBoundingClientRect();
+
+  const fx = sr.left + sr.width / 2;
+  const fy = sr.top + sr.height / 2;
+  const tx = cr.left + cr.width * 0.52;
+  const ty = cr.top + cr.height * 0.42;
+
+  const fly = document.createElement('img');
+  fly.className = 'fly-tool';
+  fly.src = document.getElementById('ti' + slotIdx).src;
+  fly.style.left = (fx - 36) + 'px';
+  fly.style.top  = (fy - 36) + 'px';
+  document.body.appendChild(fly);
+
+  const dx = tx - fx, dy = ty - fy;
+  const arc = -Math.abs(dx * 0.45) - 55;
+
+  const anim = fly.animate([
+    {transform:'translate(0,0) scale(1) rotate(0deg)',            offset:0},
+    {transform:`translate(${dx*.5}px,${arc}px) scale(1.18) rotate(200deg)`, offset:.5},
+    {transform:`translate(${dx}px,${dy}px) scale(.82) rotate(360deg)`,      offset:1}
+  ], {duration:390, easing:'cubic-bezier(.25,.46,.45,.94)', fill:'forwards'});
+
+  anim.onfinish = () => {
+    fly.style.filter = 'brightness(3.5) drop-shadow(0 0 12px #d4af37)';
+    setTimeout(() => { fly.remove(); done && done(); }, 280);
+  };
+}
+
+// ═══════════════════════════════════════════════════════
+//  UI HELPERS
+// ═══════════════════════════════════════════════════════
+function showBeat(text, ms, cb) {
+  const el = document.getElementById('beat');
+  el.textContent = text;
+  el.classList.add('show');
+  setTimeout(() => {
+    el.classList.remove('show');
+    setTimeout(cb, 380);
+  }, ms);
+}
+
+function showChap(title, cb) {
+  const el = document.getElementById('chap');
+  document.getElementById('chap-txt').textContent = title;
+  el.classList.add('show');
+  setTimeout(() => {
+    el.classList.remove('show');
+    setTimeout(cb, 450);
+  }, 2200);
+}
+
+function showTline(text, ms, cb) {
+  const el = document.getElementById('tline');
+  el.textContent = text;
+  el.classList.add('show');
+  setTimeout(() => {
+    el.classList.remove('show');
+    cb && cb();
+  }, ms);
+}
+
+function clearUI() {
+  document.getElementById('prompt').classList.remove('show');
+  document.getElementById('tools').classList.remove('open');
+  document.getElementById('stage').classList.remove('pulse');
+  document.getElementById('tline').classList.remove('show');
+  hideTip();
+  [0,1,2].forEach(i => {
+    const s = document.getElementById('ts' + i);
+    s.classList.remove('ready');
+    s.onmouseenter = s.onmousemove = s.onmouseleave = s.ontouchstart = null;
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+//  SCENE RUNNERS
+// ═══════════════════════════════════════════════════════
+function runOpen(sc, next) {
+  document.getElementById('prog').style.display = 'block';
+  document.getElementById('stage').style.display = 'block';
+  loadScene(sc);
+  const el = document.getElementById('o-narr');
+  el.textContent = sc.text;
+  setTimeout(() => el.classList.add('show'), 500);
+  setTimeout(() => {
+    el.classList.remove('show');
+    setTimeout(next, 600);
+  }, sc.dur);
+}
+
+function runTrans(sc, next) {
+  clearUI();
+  loadScene(sc);
+  if (sc.line) {
+    setTimeout(() => showTline(sc.line, sc.dur - 300, next), 250);
+  } else {
+    setTimeout(next, sc.dur);
+  }
+}
+
+function runChoice(sc, next) {
+  const go = () => {
+    loadScene(sc);
+    setProgress(sc.m);
+
+    // Prompt
+    document.getElementById('prompt-s').textContent = sc.prompt;
+    document.getElementById('prompt-q').textContent = sc.q;
+    setTimeout(() => document.getElementById('prompt').classList.add('show'), 180);
+
+    // Populate tool slots
+    sc.tools.forEach((t, i) => {
+      document.getElementById('ti' + i).src = t.f;
+      document.getElementById('tl' + i).textContent = t.n;
+      const slot = document.getElementById('ts' + i);
+      setTimeout(() => slot.classList.add('ready'), 350 + i * 130);
+      slot.onmouseenter = e => showTip(t.n, e.clientX, e.clientY);
+      slot.onmousemove  = e => {
+        const el = document.getElementById('tip');
+        el.style.left = Math.min(e.clientX - 8, window.innerWidth - 180) + 'px';
+        el.style.top  = (e.clientY - 48) + 'px';
+      };
+      slot.onmouseleave = hideTip;
+      slot.ontouchstart = e => { e.preventDefault(); const t2 = e.touches[0]; showTip(t.n, t2.clientX, t2.clientY); };
+    });
+
+    setTimeout(() => document.getElementById('tools').classList.add('open'), 280);
+    setTimeout(() => document.getElementById('stage').classList.add('pulse'), 500);
+
+    window._sc = sc;
+    window._next = next;
+    locked = false;
+  };
+
+  const chapTitle = CHAPTERS[sc.m];
+  if (chapTitle) showChap(chapTitle, go); else go();
+}
+
+// ═══════════════════════════════════════════════════════
+//  TOOL SELECTION
+// ═══════════════════════════════════════════════════════
+function chooseTool(i) {
+  if (locked) return;
+  locked = true;
+  hideTip();
+
+  const sc = window._sc;
+  scores[sc.m] = sc.tools[i].pts;
+
+  clearUI();
+
+  toss(i, () => {
+    showBeat(sc.beat, 2100, () => {
+      window._next && window._next();
+    });
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+//  MAIN LOOP
+// ═══════════════════════════════════════════════════════
+function advance() {
+  if (idx >= SEQ.length) { showLead(); return; }
+  const sc = SEQ[idx++];
+  if      (sc.type === 'open')   runOpen(sc, advance);
+  else if (sc.type === 'trans')  runTrans(sc, advance);
+  else if (sc.type === 'choice') runChoice(sc, advance);
+}
+
+function startGame() {
+  document.getElementById('intro').style.display = 'none';
+  idx = 0; scores = {}; lastBg = ''; lastPlayer = ''; lastEffect = '';
+  advance();
+}
+
+// ═══════════════════════════════════════════════════════
+//  LEAD FORM
+// ═══════════════════════════════════════════════════════
+function showLead() {
+  document.getElementById('stage').style.display = 'none';
+  document.getElementById('prog').style.display = 'none';
+  document.getElementById('lead').style.display = 'flex';
+}
+
+function submitLead() {
+  const n = document.getElementById('fn').value.trim();
+  const e = document.getElementById('fe').value.trim();
+  const p = document.getElementById('fp').value.trim();
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  let ok = true;
+  ['fn','fe','fp'].forEach(id => document.getElementById(id).classList.remove('err'));
+  if (!n) { document.getElementById('fn').classList.add('err'); ok = false; }
+  if (!emailRe.test(e)) { document.getElementById('fe').classList.add('err'); ok = false; }
+  if (!p) { document.getElementById('fp').classList.add('err'); ok = false; }
+  if (!ok) return;
+  localStorage.setItem('emerald_expedition', JSON.stringify({
+    name:n, email:e, phone:p,
+    updates: document.getElementById('fu').checked,
+    scores, ts: new Date().toISOString()
+  }));
+  document.getElementById('lead').style.display = 'none';
+  showResults();
+}
+
+// ═══════════════════════════════════════════════════════
+//  RESULTS
+// ═══════════════════════════════════════════════════════
+function showResults() {
+  const pts = Object.values(scores);
+  const avg = pts.length ? pts.reduce((a,b)=>a+b,0) / pts.length : 1.5;
+  const prof = PROFILES.find(p => avg >= p.lo && avg <= p.hi) || PROFILES[1];
+
+  document.getElementById('r-trophy').textContent = prof.trophy;
+  document.getElementById('r-name').textContent   = prof.name;
+  document.getElementById('r-desc').textContent   = prof.desc;
+
+  const stats = document.getElementById('r-stats');
+  stats.innerHTML = '';
+  Object.entries(TRAIT_MAP).forEach(([, info]) => {
+    const ps = info.missions.map(m => scores[m] || 0).filter(p => p > 0);
+    if (!ps.length) return;
+    const avg2 = ps.reduce((a,b)=>a+b,0) / ps.length;
+    const b = document.createElement('div');
+    b.className = 'r-badge';
+    b.textContent = info.label + ': ' + avg2.toFixed(1);
+    stats.appendChild(b);
+  });
+
+  document.getElementById('results').style.display = 'flex';
+}
+
+function restartGame() {
+  document.getElementById('results').style.display = 'none';
+  document.getElementById('intro').style.display = 'flex';
+  idx = 0; scores = {};
+  if (chromaRAF) { cancelAnimationFrame(chromaRAF); chromaRAF = null; }
+}
+</script>
+</body>
+</html>

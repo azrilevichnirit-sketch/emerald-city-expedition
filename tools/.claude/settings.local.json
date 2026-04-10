@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c ':*)",
+      "Bash(python -c \"import sys; sys.stdout.buffer.write\\(sys.stdin.buffer.read\\(\\)\\)\")",
+      "Bash(xargs du:*)",
+      "Bash(xargs ls:*)",
+      "Bash(ffmpeg -version)",
+      "Bash(python -c \"from PIL import Image; img=Image.open\\('C:/Users/azril/OneDrive/Desktop/fincail_game/new/tools/מצנח_מ01.png'\\); print\\('size:', img.size, 'mode:', img.mode\\)\")",
+      "Bash(pip install:*)",
+      "Bash(npm install:*)",
+      "Bash(node -e \"const f=require\\('@ffmpeg-installer/ffmpeg'\\); console.log\\(f.path\\)\")",
+      "Bash(node -e \"console.log\\(require\\('ffmpeg-static'\\)\\)\")",
+      "Bash(C:/Users/azril/OneDrive/Desktop/fincail_game/new/node_modules/ffmpeg-static/ffmpeg.exe -y -i C:/Users/azril/OneDrive/Desktop/fincail_game/new/poses_video/anim_falling.mp4 -vf 'scale='\\\\''min\\(720,iw\\)'\\\\'':'\\\\''min\\(1280,ih\\)'\\\\''' -c:v libx264 -crf 22 -preset fast -an -movflags +faststart C:/Users/azril/OneDrive/Desktop/fincail_game/new/poses_video/anim_falling.tmp.mp4)",
+      "Bash(rm -rf node_modules package.json package-lock.json sheet_*.txt spec_output.txt create_mapping.py *.xlsx)",
+      "Bash(du -sh */)",
+      "Bash(find . -name \"*.mp4\" ! -name \"anim_falling.mp4\" -delete)",
+      "Bash(gh auth:*)",
+      "Bash(gh api:*)",
+      "Bash(winget install:*)",
+      "Bash(export PATH=\"$PATH:/c/Program Files/GitHub CLI\")"
+    ]
+  }
+}
