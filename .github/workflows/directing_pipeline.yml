@@ -1,0 +1,67 @@
+name: Directing Pipeline (stages 4-9)
+
+on:
+  workflow_dispatch:
+    inputs:
+      missions:
+        description: "Missions (comma list or 'all')"
+        required: true
+        default: "all"
+      stages:
+        description: "Stages (comma list of 4-9, empty = all)"
+        required: false
+        default: ""
+
+concurrency:
+  group: directing-pipeline
+  cancel-in-progress: false
+
+jobs:
+  direct:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run directing pipeline
+        env:
+          CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
+        run: |
+          if [ -n "${{ inputs.stages }}" ]; then
+            python pipeline/directing/run_pipeline.py "${{ inputs.missions }}" --stages "${{ inputs.stages }}"
+          else
+            python pipeline/directing/run_pipeline.py "${{ inputs.missions }}"
+          fi
+
+      - name: Commit results
+        if: always()
+        run: |
+          git config user.name  "directing-bot"
+          git config user.email "directing-bot@users.noreply.github.com"
+          git add pipeline/directing/
+          if git diff --staged --quiet; then
+            echo "no changes to commit"
+          else
+            git commit -m "directing: pipeline run missions=${{ inputs.missions }} stages=${{ inputs.stages }}"
+            git push
+          fi
+
+      - name: Upload directing output as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: directing-output
+          path: pipeline/directing/M*/
+          if-no-files-found: warn
+          retention-days: 30

@@ -1,0 +1,132 @@
+{
+  "total_sec": 914,
+  "plan_by_mission": {
+    "M1": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "חבל אלסטי עבה עם לולאה בקצה, צבע כהה ומרקם גומי, ייקרא כ\"חבל בנג'י\" ואינו מתבל בלבול עם שאר הכלים",
+      "fix_notes": "ההגדרה של החבל בנג'י ברורה ומובהקת, כך שאין צורך בהוספות."
+    },
+    "M2": {
+      "decision": "fix",
+      "director_flag": true,
+      "synthesis": "הרקע לסצנה M2 ידרוש את האביזרים הבאים: (1) ברקים (assets/scenery/lightning.png, bottom:10%; left:40%; width:20%; z-index:1, יצירה נדרשת), (2) ערימת ציוד (assets/scenery/gear_pile.png, bottom:0%; left:30%; width:40%; z-index:3, יצירה נדרשת), (3) עצים (assets/scenery/trees.png, bottom:0%; left:0%; width:100%; z-index:2, יצירה נדרשת).",
+      "fix_notes": "נדרשת פריסה מפורטת של כל אביזר, כולל את ישראלת מיקומם כך שהמראה הסופי יתאם את האווירה המתוארת."
+    },
+    "M3": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "האייקון המתואר – חבל עבה, אלסטי, בצבע עז (צהוב/כתום) ארוז בספירלה עם וו חיבור גדול – נקרא מיד כ\"חבל בנג'י\". הוא מספיק ייחודי כדי למנוע בלבול עם כלי חבל אחרים, והסיבה לכך היא שהצבע העז והמרקם האלסטי מונעים בלבול. נכון עתה, כל מה שקשור למשימה M3 אושר וקיים.",
+      "fix_notes": ""
+    },
+    "M4": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": [
+        {
+          "name": "assets/scenery/rope_bridge.png",
+          "css": "bottom:20%; left:40%; width:20%; z-index:3",
+          "exists": false
+        },
+        {
+          "name": "assets/scenery/forest_background.png",
+          "css": "bottom:0%; left:0%; width:100%; z-index:2",
+          "exists": false
+        },
+        {
+          "name": "assets/scenery/competitor_flags.png",
+          "css": "bottom:25%; left:10%; width:10%; z-index:4",
+          "exists": false
+        },
+        {
+          "name": "assets/scenery/wind_effect.png",
+          "css": "bottom:0%; left:20%; width:60%; z-index:1",
+          "exists": false
+        }
+      ],
+      "fix_notes": "ההצעות כוללות גשר חבלים רעוע, רקע של יער שיספק את התחושה של הקירבה לצוותים המתחרים, דגלים שיביאו את אלמנט התחרות ויעניקו תחושה דינמית, ואפקטי רוח שישקפו את התנאים הקשים המתוארים במשימה."
+    },
+    "M5": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "חבל בנג'י הוא אייקון ברור וקריא, עם צבעים בולטים ועיצוב ייחודי שמונע בלבול עם כלים אחרים. הויזואליות שלו תורמת להבהרת הסיטואציה בה השחקן נמצא, בוודאי כאשר מתמודדים עם התמודדות בסיכון גבוה.",
+      "fix_notes": null
+    },
+    "M6": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "החבל העבה בצבע צהוב/כתום עם הלולאה הבולטת והמרקם האלסטי נחשב ליישום מושלם המייצג את הכלי המתואר. אין מקום לבלבול עם כלים אחרים, וזה יעזור בהבהרת הסצנה.",
+      "fix_notes": null
+    },
+    "M7": {
+      "decision": "fix",
+      "director_flag": true,
+      "synthesis": "נדרש לכלול רכיבי סביבה שמדגישים את המקדש, רכבי המתחרים ומכשירי הקשר. פריטים אלו חיוניים להבנת הסיטואציה במדויק כפי שמתואר במשימה. לכן, הצעה היא לכלול פריטים כמו מקדש ביזנטי, מכשיר קשר רועש, ורכבים חונים בצבעים שונים שיבדילו בין המתחרים.",
+      "fix_notes": "נדרש להוסיף פריטים כמו מכשירי קשר נוספים או עיצובים שונים לרכבים המקומיים כדי להציג את המתחרים באופן יותר ברור."
+    },
+    "M8": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "בהתבסס על העמדות, אייקון 'חבל בנג'י' הוגדר בצורה ברורה ונכונה, והקריאות שלו גבוהה, מה שמונע בלבול עם כלים אחרים. הצבעים והאפקטים יכולים להוסיף לתחושת המעוף",
+      "fix_notes": ""
+    },
+    "M9": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": [
+        {
+          "name": "assets/scenery/welding_torch.png",
+          "css_zone": "bottom:30%; left:50%; width:15%; z-index:3",
+          "existence": "create"
+        },
+        {
+          "name": "assets/scenery/keypad.png",
+          "css_zone": "bottom:40%; left:25%; width:20%; z-index:3",
+          "existence": "create"
+        },
+        {
+          "name": "assets/scenery/dark_corridor.png",
+          "css_zone": "bottom:0%; left:0%; width:100%; z-index:2",
+          "existence": "create"
+        }
+      ],
+      "fix_notes": "הרשימה כוללת את כל האביזרים הדרושים לסצנה במדויק כדי להמחיש את המצב המתואר בטקסט. הוספת מבער ריתוך, לוח מקשים ומנהרה חשוכה מאפשרת הבנה ברורה ונכונה של הסיטואציה."
+    },
+    "M10": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "העיצוב והחומרים המיועדים לסצנה M10 ומדויקים להפקה. ההגדרה של אייקון 'חבל בנג'י' ברורה ומובילה לזיהוי מהיר של הכלי, והשילוב בין צבעים ואלמנטים נבחרים מספקים הבדל ויזואלי מובהק. כל הפרטים מכוסים בצורה מקיפה.",
+      "fix_notes": ""
+    },
+    "M11": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "רשימת האביזרים המוצעת כוללת את הנחוץ לסצנה באופן ברור ומובן, כל פריט תואם את התיאור במפורש ובכוח עוזר ליצור תמונה ברורה של הסיטואציה ב-M11.",
+      "fix_notes": null
+    },
+    "M12": {
+      "decision": "fix",
+      "director_flag": true,
+      "synthesis": "רשימת האביזרים הדרושים כוללת: (1) סירה – assets/scenery/boat.png, CSS zone: bottom:10%; left:30%; width:40%; z-index:2, צריך ליצור; (2) מערה חשוכה – assets/scenery/cave.png, CSS zone: bottom:0%; left:0%; width:100%; z-index:1, צריך ליצור; (3) עקבות רטובים – assets/scenery/wet_tracks.png, CSS zone: bottom:0%; left:20%; width:20%; z-index:3, צריך ליצור, (4) חוף עפרי – assets/scenery/dirt_bank.png, CSS zone: bottom:0%; left:0%; width:100%; z-index:3, צריך ליצור.",
+      "fix_notes": "נדרש לשלב סימנים נוספים על החוף שיציינו את נוכחות המתחרים והמשקלים של הסירה כדי לשפר את ההבנה של הסצנה."
+    },
+    "M13": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "חבל בנג'י שמזוהה בבירור באמצעות הצבעים והעיצוב המיוחד, מבדיל אותו בקלות מהכלים האחרים.",
+      "fix_notes": "אין צורך בתוספות; החבל שנבחר עונה על הדרישות האסתטיות והמעשיות."
+    },
+    "M14": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "הסכמה שהתיאור לאביזר חבל הבנג'י ברור וקריא, מבטיח זיהוי מיידי ומונע בלבול עם אביזרים אחרים.",
+      "fix_notes": ""
+    },
+    "M15": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "קול א וקול ב הסכימו שהאייקון של חבל בנג'י ברור ומובן בהקשר של משימה M11, ולכן לא נדרש שינוי. כל הבחירות נראו קריאות ומדויקות.",
+      "fix_notes": ""
+    }
+  }
+}

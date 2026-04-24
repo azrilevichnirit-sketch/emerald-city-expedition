@@ -1,0 +1,167 @@
+{
+  "_status": "DRAFT — awaiting Human Review (per actor_director.md שלב 'עצור לאחר הזיהוי')",
+  "_created_at": "2026-04-20",
+  "_created_by": "actor_director (Claude playing the role)",
+  "_method": "ffmpeg extracted 4 keyframes per video at t=1,3,5,7s; ffprobe for duration. Visual identification via frame inspection. loop/hold estimates are approximate — Human Review to validate exact seams.",
+  "_source_files": "assets/player/pose_01.mp4 … pose_06.mp4 (6 files, all 8.0s)",
+  "poses": {
+    "pose_01.mp4": {
+      "semantic_name": "anim_look_around",
+      "confidence": "high",
+      "evidence": "t1=גב מלא; t3=פרופיל חלקי (ראש מסתובב); t5=פרופיל מלא; t7=גב — מחזור מסתכל-ימינה-חוזר.",
+      "duration_sec": 8.0,
+      "loop_segment": {
+        "start": 0.0,
+        "end": 8.0
+      },
+      "hold_frame": null,
+      "one_shot": false,
+      "catch_pose": false,
+      "catch_note": null,
+      "use_in": [
+        "M3",
+        "M5",
+        "M7",
+        "M12",
+        "M13",
+        "M15"
+      ]
+    },
+    "pose_02.mp4": {
+      "semantic_name": "anim_climbing",
+      "confidence": "high",
+      "evidence": "כל הפריימים — ידיים מורמות מעל הראש, תנועת משיכה-דחיפה; הגוף מרים ברך ומתקדם אנכית.",
+      "duration_sec": 8.0,
+      "loop_segment": {
+        "start": 0.0,
+        "end": 8.0
+      },
+      "hold_frame": null,
+      "one_shot": false,
+      "catch_pose": false,
+      "catch_note": null,
+      "use_in": [
+        "M8",
+        "T8"
+      ]
+    },
+    "pose_03.mp4": {
+      "semantic_name": "anim_crouch",
+      "confidence": "high",
+      "evidence": "t1=עמידה; t3=כיפוף; t5=כפיפה עמוקה, ידיים לרצפה; t7=קימה — מחזור מלא.",
+      "duration_sec": 8.0,
+      "loop_segment": {
+        "start": 0.0,
+        "end": 8.0
+      },
+      "hold_frame": 5.0,
+      "one_shot": false,
+      "catch_pose": false,
+      "catch_note": "hold_frame=5.0 — הרגע בו השחקנית למטה עם ידיים לרצפה (אפשר לשים כלי 'על הקרקע' שמה).",
+      "use_in": [
+        "M6",
+        "M10"
+      ]
+    },
+    "pose_04.mp4": {
+      "semantic_name": "anim_running",
+      "confidence": "high",
+      "evidence": "t1=עמידה; t3-t7=ריצה בפרופיל (צד) — רגליים ב-cycle, תנועה קדימה.",
+      "duration_sec": 8.0,
+      "loop_segment": {
+        "start": 2.0,
+        "end": 4.0
+      },
+      "hold_frame": null,
+      "one_shot": false,
+      "catch_pose": false,
+      "catch_note": "Human Review לוודא את גבולות הloop — יש להתחיל אחרי ה-startup (~2s).",
+      "use_in": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+        "T8",
+        "T9",
+        "T10",
+        "T11",
+        "T12",
+        "T13",
+        "T14",
+        "T15"
+      ]
+    },
+    "pose_05.mp4": {
+      "semantic_name": "anim_waiting",
+      "confidence": "medium-high",
+      "evidence": "t1=עמידה פרונטלית; t3=פרופיל; t5=פרונטלי; t7=ידיים משולבות — תנועת idle שקטה עם סיבוב גוף עדין.",
+      "duration_sec": 8.0,
+      "loop_segment": {
+        "start": 0.0,
+        "end": 8.0
+      },
+      "hold_frame": 1.0,
+      "one_shot": false,
+      "catch_pose": false,
+      "catch_note": null,
+      "use_in": [
+        "Scene 0 — פתיחה"
+      ]
+    },
+    "pose_06.mp4": {
+      "semantic_name": "anim_reach_forward",
+      "confidence": "high",
+      "evidence": "t1=עמידה; t3=יד נמוכה לצד; t5=יד מורמת, כף פתוחה קדימה; t7=אוחזת בתנוחת כף-פתוחה — pose catch קלאסי.",
+      "duration_sec": 8.0,
+      "loop_segment": null,
+      "hold_frame": 5.5,
+      "one_shot": true,
+      "catch_pose": true,
+      "catch_note": "hold_frame=5.5 — יד מורמת, כף פתוחה קדימה. קפא כאן כשהכלי מגיע. Human Review לדייק (אולי 5.0 או 6.0).",
+      "use_in": [
+        "M2",
+        "M4",
+        "M8",
+        "M9",
+        "M11",
+        "M14"
+      ]
+    },
+    "pose_07.mp4": {
+      "semantic": "anim_falling",
+      "use_in": [
+        "M1",
+        "M11"
+      ],
+      "catch_note": "hold ~0.5s for tool deploy (M1: parachute/glider/wings; M11: bungee/base-parachute/rappel).",
+      "source": "veo-3.0-fast-generate-001 text-to-video (image-to-video blocked by RAI celebrity filter)",
+      "delivered_at": "2026-04-22",
+      "protocol": [
+        "actor_director_debate:pass",
+        "qa_gemini:pass",
+        "director_claude:pass"
+      ]
+    }
+  },
+  "_semantic_vocabulary": [
+    "anim_running",
+    "anim_reach_forward",
+    "anim_falling",
+    "anim_look_around",
+    "anim_crouch",
+    "anim_climbing",
+    "anim_waiting"
+  ],
+  "_missing_anims": [],
+  "_unused": [],
+  "_assignment_rationale": {
+    "catch_poses_rule": "כלי 'reach/use' מגיעים לpose_06 (reach_forward). כלי 'wear/deploy' — לperpose שמתאים לסצנה (למשל M1=falling+deploy, M6=crouch+hold).",
+    "use_in_derivation": "שדות use_in לקוחים מברירת-המחדל ב-actor_director.md (שורות 91-137). ייתכן שהבמאי יעדכן עבור סצנות ספציפיות בפאזה 0D+."
+  },
+  "_next_step": "Human Review — Nirit לפתוח את הסרטונים ולאמת (1) semantic_name, (2) loop seams חלקים, (3) hold_frame ב-pose_03 ו-pose_06, (4) החלטה מה לעשות על anim_falling החסר.",
+  "_keyframes_for_review": "pipeline/pose_keyframes/ מכיל 24 PNG שחולצו ל-QA ויזואלי.",
+  "_delivered_at": "2026-04-22"
+}

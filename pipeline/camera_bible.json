@@ -1,0 +1,127 @@
+{
+  "_status": "APPROVED — Phase 0D complete (2026-04-20). Style test passed on flashlight; rembg pipeline validated. Parachute + rope ladder deferred to end of Phase 0E.",
+  "_created_at": "2026-04-20",
+  "_approved_at": "2026-04-20",
+  "_created_by": "production_designer (Claude playing the role)",
+  "_source": "agents/production_designer.md — template verbatim + anim_falling brief per Producer direction",
+  "_pipeline_note": "tools/ and rivals/ use rembg post-processing — generators may produce any background, rembg strips and composites on #00B140. See agents/image_generator.md → 'שלב חובה — הסרת רקע עם rembg'.",
+
+  "tools": {
+    "background": "green screen #00B140 — לא כל ירוק, בדיוק הגוון הזה",
+    "angle": "3/4 view, elevation 25-30 degrees above horizon, rotated 15-20 degrees right",
+    "lighting": "single light source upper-left (10 o'clock), hard light, clean shadow lower-right, no ambient fill, no green spill",
+    "style": "stylized realism — cinematic game item, NOT photorealistic product shot, NOT cartoon",
+    "edges": "clean defined outline, object detached from background",
+    "size_in_frame": "object fills 60-75% of frame, centered, breathing room on all sides",
+    "output": "PNG, transparent background after chroma key, 512x512 minimum",
+    "forbidden": ["drop shadows baked in", "background elements", "hands holding item", "text or labels"]
+  },
+
+  "backgrounds": {
+    "angle": "ground-level POV, slight low angle (5-10 degrees), player character standing perspective",
+    "depth": "strong vanishing point, 3 clear layers: foreground / mid-ground / background",
+    "lighting": "directional, consistent with time of day defined in storyboard",
+    "style": "cinematic photorealistic, tropical adventure, muted saturation",
+    "forbidden": ["flat single-plane composition", "centered symmetry with no depth"]
+  },
+
+  "scenery": {
+    "_purpose": "PNG props composited on z=2 over the background video (bg_*). Builder runs chroma key to remove green and lay prop over bg.",
+    "_added_2026-04-24": "Missing from Phase 0D. Added after 51 props were produced without green-screen spec and failed final audit.",
+    "background": "green screen #00B140 — solid flat, same gate as tools/; NO scene-matching ambient, NO baked ground/floor, NO integrated environment",
+    "angle": "varies per prop — match prop's natural viewing angle; no forced perspective",
+    "lighting": "soft neutral daylight, no hard colored fills, no green spill into prop edges",
+    "style": "cinematic photorealistic, matches backgrounds/ style, muted tropical saturation",
+    "edges": "clean defined outline against green, object detached from background",
+    "size_in_frame": "prop fills 55-75% of frame, centered, breathing room on all sides",
+    "output": "PNG, solid green #00B140 background (Builder chroma-keys in compositor), 1024x1024 or larger",
+    "forbidden": [
+      "baked scene/floor/environment around prop",
+      "humans (except when prop IS a human figure, e.g. rival silhouette)",
+      "multiple competing subjects in one frame",
+      "text/logos/labels on prop surface",
+      "drop shadows baked into ground"
+    ],
+    "pipeline_note": "generate_scenery_props.py writes Imagen/Nano-Banana prompt; the prompt MUST end with 'solid flat green screen background #00B140, no environment, no floor, no shadow'."
+  },
+
+  "player_animations": {
+    "_note": "אנימציות שחקן הן וידאו .mp4 עם חצי שקיפות ירוקה (chroma key בhigh level). מיוצרים/נשלפים ממקור חיצוני ולא תמיד מ-image generation. לכל pose שחסר — production_designer כותב brief מלא.",
+    "character_consistency": {
+      "identity": "חוקרת משלחת, 30, אתלטית, שיער כהה אסוף בקוקו גבוה, חולצה בצבע יין כהה, מכנסי חאקי אפרפרים, נעלי שטח כהות, תיק גב טכני גדול חאקי-אפור",
+      "source_reference": "master_player/ (לבדיקת עקביות ויזואלית — פנים, שיער, בגדים)",
+      "green_screen": "#00B140 solid, no spill, camera locked",
+      "lighting": "soft day, neutral color temperature, no colored fills",
+      "output": "MP4, 8 שניות, 30fps, ללא אודיו, resolution 720p לפחות",
+      "forbidden": ["drop shadows baked in", "background motion", "branded logos", "text"]
+    },
+    "missing_anims": {
+      "anim_falling": {
+        "file_name": "pose_07.mp4",
+        "priority": "CRITICAL — חוסם את M1 (סצנת פתיחה) ו-M11",
+        "duration_sec": 8.0,
+        "brief": {
+          "action": "נפילה חופשית. הדמות אלכסונית-אופקית, זרועות ורגליים פרושות מעט לצדדים (X position יציבה).",
+          "camera": "locked medium shot, הדמות ממלאת ~60% מהפריים, ראשה כלפי למעלה-שמאלה, רגליים כלפי למטה-ימינה.",
+          "wind_effect": "שיער, חולצה ומכנסיים מתנפנפים בקיצוניות **כלפי מעלה** (אפקט רוח חזק) כדי להמחיש מהירות נפילה גבוהה. התיק רועד קלות.",
+          "facial": "הבעת ריכוז / אדרנלין — לא פחד צעקני, לא שלווה.",
+          "loop_intent": "one_shot לנחיתה אך ניתן לעשות loop פנימי של 2-5s תוך כדי הנפילה לפני שהתפאורה משתנה (Builder יחליט per scene).",
+          "hold_frame_candidate": "~0.5s — הרגע בו הדמות פתוחה לראשונה לקריאת 'hold for catch' עם יד מושטת (אם catch מתרחש בזמן נפילה).",
+          "background": "green screen #00B140 only — ללא עננים, ללא מטוס, ללא אפקטי חוץ. Builder יוסיף רקע בסצנה.",
+          "reference_hints": "poses_video/list.txt (בworktree הישן) סעיף 5 — 'הדמות במצב של נפילה חופשית (זווית אופקית או אלכסונית). זרועות ורגליים פרושות מעט לצדדים (X Position). אפקט רוח חזק.'"
+        },
+        "next_step": "Image Generator / Video Generator בפאזה 0E — ליצור pose_07.mp4 לפי הbrief, Human Review לפני השמירה."
+      }
+    }
+  },
+
+  "style_test_candidates": {
+    "_purpose": "3 כלים בצורה/גודל שונים לייצור ראשון — לאימות שהtools camera spec עובד לפני שמייצרים 45 כלים.",
+    "items": [
+      {
+        "slot": "small",
+        "file": "tools/מצנח_מ01.png",
+        "label_verbatim": "מצנח עגול רחב",
+        "source_mission": "M1 slot A",
+        "points": 1,
+        "consequence_type": "deploy",
+        "shape_notes": "עגול/קשתי, בד דק עם חבלים — אתגר: שימור clean edges של החבלים."
+      },
+      {
+        "slot": "medium",
+        "file": "tools/פנס_עוצמתי_מ05.png",
+        "label_verbatim": "פנס עוצמתי",
+        "source_mission": "M5 slot A",
+        "points": 1,
+        "consequence_type": "hold",
+        "shape_notes": "צילינדרי מוארך עם עדשה זכוכית — אתגר: שימור reflection/glass בלי שהירוק ייכנס לעדשה."
+      },
+      {
+        "slot": "large",
+        "file": "tools/סולם_חבלים_מ08.png",
+        "label_verbatim": "סולם חבלים",
+        "source_mission": "M8 slot A",
+        "points": 1,
+        "consequence_type": "deploy",
+        "shape_notes": "מבנה ארוך ודק עם אלמנטים חוזרים — אתגר: שלא ייראה שטוח, שייקח את כל ה-60-75% מהפריים."
+      }
+    ],
+    "next_step": "Visual Prompt Writer מקבל את 3 הרשומות + tools camera spec ומפיק prompt JSON לכל אחד. Image Generator מריץ. Human Review על כל כלי בנפרד."
+  },
+
+  "style_reference_image": "pipeline/style_reference.png",
+  "_style_reference_origin": {
+    "asset": "פנס_עוצמתי_מ05",
+    "source_generation": "Leonardo Phoenix v2 (aa77f04e) — alchemy=true, photoReal=false",
+    "source_generationId": "95be4529-3853-429c-bbf6-18c0a69d3930",
+    "post_processing": "rembg (U²-Net) → alpha mask → composite on #00B140",
+    "approved_by": "director + production_designer + human_review (Claude agent roles) + Producer final approval 2026-04-20",
+    "also_saved_at": "assets/tools/פנס_עוצמתי_מ05.png"
+  },
+  "_style_test_outcome": {
+    "passed": ["פנס_עוצמתי_מ05"],
+    "deferred": ["מצנח_מ01", "סולם_חבלים_מ08"],
+    "deferred_reason": "Leonardo models (Phoenix + SDXL 1.0) systematically produce wrong objects for these two prompts. To be regenerated at end of Phase 0E with reference-image guidance or alternative model.",
+    "pipeline_validated": "rembg + composite workflow is the new standard for all tools/ and rivals/"
+  }
+}

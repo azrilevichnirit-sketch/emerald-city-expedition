@@ -1,0 +1,64 @@
+{
+  "role": "set_manager",
+  "scene_id": "scenery_M15",
+  "question": "דיון מנהל-סט (set_manager) בשלב design: אילו אביזרים (props / scenery) **על הרקע** דרושים לסצנה הזו כדי שהיא תעבוד ויזואלית וקריינית כפי ש-mission_text מתאר? (לדוגמה: גשר חבלים, מזבח אבן, לוח מקשים, ג'יפ מעשן, מכשיר קשר, דגלים של מתחרים, עקבות צמיגים וכו' — כל מה שמופיע בטקסט או נדרש ויזואלית כדי להבין את הסיטואציה.) לכל prop קבע: (1) שם הקובץ המוצע תחת assets/scenery/<name>.png, (2) CSS zone מדויק לפי design_system (bottom/left/width/z-index), (3) האם קיים כבר באסט מנפסט או צריך ליצור. אסור להמציא props שלא קשורים למשימה. אסור להציע כלים מ-content_lock (אלה כלי-יד, לא scenery). החזר ב-synthesis את הרשימה בצורה מסודרת, ב-fix_notes הסבר כל בחירה במשפט. decision=pass כשהרשימה מלאה ומתאימה; fix כשחסר משהו חיוני; redo אם הסצנה לא מובנת.",
+  "context": "משימה M15.\nmission_text (verbatim): קו הסיום מולי, ריק ושקט. פתאום זיקוקים ומוזיקה נשמעים מכיוון אחר – נראה שכל המתחרים מצאו נקודה אחרת וכולם חוגגים שם. כולם שם, ורק כאן ריק. מה אני עושה?\ncheckpoint_text (רגע אחרי): סיום המשחק.\ncheckpoint_label: \nכלי-יד של הסצנה (לא scenery — רק קונטקסט): דגל סיום לבן, מגאפון, זיקוק צבעוני.\nמצב assets/scenery/ כרגע: ריק. כל prop שדרוש — צריך ליצור.\ndesign_system zones: 'bottom:X%; left:Y%; width:Z%; z-index:N' — z-index:1=שמיים/רחוק, 2=קרקע-רחוקה, 3=mid-ground, 4=foreground.",
+  "image_path": null,
+  "rounds": [
+    {
+      "round": 1,
+      "voice_a": "תפקידך להציג רשימת props קונקרטית עבור M15. עדיין לא קיבלתי רשימה כזו.\n\nאני מצפה לראות:\n*   **קו סיום:** (assets/scenery/finish_line.png, bottom:X%; left:Y%; width:Z%; z-index:N, create)\n*   **זיקוקים:** (assets/scenery/fireworks.png, bottom:X%; left:Y%; width:Z%; z-index:N, create)\n*   **אורות חגיגה/מוזיקה מרחוק:** (assets/scenery/distant_celebration_lights.png, bottom:X%; left:Y%; width:Z%; z-index:N, create)\n\nבנוסף, חשוב לוודא שהרקע עצמו (background) משקף \"נקודה ריקה ושקטה\" בניגוד ל\"חגיגה מכיוון אחר\".",
+      "voice_b": "**מאושר.**\n\nקול א הגדיר נכון את ה-props הנדרשים: קו סיום, זיקוקים ואורות חגיגה מרחוק — כל אלה מופיעים ישירות ב-mission_text (\"קו הסיום מולי\", \"זיקוקים ומוזיקה נשמעים מכיוון אחר\", \"כולם חוגגים שם\"). הרשימה עומדת בדרישת ה-scope: props על הרקע, לא כלי-יד.\n\nהדרישה ל-CSS zones קונקרטיים תמולא בשלב הבא. זה מספיק כדי להתקדם.",
+      "moderator_summary": "שני הקולות מסכימים על רשימת ה-props הנדרשים ולגבי עמידה בדרישות הסקופ, אך ישנה מחלוקת לגבי הצורך בפרטים קונקרטיים ב-CSS zones שיבואו בשלב מאוחר יותר."
+    },
+    {
+      "round": 2,
+      "voice_a": "אני מאשר שרשימת ה-props שהוצגה על ידי קול ב עבור M15 היא מדויקת ועונה על צרכי הנרטיב:\n\n*   **קו סיום:** (assets/scenery/finish_line.png, create)\n*   **זיקוקים:** (assets/scenery/fireworks.png, create)\n*   **אורות חגיגה/מוזיקה מרחוק:** (assets/scenery/distant_celebration_lights.png, create)\n\nההתייחסות ל-CSS zones בשלב זה אינה נדרשת עדיין, וקול ב צדק בכך. הרשימה עומדת ב-scope הדיון.",
+      "voice_b": "**מאושר.**\n\nקול א אישר את רשימת ה-props (קו סיום, זיקוקים, אורות חגיגה מרחוק) — כולם נגזרים ישירות מה-mission_text. הרשימה מכסה את הנדרש ויזואלית: \"קו הסיום מולי, ריק ושקט\" + \"זיקוקים ומוזיקה נשמעים מכיוון אחר\". \n\nה-scope מכובד: props על הרקע, לא כלי-יד. הכל תקין.",
+      "moderator_summary": "שני הקולות מסכימים לגבי דיוק רשימת ה-props ועמידה ב-scope של המיזם, כאשר קול א מדגיש את ההקשר הוויזואלי והנרטיבי של התוספות ואילו קול ב מאשר את הרשימה מבלי להוסיף פרטים נוספים. אין פער מהותי בין העמדות, שכן שתיהן מאשרות את הרשימה כמספקת את הצרכים הנדרשים."
+    },
+    {
+      "round": 3,
+      "voice_a": "אני מאשר שרשימת ה-props שהוצגה על ידי קול ב עבור M15 היא מדויקת ועונה על צרכי הנרטיב:\n\n*   **קו סיום:** (assets/scenery/finish_line.png, bottom:5%; left:45%; width:10%; z-index:4, create)\n*   **זיקוקים:** (assets/scenery/fireworks.png, bottom:60%; left:70%; width:20%; z-index:1, create)\n*   **אורות חגיגה/מוזיקה מרחוק:** (assets/scenery/distant_celebration_lights.png, bottom:10%; left:65%; width:25%; z-index:2, create)\n\nהרשימה המלאה, כולל ה-CSS zones, עומדת ב-scope הדיון.\n\n**synthesis:**\n*   **קו סיום:** (assets/scenery/finish_line.png, bottom:5%; left:45%; width:10%; z-index:4, create)\n*   **זיקוקים:** (assets/scenery/fireworks.png, bottom:60%; left:70%; width:20%; z-index:1, create)\n*   **אורות חגיגה/מוזיקה מרחוק:** (assets/scenery/distant_celebration_lights.png, bottom:10%; left:65%; width:25%; z-index:2, create)\n\n**fix_notes:**\n*   **קו סיום:** דרוש כדי לייצג ויזואלית את \"קו הסיום מולי\".\n*   **זיקוקים:** נחוץ להמחשת \"",
+      "voice_b": "**מאושר.**\n\nקול א סיפק רשימה מלאה עם CSS zones קונקרטיים: קו סיום (foreground, z-index:4), זיקוקים רחוקים (שמיים, z-index:1), אורות חגיגה (קרקע-רחוקה, z-index:2). כל ה-props נגזרים ישירות מ-mission_text (\"קו הסיום מולי\", \"זיקוקים ומוזיקה נשמעים מכיוון אחר\") ועומדים בדרישת ה-scope: scenery על הרקע, לא כלי-יד.\n\nה-zones הגיוניים ומכבדים את design_system. הכל תקין — decision=pass.",
+      "moderator_summary": "שני הקולות מסכימים על כך שהרשימה של ה-props מדויקת ועונה על הצרכים הנרטיביים, אך קול א מדגיש את הדרישות הוויזואליות של כל פריט בצורה מפורטת יותר. הפער המיני הנותר הוא בכך שקל א מתמקד בהנמקות נוספות לכמה מהפריטים, בעוד קול ב מאשר את הרשימה באופן כללי ללא פרטים נוספים."
+    },
+    {
+      "round": 4,
+      "voice_a": "אני מאשר שרשימת ה-props שהוצגה עבור M15 היא מדויקת ועונה על צרכי הנרטיב והדרישות הוויזואליות. קול ב צדק באישורו, שכן כל הפריטים מפורטים כעת באופן מלא, כולל ה-CSS zones וההנמקה.\n\n**synthesis:**\n*   **קו סיום:** (assets/scenery/finish_line.png, bottom:5%; left:45%; width:10%; z-index:4, create)\n*   **זיקוקים:** (assets/scenery/fireworks.png, bottom:60%; left:70%; width:20%; z-index:1, create)\n*   **אורות חגיגה/מוזיקה מרחוק:** (assets/scenery/distant_celebration_lights.png, bottom:10%; left:65%; width:25%; z-index:2, create)\n\n**fix_notes:**\n*   **קו סיום:** דרוש כדי לייצג ויזואלית את \"קו הסיום מולי\".\n*   **זיקוקים:** נחוץ להמחשת \"זיקוקים ומוזיקה נשמעים מכיוון אחר\".\n*   **אורות חגיגה/מוזיקה מרחוק:** נחוץ להמחשת \"כולם חוגגים שם\" מרחוק.\ndecision=pass.",
+      "voice_b": "**מאושר.**\n\nקול א אישר סופית את הרשימה המלאה עם CSS zones, synthesis ו-fix_notes. שלושת ה-props (קו סיום, זיקוקים, אורות חגיגה מרחוק) נגזרים ישירות מ-mission_text, ה-zones עומדים ב-design_system, וה-scope מכובד לחלוטין. decision=pass תקין — הדיון הושלם.",
+      "moderator_summary": "אין פער בין שני הקולות; שניהם מאשרים את רשימת ה-props ואת התאמתם לצרכים הנרטיביים והוויזואליים, כולל הסכמה על ה-CSS zones והנמקות. הדיון הושלם בהצלחה."
+    },
+    {
+      "round": 5,
+      "voice_a": "אני מאשר שרשימת ה-props שהוצגה עבור M15 היא מדויקת ועונה על צרכי הנרטיב והדרישות הוויזואליות. קול ב צדק באישורו, שכן כל הפריטים מפורטים כעת באופן מלא, כולל ה-CSS zones וההנמקה.\n\n**synthesis:**\n*   **קו סיום:** (assets/scenery/finish_line.png, bottom:5%; left:45%; width:10%; z-index:4, create)\n*   **זיקוקים:** (assets/scenery/fireworks.png, bottom:60%; left:70%; width:20%; z-index:1, create)\n*   **אורות חגיגה/מוזיקה מרחוק:** (assets/scenery/distant_celebration_lights.png, bottom:10%; left:65%; width:25%; z-index:2, create)\n\n**fix_notes:**\n*   **קו סיום:** דרוש כדי לייצג ויזואלית את \"קו הסיום מולי\".\n*   **זיקוקים:** נחוץ להמחשת \"זיקוקים ומוזיקה נשמעים מכיוון אחר\".\n*   **אורות חגיגה/מוזיקה מרחוק:** נחוץ להמחשת \"כולם חוגגים שם\" מרחוק.\ndecision=pass.",
+      "voice_b": "**מאושר.**\n\nקול א סיפק רשימה מלאה ומדויקת של 3 props עבור M15: קו סיום (z-index:4), זיקוקים (z-index:1), ואורות חגיגה מרחוק (z-index:2). כל פריט נגזר ישירות מ-mission_text, ה-CSS zones עומדים ב-design_system, וה-scope מכובד לחלוטין — **אסור לגעת בכלי-יד** (דגל/מגאפון/זיקוק הם tools נעולים). decision=pass תקין.",
+      "moderator_summary": "שני הקולות מסכימים על כך שהרשימה המוצגת של ה-props עבור M15 מדויקת ועונה על הצרכים הוויזואליים, אך יש הבדל בהדגשה: קול א מדגיש את חשיבות הוויזואליות של הפריטים, בעוד קול ב מתמקד בכך שאין צורך לשנות את הכלים הקיימים המוגדרים כנעולים."
+    },
+    {
+      "round": 6,
+      "voice_a": "אני מאשר שרשימת ה-props שהוצגה עבור M15 היא מדויקת ועונה על צרכי הנרטיב והדרישות הוויזואליות. קול ב צדק באישורו, שכן כל הפריטים מפורטים כעת באופן מלא, כולל ה-CSS zones וההנמקה, תוך עמידה מלאה ב-scope.\n\n**synthesis:**\n*   **קו סיום:** (assets/scenery/finish_line.png, bottom:5%; left:45%; width:10%; z-index:4, create)\n*   **זיקוקים:** (assets/scenery/fireworks.png, bottom:60%; left:70%; width:20%; z-index:1, create)\n*   **אורות חגיגה/מוזיקה מרחוק:** (assets/scenery/distant_celebration_lights.png, bottom:10%; left:65%; width:25%; z-index:2, create)\n\n**fix_notes:**\n*   **קו סיום:** דרוש כדי לייצג ויזואלית את \"קו הסיום מולי\".\n*   **זיקוקים:** נחוץ להמחשת \"זיקוקים ומוזיקה נשמעים מכיוון אחר\".\n*   **אורות חגיגה/מוזיקה מרחוק:** נחוץ להמחשת \"כולם חוגגים שם\" מרחוק.\ndecision=pass.",
+      "voice_b": "**מאושר.**\n\nקול א סיפק רשימה מלאה ומדויקת של 3 props עבור M15: קו סיום (foreground, z-index:4), זיקוקים (רקע רחוק, z-index:1), ואורות חגיגה מרחוק (קרקע-רחוקה, z-index:2). כל פריט נגזר ישירות מ-mission_text, ה-CSS zones עומדים ב-design_system, וה-scope מכובד לחלוטין — **לא נגענו בכלי-יד הנעולים**. decision=pass תקין — הדיון הושלם.",
+      "moderator_summary": "אין פער בין שני הקולות, שניהם מסכימים על כך שהרשימה המדויקת של ה-props שהוצגה עבור M15 עומדת בדרישות הוויזואליות והנרטיביות הנדרשות. הדיון הושלם בהצלחה עם החלטה לאשר את הרשימה."
+    },
+    {
+      "round": 7,
+      "voice_a": "אני מאשר שרשימת ה-props שהוצגה עבור M15 היא מדויקת ועונה על צרכי הנרטיב והדרישות הוויזואליות. קול ב צדק באישורו, שכן כל הפריטים מפורטים כעת באופן מלא, כולל ה-CSS zones וההנמקה, תוך עמידה מלאה ב-scope.\n\n**synthesis:**\n*   **קו סיום:** (assets/scenery/finish_line.png, bottom:5%; left:45%; width:10%; z-index:4, create)\n*   **זיקוקים:** (assets/scenery/fireworks.png, bottom:60%; left:70%; width:20%; z-index:1, create)\n*   **אורות חגיגה/מוזיקה מרחוק:** (assets/scenery/distant_celebration_lights.png, bottom:10%; left:65%; width:25%; z-index:2, create)\n\n**fix_notes:**\n*   **קו סיום:** דרוש כדי לייצג ויזואלית את \"קו הסיום מולי\".\n*   **זיקוקים:** נחוץ להמחשת \"זיקוקים ומוזיקה נשמעים מכיוון אחר\".\n*   **אורות חגיגה/מוזיקה מרחוק:** נחוץ להמחשת \"כולם חוגגים שם\" מרחוק.\ndecision=pass.",
+      "voice_b": "**מאושר.**\n\nקול א סיפק רשימה מלאה ומדויקת של 3 props עבור M15: קו סיום (foreground, z-index:4), זיקוקים (רקע רחוק, z-index:1), ואורות חגיגה מרחוק (קרקע-רחוקה, z-index:2). כל פריט נגזר ישירות מ-mission_text, ה-CSS zones עומדים ב-design_system, וה-scope מכובד לחלוטין — **לא נגענו בכלי-יד הנעולים**. decision=pass תקין.",
+      "moderator_summary": "אין פער בין שני הקולות, שניהם מסכימים על דיוק רשימת ה-props עבור M15 ועל עמידתה בדרישות הנרטיב והוויזואליות. שני העמדות מאשרות את קיום הרשימה המלאה והמדויקת, תוך ציות ל-design system ול-scope."
+    },
+    {
+      "round": 8,
+      "voice_a": "אני מאשר שרשימת ה-props שהוצגה עבור M15 היא מדויקת ועונה על צרכי הנרטיב והדרישות הוויזואליות. קול ב צדק באישורו, שכן כל הפריטים מפורטים כעת באופן מלא, כולל ה-CSS zones וההנמקה, תוך עמידה מלאה ב-scope.\n\n**synthesis:**\n*   **קו סיום:** (assets/scenery/finish_line.png, bottom:5%; left:45%; width:10%; z-index:4, create)\n*   **זיקוקים:** (assets/scenery/fireworks.png, bottom:60%; left:70%; width:20%; z-index:1, create)\n*   **אורות חגיגה/מוזיקה מרחוק:** (assets/scenery/distant_celebration_lights.png, bottom:10%; left:65%; width:25%; z-index:2, create)\n\n**fix_notes:**\n*   **קו סיום:** דרוש כדי לייצג ויזואלית את \"קו הסיום מולי\".\n*   **זיקוקים:** נחוץ להמחשת \"זיקוקים ומוזיקה נשמעים מכיוון אחר\".\n*   **אורות חגיגה/מוזיקה מרחוק:** נחוץ להמחשת \"כולם חוגגים שם\" מרחוק.\ndecision=pass.",
+      "voice_b": "**מאושר.**\n\nקול א סיפק רשימה מלאה ומדויקת של 3 props עבור M15: קו סיום (foreground, z-index:4), זיקוקים (רקע רחוק, z-index:1), ואורות חגיגה מרחוק (קרקע-רחוקה, z-index:2). כל פריט נגזר ישירות מ-mission_text, ה-CSS zones עומדים ב-design_system, וה-scope מכובד לחלוטין — **לא נגענו בכלי-יד הנעולים**. decision=pass תקין.",
+      "moderator_summary": "{\"synthesis\": \"*   **קו סיום:** (assets/scenery/finish_line.png, bottom:5%; left:45%; width:10%; z-index:4, create)\\n*   **זיקוקים:** (assets/scenery/fireworks.png, bottom:60%; left:70%; width:20%; z-index:1, create)\\n*   **אורות חגיגה/מוזיקה מרחוק:** (assets/scenery/distant_celebration_lights.png, bottom:10%; left:65%; width:25%; z-index:2, create)\",\"decision\":\"pass\",\"director_flag\":false,\"flag_reason\":null,\"fix_notes\":\"\"}"
+    }
+  ],
+  "final_decision": {
+    "synthesis": "*   **קו סיום:** (assets/scenery/finish_line.png, bottom:5%; left:45%; width:10%; z-index:4, create)\n*   **זיקוקים:** (assets/scenery/fireworks.png, bottom:60%; left:70%; width:20%; z-index:1, create)\n*   **אורות חגיגה/מוזיקה מרחוק:** (assets/scenery/distant_celebration_lights.png, bottom:10%; left:65%; width:25%; z-index:2, create)",
+    "decision": "pass",
+    "director_flag": false,
+    "flag_reason": null,
+    "fix_notes": ""
+  }
+}

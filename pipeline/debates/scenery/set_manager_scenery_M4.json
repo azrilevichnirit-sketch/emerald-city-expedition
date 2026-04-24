@@ -1,0 +1,64 @@
+{
+  "role": "set_manager",
+  "scene_id": "scenery_M4",
+  "question": "דיון מנהל-סט (set_manager) בשלב design: אילו אביזרים (props / scenery) **על הרקע** דרושים לסצנה הזו כדי שהיא תעבוד ויזואלית וקריינית כפי ש-mission_text מתאר? (לדוגמה: גשר חבלים, מזבח אבן, לוח מקשים, ג'יפ מעשן, מכשיר קשר, דגלים של מתחרים, עקבות צמיגים וכו' — כל מה שמופיע בטקסט או נדרש ויזואלית כדי להבין את הסיטואציה.) לכל prop קבע: (1) שם הקובץ המוצע תחת assets/scenery/<name>.png, (2) CSS zone מדויק לפי design_system (bottom/left/width/z-index), (3) האם קיים כבר באסט מנפסט או צריך ליצור. אסור להמציא props שלא קשורים למשימה. אסור להציע כלים מ-content_lock (אלה כלי-יד, לא scenery). החזר ב-synthesis את הרשימה בצורה מסודרת, ב-fix_notes הסבר כל בחירה במשפט. decision=pass כשהרשימה מלאה ומתאימה; fix כשחסר משהו חיוני; redo אם הסצנה לא מובנת.",
+  "context": "משימה M4.\nmission_text (verbatim): השביל נקטע בתהום! גשר החבלים רעוע והרוח מטלטלת אותו בחוזקה, בזמן שהצוות המוביל כבר בצד השני וממשיך להיעלם בתוך היער. איך אני צולחת את התהום הזו עכשיו?\ncheckpoint_text (רגע אחרי): אני בצד השני. הצמחייה סוגרת עליי, האווירה משתנה.\ncheckpoint_label: צ'ק-פוינט 4: חציית הגבול.\nכלי-יד של הסצנה (לא scenery — רק קונטקסט): לוחות עץ ופטיש, רתמת אבטחה, רובה חבלים.\nמצב assets/scenery/ כרגע: ריק. כל prop שדרוש — צריך ליצור.\ndesign_system zones: 'bottom:X%; left:Y%; width:Z%; z-index:N' — z-index:1=שמיים/רחוק, 2=קרקע-רחוקה, 3=mid-ground, 4=foreground.",
+  "image_path": null,
+  "rounds": [
+    {
+      "round": 1,
+      "voice_a": "אני מאשר את הבקשה עבור משימה M4, \"השביל נקטע בתהום!\".\n\nלהלן רשימת אביזרי הרקע הנדרשים:\n\n*   **scenery/chasm_background.png**: bottom:0%; left:0%; width:100%; z-index:1 (create)\n*   **scenery/rope_bridge_midground.png**: bottom:25%; left:30%; width:40%; z-index:3 (create)\n*   **scenery/forest_far_side.png**: bottom:0%; left:50%; width:50%; z-index:2 (create)\n*   **scenery/rival_team_disappearing.png**: bottom:40%; left:75%; width:15%; z-index:3 (create)\n\nהרשימה מלאה, מדויקת ומתאימה לתיאור המשימה.",
+      "voice_b": "**מאושר**\n\nהרשימה עובדת בדיוק לפי ה-scope:\n\n1. **chasm_background.png** — תהום מלאה כרקע, z:1 נכון לשמיים/רחוק\n2. **rope_bridge_midground.png** — גשר החבלים המרכזי שמתואר בטקסט, z:3 mid-ground הגיוני\n3. **forest_far_side.png** — \"בצד השני... היער\" — מתאים לצ'ק-פוינט וטקסט, z:2 קרקע רחוקה\n4. **rival_team_disappearing.png** — \"הצוות המוביל כבר בצד השני וממשיך להיעלם\" — נדרש ויזואלית, z:3 foreground של הצד השני\n\nכל האביזרים נגזרים ישירות מה-mission_text, אין כלי-יד, אין המצאות. **decision=pass**.",
+      "moderator_summary": "שני הקולות מסכימים על כך שהרשימה של אביזרי הרקע מדויקת ונכונה, אך עמדת א מדגישה את הצורך באישור המשימה בעוד שעומדת ב מאשרת את הרשימה ללא הסתייגויות."
+    },
+    {
+      "round": 2,
+      "voice_a": "אני מאשר שהרשימה שהוצגה על ידי קול ב מדויקת ומלאה, ועומדת בכל דרישות ה-scope. כל אביזר רקע נגזר ישירות מתיאור המשימה M4, ללא חריגות או המצאות.\ndecision=pass.",
+      "voice_b": "**מאושר**\n\nהרשימה עומדת בכל דרישות ה-scope שלי:\n- **chasm_background.png** (z:1), **rope_bridge_midground.png** (z:3), **forest_far_side.png** (z:2), **rival_team_disappearing.png** (z:3) — כל אחד נגזר ישירות מ-mission_text.\n- אין כלי-יד, אין חריגה מה-scope, אין המצאות.\n- CSS zones והיררכיית z-index הגיוניים ועובדים.\n\n**decision=pass**.",
+      "moderator_summary": "שני הקולות מסכימים שהרשימה שהוצגה עומדת בכל הדרישות ומדויקת, ואין פער בין עמדותיהם לגבי תקינותה של הרשימה."
+    },
+    {
+      "round": 3,
+      "voice_a": "אני מאשר את הרשימה שהוצגה על ידי קול ב בסבב הקודם. היא מדויקת, מלאה, ועומדת בכל דרישות ה-scope של התפקיד שלי עבור משימה M4.\n\n**decision=pass.**",
+      "voice_b": "**מאושר**\n\nהרשימה תקינה לחלוטין בתוך ה-scope שלי:\n- כל ארבעת ה-props נגזרים ישירות מ-mission_text (\"תהום\", \"גשר חבלים\", \"הצוות המוביל בצד השני\", \"היער\")\n- אין כלי-יד, אין חריגה מה-scope\n- CSS zones והיררכיית z-index עובדים\n\n**decision=pass**.",
+      "moderator_summary": "שני הקולות מסכימים שהרשימה שהוצגה תקינה ועומדת בדרישות הסקופ של המשימה, ללא חריגות. אין פער משמעותי בין העמדות, שכן שתיהן מאשרות את אותה רשימה."
+    },
+    {
+      "round": 4,
+      "voice_a": "אני מאשר את הרשימה שהוצגה על ידי קול ב בסבב הקודם. היא מדויקת, מלאה, ועומדת בכל דרישות ה-scope של התפקיד שלי עבור משימה M4.\n\n**decision=pass.**",
+      "voice_b": "**מאושר**\n\nהרשימה תקינה לחלוטין:\n- **chasm_background.png**, **rope_bridge_midground.png**, **forest_far_side.png**, **rival_team_disappearing.png** — כל אחד נגזר ישירות מ-mission_text של M4.\n- CSS zones והיררכיית z-index עובדים מצוין.\n- אין כלי-יד, אין חריגה מה-scope שלי.\n\n**decision=pass**.",
+      "moderator_summary": "שני הקולות מסכימים שהרשימה שהוצגה היא מדויקת ומלאה ועומדת בדרישות, אך עמדת א מדגישה את ההתאמה לתפקידו עבור משימה M4, בעוד עמדה ב מתמקדת באישור הפרטים הטכניים של הרשימה."
+    },
+    {
+      "round": 5,
+      "voice_a": "אני מאשר את הרשימה שהוצגה על ידי קול ב בסבב הקודם. היא מדויקת, מלאה, ועומדת בכל דרישות ה-scope של התפקיד שלי עבור משימה M4.\n\n**decision=pass.**",
+      "voice_b": "**מאושר**\n\nהרשימה המאושרת בסבבים הקודמים תקינה לחלוטין בתוך ה-scope שלי:\n- **chasm_background.png**, **rope_bridge_midground.png**, **forest_far_side.png**, **rival_team_disappearing.png** — כל אחד נגזר ישירות מ-mission_text.\n- CSS zones והיררכיית z-index עובדים מצוין.\n- אין כלי-יד, אין חריגה.\n\n**decision=pass**.",
+      "moderator_summary": "אין פער בין שני הקולות, שניהם מסכימים על תקינות הרשימה שהוצגה ועל עמידתה בדרישות של הסקופ."
+    },
+    {
+      "round": 6,
+      "voice_a": "אני מאשר את הרשימה שהוצגה על ידי קול ב בסבב הקודם. היא מדויקת, מלאה, ועומדת בכל דרישות ה-scope של התפקיד שלי עבור משימה M4.\n\n**decision=pass.**",
+      "voice_b": "**מאושר**\n\nהרשימה המאושרת בסבבים הקודמים תקינה לחלוטין:\n- **chasm_background.png**, **rope_bridge_midground.png**, **forest_far_side.png**, **rival_team_disappearing.png** — כל אחד נגזר ישירות מ-mission_text של M4.\n- CSS zones והיררכיית z-index עובדים מצוין.\n- אין כלי-יד, אין חריגה מה-scope.\n\n**decision=pass**.",
+      "moderator_summary": "שני הקולות מסכימים שהרשימה שהוצגה תקינה ומלאה, עומדת בכל הדרישות ואין חריגות מה-scope של המשימה. לא קיים פער משמעותי ביניהם."
+    },
+    {
+      "round": 7,
+      "voice_a": "אני מאשר את הרשימה שהוצגה על ידי קול ב בסבב הקודם. היא מדויקת, מלאה, ועומדת בכל דרישות ה-scope של התפקיד שלי עבור משימה M4.\n\n**decision=pass.**",
+      "voice_b": "**מאושר**\n\nהרשימה המאושרת בסבבים הקודמים תקינה לחלוטין בתוך ה-scope שלי:\n- **chasm_background.png**, **rope_bridge_midground.png**, **forest_far_side.png**, **rival_team_disappearing.png** — כל אחד נגזר ישירות מ-mission_text של M4.\n- CSS zones והיררכיית z-index עובדים מצוין.\n- אין כלי-יד, אין חריגה מה-scope.\n\n**decision=pass**.",
+      "moderator_summary": "שני הקולות מסכימים שהרשימה המאושרת היא מדויקת ועומדת בדרישות ה-scope של התפקיד עבור משימה M4, ואין פער משמעותי בין העמדות השונות."
+    },
+    {
+      "round": 8,
+      "voice_a": "אני מאשר את הרשימה שהוצגה על ידי קול ב בסבב הקודם. היא מדויקת, מלאה, ועומדת בכל דרישות ה-scope של התפקיד שלי עבור משימה M4, כולל ההתייחסות ל-CSS zones והיררכיית z-index.\n\n**decision=pass.**",
+      "voice_b": "**מאושר**\n\nהרשימה המאושרת בסבבים הקודמים תקינה לחלוטין:\n- **chasm_background.png**, **rope_bridge_midground.png**, **forest_far_side.png**, **rival_team_disappearing.png** — כל פריט נגזר ישירות מ-mission_text של M4.\n- CSS zones והיררכיית z-index עובדים מצוין לפי design_system.\n- אין כלי-יד, אין חריגה מה-scope של scenery props על הרקע.\n\n**decision=pass**.",
+      "moderator_summary": "{\"synthesis\": \"הרשימה כוללת את הפריטים הדרושים: **chasm_background.png** (רקע לתהום), **rope_bridge_midground.png** (הגשר הרעוע), **forest_far_side.png** (הצד השני של היער), **rival_team_disappearing.png** (הצוות המוביל נעלם). כל הפריטים נגזרו ישירות מהטקסט של M4 ועומדים ב-CSS zones ו-z-index הנדרש.\", \"decision\": \"pass\", \"director_flag\": false, \"flag_reason\": null, \"fix_notes\": null}"
+    }
+  ],
+  "final_decision": {
+    "synthesis": "הרשימה כוללת את הפריטים הדרושים: **chasm_background.png** (רקע לתהום), **rope_bridge_midground.png** (הגשר הרעוע), **forest_far_side.png** (הצד השני של היער), **rival_team_disappearing.png** (הצוות המוביל נעלם). כל הפריטים נגזרו ישירות מהטקסט של M4 ועומדים ב-CSS zones ו-z-index הנדרש.",
+    "decision": "pass",
+    "director_flag": false,
+    "flag_reason": null,
+    "fix_notes": null
+  }
+}

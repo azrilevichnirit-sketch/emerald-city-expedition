@@ -1,0 +1,95 @@
+{
+  "total_sec": 896,
+  "plan_by_mission": {
+    "M1": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "הרשימה כוללת דלת פרוצה (assets/scenery/broken_door.png), מתחרים באוויר (assets/scenery/competitors_in_air.png), וג'ונגל (assets/scenery/dense_jungle.png). כל הפריטים מתאימים למאפיינים הנדרשים לפי text mission ומחברים בין האלמנטים השונים כדי להעביר את תחושת הדחיפות והדרמה.",
+      "fix_notes": null
+    },
+    "M2": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "הרשימה כוללת ארבעה props חיוניים: עננים וברקים המדמים סערה טרופית, עצי ג'ונגל שמספקים את התחושה של הסביבה, אפקט גשם שמדגיש את האווירה החמורה, וערימת ציוד שממחישה את הצורך המידי בחשיבה מעשית על המחסה. כל הצעות ה-props מתאימות וכוללות כל פרט נדרש כדי להעביר את הנרטיב של המשימה.",
+      "fix_notes": null
+    },
+    "M3": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "*   scenery/path_straight.png (bottom:0%; left:50%; width:100%; z-index:2) — create\n*   scenery/tire_tracks.png (bottom:0%; left:0%; width:50%; z-index:3) — create\n*   scenery/jungle_edge.png (bottom:0%; left:0%; width:100%; z-index:1) — create",
+      "fix_notes": "סך הכל אביזרי הרקע תואמים בצורה מדויקת ל-mission_text של M3, עם צורך רחב בהבנה והמחשה של פרטי הסצנה והקשר המירוץ."
+    },
+    "M4": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "הרשימה כוללת את הפריטים הדרושים: **chasm_background.png** (רקע לתהום), **rope_bridge_midground.png** (הגשר הרעוע), **forest_far_side.png** (הצד השני של היער), **rival_team_disappearing.png** (הצוות המוביל נעלם). כל הפריטים נגזרו ישירות מהטקסט של M4 ועומדים ב-CSS zones ו-z-index הנדרש.",
+      "fix_notes": null
+    },
+    "M5": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "*   scenery_bush_right.png: bottom:0%; left:50%; width:50%; z-index:3 (create)\n*   scenery_broken_branches.png: bottom:0%; left:60%; width:30%; z-index:4 (create)",
+      "fix_notes": ""
+    },
+    "M6": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "הרשימה המכילה את הג'יפ המעשן, ענני האבק, הכביש בעלייה ורקע הג'ונגל מכסה את כל האלמנטים הנדרשים מ-mission_text בצורה מושלמת. כל prop נדרש ישירות, וה-zones וה-z-index תקינים. הסצנה ברורה וויזואלית.",
+      "fix_notes": "הדברים שהוצגו משקפים בדיוק את הצרכים של הסצנה."
+    },
+    "M7": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "כניסת מקדש, רכבים חונים, מכשיר קשר. שלושת הפרופסים הללו מכסים את כל הדרישות מה-mission_text ומייצרים סצנה ברורה ומובנת ויזואלית עם עומק שדה מתאים.",
+      "fix_notes": ""
+    },
+    "M8": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "*   **scenery/rock_cliff_m8.png:** bottom:0%; left:0%; width:100%; z-index:3 (create)\n*   **scenery/rain_effect_m8.png:** bottom:0%; left:0%; width:100%; z-index:4 (create)\n*   **scenery/fresh_footprints_m8.png:** bottom:10%; left:30%; width:20%; z-index:3 (create)",
+      "fix_notes": "הצעות הרקע מספקות את כל האלמנטים החיוניים כדי להמחיש את הסיטואציה המתוארת ב-mission_text, והן מסודרות בהתאם לדרישות."
+    },
+    "M9": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "לוח מקשים מהבהב, שער פלדה מסיבי וכניסה למנהרה חשוכה מספקים את כל הפריטים הדרושים להבנת הסצנה בצורה ויזואלית ונרטיבית. ה-css zones וה-z-index קבועים במדויק, ומכסים את ההיררכיה הנדרשת. הסצנה ברורה ומובנת לשחקן.",
+      "fix_notes": ""
+    },
+    "M10": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "האביזרים המוצעים כוללים את 'scenery_black_box.png', 'scenery_tunnel_floor.png', ו-'scenery_tunnel_walls.png', כולם נגזרים ישירות מטקסט המשימה ועומדים בדרישות הוויזואליות והנרטיביות. הרשימה לא השתנתה משבעת הסבבים הקודמים, והיא נותרה תקינה ומדויקת.",
+      "fix_notes": ""
+    },
+    "M11": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "הרשימה של props לסצנה במילוי משימה M11 כוללת את הפריטים הנדרשים: המצוק והמפל, הסירה המתרחקת, והמים הגועשים. כל פריט תואם לדרישות הויזואליות והנרטיביות כפי שמתואר ב-mission_text וה-cp. ההמלצות CSS וה-z-index מעוגנות ועומדות בקריטריונים של set_manager.",
+      "fix_notes": null
+    },
+    "M12": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "הרשימה שהוגשה עבור אביזרי הרקע של משימה M12 כוללת את כל האלמנטים החיוניים מה-mission_text: שתי סירות, פתח מערה חשוכה, עקבות רטובים וגדת נהר. כל הפריטים מוגדרים עם CSS zones ו-z-index מתאים.",
+      "fix_notes": ""
+    },
+    "M13": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "הרשימה שהוצעה מכסה באופן מלא את כל האלמנטים הנרטיביים והוויזואליים הנדרשים מה-mission_text, תוך הקפדה על דיוק ב-zones וב-z-index. ה-scenery props הללו יבנו את התחושה של אובדן הדרך והחושך המתקרב. הכיסוי הנרטיבי מלא, ה-zones תקינים, ואפס חפיפה עם כלי-יד.",
+      "fix_notes": ""
+    },
+    "M14": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "scenery/altar_stone.png: bottom:10%; left:30%; width:40%; z-index:3 (create), scenery/temple_entrance.png: bottom:0%; left:0%; width:100%; z-index:2 (create), scenery/guard_shadows.png: bottom:0%; left:0%; width:100%; z-index:4 (create)",
+      "fix_notes": "כל הפריטים המוצעים נכונים ועונים על הדרישות הויזואליות של המשימה M14. המזבח נותן בהירות לבחירות השחקן, הכניסה להיכל משקפת את הסביבה הנדרשת, והצללים של השומרים יוצרים תחושת דחיפות."
+    },
+    "M15": {
+      "decision": "pass",
+      "director_flag": false,
+      "synthesis": "*   **קו סיום:** (assets/scenery/finish_line.png, bottom:5%; left:45%; width:10%; z-index:4, create)\n*   **זיקוקים:** (assets/scenery/fireworks.png, bottom:60%; left:70%; width:20%; z-index:1, create)\n*   **אורות חגיגה/מוזיקה מרחוק:** (assets/scenery/distant_celebration_lights.png, bottom:10%; left:65%; width:25%; z-index:2, create)",
+      "fix_notes": ""
+    }
+  }
+}

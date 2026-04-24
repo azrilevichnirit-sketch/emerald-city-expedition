@@ -1,0 +1,143 @@
+{
+  "bg_M1": {
+    "slug": "bg_M1",
+    "mission": "M1",
+    "kind": "new",
+    "status": "delivered",
+    "final_path": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\assets\\backgrounds\\bg_M1.mp4",
+    "reconciled": "arrow-bug-masked-success"
+  },
+  "bg_M5": {
+    "slug": "bg_M5",
+    "mission": "M5",
+    "kind": "new",
+    "status": "delivered",
+    "final_path": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\assets\\backgrounds\\bg_M5.mp4",
+    "reconciled": "arrow-bug-masked-success"
+  },
+  "bg_M6": {
+    "slug": "bg_M6",
+    "mission": "M6",
+    "kind": "new",
+    "status": "delivered",
+    "final_path": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\assets\\backgrounds\\bg_M6.mp4",
+    "reconciled": "arrow-bug-masked-success"
+  },
+  "bg_M7": {
+    "slug": "bg_M7",
+    "mission": "M7",
+    "kind": "new",
+    "status": "delivered",
+    "final_path": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\assets\\backgrounds\\bg_M7.mp4",
+    "reconciled": "arrow-bug-masked-success"
+  },
+  "bg_M8": {
+    "slug": "bg_M8",
+    "mission": "M8",
+    "kind": "new",
+    "status": "delivered",
+    "final_path": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\assets\\backgrounds\\bg_M8.mp4",
+    "reconciled": "arrow-bug-masked-success"
+  },
+  "bg_M10": {
+    "slug": "bg_M10",
+    "mission": "M10",
+    "kind": "new",
+    "status": "delivered",
+    "final_path": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\assets\\backgrounds\\bg_M10.mp4",
+    "reconciled": "arrow-bug-masked-success"
+  },
+  "bg_M13": {
+    "slug": "bg_M13",
+    "mission": "M13",
+    "kind": "new",
+    "status": "delivered",
+    "final_path": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\assets\\backgrounds\\bg_M13.mp4",
+    "reconciled": "arrow-bug-masked-success"
+  },
+  "bg_M14": {
+    "slug": "bg_M14",
+    "mission": "M14",
+    "kind": "new",
+    "status": "delivered",
+    "final_path": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\assets\\backgrounds\\bg_M14.mp4",
+    "reconciled": "arrow-bug-masked-success"
+  },
+  "bg_M15": {
+    "slug": "bg_M15",
+    "mission": "M15",
+    "kind": "new",
+    "status": "delivered",
+    "final_path": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\assets\\backgrounds\\bg_M15.mp4",
+    "reconciled": "arrow-bug-masked-success"
+  },
+  "bg_06": {
+    "slug": "bg_06",
+    "mission": "M4",
+    "kind": "fix",
+    "status": "delivered",
+    "final_path": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\assets\\backgrounds\\bg_06.mp4",
+    "attempts": [
+      {
+        "attempt": 1,
+        "prompt": "A precarious rope bridge stretches across a misty jungle chasm, swaying gently in humid wind. Camera positioned at the bridge's weathered wooden platform edge, low angle capturing frayed rope railings and splintered planks in immediate foreground, their textures sharp and detailed. The bridge extends into atmospheric haze toward dense rainforest canopy on the far side, where competing expedition t",
+        "qa": {
+          "verdict": "pass",
+          "notes": "The location is a rickety rope bridge over a chasm, surrounded by dense jungle, which perfectly matches M4's description. The style is cinematic photorealistic with muted saturation, fitting the brief. There are some distant, small human silhouettes on the bridge, but they are not prominent or foreground and would not conflict with a composited player."
+        },
+        "director": {
+          "verdict": "pass",
+          "notes": "Perfect match for M4. Rickety rope bridge over chasm in dense tropical jungle reads instantly. Weathered wooden planks, frayed rope railings, atmospheric mist, and thick vegetation all communicate danger and instability exactly as briefed ('גשר החבלים רעוע והרוח מטלטלת אותו בחוזקה'). Ground-level POV with strong vanishing point creates proper depth layers. Cinematic photorealistic tropical adventure aesthetic maintained. Wind-blown atmosphere supports narrative tension of rivals already crossing. All 4 keyframes show consistent location with slight camera movement that will work for looping bg. Player compositing will work cleanly. Asset approved for M4."
+        },
+        "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\backgrounds\\_candidates\\bg_06_r1.mp4",
+        "grid": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\backgrounds\\_candidates\\bg_06_r1_grid.png"
+      }
+    ]
+  },
+  "bg_07": {
+    "slug": "bg_07",
+    "mission": "M9",
+    "kind": "fix",
+    "status": "delivered",
+    "final_path": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\assets\\backgrounds\\bg_07.mp4",
+    "attempts": [
+      {
+        "attempt": 1,
+        "prompt": "Ancient stone tunnel entrance stretching deep into darkness, massive oxidized steel gate half-open on heavy rusted hinges, rough-hewn rock walls closing inward creating narrow passage perspective, worn stone floor with shallow water puddles reflecting dim ambient light, tropical vines creeping down weathered stonework, subtle mist rising from underground, desaturated earth tones with muted greens ",
+        "qa": {
+          "verdict": "pass",
+          "notes": "The location is an ancient, overgrown stone tunnel with a massive, rusty metal gate. This fits the mission description of entering a 'מנהרה עם שער פלדה מסיבי' (tunnel with a massive steel gate) and the subsequent 'הליכה במנהרה חשוכה עם הדים של מים' (walking in a dark tunnel with echoes of water). The style is cinematic photorealistic, and there are no conflicting foreground characters or oversaturated colors. The ground-level POV is maintained."
+        },
+        "director": {
+          "verdict": "pass",
+          "notes": "Strong match for M9 context. All keyframes show ancient stone architecture with massive metallic door/gate, overgrown with jungle vegetation - perfectly reads as 'כניסה למנהרה עם שער פלדה מסיבי' (tunnel entrance with massive steel gate). The weathered metal door with rivets/bolts visible establishes the 'לוח המקשים מהבהב באדום' (keypad glowing red) scenario. Cinematic photorealistic style matches Camera Bible specs: ground-level POV, layered depth (foreground ruins/mid-ground gate/background tunnel interior), muted tropical saturation. Lighting shows natural overhead source filtering through jungle canopy, creating atmospheric tension appropriate for the 60-second countdown moment. Gate structure dominates composition while maintaining mystery of what lies beyond - supports player standing at decision point. Consistent with progression from M8's rock climb to this sealed entrance checkpoint."
+        },
+        "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\backgrounds\\_candidates\\bg_07_r1.mp4",
+        "grid": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\backgrounds\\_candidates\\bg_07_r1_grid.png"
+      }
+    ]
+  },
+  "bg_01": {
+    "slug": "bg_01",
+    "mission": "M3",
+    "kind": "redo",
+    "status": "delivered",
+    "final_path": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\assets\\backgrounds\\bg_01.mp4",
+    "attempts": [
+      {
+        "attempt": 1,
+        "prompt": "Wide jungle clearing at golden-hour dawn, ground-level POV looking forward where dirt path forks into Y-junction. Left fork shows fresh muddy tire tracks churning upward into dense foliage, dust still settling in morning mist. Right fork pristine, untouched, following faded trail markers disappearing into shadowy overgrowth. Foreground: wet grass and scattered leaves catching low sunlight. Mid-gro",
+        "qa": {
+          "verdict": "pass",
+          "notes": "The location is a jungle path that splits, which perfectly matches the mission's description of choosing between a straight path and one with tire tracks. The style is cinematic photorealistic, and there are no prominent foreground characters or oversaturated colors. The ground-level POV is also maintained."
+        },
+        "director": {
+          "verdict": "pass",
+          "notes": "Strong match for M3. Reads instantly as jungle trail decision point — the fork in the muddy dirt road with fresh tire tracks is clearly visible, establishing the 'straight path vs. competitor tracks' dilemma. Ground-level POV with slight low angle is correct. Tropical dense jungle atmosphere with morning mist, muted saturation, and cinematic photorealism all align with camera bible. Three-layer depth (foreground vegetation/mid-ground path/background treeline) is present. The wet mud and tire impressions support the narrative of recent rival activity. Lighting (backlit sunrise through canopy) adds urgency. All 4 keyframes show consistent framing and continuity. Minor variation in mist density across frames is acceptable for video motion. This bg will composite cleanly with player character and supports tool interactions (map/binoculars/motorized key). Approved for M3."
+        },
+        "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\backgrounds\\_candidates\\bg_01_r1.mp4",
+        "grid": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\backgrounds\\_candidates\\bg_01_r1_grid.png"
+      }
+    ]
+  }
+}

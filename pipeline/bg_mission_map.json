@@ -1,0 +1,29 @@
+{
+  "_description": "Canonical bg→mission mapping. Source of truth for cross-asset audits.",
+  "_updated_at": "2026-04-22",
+  "map": {
+    "bg_01": "M3",
+    "bg_02": "M12",
+    "bg_03": "M9",
+    "bg_04": "M11",
+    "bg_05": "M2",
+    "bg_06": "M4",
+    "bg_07": "M9",
+    "bg_08": "M2",
+    "bg_09": "M11",
+    "bg_M1": "M1",
+    "bg_M5": "M5",
+    "bg_M6": "M6",
+    "bg_M7": "M7",
+    "bg_M8": "M8",
+    "bg_M10": "M10",
+    "bg_M13": "M13",
+    "bg_M14": "M14",
+    "bg_M15": "M15"
+  },
+  "notes": {
+    "bg_01": "redo target for M3 — blocked on Veo quota 2026-04-22",
+    "bg_06": "existing with fix_notes for M4 — regenerate with fixes",
+    "bg_07": "existing with fix_notes for M9 (M9 has bg_03 as primary) — regenerate with fixes"
+  }
+}

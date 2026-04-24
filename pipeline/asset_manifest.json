@@ -1,0 +1,291 @@
+{
+  "organized_at": "2026-04-20",
+  "organized_by": "folder_organizer (manual execution per Producer approval)",
+  "summary": {
+    "backgrounds": 9,
+    "player": 6,
+    "tools": 45,
+    "tools_raw": 48,
+    "scenery": 0,
+    "effects": 0,
+    "rivals": 9
+  },
+  "missing_from_content_lock": [
+    {
+      "ref": "tools/מצנח_מ01.png",
+      "mission": "M1",
+      "slot": "A"
+    },
+    {
+      "ref": "tools/גלשן_מ01.png",
+      "mission": "M1",
+      "slot": "B"
+    },
+    {
+      "ref": "tools/כנפיים_מ01.png",
+      "mission": "M1",
+      "slot": "C"
+    },
+    {
+      "ref": "tools/ברזנט_מ02.png",
+      "mission": "M2",
+      "slot": "A"
+    },
+    {
+      "ref": "tools/פטיש_מ02.jpg",
+      "mission": "M2",
+      "slot": "B"
+    },
+    {
+      "ref": "tools/אוהל_מ02.png",
+      "mission": "M2",
+      "slot": "C"
+    },
+    {
+      "ref": "tools/מפה_מקומטת_מ03.png",
+      "mission": "M3",
+      "slot": "A"
+    },
+    {
+      "ref": "tools/משקפת_שדה_מ03.png",
+      "mission": "M3",
+      "slot": "B"
+    },
+    {
+      "ref": "tools/מפתח_טרקטורון_מ03.png",
+      "mission": "M3",
+      "slot": "C"
+    },
+    {
+      "ref": "tools/לוחות_עץ_פטיש_מ04.png",
+      "mission": "M4",
+      "slot": "A"
+    },
+    {
+      "ref": "tools/רתמת_אבטחה_מ04.png",
+      "mission": "M4",
+      "slot": "B"
+    },
+    {
+      "ref": "tools/רובה_חבלים_מ04.png",
+      "mission": "M4",
+      "slot": "C"
+    },
+    {
+      "ref": "tools/פנס_עוצמתי_מ05.png",
+      "mission": "M5",
+      "slot": "A"
+    },
+    {
+      "ref": "tools/רשת_הגנה_מ05.png",
+      "mission": "M5",
+      "slot": "B"
+    },
+    {
+      "ref": "tools/לפיד_בוער_מ05.png",
+      "mission": "M5",
+      "slot": "C"
+    },
+    {
+      "ref": "tools/ג'ריקן_שמן_מ06.png",
+      "mission": "M6",
+      "slot": "A"
+    },
+    {
+      "ref": "tools/ערכת_כלי_עבודה_מ06.png",
+      "mission": "M6",
+      "slot": "B"
+    },
+    {
+      "ref": "tools/אופני_הרים_מ06.png",
+      "mission": "M6",
+      "slot": "C"
+    },
+    {
+      "ref": "tools/דגל_משימה_מ07.png",
+      "mission": "M7",
+      "slot": "A"
+    },
+    {
+      "ref": "tools/פריסקופ_מ07.png",
+      "mission": "M7",
+      "slot": "B"
+    },
+    {
+      "ref": "tools/לום_ברזל_מ07.png",
+      "mission": "M7",
+      "slot": "C"
+    },
+    {
+      "ref": "tools/סולם_חבלים_מ08.png",
+      "mission": "M8",
+      "slot": "A"
+    },
+    {
+      "ref": "tools/חבל_קשרים_מ08.png",
+      "mission": "M8",
+      "slot": "B"
+    },
+    {
+      "ref": "tools/טפרי_טיפוס_מ08.png",
+      "mission": "M8",
+      "slot": "C"
+    },
+    {
+      "ref": "tools/שמן_לשימון_מ09.png",
+      "mission": "M9",
+      "slot": "A"
+    },
+    {
+      "ref": "tools/רב_כלי_מ09.png",
+      "mission": "M9",
+      "slot": "B"
+    },
+    {
+      "ref": "tools/מבער_ריתוך_מ09.png",
+      "mission": "M9",
+      "slot": "C"
+    },
+    {
+      "ref": "tools/מצלמה_זעירה_מ10.png",
+      "mission": "M10",
+      "slot": "A"
+    },
+    {
+      "ref": "tools/שמיכת_מיגון_מ10.png",
+      "mission": "M10",
+      "slot": "B"
+    },
+    {
+      "ref": "tools/קאטר_מ10.png",
+      "mission": "M10",
+      "slot": "C"
+    },
+    {
+      "ref": "tools/חבל_סנפלינג_מ11.png",
+      "mission": "M11",
+      "slot": "A"
+    },
+    {
+      "ref": "tools/בנג'י_מ11.png",
+      "mission": "M11",
+      "slot": "B"
+    },
+    {
+      "ref": "tools/מצנח_מ11.png",
+      "mission": "M11",
+      "slot": "C"
+    },
+    {
+      "ref": "tools/כרטיס_סירה_מ12.png",
+      "mission": "M12",
+      "slot": "A"
+    },
+    {
+      "ref": "tools/מצלמה_פלאש_מ12.png",
+      "mission": "M12",
+      "slot": "B"
+    },
+    {
+      "ref": "tools/לפיד_מ12.png",
+      "mission": "M12",
+      "slot": "C"
+    },
+    {
+      "ref": "tools/סרגל_מ13.png",
+      "mission": "M13",
+      "slot": "A"
+    },
+    {
+      "ref": "tools/מצפן_מ13.png",
+      "mission": "M13",
+      "slot": "B"
+    },
+    {
+      "ref": "tools/רחפן_מ13.png",
+      "mission": "M13",
+      "slot": "C"
+    },
+    {
+      "ref": "tools/שקית_מטבעות_מ14.png",
+      "mission": "M14",
+      "slot": "A"
+    },
+    {
+      "ref": "tools/תיבת_עץ_מ14.png",
+      "mission": "M14",
+      "slot": "B"
+    },
+    {
+      "ref": "tools/כדור_בדולח_מ14.png",
+      "mission": "M14",
+      "slot": "C"
+    },
+    {
+      "ref": "tools/דגל_סיום_מ15.png",
+      "mission": "M15",
+      "slot": "A"
+    },
+    {
+      "ref": "tools/מגאפון_מ15.png",
+      "mission": "M15",
+      "slot": "B"
+    },
+    {
+      "ref": "tools/זיקוק_מ15.png",
+      "mission": "M15",
+      "slot": "C"
+    }
+  ],
+  "extra_files_not_in_spec": [
+    {
+      "file": "assets/backgrounds/bg_01.mp4 … bg_09.mp4 (9 files)",
+      "note": "backgrounds not enumerated in content_lock.json — expected, tracked elsewhere (scene briefs)"
+    },
+    {
+      "file": "assets/player/pose_01.mp4 … pose_06.mp4 (6 files)",
+      "note": "player pose videos not enumerated in content_lock.json — expected, tracked via pose_map.json (פאזה 0C)"
+    },
+    {
+      "file": "assets/rivals/rival_female_01..04.webp, rival_male_01..04.webp (8 files)",
+      "note": "rival portraits not enumerated in content_lock.json — expected, tracked by actor_director"
+    },
+    {
+      "file": "assets/rivals/parachute_blue_top.webp",
+      "note": "content_lock.json does not directly reference this filename in tools; extension is .webp while spec conventions elsewhere suggest .png"
+    }
+  ],
+  "naming_mismatches": [
+    {
+      "folder": "assets/player/",
+      "current_pattern": "pose_*.mp4",
+      "spec_pattern_in_folder_organizer": "anim_*.mp4",
+      "resolution": "awaiting Producer decision — אסור לשנות שמות without approval"
+    }
+  ],
+  "blocking_gaps_before_next_phase": {
+    "tools_count_expected": 45,
+    "tools_count_present": 0,
+    "implication": "פאזה 0E (יצירת 44 כלים) חייבת לרוץ לפני שniתן לבנות סצנות. Visual Prompt Writer + Image Generator יצטרכו לייצר את כל הכלים ברשימת missing_from_content_lock."
+  },
+  "missing_inputs_flagged": [
+    {
+      "file": "visual_and_sound_moud.xlsx",
+      "expected_location": "project root",
+      "used_by": [
+        "agents/sound_designer.md",
+        "agents/visual_prompt_writer.md"
+      ],
+      "status": "NOT FOUND — Producer confirmed file exists but filesystem scan shows absent; requires re-upload before פאזה 0E"
+    }
+  ],
+  "preserved_at_root": [
+    "keys/",
+    "leonardo_key/",
+    "openai/",
+    "master_player/ (per Producer: התעלמי)"
+  ],
+  "_refreshed_at": "2026-04-21",
+  "_refreshed_by": "director (debate infra refresh, pre Phase 0C+0D+0F parallel tracks)",
+  "_status_note": "summary.tools = count in assets/tools_final/ (delivered). tools_raw = legacy originals under assets/tools/."
+}
