@@ -1,0 +1,696 @@
+{
+  "ts": "2026-04-24T20:14:53Z",
+  "total": 96,
+  "by_status": {
+    "FAIL_exhausted_3_rounds": 86,
+    "FAIL_master_gave_up": 5,
+    "FAIL_master_error": 2,
+    "OK": 3
+  },
+  "by_category": {
+    "tools": {
+      "ok": 0,
+      "fail": 45,
+      "pending": 0
+    },
+    "scenery": {
+      "ok": 3,
+      "fail": 48,
+      "pending": 0
+    }
+  },
+  "items": [
+    {
+      "slug": "מצנח_מ01",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "גלשן_מ01",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "כנפיים_מ01",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "ברזנט_מ02",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "פטיש_מ02",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "אוהל_מ02",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "מפה_מקומטת_מ03",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "משקפת_שדה_מ03",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "מפתח_טרקטורון_מ03",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "לוחות_עץ_פטיש_מ04",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "רתמת_אבטחה_מ04",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "רובה_חבלים_מ04",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "פנס_עוצמתי_מ05",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "רשת_הגנה_מ05",
+      "category": "tools",
+      "status": "FAIL_master_gave_up",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "לפיד_בוער_מ05",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "ג'ריקן_שמן_מ06",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "ערכת_כלי_עבודה_מ06",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "אופני_הרים_מ06",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "דגל_משימה_מ07",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "פריסקופ_מ07",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "לום_ברזל_מ07",
+      "category": "tools",
+      "status": "FAIL_master_gave_up",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "סולם_חבלים_מ08",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "חבל_קשרים_מ08",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "טפרי_טיפוס_מ08",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "שמן_לשימון_מ09",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "רב_כלי_מ09",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "מבער_ריתוך_מ09",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "מצלמה_זעירה_מ10",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "שמיכת_מיגון_מ10",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "קאטר_מ10",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "חבל_סנפלינג_מ11",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "בנג'י_מ11",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "מצנח_מ11",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "כרטיס_סירה_מ12",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "מצלמה_פלאש_מ12",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "לפיד_מ12",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "סרגל_מ13",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "מצפן_מ13",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "רחפן_מ13",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "שקית_מטבעות_מ14",
+      "category": "tools",
+      "status": "FAIL_master_gave_up",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "תיבת_עץ_מ14",
+      "category": "tools",
+      "status": "FAIL_master_gave_up",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "כדור_בדולח_מ14",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "דגל_סיום_מ15",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "מגאפון_מ15",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "זיקוק_מ15",
+      "category": "tools",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "broken_door",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "competitors_in_air",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "dense_jungle",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "storm_clouds_lightning",
+      "category": "scenery",
+      "status": "FAIL_master_error",
+      "path": null,
+      "rounds": 1
+    },
+    {
+      "slug": "jungle_trees",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "rain_effect",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "equipment_pile",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "path_straight",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "tire_tracks",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "jungle_edge",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "chasm_background",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "rope_bridge_midground",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "forest_far_side",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "rival_team_disappearing",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "scenery_bush_right",
+      "category": "scenery",
+      "status": "FAIL_master_gave_up",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "scenery_broken_branches",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "smoking_jeep",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "dust_clouds",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "uphill_road",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "jungle_background",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "temple_entrance_m7",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "parked_vehicles",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "walkie_talkie",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "rock_cliff_m8",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "rain_effect_m8",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "fresh_footprints_m8",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "flashing_keypad",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "steel_gate",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "dark_tunnel_entrance",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "scenery_black_box",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "scenery_tunnel_floor",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "scenery_tunnel_walls",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "cliff_waterfall",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "escape_boat_distant",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "churning_water_pool",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "competitor_boat_at_cave",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "dark_cave_entrance",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "wet_footprints_trail",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "main_boat_at_shore",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "river_shore_bank",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "dense_jungle_thicket",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "darkening_sky",
+      "category": "scenery",
+      "status": "OK",
+      "path": "pipeline/review/shutterstock/scenery/darkening_sky.jpg",
+      "rounds": 1
+    },
+    {
+      "slug": "overgrown_path",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "fake_map_torn",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "encroaching_darkness",
+      "category": "scenery",
+      "status": "FAIL_master_error",
+      "path": null,
+      "rounds": 1
+    },
+    {
+      "slug": "altar_stone",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "temple_entrance_m14",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "guard_shadows",
+      "category": "scenery",
+      "status": "OK",
+      "path": "pipeline/review/shutterstock/scenery/guard_shadows.jpg",
+      "rounds": 2
+    },
+    {
+      "slug": "finish_line",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    },
+    {
+      "slug": "fireworks",
+      "category": "scenery",
+      "status": "OK",
+      "path": "pipeline/review/shutterstock/scenery/fireworks.jpg",
+      "rounds": 2
+    },
+    {
+      "slug": "distant_celebration_lights",
+      "category": "scenery",
+      "status": "FAIL_exhausted_3_rounds",
+      "path": null,
+      "rounds": 3
+    }
+  ]
+}
