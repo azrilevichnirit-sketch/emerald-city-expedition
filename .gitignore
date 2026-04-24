@@ -28,3 +28,7 @@ Thumbs.db
 # Local-only staging that shouldn't sync (workflow commits these in CI)
 # NOTE: pipeline/staging/shutterstock/ IS committed by the CI workflow as
 # output. Don't ignore it.
+
+# Shutterstock pipeline disabled (rembg destroyed scenery shots).
+# Re-enable only after post-processing logic is fixed.
+pipeline/staging/shutterstock/
