@@ -1,0 +1,14 @@
+{
+  "tools": {
+    "גלשן_מ01": {
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\גלשן_מ01_r5_raw.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\גלשן_מ01_r5_final.png",
+      "prompt": "A single colorful paragliding wing in full flight, seen from the SIDE in clear PROFILE view so the distinctive long horizontal banana-curved crescent airfoil shape is unmistakable. The wing is a wide elongated inflatable fabric airfoil stretching across the entire width of the frame, with many individual cells in alternating red, yellow, green and blue fabric. The LEADING EDGE facing forward shows a row of small dark rectangular air intake openings — the signature feature of a paragliding ram-air wing. About thirty thin black suspension lines spread out from underneath the wing and converge downward into a small empty cloth harness seat hanging below the center of the wing. The wing is mid-air, floating, photographed against a plain uniform light blue sky with no clouds and no ground visible. No pilot in the harness. Sports catalog photography of paragliding equipment, side-profile angle, crescent airfoil shape clearly readable."
+    },
+    "מצנח_בסיס_מ11": {
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\מצנח_בסיס_מ11_r5_raw.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\מצנח_בסיס_מ11_r5_final.png",
+      "prompt": "A fully deployed open skydiving ram-air parachute canopy in mid-flight, shown from below at a 3/4 angle so the full rectangular gliding wing is clearly visible from underneath. The canopy is a rectangular NINE-CELL ram-air parachute in bold orange and white alternating vertical stripes, stiff and fully inflated like a rigid rectangular mattress floating in the sky. Many thin black suspension lines fan down from the bottom surface of the canopy and converge into a small empty climbing harness hanging below the center, with no jumper in it. The canopy is photographed in an open clear blue sky with a few soft white clouds in the distance, no ground visible. Skydiving stock photography, the rectangular gliding parachute shape is unambiguously an open deployed BASE/skydiving canopy, not a backpack and not a round classic parachute."
+    }
+  }
+}
