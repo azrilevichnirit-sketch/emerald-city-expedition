@@ -1,0 +1,95 @@
+{
+  "_stage": "assembly",
+  "_mission": "M10",
+  "_generated_at": "2026-04-24T18:33:24Z",
+  "_generated_by": "agent_04_assembly",
+  "scene_id": "M10",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "backgrounds/M10_tunnel_darkness.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 35,
+        "y_pct": 58
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_02.mp4",
+        "pose_05.mp4",
+        "pose_07.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "tools/מצלמה_זעירה_מ10.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 72,
+        "y_pct": 25
+      },
+      "scale": 0.9,
+      "rot_deg": -8,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 33,
+      "role": "tool",
+      "file": "tools/שמיכת_מיגון_מ10.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 50
+      },
+      "scale": 0.95,
+      "rot_deg": 5,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "tools/קאטר_מ10.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 78,
+        "y_pct": 75
+      },
+      "scale": 0.9,
+      "rot_deg": -3,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Player positioned left-of-center facing right toward the ticking black box (foreground layer in bg video), creating tension and directional focus. Tools arranged in tight vertical cluster on right side to maximize urgency and readability during countdown scenario. Minimal rotation preserves clarity under time pressure.",
+  "rationale": "M10's 3-2-1 countdown demands instant visual hierarchy: player's gaze/body anchors left, tools stacked compactly right for split-second scanning. Ground-POV bg video provides the three depth layers (box/walls/exit light); player pose candidates favor alert/reactive stances (pose_02 crouch-alert, pose_05 forward-lean, pose_07 defensive). Z-indexing keeps tools above player to simulate 'reaching for solution' spatial logic."
+}

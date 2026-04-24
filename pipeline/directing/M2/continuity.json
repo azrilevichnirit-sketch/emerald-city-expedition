@@ -1,0 +1,24 @@
+{
+  "_stage": "continuity",
+  "_mission": "M2",
+  "_generated_at": "2026-04-24T18:29:34Z",
+  "_generated_by": "agent_05_continuity",
+  "from_mission": "M1",
+  "to_mission": "M2",
+  "entry_transition": {
+    "type": "push_up",
+    "duration_ms": 550,
+    "notes": "Push upward simulates rapid jungle ascent into clearing as storm darkens overhead; maintains rightward momentum from M1 while introducing vertical threat (lightning above)"
+  },
+  "exit_handoff": {
+    "leaves_on": "Secured equipment under chosen shelter solution with storm raging in background — checkpoint relief ('שרדנו את הלילה') but mission_text forward drive ('המסע האמיתי מתחיל') creates anticipation",
+    "next_scene_should_open_with": "Morning-after reveal: storm passed, jungle glistening wet, player emerging from shelter into transformed landscape; shift from defensive survival to active journey mode"
+  },
+  "mood_arc": "Escalates from M1's forward urgency into immediate environmental threat (lightning overhead, tropical storm imminent). Tension peaks during tool decision, resolves to cautious relief at checkpoint but maintains underlying momentum for 'real journey ahead.'",
+  "visual_callbacks": [
+    "Tropical light quality from M1 now darkened/storm-filtered, showing time progression and weather shift",
+    "Player's rightward orientation from M1 maintained but now facing tools (right third), preserving directional continuity",
+    "Dense jungle backdrop from M1 still visible but now threatening rather than merely obstructive"
+  ],
+  "rationale": "Push-up transition conveys both spatial movement (deeper into jungle, finding clearing) and dramatic escalation (storm descending). Exit handoff pivots from reactive crisis to proactive journey, setting up M3 as true expedition start. Storm serves as narrative hinge: M1 competitors → M2 survival → M3 mission proper."
+}

@@ -1,0 +1,95 @@
+{
+  "_stage": "assembly",
+  "_mission": "M3",
+  "_generated_at": "2026-04-24T18:29:46Z",
+  "_generated_by": "agent_04_assembly",
+  "scene_id": "M3",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 35,
+        "y_pct": 58
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_02.mp4",
+        "pose_03.mp4",
+        "pose_07.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "tools/מפה_מקומטת_מ03.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 75,
+        "y_pct": 25
+      },
+      "scale": 0.18,
+      "rot_deg": -8,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 33,
+      "role": "tool",
+      "file": "tools/משקפת_שדה_מ03.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 50
+      },
+      "scale": 0.16,
+      "rot_deg": 5,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "tools/מפתח_טרקטורון_מ03.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 78,
+        "y_pct": 72
+      },
+      "scale": 0.17,
+      "rot_deg": 12,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Player positioned left-of-center facing right toward the decision tools, creating visual tension between following the map vs. chasing competitors. Tools arranged in compact right-side cluster to represent the urgent choice moment.",
+  "rationale": "M3 is a split-second racing decision — the layout mirrors the crossroads drama by placing player in contemplative stance on left while tools cluster tightly on right (map high=rational choice, binoculars mid=scouting, key low=speed temptation), forcing visual comparison and heightening the 'stick to plan vs. follow the pack' dilemma."
+}

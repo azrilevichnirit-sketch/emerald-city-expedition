@@ -1,0 +1,24 @@
+{
+  "_stage": "continuity",
+  "_mission": "M4",
+  "_generated_at": "2026-04-24T18:30:29Z",
+  "_generated_by": "agent_05_continuity",
+  "from_mission": "M3",
+  "to_mission": "M4",
+  "entry_transition": {
+    "type": "push_up",
+    "duration_ms": 550,
+    "notes": "Vertical push simulates the sudden arrival at cliff edge — landscape 'drops away' as M3's forward momentum meets M4's abrupt obstacle. Motion from M3 resolves into stillness at precipice."
+  },
+  "exit_handoff": {
+    "leaves_on": "Player mid-crossing or just landed on far side — body language transitioning from tension (bridge/chasm) to alertness as dense vegetation looms. Wind/motion blur fading, replaced by enclosing shadows of forest threshold.",
+    "next_scene_should_open_with": "Immediate environmental shift: claustrophobic vegetation closing in, light quality changing (darker/filtered), checkpoint emotion 'הצמחייה סוגרת עליי' viscerally present. Player reorienting from open chasm to enclosed jungle."
+  },
+  "mood_arc": "M3's racing urgency crashes into M4's forced pause at the chasm — adrenaline pivots from horizontal chase to vertical problem-solving. Crossing restores momentum but with new vulnerability (exposure, isolation from lead group).",
+  "visual_callbacks": [
+    "Dust/motion blur from M3's path choice carries into M4's opening frame, settling as player stops at cliff edge",
+    "Competitor silhouettes (distant, on far side or disappearing into trees) — visual echo of M3's 'נושפת בעורפי' pressure",
+    "Directional lean from M3's decisive posture continues in M4 as player faces right toward bridge/far side"
+  ],
+  "rationale": "Push_up transition mirrors the physical 'drop' of discovering the chasm, converting M3's forward drive into M4's vertical challenge. Exit preps M5 for environmental claustrophobia (checkpoint: 'הצמחייה סוגרת') by showing vegetation threshold as crossing completes. Callbacks maintain race context (competitors) while grounding the obstacle's immediacy (motion → stillness → motion)."
+}

@@ -1,0 +1,125 @@
+{
+  "_stage": "assembly",
+  "_mission": "M4",
+  "_generated_at": "2026-04-24T18:30:14Z",
+  "_generated_by": "agent_04_assembly",
+  "scene_id": "M4",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 12,
+      "role": "scenery",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 35
+      },
+      "scale": 0.4,
+      "rot_deg": -5,
+      "anchor": "center",
+      "fit": null,
+      "pose_candidates": []
+    },
+    {
+      "z": 15,
+      "role": "scenery",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 15,
+        "y_pct": 70
+      },
+      "scale": 0.6,
+      "rot_deg": 3,
+      "anchor": "bottom-left",
+      "fit": null,
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 35,
+        "y_pct": 55
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_04.mp4",
+        "pose_06.mp4",
+        "pose_03.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "tools/לוחות_עץ_פטיש_מ04.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 75,
+        "y_pct": 75
+      },
+      "scale": 0.18,
+      "rot_deg": -8,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 33,
+      "role": "tool",
+      "file": "tools/רתמת_אבטחה_מ04.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 60
+      },
+      "scale": 0.16,
+      "rot_deg": 5,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "tools/רובה_חבלים_מ04.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 80,
+        "y_pct": 45
+      },
+      "scale": 0.17,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Player positioned left-of-center facing right toward the chasm/bridge, creating directional tension toward the crossing. Tools arranged in tight vertical cluster on right side to suggest urgency and proximity to decision point. Scenery elements frame the precipice context.",
+  "rationale": "Mission text describes standing at a broken path with a shaky rope bridge and strong wind — player pose shows reaching/leaning forward (pose_04/06) as if gauging the crossing. Tools clustered right reinforce the immediate tactical choice needed to traverse the abyss before the lead team disappears into the forest."
+}

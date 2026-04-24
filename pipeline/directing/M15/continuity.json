@@ -1,0 +1,24 @@
+{
+  "_stage": "continuity",
+  "_mission": "M15",
+  "_generated_at": "2026-04-24T18:36:08Z",
+  "_generated_by": "agent_05_continuity",
+  "from_mission": "M14",
+  "to_mission": "M15",
+  "entry_transition": {
+    "type": "cross_dissolve",
+    "duration_ms": 600,
+    "notes": "Dissolve from frantic temple escape (M14 kinetic energy) to sudden stillness at empty finish line. Contrast between chase urgency and eerie quiet amplifies emotional shift from triumph to isolation."
+  },
+  "exit_handoff": {
+    "leaves_on": "Player frozen in indecision at empty finish line, distant fireworks bursting in sky (opposite direction). Body language shifts from confusion (pose_01 look_around) to resolve — weight transferring toward the direction of celebration sounds. The white finish line remains visible but abandoned, no longer the goal.",
+    "next_scene_should_open_with": "Player mid-stride running TOWARD the distant celebration (away from empty finish line). Chosen tool from M15 (flag/megaphone/firework) visible in hand or being used. Transition from solitude to community — sounds of crowd/music growing louder, lighting warmer. If final mission: arrival at true gathering, realization that connection mattered more than winning."
+  },
+  "mood_arc": "Sharp tonal pivot from M14's adrenaline-fueled escape to M15's existential pause. Player arrives victorious but alone — the empty finish line and distant celebration create cognitive dissonance that forces choice between hollow achievement and authentic belonging.",
+  "visual_callbacks": [
+    "Treasure from M14 still clutched in hand (continuity of 'winning' the game)",
+    "Tropical jungle palette maintained but lighting shifts to golden-hour warmth (time passage from temple interior to exterior finale)",
+    "Ground-POV camera angle consistent with M14's player-perspective immersion"
+  ],
+  "rationale": "M14 ends mid-escape with treasure secured; M15 opens post-arrival at intended goal. The 600ms cross-dissolve bridges the implied journey while emphasizing the emotional whiplash — from 'I won!' to 'Did I win the wrong thing?' The exit handoff prepares for either final mission resolution (joining celebration) or reflective denouement, leaving player poised between isolation and community."
+}

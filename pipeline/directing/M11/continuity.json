@@ -1,0 +1,24 @@
+{
+  "_stage": "continuity",
+  "_mission": "M11",
+  "_generated_at": "2026-04-24T18:34:03Z",
+  "_generated_by": "agent_05_continuity",
+  "from_mission": "M10",
+  "to_mission": "M11",
+  "entry_transition": {
+    "type": "push_up",
+    "duration_ms": 650,
+    "notes": "Camera rises from tunnel exit (M10) to clifftop vantage (M11), mimicking player's climb to higher ground. Natural upward motion reinforces vertical geography and sets up the 50-meter drop reveal."
+  },
+  "exit_handoff": {
+    "leaves_on": "Player at cliff edge, body coiled in decision posture, gaze locked downward on escaping boat cutting white wake through churning river below. Engine sound fading. Tools visible but untouched — moment frozen before the leap.",
+    "next_scene_should_open_with": "Mid-air or water impact — player already committed, tool deployed (whichever chosen). Transition should feel like consequence, not hesitation. Water spray, motion blur, adrenaline peak."
+  },
+  "mood_arc": "Relief from M10's enclosed dread pivots instantly to open-air urgency. The waterfall that signaled escape now frames a new crisis: vertical distance vs. time. Awe collapses into calculation — beauty becomes obstacle.",
+  "visual_callbacks": [
+    "Waterfall mist (M10 background) now dominates midground, connecting tunnel-exit reveal to clifftop perspective",
+    "Tropical greenery from M10's 'light at tunnel end' now frames foreground left/right as cliff-edge vegetation",
+    "Natural light quality (M10's 'flood of daylight') sustained — high contrast, late-morning sun, same weather system"
+  ],
+  "rationale": "Push-up transition literalizes the climb from tunnel to cliff while maintaining spatial continuity of the waterfall landmark. Exit handoff freezes on *decision* (not action) so M12 can open on *consequence*, preserving player agency feeling. Callbacks anchor the same jungle environment across both missions despite radical shift in elevation and stakes."
+}

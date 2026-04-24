@@ -1,0 +1,95 @@
+{
+  "_stage": "assembly",
+  "_mission": "M11",
+  "_generated_at": "2026-04-24T18:33:49Z",
+  "_generated_by": "agent_04_assembly",
+  "scene_id": "M11",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "backgrounds/M11_cliff_waterfall.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 35,
+        "y_pct": 45
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_01.mp4",
+        "pose_04.mp4",
+        "pose_07.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "tools/חבל_סנפלינג_מ11.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 15,
+        "y_pct": 20
+      },
+      "scale": 0.18,
+      "rot_deg": -8,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 33,
+      "role": "tool",
+      "file": "tools/בנג'י_מ11.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 15
+      },
+      "scale": 0.2,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "tools/מצנח_מ11.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 20
+      },
+      "scale": 0.18,
+      "rot_deg": 8,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Tools arranged in shallow arc across top third to evoke urgency and choice under pressure. Player positioned left-of-center at cliff edge, facing right toward escaping boat (implied frame-right). Vertical composition emphasizes 50-meter drop.",
+  "rationale": "M11 demands split-second decision at cliff edge. Player pose candidates suggest readiness/assessment (01), forward lean/preparation (04), or tense stance (07). Tool triangle spans upper frame to avoid obscuring waterfall drama below. Slight tool rotations add kinetic tension matching mission urgency."
+}

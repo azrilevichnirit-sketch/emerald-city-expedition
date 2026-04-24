@@ -1,0 +1,24 @@
+{
+  "_stage": "continuity",
+  "_mission": "M1",
+  "_generated_at": "2026-04-24T18:29:07Z",
+  "_generated_by": "agent_05_continuity",
+  "from_mission": null,
+  "to_mission": "M1",
+  "entry_transition": {
+    "type": "open_sequence",
+    "duration_ms": 1200,
+    "notes": "Cold open from black with rapid fade-in synced to wind roar SFX, establishing the 'already in motion' urgency of the plane door breach scenario"
+  },
+  "exit_handoff": {
+    "leaves_on": "Player in post-landing crouch, oriented right toward dense jungle depth — checkpoint achieved but mission_text urgency ('חייבים לזוז') unresolved, creating forward momentum",
+    "next_scene_should_open_with": "Immediate continuation of rightward movement into jungle interior; carry over the tropical morning light quality and maintain the 'competitors ahead' time pressure established in M1"
+  },
+  "mood_arc": "Opens with adrenaline spike (plane breach, freefall urgency, competitors already ahead) and resolves to grounded determination (successful landing, jungle density assessment, readiness to move). Emotional shift from airborne chaos to terrestrial focus.",
+  "visual_callbacks": [
+    "Tropical morning light quality (establishes time-of-day continuity for subsequent missions)",
+    "Dense jungle canopy in background (geographic anchor for island setting)",
+    "Right-facing player orientation (directional continuity cue for M2 entry)"
+  ],
+  "rationale": "M1 is origin point — open_sequence establishes the visual/temporal/emotional baseline. 1200ms allows SFX (wind, landing impact) to sync with visual fade-in. Exit handoff preserves rightward momentum and unresolved urgency ('חייבים לזוז') so M2 can pick up seamlessly as jungle penetration begins. Callbacks seed continuity threads (light, geography, direction) for the full 9-mission arc."
+}

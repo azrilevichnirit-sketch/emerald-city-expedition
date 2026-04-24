@@ -1,0 +1,95 @@
+{
+  "_stage": "assembly",
+  "_mission": "M14",
+  "_generated_at": "2026-04-24T18:35:22Z",
+  "_generated_by": "agent_04_assembly",
+  "scene_id": "M14",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "backgrounds/M14_היכל_מזבח.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 28,
+        "y_pct": 58
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_02.mp4",
+        "pose_05.mp4",
+        "pose_07.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "tools/שקית_מטבעות_מ14.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 58,
+        "y_pct": 35
+      },
+      "scale": 0.88,
+      "rot_deg": -8,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 33,
+      "role": "tool",
+      "file": "tools/תיבת_עץ_מ14.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 72,
+        "y_pct": 48
+      },
+      "scale": 0.92,
+      "rot_deg": 3,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "tools/כדור_בדולח_מ14.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 62
+      },
+      "scale": 0.9,
+      "rot_deg": -5,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Player positioned left-of-center in urgent reaching pose toward altar-right where tools form descending diagonal (A→B→C), creating visual flow from player to treasure choices. Tools arranged in cascading right-side cluster to simulate altar surface layout while maintaining readability. Slight rotations add organic tension matching 'last-second grab' urgency.",
+  "rationale": "Mission text demands split-second choice under pressure ('השומרים כבר נשמעים ברקע'). Player at 28% left creates asymmetric tension, leaving right 2/3 for the altar treasures arranged in accessible diagonal. The descending A→B→C pattern (35%→48%→62% y-axis) mimics items resting on sloped altar surface while keeping each ≥15% canvas width for Hebrew label legibility. Player faces right into decision space, not toward exit—freezing the dramatic instant before the grab-and-run."
+}

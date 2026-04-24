@@ -1,0 +1,24 @@
+{
+  "_stage": "continuity",
+  "_mission": "M13",
+  "_generated_at": "2026-04-24T18:35:07Z",
+  "_generated_by": "agent_05_continuity",
+  "from_mission": "M12",
+  "to_mission": "M13",
+  "entry_transition": {
+    "type": "fade_from_black",
+    "duration_ms": 600,
+    "notes": "Emerges from cave darkness into dense jungle twilight. The 'frozen choice' resolves: player chose pursuit into the thicket. Black fade suggests disorientation after cave exit — now lost in undergrowth as dusk falls."
+  },
+  "exit_handoff": {
+    "leaves_on": "Player standing at discovered threshold — the central altar temple entrance visible through cleared vegetation. Body language shifts from searching/uncertain to focused forward gaze. Tools (especially chosen navigation aid) still visible, consequence of choice clear. Twilight deepening to near-dark, but temple doorway offers dim interior glow. Silence descends.",
+    "next_scene_should_open_with": "Interior temple space OR threshold crossing — player already inside or stepping through. Lighting shifts from jungle twilight to stone chamber ambience. The 'silence' from checkpoint should be palpable. Tool may still be in hand as proof of navigation success."
+  },
+  "mood_arc": "Panic and disorientation (fake map, lost in thicket, darkness closing) resolves into focused determination as navigation tool reveals the hidden path. Ends on eerie calm — the silence before revelation.",
+  "visual_callbacks": [
+    "Dense tropical vegetation continues from M12 riverbank/jungle approach",
+    "Twilight color palette (deep blues, muted greens) carries forward the 'darkness approaching' urgency",
+    "Player's searching posture echoes M12's 'frozen choice' body language — both moments of critical decision under pressure"
+  ],
+  "rationale": "Fade-from-black bridges the cave pursuit implied by M12's exit into M13's 'lost in thicket' crisis. The transition duration (600ms) allows disorientation to register before scene clarity. Exit handoff pivots from chaos to silence, cueing M14 for interior/temple atmosphere shift. Visual callbacks maintain jungle continuity while advancing time-of-day and emotional stakes."
+}

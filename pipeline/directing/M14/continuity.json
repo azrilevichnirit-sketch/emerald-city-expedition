@@ -1,0 +1,24 @@
+{
+  "_stage": "continuity",
+  "_mission": "M14",
+  "_generated_at": "2026-04-24T18:35:38Z",
+  "_generated_by": "agent_05_continuity",
+  "from_mission": "M13",
+  "to_mission": "M14",
+  "entry_transition": {
+    "type": "push_up",
+    "duration_ms": 650,
+    "notes": "Player crosses threshold from jungle twilight into temple interior — camera pushes upward slightly as perspective shifts from exterior doorway to interior chamber, maintaining ground-POV but revealing altar space above/ahead. Lighting transitions from dim exterior glow to stone chamber ambience with altar focal point."
+  },
+  "exit_handoff": {
+    "leaves_on": "Player's hand closing around chosen treasure (A/B/C) in sharp, decisive grab. Body already pivoting toward exit, weight shifting into sprint stance. Guards' voices audible off-screen (rising urgency). Altar still visible but blurring as motion begins — treasure now clutched, mission accomplished but escape imminent.",
+    "next_scene_should_open_with": "Mid-sprint or already in motion — player fleeing temple interior toward exit/jungle. Chosen treasure visible in hand (carry-over asset). Pursuit sounds louder, lighting may shift back toward exterior (reverse of entry). High kinetic energy, no hesitation."
+  },
+  "mood_arc": "Tense stillness (entry into silent temple) escalates to split-second decision urgency (guards approaching) culminating in decisive action (grab-and-pivot). Silence breaks into chaos.",
+  "visual_callbacks": [
+    "Navigation tool from M13 may still be visible on player or ground — proof of journey continuity",
+    "Temple doorway/threshold architecture echoes M13's 'discovered entrance'",
+    "Twilight-to-interior lighting gradient completes M13's deepening dusk"
+  ],
+  "rationale": "Push-up transition conveys threshold crossing and spatial shift (exterior→interior, low→elevated altar view) while maintaining POV consistency. Exit leaves player in motion with treasure secured, priming M15 for chase/escape sequence. Guard voices break M13's silence, fulfilling narrative promise. Callbacks anchor navigation success and location continuity."
+}

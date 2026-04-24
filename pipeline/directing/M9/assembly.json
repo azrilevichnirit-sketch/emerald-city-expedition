@@ -1,0 +1,95 @@
+{
+  "_stage": "assembly",
+  "_mission": "M9",
+  "_generated_at": "2026-04-24T18:32:54Z",
+  "_generated_by": "agent_04_assembly",
+  "scene_id": "M9",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "backgrounds/M9_bg.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 35,
+        "y_pct": 58
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_03.mp4",
+        "pose_05.mp4",
+        "pose_07.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "tools/שמן_לשימון_מ09.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 78,
+        "y_pct": 25
+      },
+      "scale": 0.18,
+      "rot_deg": -8,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "tools/רב_כלי_מ09.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 50
+      },
+      "scale": 0.2,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 36,
+      "role": "tool",
+      "file": "tools/מבער_ריתוך_מ09.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 78,
+        "y_pct": 75
+      },
+      "scale": 0.19,
+      "rot_deg": 5,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Player positioned left-of-center facing the implied keypad (right side of frame), creating visual tension toward the countdown threat. Tools arranged in tight vertical column on right edge, mimicking urgency of a ticking clock. Slight rotation on A/C tools adds kinetic energy matching the 60-second pressure.",
+  "rationale": "M9's mission_text centers on a flashing red keypad and 60-second countdown — maximum time pressure. Player pose candidates (03/05/07) suggest focused/reaching/urgent gestures toward right frame where the implied keypad lives. Tools stacked vertically right-side create a 'toolbox under duress' feel — close together, slightly tilted, ready to grab. Composition drives eyes from player → tools → implied threat zone (upper-right), reinforcing the hermetic seal consequence."
+}

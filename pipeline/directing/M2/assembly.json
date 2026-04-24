@@ -1,0 +1,95 @@
+{
+  "_stage": "assembly",
+  "_mission": "M2",
+  "_generated_at": "2026-04-24T18:29:20Z",
+  "_generated_by": "agent_04_assembly",
+  "scene_id": "M2",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "backgrounds/tropical_storm_jungle.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 35,
+        "y_pct": 58
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_02.mp4",
+        "pose_03.mp4",
+        "pose_05.mp4"
+      ]
+    },
+    {
+      "z": 35,
+      "role": "tool",
+      "file": "tools/ברזנט_מ02.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 75,
+        "y_pct": 25
+      },
+      "scale": 0.9,
+      "rot_deg": -8,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "tools/פטיש_מ02.jpg",
+      "slot": "B",
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 55
+      },
+      "scale": 0.85,
+      "rot_deg": 5,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 36,
+      "role": "tool",
+      "file": "tools/אוהל_מ02.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 78,
+        "y_pct": 75
+      },
+      "scale": 0.95,
+      "rot_deg": 3,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Player positioned left-of-center facing right toward tools, creating visual flow from character to decision space. Tools arranged in vertical cascade on right third, suggesting urgency hierarchy (tarp→hammer→tent) matching storm escalation.",
+  "rationale": "M2 demands immediate shelter improvisation under storm threat. Player pose shows active problem-solving stance. Tool cluster right-side creates decision pressure zone while leaving left frame open for storm drama. Vertical tool arrangement mirrors descending rain/urgency, with optimal solution (tent) anchored lowest for visual weight."
+}

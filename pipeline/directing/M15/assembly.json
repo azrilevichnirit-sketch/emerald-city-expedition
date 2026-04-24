@@ -1,0 +1,124 @@
+{
+  "_stage": "assembly",
+  "_mission": "M15",
+  "_generated_at": "2026-04-24T18:35:53Z",
+  "_generated_by": "agent_04_assembly",
+  "scene_id": "M15",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "backgrounds/M15_bg.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 12,
+      "role": "scenery",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 8,
+        "y_pct": 75
+      },
+      "scale": 0.85,
+      "rot_deg": -3,
+      "anchor": "bottom-left",
+      "fit": null,
+      "pose_candidates": []
+    },
+    {
+      "z": 14,
+      "role": "scenery",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 92,
+        "y_pct": 72
+      },
+      "scale": 0.7,
+      "rot_deg": 2,
+      "anchor": "bottom-right",
+      "fit": null,
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 35,
+        "y_pct": 68
+      },
+      "scale": 0.9,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_01.mp4",
+        "pose_02.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "tools/דגל_סיום_מ15.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 72,
+        "y_pct": 25
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 33,
+      "role": "tool",
+      "file": "tools/מגאפון_מ15.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "tools/זיקוק_מ15.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 78,
+        "y_pct": 75
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Player positioned left-of-center facing into frame toward empty finish line (midground), creating visual tension between solitude and distant celebration. Tools arranged in vertical cascade on right side: white flag (top) → megaphone (middle) → firework (bottom), mirroring the narrative arc from resignation to action to joining celebration.",
+  "rationale": "The empty finish line drama demands asymmetric composition: player isolated left, tools stacked right as decision tree. Ground-POV and low player anchor (68% y) emphasize the vast empty space of the finish line. Foreground scenery frames edges without blocking sightlines. Tool vertical arrangement (25%→50%→75% y-axis) guides eye naturally downward through escalating point values, matching emotional journey from passive observation to active celebration."
+}

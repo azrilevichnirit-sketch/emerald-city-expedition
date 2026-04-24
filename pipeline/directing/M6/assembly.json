@@ -1,0 +1,95 @@
+{
+  "_stage": "assembly",
+  "_mission": "M6",
+  "_generated_at": "2026-04-24T18:31:18Z",
+  "_generated_by": "agent_04_assembly",
+  "scene_id": "M6",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "backgrounds/M6_bg.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 28,
+        "y_pct": 58
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_02.mp4",
+        "pose_05.mp4",
+        "pose_06.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "tools/ג'ריקן_שמן_מ06.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 72,
+        "y_pct": 25
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 33,
+      "role": "tool",
+      "file": "tools/ערכת_כלי_עבודה_מ06.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "tools/אופני_הרים_מ06.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 72,
+        "y_pct": 75
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Player positioned left-of-center at struggling jeep location, facing right toward tools arranged in vertical cascade along right edge. Tools form descending diagonal (oil→toolbox→bike) mirroring decision urgency: quick-fix at top, strategic pivot at bottom.",
+  "rationale": "Mission text describes smoking jeep struggling uphill with competitors' dust visible on horizon — player must decide repair vs strategy-change. Layout places player near broken vehicle (left frame) with clear sightline to three escalating solutions stacked right-side, creating visual decision tree. Golden hour background with ancient structure reinforces checkpoint momentum while tool placement guides eye from emergency fix (top) to complete strategy shift (bottom)."
+}

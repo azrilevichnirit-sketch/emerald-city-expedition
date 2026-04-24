@@ -1,0 +1,24 @@
+{
+  "_stage": "continuity",
+  "_mission": "M9",
+  "_generated_at": "2026-04-24T18:33:08Z",
+  "_generated_by": "agent_05_continuity",
+  "from_mission": "M8",
+  "to_mission": "M9",
+  "entry_transition": {
+    "type": "push_up",
+    "duration_ms": 450,
+    "notes": "Camera pushes upward through the steel gate threshold into the dark tunnel interior, matching the physical movement from exterior (M8 summit) to enclosed underground space. Brief moment of compressed darkness before revealing the red-flashing keypad."
+  },
+  "exit_handoff": {
+    "leaves_on": "Gate sliding open with mechanical grind, revealing the dark tunnel beyond. Red emergency lighting from keypad fades to ambient tunnel glow. Player's silhouette framed in the newly opened passage, water echoes audible from deep within.",
+    "next_scene_should_open_with": "Interior tunnel POV — player walking forward into darkness, footsteps echoing on wet concrete. Ambient drip sounds and distant water flow. Shift from high-stakes urgency (countdown) to cautious exploration (unknown enclosed space). Lighting should be minimal, relying on handheld source or emergency strips."
+  },
+  "mood_arc": "Transition from external triumph (M8 summit) to immediate high-pressure crisis (60-second countdown). Emotional spike from relief to adrenaline, then resolution into cautious forward movement through the unlocked passage.",
+  "visual_callbacks": [
+    "Steel gate from M8 checkpoint now dominates as the obstacle/threat mechanism",
+    "Rain moisture from M8 continues as tunnel dampness and water echoes",
+    "Player's determined stance from climbing (M8) carries into focused problem-solving posture (M9)"
+  ],
+  "rationale": "Push_up transition mirrors the physical ascent completed in M8 and the crossing of threshold into enclosed space. Red keypad flash creates immediate visual/emotional contrast to M8's rain-gray palette. Exit handoff sets up M10's exploration tone while maintaining the underground continuity established by checkpoint text."
+}

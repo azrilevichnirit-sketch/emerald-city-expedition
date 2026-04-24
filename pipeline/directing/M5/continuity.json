@@ -1,0 +1,24 @@
+{
+  "_stage": "continuity",
+  "_mission": "M5",
+  "_generated_at": "2026-04-24T18:31:04Z",
+  "_generated_by": "agent_05_continuity",
+  "from_mission": "M4",
+  "to_mission": "M5",
+  "entry_transition": {
+    "type": "cross_dissolve",
+    "duration_ms": 450,
+    "notes": "Dissolve from dense vegetation threshold (M4 exit) into the shaking-bush tension of M5. Maintains spatial continuity — player already inside the jungle, now deeper. Audio bridge: ambient forest sounds carry through, punctuated by the new heavy breathing/branch-snapping cues."
+  },
+  "exit_handoff": {
+    "leaves_on": "Player in high-alert stance, tool drawn (whichever chosen), facing right toward the now-silent bush. Tension peaks then releases as threat passes or retreats — body language shifts from defensive readiness to cautious relief. Final frame: player turning away from the threat zone, checkpoint text 'השטח נקי' appearing as vegetation opens ahead.",
+    "next_scene_should_open_with": "Immediate environmental release: transition from claustrophobic undergrowth to 'דרך פתוחה יותר' — wider sightlines, lighter canopy, easier breathing room. Player's posture relaxing slightly but still vigilant, moving forward into the cleared path. Emotional pivot from adrenaline-spike to cautious progress."
+  },
+  "mood_arc": "M4 ended with enclosing vegetation and threshold anxiety; M5 escalates that into immediate physical threat (shaking bush, unseen predator), spiking adrenaline to mission-peak. Resolves with threat averted and terrain opening — a hard-earned exhale before next challenge.",
+  "visual_callbacks": [
+    "Dense vegetation from M4 threshold persists in M5 foreground (shaking bushes), reinforcing we're still deep in the jungle entered last mission",
+    "Player's alert body language continues M4's tension but now weaponized — hand moves from cautious exploration (M4) to defensive tool-draw (M5)",
+    "Filtered/dappled light quality from M4's 'אווירה משתנה' carries into M5's late-afternoon photorealistic lighting, maintaining time-of-day continuity"
+  ],
+  "rationale": "M4→M5 is a single continuous jungle penetration: threshold crossed (M4) → threat encountered (M5). Cross-dissolve preserves spatial flow without jarring cuts. Exit handoff sets up M5→M6 environmental contrast (enclosed→open path) and emotional shift (peak tension→relief), giving next mission clear visual/emotional anchor to build from."
+}

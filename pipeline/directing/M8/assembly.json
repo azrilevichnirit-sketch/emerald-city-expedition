@@ -1,0 +1,95 @@
+{
+  "_stage": "assembly",
+  "_mission": "M8",
+  "_generated_at": "2026-04-24T18:32:23Z",
+  "_generated_by": "agent_04_assembly",
+  "scene_id": "M8",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "backgrounds/M8_bg.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 48,
+        "y_pct": 62
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_02.mp4",
+        "pose_04.mp4",
+        "pose_07.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "tools/סולם_חבלים_מ08.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 15,
+        "y_pct": 25
+      },
+      "scale": 0.75,
+      "rot_deg": -8,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 33,
+      "role": "tool",
+      "file": "tools/חבל_קשרים_מ08.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 18
+      },
+      "scale": 0.8,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "tools/טפרי_טיפוס_מ08.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 25
+      },
+      "scale": 0.75,
+      "rot_deg": 8,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Tools arranged in shallow arc across upper third (A left-low, B center-high, C right-low) creating visual triangle that mirrors the climbing challenge. Player positioned lower-center facing the vertical rock wall, emphasizing upward gaze and preparation to ascend. Clean separation between tool layer and player maintains readability while ground-POV background provides dramatic vertical context.",
+  "rationale": "M8 demands a climbing decision at the base of a slick vertical rock face. Player placed at 62% y-axis (lower third) looking UP reinforces the daunting ascent. Tools form an inverted triangle in upper frame—visually 'above' the player—symbolizing options that must be 'reached for' mentally before physically. Slight rotation on A/C adds dynamic tension matching the post-storm instability described in mission_text. Background's ground-POV naturally draws eye upward along the rock wall toward the steel gate checkpoint."
+}

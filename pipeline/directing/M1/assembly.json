@@ -1,0 +1,125 @@
+{
+  "_stage": "assembly",
+  "_mission": "M1",
+  "_generated_at": "2026-04-24T18:28:53Z",
+  "_generated_by": "agent_04_assembly",
+  "scene_id": "M1",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "backgrounds/M1_bg.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 12,
+      "role": "scenery",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 15,
+        "y_pct": 75
+      },
+      "scale": 0.8,
+      "rot_deg": 0,
+      "anchor": "bottom-left",
+      "fit": null,
+      "pose_candidates": []
+    },
+    {
+      "z": 14,
+      "role": "scenery",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 70
+      },
+      "scale": 0.6,
+      "rot_deg": 0,
+      "anchor": "bottom-right",
+      "fit": null,
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 35,
+        "y_pct": 65
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_01.mp4",
+        "pose_02.mp4",
+        "pose_04.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "tools/מצנח_מ01.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 72,
+        "y_pct": 25
+      },
+      "scale": 1.0,
+      "rot_deg": -8,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 33,
+      "role": "tool",
+      "file": "tools/גלשן_מ01.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 5,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "tools/כנפיים_מ01.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 72,
+        "y_pct": 72
+      },
+      "scale": 1.0,
+      "rot_deg": 3,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Post-landing crouch composition: player left-of-center facing right into jungle depth, tools arranged in right-side triangle (top/mid/bottom) to create visual tension matching urgency of mission_text. Foreground/midground scenery frames player without obscuring tools.",
+  "rationale": "Mission describes completed landing + immediate jungle assessment. Player positioned ground-level left (post-crouch/recovery poses) gazing into dense midground jungle. Tool triangle on right maintains Hebrew RTL reading flow while creating diagonal energy toward jungle depth, reinforcing 'חייבים לזוז' urgency from checkpoint_text."
+}

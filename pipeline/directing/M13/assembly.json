@@ -1,0 +1,95 @@
+{
+  "_stage": "assembly",
+  "_mission": "M13",
+  "_generated_at": "2026-04-24T18:34:51Z",
+  "_generated_by": "agent_04_assembly",
+  "scene_id": "M13",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "backgrounds/M13_bg.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 28,
+        "y_pct": 58
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_03.mp4",
+        "pose_05.mp4",
+        "pose_07.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "tools/סרגל_מ13.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 72,
+        "y_pct": 22
+      },
+      "scale": 0.75,
+      "rot_deg": -8,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "tools/מצפן_מ13.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 82,
+        "y_pct": 52
+      },
+      "scale": 0.82,
+      "rot_deg": 5,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 36,
+      "role": "tool",
+      "file": "tools/רחפן_מ13.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 75,
+        "y_pct": 78
+      },
+      "scale": 0.88,
+      "rot_deg": -3,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Player positioned left-of-center in searching/uncertain pose creates visual tension with tools clustered right in descending diagonal (top-right to bottom-right). This asymmetry mirrors the mission crisis: lost direction vs. navigation solutions. Tools form readable cascade without overlap, each 15%+ canvas width.",
+  "rationale": "M13's 'fake map, darkness approaching, completely lost' demands urgent spatial problem-solving. Player at 28% left (facing right into frame) creates negative space for the tool cluster, which descends diagonally like a decision tree — ruler (basic/1pt) high, compass (medium/2pt) mid, drone (advanced/3pt) low. The diagonal flow guides eye from panic (player) to solutions (tools), matching the mission's 'find path NOW or all is lost' urgency."
+}

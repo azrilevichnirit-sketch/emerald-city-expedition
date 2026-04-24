@@ -1,0 +1,24 @@
+{
+  "_stage": "continuity",
+  "_mission": "M7",
+  "_generated_at": "2026-04-24T18:32:06Z",
+  "_generated_by": "agent_05_continuity",
+  "from_mission": "M6",
+  "to_mission": "M7",
+  "entry_transition": {
+    "type": "push_up",
+    "duration_ms": 650,
+    "notes": "Fast vertical push simulates rapid arrival/descent into hidden valley. M6's ancient structure on horizon now revealed as temple entrance in M7 midground — spatial continuity through scale shift."
+  },
+  "exit_handoff": {
+    "leaves_on": "Player's body language frozen mid-decision at the massive rock wall blocking passage, competitors' vehicles visible but empty (teams already inside), radio chatter audible. Checkpoint text 'ההחלטה התקבלה. לפניי קיר סלע ענק שחוסם את המעבר' anchors the cliffhanger — choice made but obstacle immediate.",
+    "next_scene_should_open_with": "Resolution of the rock wall barrier: either player using chosen tool (iron bar leverage, periscope reconnaissance, or mission flag signaling) OR already past the wall with evidence of method used (displaced rocks, tool marks). Shift from external temple courtyard to interior/beyond-wall environment. Emotional pivot from competitive anxiety to solo problem-solving or discovery."
+  },
+  "mood_arc": "M6's kinetic forward momentum crashes into M7's tense standstill — arrival reveals competitors already ahead, forcing split-second intelligence gathering vs. pressing on. Anxiety spikes: radio voices confirm others are inside, parked vehicles prove lateness, rock wall denies easy entry.",
+  "visual_callbacks": [
+    "Ancient structure from M6 horizon now materialized as hidden temple entrance with architectural detail visible",
+    "Tropical vegetation density continues (M6 jungle path → M7 overgrown temple courtyard)",
+    "Player's forward-leaning posture from M6 'דוהרים קדימה' contrasts with M7's hesitation stance at rock wall"
+  ],
+  "rationale": "Push_up transition conveys rapid spatial compression (horizon → arrival) matching 'תנועה מהירה' promise. Exit handoff sets up M8's obstacle resolution while maintaining competitive pressure (others inside). Visual callbacks anchor temple as M6's distant goal now reached, while posture shift externalizes narrative brake from speed to strategic pause."
+}

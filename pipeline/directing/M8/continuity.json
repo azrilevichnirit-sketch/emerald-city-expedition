@@ -1,0 +1,24 @@
+{
+  "_stage": "continuity",
+  "_mission": "M8",
+  "_generated_at": "2026-04-24T18:32:39Z",
+  "_generated_by": "agent_05_continuity",
+  "from_mission": "M7",
+  "to_mission": "M8",
+  "entry_transition": {
+    "type": "push_up",
+    "duration_ms": 650,
+    "notes": "Vertical push upward from M7's rock wall base to M8's climbing face — reinforces the ascent journey and physical progression through the obstacle. Camera rises as if player is moving up the terrain."
+  },
+  "exit_handoff": {
+    "leaves_on": "Player at the top of the slick vertical rock face, standing before the massive steel gate entrance to the tunnel. Checkpoint text 'אני למעלה. כניסה למנהרה עם שער פלדה מסיבי' anchors arrival at threshold. Fresh footprints visible on rock surface below, rain still falling lightly, gate imposing and closed.",
+    "next_scene_should_open_with": "Interior or threshold of the steel gate/tunnel entrance. Shift from external climbing challenge to enclosed/underground environment. Emotional pivot from physical exertion (climbing) to anticipation/caution (entering unknown space). Gate mechanism or entry method should be immediate focus."
+  },
+  "mood_arc": "M7 ended with decision made but massive obstacle blocking passage. M8 resolves that barrier through vertical ascent — player confronts the slick rock face, chooses climbing method, and conquers the physical challenge. Mood shifts from competitive anxiety to focused determination, ending with achievement but new threshold (steel gate) immediately presenting next challenge.",
+  "visual_callbacks": [
+    "Rock wall texture from M7 continues as the vertical climbing surface in M8 — same geological formation, now viewed from climbing perspective",
+    "Rain/wet conditions persist from M7's post-storm environment, making the rock 'smooth as ice' and raising stakes",
+    "Fresh footprints/evidence of competitors (M7's empty vehicles → M8's fresh shoe marks) maintain competitive pressure without showing people"
+  ],
+  "rationale": "Push_up transition physically embodies the climbing action and creates seamless vertical progression from M7's wall base to M8's climbing face. Exit handoff positions player at earned threshold (top of climb, steel gate) so M9 can immediately engage with entry/interior challenge. Visual callbacks (rock texture, rain, competitor traces) maintain environmental and narrative continuity across the ascent sequence."
+}

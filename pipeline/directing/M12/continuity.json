@@ -1,0 +1,24 @@
+{
+  "_stage": "continuity",
+  "_mission": "M12",
+  "_generated_at": "2026-04-24T18:34:35Z",
+  "_generated_by": "agent_05_continuity",
+  "from_mission": "M11",
+  "to_mission": "M12",
+  "entry_transition": {
+    "type": "cut",
+    "duration_ms": 0,
+    "notes": "Hard cut from cliff-edge decision to aftermath — player already on riverbank, wet, breathless. The leap happened off-screen. We open on consequence, not action. Immediate, jarring, real."
+  },
+  "exit_handoff": {
+    "leaves_on": "Player standing at riverbank threshold, body angled toward the dark cave mouth where wet footprints vanish into shadow. Rival boat visible but static at cave entrance. The central boat beginning to pull away behind them — a ticking clock. Posture reads: pursuit vs. escape, darkness vs. light. Frozen choice.",
+    "next_scene_should_open_with": "Inside cave darkness OR aboard departing boat OR golden city gates — player already moving, tool consequence visible. Transition should resolve the frozen choice instantly. No hesitation carry-over."
+  },
+  "mood_arc": "M11 ended on adrenaline peak (the leap decision). M12 opens post-impact — wet, grounded, immediate. Mood shifts from vertical panic to horizontal pursuit tension. The chase compressed into a labyrinth choice. Dusk light fading, shadows deepening. Urgency remains but changes flavor: from 'will I survive the fall' to 'will I catch them before they disappear.'",
+  "visual_callbacks": [
+    "Rival boat (M11's escaping vessel now static at cave entrance — we caught up but they're ahead again)",
+    "Water/wetness (player's clothes, footprints — evidence of the leap we didn't see)",
+    "Fading light (M11's late afternoon now dusk — time passage reinforces urgency)"
+  ],
+  "rationale": "Hard cut (0ms) because the leap itself isn't the story — the choice after is. We skip the 'how' of getting here to focus on 'what now.' M11's frozen decision at cliff edge mirrors M12's frozen choice at cave mouth — visual rhyme. Exit handoff sets up M13 to open mid-consequence (cave interior, boat deck, or city maze) without re-litigating the decision. Three-way split requires clean departure point."
+}

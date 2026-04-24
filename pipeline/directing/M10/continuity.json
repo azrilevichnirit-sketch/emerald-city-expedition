@@ -1,0 +1,24 @@
+{
+  "_stage": "continuity",
+  "_mission": "M10",
+  "_generated_at": "2026-04-24T18:33:36Z",
+  "_generated_by": "agent_05_continuity",
+  "from_mission": "M9",
+  "to_mission": "M10",
+  "entry_transition": {
+    "type": "push_up",
+    "duration_ms": 450,
+    "notes": "Camera pushes forward into tunnel darkness from M9's open gate, maintaining ground-POV momentum. Ambient drip sounds carry over, then sharp ticking emerges."
+  },
+  "exit_handoff": {
+    "leaves_on": "Black box silent after countdown reaches zero. Sudden flood of natural light from tunnel exit reveals waterfall mist and tropical greenery beyond. Player exhales, shoulders drop — danger passed.",
+    "next_scene_should_open_with": "Exterior jungle clearing — player emerging from dark tunnel mouth into bright daylight, massive waterfall visible in background. Shift from enclosed tension to open relief and awe. Natural ambient sound (water roar, birds) replaces mechanical ticking."
+  },
+  "mood_arc": "Escalates from M9's cautious exploration into acute time-pressure crisis (countdown, ticking), then releases into relief and wonder as threat neutralizes and natural light/waterfall appear.",
+  "visual_callbacks": [
+    "Wet concrete floor from M9 tunnel continues",
+    "Emergency lighting strips faintly visible on tunnel walls",
+    "Player's handheld light source (if used in M9) still active until countdown moment"
+  ],
+  "rationale": "Push_up maintains forward momentum from gate opening into tunnel. Ticking box creates immediate escalation. Exit into waterfall light provides strong contrast for M11 outdoor transition, closing the 'infiltration' arc (M8-M10) and opening 'discovery' phase."
+}

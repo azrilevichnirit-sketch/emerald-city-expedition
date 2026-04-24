@@ -1,0 +1,24 @@
+{
+  "_stage": "continuity",
+  "_mission": "M3",
+  "_generated_at": "2026-04-24T18:30:00Z",
+  "_generated_by": "agent_05_continuity",
+  "from_mission": "M2",
+  "to_mission": "M3",
+  "entry_transition": {
+    "type": "fade_from_black",
+    "duration_ms": 650,
+    "notes": "Night-to-morning transition: fade from storm darkness to dawn light revealing the post-storm jungle and fresh tire tracks"
+  },
+  "exit_handoff": {
+    "leaves_on": "Player's decisive body language (leaning toward chosen path) with dust/motion blur beginning to form — checkpoint tension ('מרגישה את המתחרים נושפת בעורפי') unresolved, creating forward momentum",
+    "next_scene_should_open_with": "Mid-motion: player already committed to the chosen route, landscape rushing past, immediate consequence of M3 decision manifesting (either following map's promise or joining the chaotic race)"
+  },
+  "mood_arc": "Shifts from M2's relief-after-survival to urgent competitive pressure. The morning reveal (הבוקר עלה) contrasts with immediate tactical dilemma — fresh tire tracks and engine noise create FOMO vs. map-trust tension. Ends on adrenaline spike as choice locks in.",
+  "visual_callbacks": [
+    "Equipment from M2 shelter now packed/visible on player (continuity: we survived WITH our gear)",
+    "Wet jungle surfaces from storm (M2's rain aftermath) glistening in morning light",
+    "The crumpled map (tool A) is the SAME map from prior missions, now more worn — physical continuity object"
+  ],
+  "rationale": "Fade-from-black mirrors the night-to-day story beat. M2 ended on 'המסע האמיתי מתחיל' — M3 delivers that promise immediately with competitive pressure. Exit handoff keeps tension unresolved (competitors breathing down neck) so M4 can open mid-consequence rather than restarting energy. Visual callbacks ground the 72-hour continuity: same map, same gear, same jungle (now transformed by morning)."
+}

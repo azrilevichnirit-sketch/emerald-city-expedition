@@ -1,0 +1,95 @@
+{
+  "_stage": "assembly",
+  "_mission": "M12",
+  "_generated_at": "2026-04-24T18:34:18Z",
+  "_generated_by": "agent_04_assembly",
+  "scene_id": "M12",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "backgrounds/M12_bg.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 28,
+        "y_pct": 62
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_02.mp4",
+        "pose_03.mp4",
+        "pose_05.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "tools/כרטיס_סירה_מ12.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 72,
+        "y_pct": 25
+      },
+      "scale": 1.0,
+      "rot_deg": -8,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 33,
+      "role": "tool",
+      "file": "tools/מצלמה_פלאש_מ12.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 52
+      },
+      "scale": 1.0,
+      "rot_deg": 5,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "tools/לפיד_מ12.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 78,
+        "y_pct": 78
+      },
+      "scale": 1.0,
+      "rot_deg": 3,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Player positioned left-of-center on riverbank, facing right toward cave entrance and boats (into frame). Tools arranged in descending diagonal on right side: ticket (top-right, escape option), camera (mid-right, investigation), torch (lower-right, cave exploration). Layout creates visual tension between player's position and the three decision paths.",
+  "rationale": "Mission M12 presents a critical chase decision at cave entrance. Player stands on shore contemplating three paths: board departing boat (ticket), investigate with light (camera/torch), or enter dark cave (torch). Right-side tool cluster balances the left-positioned player, creating compositional tension that mirrors the narrative urgency. Diagonal tool arrangement guides eye from quick escape (top) to dangerous exploration (bottom), matching point values 1→2→3."
+}

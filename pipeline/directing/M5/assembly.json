@@ -1,0 +1,125 @@
+{
+  "_stage": "assembly",
+  "_mission": "M5",
+  "_generated_at": "2026-04-24T18:30:46Z",
+  "_generated_by": "agent_04_assembly",
+  "scene_id": "M5",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "backgrounds/M5_background.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 12,
+      "role": "scenery",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 78,
+        "y_pct": 45
+      },
+      "scale": 0.85,
+      "rot_deg": -3,
+      "anchor": "center",
+      "fit": null,
+      "pose_candidates": []
+    },
+    {
+      "z": 15,
+      "role": "scenery",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 82,
+        "y_pct": 52
+      },
+      "scale": 0.72,
+      "rot_deg": 5,
+      "anchor": "center",
+      "fit": null,
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 35,
+        "y_pct": 58
+      },
+      "scale": 0.88,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_02.mp4",
+        "pose_05.mp4",
+        "pose_07.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "tools/פנס_עוצמתי_מ05.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 12,
+        "y_pct": 25
+      },
+      "scale": 0.95,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 33,
+      "role": "tool",
+      "file": "tools/רשת_הגנה_מ05.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 18
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "tools/לפיד_בוער_מ05.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 88,
+        "y_pct": 25
+      },
+      "scale": 0.95,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Triangle tool layout (A-left, B-top-center, C-right) creates visual tension matching the 'something about to pounce' urgency. Player positioned left-of-center facing right toward the shaking bush (78% x), leaving right-side compositional weight for the threat zone. Scenery layers at z=12,15 reinforce midground depth behind player without obscuring tools.",
+  "rationale": "Mission text describes imminent threat from right ('השיח מימין רועד') requiring instant reaction. Player pose candidates (02/05/07) suggest alert/defensive stances. Tools form a readable arc across top third, each 15%+ canvas width, non-overlapping. Player anchored bottom-center at 35% allows rightward gaze toward danger zone while keeping left third clear for tool A. Z-indexing ensures background video (0) → scenery depth (12-15) → player (20) → tools (32-34) layering matches the brief's foreground/midground/background structure."
+}

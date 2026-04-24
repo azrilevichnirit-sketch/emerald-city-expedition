@@ -1,0 +1,427 @@
+{
+  "started_at": "2026-04-24T18:28:37Z",
+  "missions": {
+    "M1": {
+      "stages": {
+        "assembly": {
+          "returncode": 0,
+          "elapsed_sec": 16.5
+        },
+        "continuity": {
+          "returncode": 0,
+          "elapsed_sec": 13.9
+        },
+        "timing": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "interaction": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "storyboard": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "harmony": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        }
+      }
+    },
+    "M2": {
+      "stages": {
+        "assembly": {
+          "returncode": 0,
+          "elapsed_sec": 12.8
+        },
+        "continuity": {
+          "returncode": 0,
+          "elapsed_sec": 13.3
+        },
+        "timing": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "interaction": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "storyboard": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "harmony": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        }
+      }
+    },
+    "M3": {
+      "stages": {
+        "assembly": {
+          "returncode": 0,
+          "elapsed_sec": 12.1
+        },
+        "continuity": {
+          "returncode": 0,
+          "elapsed_sec": 14.5
+        },
+        "timing": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "interaction": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "storyboard": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "harmony": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        }
+      }
+    },
+    "M4": {
+      "stages": {
+        "assembly": {
+          "returncode": 0,
+          "elapsed_sec": 13.4
+        },
+        "continuity": {
+          "returncode": 0,
+          "elapsed_sec": 15.0
+        },
+        "timing": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "interaction": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "storyboard": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "harmony": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        }
+      }
+    },
+    "M5": {
+      "stages": {
+        "assembly": {
+          "returncode": 0,
+          "elapsed_sec": 16.6
+        },
+        "continuity": {
+          "returncode": 0,
+          "elapsed_sec": 18.2
+        },
+        "timing": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "interaction": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "storyboard": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "harmony": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        }
+      }
+    },
+    "M6": {
+      "stages": {
+        "assembly": {
+          "returncode": 0,
+          "elapsed_sec": 13.9
+        },
+        "continuity": {
+          "returncode": 0,
+          "elapsed_sec": 18.1
+        },
+        "timing": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "interaction": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "storyboard": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "harmony": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        }
+      }
+    },
+    "M7": {
+      "stages": {
+        "assembly": {
+          "returncode": 0,
+          "elapsed_sec": 12.8
+        },
+        "continuity": {
+          "returncode": 0,
+          "elapsed_sec": 17.0
+        },
+        "timing": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "interaction": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "storyboard": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "harmony": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        }
+      }
+    },
+    "M8": {
+      "stages": {
+        "assembly": {
+          "returncode": 0,
+          "elapsed_sec": 15.9
+        },
+        "continuity": {
+          "returncode": 0,
+          "elapsed_sec": 16.2
+        },
+        "timing": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "interaction": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "storyboard": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "harmony": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        }
+      }
+    },
+    "M9": {
+      "stages": {
+        "assembly": {
+          "returncode": 0,
+          "elapsed_sec": 14.5
+        },
+        "continuity": {
+          "returncode": 0,
+          "elapsed_sec": 14.8
+        },
+        "timing": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "interaction": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "storyboard": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "harmony": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        }
+      }
+    },
+    "M10": {
+      "stages": {
+        "assembly": {
+          "returncode": 0,
+          "elapsed_sec": 15.3
+        },
+        "continuity": {
+          "returncode": 0,
+          "elapsed_sec": 12.3
+        },
+        "timing": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "interaction": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "storyboard": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "harmony": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        }
+      }
+    },
+    "M11": {
+      "stages": {
+        "assembly": {
+          "returncode": 0,
+          "elapsed_sec": 12.3
+        },
+        "continuity": {
+          "returncode": 0,
+          "elapsed_sec": 14.5
+        },
+        "timing": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "interaction": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "storyboard": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "harmony": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        }
+      }
+    },
+    "M12": {
+      "stages": {
+        "assembly": {
+          "returncode": 0,
+          "elapsed_sec": 14.4
+        },
+        "continuity": {
+          "returncode": 0,
+          "elapsed_sec": 17.3
+        },
+        "timing": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "interaction": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "storyboard": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "harmony": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        }
+      }
+    },
+    "M13": {
+      "stages": {
+        "assembly": {
+          "returncode": 0,
+          "elapsed_sec": 15.6
+        },
+        "continuity": {
+          "returncode": 0,
+          "elapsed_sec": 15.5
+        },
+        "timing": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "interaction": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "storyboard": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "harmony": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        }
+      }
+    },
+    "M14": {
+      "stages": {
+        "assembly": {
+          "returncode": 0,
+          "elapsed_sec": 14.9
+        },
+        "continuity": {
+          "returncode": 0,
+          "elapsed_sec": 15.6
+        },
+        "timing": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "interaction": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "storyboard": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "harmony": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        }
+      }
+    },
+    "M15": {
+      "stages": {
+        "assembly": {
+          "returncode": 0,
+          "elapsed_sec": 15.3
+        },
+        "continuity": {
+          "returncode": 0,
+          "elapsed_sec": 14.9
+        },
+        "timing": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "interaction": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "storyboard": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        },
+        "harmony": {
+          "returncode": 0,
+          "elapsed_sec": 0.1
+        }
+      }
+    }
+  },
+  "finished_at": "2026-04-24T18:36:08Z",
+  "total_elapsed_sec": 451.5
+}

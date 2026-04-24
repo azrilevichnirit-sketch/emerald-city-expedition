@@ -1,0 +1,24 @@
+{
+  "_stage": "continuity",
+  "_mission": "M6",
+  "_generated_at": "2026-04-24T18:31:36Z",
+  "_generated_by": "agent_05_continuity",
+  "from_mission": "M5",
+  "to_mission": "M6",
+  "entry_transition": {
+    "type": "cross_dissolve",
+    "duration_ms": 500,
+    "notes": "Dissolve from cleared path relief into struggling uphill reality — environmental openness maintained but emotional tone shifts from 'escaped threat' to 'mechanical crisis'. Jeep smoke becomes visible mid-transition."
+  },
+  "exit_handoff": {
+    "leaves_on": "Player's decisive gesture toward chosen tool (hand reaching, body committed to action), jeep smoke still rising but player now in motion. Checkpoint text 'אנחנו דוהרים קדימה' appears as decision crystallizes — forward momentum reclaimed despite mechanical struggle. Final frame: player turning toward the ancient structure visible on horizon (background layer), tool in hand/on back.",
+    "next_scene_should_open_with": "Fast-forward visual jump: the ancient structure now dominates midground (closer, larger), implying time/distance covered. Player already past the jeep crisis, moving at speed. Emotional shift from problem-solving tension to kinetic progress — 'תנועה מהירה' realized. The structure becomes the new focal anchor, replacing the struggling vehicle."
+  },
+  "mood_arc": "Opens with residual relief from M5's threat-escape, immediately undercut by mechanical failure anxiety (smoke, struggling engine, distant competitors). Builds through decision pressure (three tools = three strategies) to resolve in committed action — player chooses path forward, reclaiming agency and momentum despite setback.",
+  "visual_callbacks": [
+    "Right-facing player orientation (maintained from M5's forward exit)",
+    "Dust/particles in air (M5's threat-zone atmosphere transitions to jeep exhaust smoke)",
+    "Tropical vegetation framing (now wider 'דרך פתוחה' but still present, anchoring location continuity)"
+  ],
+  "rationale": "M5→M6 bridges threat-escape to mechanical-crisis without whiplash: both are obstacles, but tone shifts from external danger to internal problem-solving. Cross-dissolve preserves the 'opened path' geography while introducing new challenge. Exit handoff plants the ancient structure as M7's visual anchor, enabling the 'already moving fast' opening that checkpoint 6's text promises. Player's decisive tool-choice becomes the emotional hinge — paralysis broken, forward motion restored."
+}
