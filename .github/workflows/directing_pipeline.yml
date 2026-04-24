@@ -54,7 +54,12 @@ jobs:
             echo "no changes to commit"
           else
             git commit -m "directing: pipeline run missions=${{ inputs.missions }} stages=${{ inputs.stages }}"
-            git push
+            # Retry with rebase — main may have advanced during the long run
+            for i in 1 2 3 4 5; do
+              git pull --rebase origin main && git push origin HEAD:main && break
+              echo "push attempt $i failed, retrying in 5s..."
+              sleep 5
+            done
           fi
 
       - name: Upload directing output as artifact

@@ -1,30 +1,38 @@
-name: Shutterstock Fetch + Post-Process
+name: Shutterstock 5-Agent Pipeline
 
 on:
   workflow_dispatch:
     inputs:
-      mode:
-        description: "Which items to fetch"
+      categories:
+        description: "Which categories to fetch"
         required: true
         default: "both"
         type: choice
         options: [scenery, tools, both]
-      run_postprocess:
-        description: "Run rembg + chroma composite after fetch?"
-        required: true
-        default: true
+      only:
+        description: "Only these slugs (comma list). Empty = all."
+        required: false
+        default: ""
+      force:
+        description: "Re-run items even if already present on disk"
+        required: false
+        default: false
         type: boolean
+      limit:
+        description: "Stop after this many items (0 = no limit)"
+        required: false
+        default: "0"
 
 concurrency:
-  group: shutterstock-fetch
+  group: shutterstock-pipeline
   cancel-in-progress: false
 
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 300
     permissions:
-      contents: write    # so GITHUB_TOKEN can push results back
+      contents: write
 
     steps:
       - name: Checkout
@@ -43,35 +51,47 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run Shutterstock Agent
+      - name: Run orchestrator (master -> searcher -> result_checker -> downloader -> download_checker)
         env:
           CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
           SHUTTERSTOCK_TOKEN: ${{ secrets.SHUTTERSTOCK_TOKEN }}
         run: |
-          python pipeline/shutterstock_agent.py ${{ inputs.mode }}
+          ARGS="--categories ${{ inputs.categories }}"
+          if [ -n "${{ inputs.only }}" ]; then
+            ARGS="$ARGS --only ${{ inputs.only }}"
+          fi
+          if [ "${{ inputs.force }}" = "true" ]; then
+            ARGS="$ARGS --force"
+          fi
+          if [ "${{ inputs.limit }}" != "0" ] && [ -n "${{ inputs.limit }}" ]; then
+            ARGS="$ARGS --limit ${{ inputs.limit }}"
+          fi
+          echo "running: python pipeline/shutterstock_orchestrator.py $ARGS"
+          python pipeline/shutterstock_orchestrator.py $ARGS
 
-      - name: Run Post-Process (rembg + chroma)
-        if: ${{ inputs.run_postprocess }}
-        run: |
-          python pipeline/shutterstock_postprocess.py
-
-      - name: Commit results back
+      - name: Commit results
+        if: always()
         run: |
           git config user.name  "shutterstock-bot"
           git config user.email "shutterstock-bot@users.noreply.github.com"
-          git add pipeline/staging/shutterstock/
+          git add pipeline/review/shutterstock/ || true
           if git diff --staged --quiet; then
             echo "no changes to commit"
           else
-            git commit -m "shutterstock: fetch+postprocess (${{ inputs.mode }})"
-            git push
+            git commit -m "shutterstock: 5-agent pipeline run (categories=${{ inputs.categories }})"
+            # Pull with rebase before push to avoid race with other bots
+            for i in 1 2 3; do
+              git pull --rebase origin main && git push origin HEAD:main && break
+              echo "push attempt $i failed, retrying in 5s..."
+              sleep 5
+            done
           fi
 
-      - name: Upload raw + processed as artifact (backup)
+      - name: Upload results as artifact (backup)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: shutterstock-output
-          path: pipeline/staging/shutterstock/
+          name: shutterstock-review-${{ github.run_id }}
+          path: pipeline/review/shutterstock/
           if-no-files-found: warn
           retention-days: 30
