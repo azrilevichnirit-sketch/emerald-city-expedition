@@ -1,0 +1,310 @@
+{
+  "M1": {
+    "mission_label": "צ'ק-פוינט 1: דריסת רגל.",
+    "bg_delivered": [
+      "bg_M1"
+    ],
+    "scenery_planned": [
+      "broken_door",
+      "competitors_in_air",
+      "dense_jungle"
+    ],
+    "scenery_delivered": [
+      "broken_door",
+      "competitors_in_air",
+      "dense_jungle"
+    ],
+    "scenery_missing": [],
+    "poses_used": [
+      "anim_falling"
+    ]
+  },
+  "M2": {
+    "mission_label": "צ'ק-פוינט 2: הגנה על נכסים.",
+    "bg_delivered": [],
+    "scenery_planned": [
+      "storm_clouds_lightning",
+      "jungle_trees",
+      "rain_effect",
+      "equipment_pile"
+    ],
+    "scenery_delivered": [
+      "storm_clouds_lightning",
+      "jungle_trees",
+      "rain_effect",
+      "equipment_pile"
+    ],
+    "scenery_missing": [],
+    "poses_used": [
+      "anim_reach_forward"
+    ]
+  },
+  "M3": {
+    "mission_label": "צ'ק-פוינט 3: בתוך המירוץ.",
+    "bg_delivered": [
+      "bg_01"
+    ],
+    "scenery_planned": [
+      "path_straight",
+      "tire_tracks",
+      "jungle_edge"
+    ],
+    "scenery_delivered": [
+      "path_straight",
+      "tire_tracks",
+      "jungle_edge"
+    ],
+    "scenery_missing": [],
+    "poses_used": [
+      "anim_look_around"
+    ]
+  },
+  "M4": {
+    "mission_label": "צ'ק-פוינט 4: חציית הגבול.",
+    "bg_delivered": [
+      "bg_06"
+    ],
+    "scenery_planned": [
+      "chasm_background",
+      "rope_bridge_midground",
+      "forest_far_side",
+      "rival_team_disappearing"
+    ],
+    "scenery_delivered": [
+      "chasm_background",
+      "rope_bridge_midground",
+      "forest_far_side",
+      "rival_team_disappearing"
+    ],
+    "scenery_missing": [],
+    "poses_used": [
+      "anim_reach_forward"
+    ]
+  },
+  "M5": {
+    "mission_label": "צ'ק-פוינט 5: ערנות מקסימלית.",
+    "bg_delivered": [
+      "bg_M5"
+    ],
+    "scenery_planned": [
+      "scenery_bush_right",
+      "scenery_broken_branches"
+    ],
+    "scenery_delivered": [
+      "scenery_bush_right",
+      "scenery_broken_branches"
+    ],
+    "scenery_missing": [],
+    "poses_used": [
+      "anim_look_around"
+    ]
+  },
+  "M6": {
+    "mission_label": "צ'ק-פוינט 6: תנועה מהירה.",
+    "bg_delivered": [
+      "bg_M6"
+    ],
+    "scenery_planned": [
+      "smoking_jeep",
+      "dust_clouds",
+      "uphill_road",
+      "jungle_background"
+    ],
+    "scenery_delivered": [
+      "smoking_jeep",
+      "dust_clouds",
+      "uphill_road",
+      "jungle_background"
+    ],
+    "scenery_missing": [],
+    "poses_used": [
+      "anim_crouch"
+    ]
+  },
+  "M7": {
+    "mission_label": "צ'ק-פוינט 7: איסוף מודיעין.",
+    "bg_delivered": [
+      "bg_M7"
+    ],
+    "scenery_planned": [
+      "temple_entrance_m7",
+      "parked_vehicles",
+      "walkie_talkie"
+    ],
+    "scenery_delivered": [
+      "parked_vehicles",
+      "walkie_talkie",
+      "temple_entrance_m7"
+    ],
+    "scenery_missing": [],
+    "poses_used": [
+      "anim_look_around"
+    ]
+  },
+  "M8": {
+    "mission_label": "צ'ק-פוינט 8: כיבוש הפסגה.",
+    "bg_delivered": [
+      "bg_M8"
+    ],
+    "scenery_planned": [
+      "rock_cliff_m8",
+      "rain_effect_m8",
+      "fresh_footprints_m8"
+    ],
+    "scenery_delivered": [
+      "rock_cliff_m8",
+      "rain_effect_m8",
+      "fresh_footprints_m8"
+    ],
+    "scenery_missing": [],
+    "poses_used": [
+      "anim_climbing",
+      "anim_reach_forward"
+    ]
+  },
+  "M9": {
+    "mission_label": "צ'ק-פוינט 9: חדירה למתחם.",
+    "bg_delivered": [
+      "bg_07"
+    ],
+    "scenery_planned": [
+      "flashing_keypad",
+      "steel_gate",
+      "dark_tunnel_entrance"
+    ],
+    "scenery_delivered": [
+      "flashing_keypad",
+      "steel_gate",
+      "dark_tunnel_entrance"
+    ],
+    "scenery_missing": [],
+    "poses_used": [
+      "anim_reach_forward"
+    ]
+  },
+  "M10": {
+    "mission_label": "צ'ק-פוינט 10: נטרול איומים.",
+    "bg_delivered": [
+      "bg_M10"
+    ],
+    "scenery_planned": [
+      "scenery_black_box",
+      "scenery_tunnel_floor",
+      "scenery_tunnel_walls"
+    ],
+    "scenery_delivered": [
+      "scenery_black_box",
+      "scenery_tunnel_floor",
+      "scenery_tunnel_walls"
+    ],
+    "scenery_missing": [],
+    "poses_used": [
+      "anim_crouch"
+    ]
+  },
+  "M11": {
+    "mission_label": "צ'ק-פוינט 11: זינוק למים.",
+    "bg_delivered": [],
+    "scenery_planned": [
+      "cliff_waterfall",
+      "escape_boat_distant",
+      "churning_water_pool"
+    ],
+    "scenery_delivered": [
+      "cliff_waterfall",
+      "escape_boat_distant",
+      "churning_water_pool"
+    ],
+    "scenery_missing": [],
+    "poses_used": [
+      "anim_reach_forward",
+      "anim_falling"
+    ]
+  },
+  "M12": {
+    "mission_label": "צ'ק-פוינט 12: המרדף האחרון.",
+    "bg_delivered": [],
+    "scenery_planned": [
+      "competitor_boat_at_cave",
+      "dark_cave_entrance",
+      "wet_footprints_trail",
+      "main_boat_at_shore",
+      "river_shore_bank"
+    ],
+    "scenery_delivered": [
+      "competitor_boat_at_cave",
+      "dark_cave_entrance",
+      "wet_footprints_trail",
+      "main_boat_at_shore",
+      "river_shore_bank"
+    ],
+    "scenery_missing": [],
+    "poses_used": [
+      "anim_look_around"
+    ]
+  },
+  "M13": {
+    "mission_label": "צ'ק-פוינט 13: ניווט מדויק.",
+    "bg_delivered": [
+      "bg_M13"
+    ],
+    "scenery_planned": [
+      "dense_jungle_thicket",
+      "darkening_sky",
+      "overgrown_path",
+      "fake_map_torn",
+      "encroaching_darkness"
+    ],
+    "scenery_delivered": [
+      "dense_jungle_thicket",
+      "darkening_sky",
+      "overgrown_path",
+      "fake_map_torn",
+      "encroaching_darkness"
+    ],
+    "scenery_missing": [],
+    "poses_used": [
+      "anim_look_around"
+    ]
+  },
+  "M14": {
+    "mission_label": "צ'ק-פוינט 14: שלל המשלחת.",
+    "bg_delivered": [
+      "bg_M14"
+    ],
+    "scenery_planned": [
+      "altar_stone",
+      "temple_entrance_m14",
+      "guard_shadows"
+    ],
+    "scenery_delivered": [
+      "altar_stone",
+      "guard_shadows",
+      "temple_entrance_m14"
+    ],
+    "scenery_missing": [],
+    "poses_used": [
+      "anim_reach_forward"
+    ]
+  },
+  "M15": {
+    "mission_label": "",
+    "bg_delivered": [
+      "bg_M15"
+    ],
+    "scenery_planned": [
+      "finish_line",
+      "fireworks",
+      "distant_celebration_lights"
+    ],
+    "scenery_delivered": [
+      "finish_line",
+      "fireworks",
+      "distant_celebration_lights"
+    ],
+    "scenery_missing": [],
+    "poses_used": [
+      "anim_look_around"
+    ]
+  }
+}
