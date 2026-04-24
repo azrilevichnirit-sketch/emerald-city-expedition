@@ -1,0 +1,30 @@
+# Secrets — NEVER commit
+keys/
+gimini_key/
+leonardo_key/
+openai/
+*.key
+*_KEY.txt
+access_token.txt
+
+# Claude Code local state
+.claude/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# OS / editor crud
+~$*
+Thumbs.db
+.DS_Store
+
+# rembg model cache (downloaded to ~/.u2net usually but sometimes here)
+.u2net/
+
+# Local-only staging that shouldn't sync (workflow commits these in CI)
+# NOTE: pipeline/staging/shutterstock/ IS committed by the CI workflow as
+# output. Don't ignore it.

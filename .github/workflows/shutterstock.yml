@@ -1,0 +1,77 @@
+name: Shutterstock Fetch + Post-Process
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Which items to fetch"
+        required: true
+        default: "both"
+        type: choice
+        options: [scenery, tools, both]
+      run_postprocess:
+        description: "Run rembg + chroma composite after fetch?"
+        required: true
+        default: true
+        type: boolean
+
+concurrency:
+  group: shutterstock-fetch
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    permissions:
+      contents: write    # so GITHUB_TOKEN can push results back
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Shutterstock Agent
+        env:
+          CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
+          SHUTTERSTOCK_TOKEN: ${{ secrets.SHUTTERSTOCK_TOKEN }}
+        run: |
+          python pipeline/shutterstock_agent.py ${{ inputs.mode }}
+
+      - name: Run Post-Process (rembg + chroma)
+        if: ${{ inputs.run_postprocess }}
+        run: |
+          python pipeline/shutterstock_postprocess.py
+
+      - name: Commit results back
+        run: |
+          git config user.name  "shutterstock-bot"
+          git config user.email "shutterstock-bot@users.noreply.github.com"
+          git add pipeline/staging/shutterstock/
+          if git diff --staged --quiet; then
+            echo "no changes to commit"
+          else
+            git commit -m "shutterstock: fetch+postprocess (${{ inputs.mode }})"
+            git push
+          fi
+
+      - name: Upload raw + processed as artifact (backup)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: shutterstock-output
+          path: pipeline/staging/shutterstock/
+          if-no-files-found: warn
+          retention-days: 30

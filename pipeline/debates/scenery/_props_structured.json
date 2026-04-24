@@ -1,0 +1,410 @@
+[
+  {
+    "slug": "broken_door",
+    "he": "דלת פרוצה",
+    "en_prompt": "A damaged airplane door blown open mid-flight, metal frame twisted and bent, showing violent breach with torn edges and exposed mechanisms, dramatic lighting from outside, photorealistic tropical expedition style, isolated prop view",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M1"
+  },
+  {
+    "slug": "competitors_in_air",
+    "he": "מתחרים באוויר",
+    "en_prompt": "Multiple skydivers falling through open sky at various distances, silhouettes of people in freefall positions scattered across blue atmosphere, tropical landscape far below, photorealistic expedition style, no faces visible, aerial perspective",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M1"
+  },
+  {
+    "slug": "dense_jungle",
+    "he": "ג'ונגל",
+    "en_prompt": "Dense tropical jungle canopy from aerial view, thick green vegetation covering terrain, layers of palm trees and rainforest foliage, lush emerald landscape stretching to horizon, photorealistic expedition environment, natural lighting",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M1"
+  },
+  {
+    "slug": "storm_clouds_lightning",
+    "he": "עננים וברקים",
+    "en_prompt": "Dark threatening storm clouds with dramatic lightning bolts crackling through tropical sky, heavy atmospheric conditions, ominous weather phenomenon, realistic meteorological detail, no ground visible, isolated dramatic sky scene",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M2"
+  },
+  {
+    "slug": "jungle_trees",
+    "he": "עצי ג'ונגל",
+    "en_prompt": "Dense tropical jungle trees with thick trunks, lush green canopy, tangled vines hanging down, wet bark texture from rainfall, photorealistic rainforest vegetation, natural shelter potential visible between trees, isolated forest scene",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M2"
+  },
+  {
+    "slug": "rain_effect",
+    "he": "אפקט גשם",
+    "en_prompt": "Heavy tropical rainfall with visible water droplets falling diagonally, atmospheric rain streaks, wet conditions, water splashing effect, dramatic precipitation, realistic rain texture overlay, no background objects, isolated weather element",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M2"
+  },
+  {
+    "slug": "equipment_pile",
+    "he": "ערימת ציוד",
+    "en_prompt": "Expedition equipment pile including weatherproof bags, supply crates, camping gear, technical instruments, survival supplies stacked together, vulnerable to weather damage, photorealistic tactical expedition materials, neutral isolated ground placement",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M2"
+  },
+  {
+    "slug": "path_straight",
+    "he": "שביל ישר",
+    "en_prompt": "A straight dirt path cutting through dense tropical jungle vegetation, worn by foot traffic, earthy brown tones with patches of compressed soil, dappled sunlight filtering through canopy above, isolated view from ground level, photorealistic expedition style",
+    "css": "bottom:0%; left:50%; width:100%; z-index:2",
+    "size": "1024x1024",
+    "mission": "M3"
+  },
+  {
+    "slug": "tire_tracks",
+    "he": "עקבות צמיגים",
+    "en_prompt": "Fresh tire tracks pressed into muddy tropical soil, multiple overlapping tread patterns from vehicle convoy, deep grooves with moisture and disturbed earth, scattered small stones and vegetation fragments, ground-level close-up view, photorealistic muddy texture",
+    "css": "bottom:0%; left:0%; width:50%; z-index:3",
+    "size": "1024x1024",
+    "mission": "M3"
+  },
+  {
+    "slug": "jungle_edge",
+    "he": "קצה הג'ונגל",
+    "en_prompt": "Dense tropical jungle edge with thick palm fronds, broad green leaves, hanging vines, tangled undergrowth, humid atmosphere with moss-covered tree trunks, natural barrier of vegetation, layered foliage creating wall-like boundary, photorealistic rainforest scenery",
+    "css": "bottom:0%; left:0%; width:100%; z-index:1",
+    "size": "1024x1024",
+    "mission": "M3"
+  },
+  {
+    "slug": "chasm_background",
+    "he": "רקע לתהום",
+    "en_prompt": "Deep tropical ravine chasm background, misty gorge with rocky cliff walls covered in moss and vines, dense jungle vegetation on edges, atmospheric haze in depths, dramatic vertical drop, photorealistic expedition style, isolated scenic element without people or text",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M4"
+  },
+  {
+    "slug": "rope_bridge_midground",
+    "he": "הגשר הרעוע",
+    "en_prompt": "Weathered rope suspension bridge spanning across void, frayed hemp ropes and wooden planks, swaying unstable structure, tropical expedition style, worn deteriorating materials, dramatic angle showing fragility, isolated prop without characters or text, photorealistic detail",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M4"
+  },
+  {
+    "slug": "forest_far_side",
+    "he": "הצד השני של היער",
+    "en_prompt": "Dense tropical jungle forest on far cliff side, lush green canopy with palm fronds and thick vegetation, misty atmospheric depth, distant shore across chasm, photorealistic expedition environment, isolated scenic element without people or text",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M4"
+  },
+  {
+    "slug": "rival_team_disappearing",
+    "he": "הצוות המוביל נעלם",
+    "en_prompt": "Distant silhouettes of expedition team disappearing into dense jungle foliage, figures fading into tropical forest shadows, backs turned moving away, atmospheric depth and mystery, photorealistic style, isolated scenic element showing departure into wilderness",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M4"
+  },
+  {
+    "slug": "scenery_bush_right",
+    "he": "שיח מימין",
+    "en_prompt": "Dense tropical bush with thick green foliage and tangled vines, shaking violently, leaves rustling wildly, photorealistic jungle vegetation, isolated on transparent background, dramatic movement implied through bent branches and scattered leaves",
+    "css": "bottom:0%; left:50%; width:50%; z-index:3",
+    "size": "1024x1024",
+    "mission": "M5"
+  },
+  {
+    "slug": "scenery_broken_branches",
+    "he": "ענפים שבורים",
+    "en_prompt": "Scattered broken tropical tree branches with fresh green leaves still attached, snapped wood showing light interior, debris on jungle floor, photorealistic damaged vegetation, isolated on transparent background, recent breakage evident",
+    "css": "bottom:0%; left:60%; width:30%; z-index:4",
+    "size": "1024x1024",
+    "mission": "M5"
+  },
+  {
+    "slug": "smoking_jeep",
+    "he": "ג'יפ מעשן",
+    "en_prompt": "A rugged tropical expedition jeep with thick black smoke billowing from its engine hood, showing signs of mechanical distress, dusty and worn exterior, parked on a dirt road, realistic vehicle photography style, isolated on transparent background",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M6"
+  },
+  {
+    "slug": "dust_clouds",
+    "he": "ענני אבק",
+    "en_prompt": "Distant dust clouds rising from a dirt road horizon, brownish-orange dust particles suspended in tropical air, creating atmospheric haze effect, photorealistic environmental element, isolated on transparent background",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M6"
+  },
+  {
+    "slug": "uphill_road",
+    "he": "כביש בעלייה",
+    "en_prompt": "A steep dirt road climbing upward through tropical terrain, reddish-brown earth with tire tracks, rough unpaved surface with rocks and gravel, perspective showing elevation gain, expedition route photography style, isolated",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M6"
+  },
+  {
+    "slug": "jungle_background",
+    "he": "רקע ג'ונגל",
+    "en_prompt": "Dense tropical jungle backdrop with lush green vegetation, towering trees, thick foliage and canopy, misty atmospheric depth, vibrant equatorial rainforest environment, scenic landscape photography, wide panoramic view for background use",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M6"
+  },
+  {
+    "slug": "temple_entrance_m7",
+    "he": "כניסת מקדש",
+    "en_prompt": "Ancient hidden temple entrance in dense tropical jungle, moss-covered stone archway with intricate carvings, weathered steps leading into darkness, vines hanging from crumbling stonework, mysterious atmosphere, photorealistic expedition style, isolated view",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M7"
+  },
+  {
+    "slug": "parked_vehicles",
+    "he": "רכבים חונים",
+    "en_prompt": "Multiple parked expedition vehicles near jungle temple site, rugged 4x4 trucks and jeeps with mud-splattered exteriors, equipment visible in truck beds, tropical foliage surrounding clearing, photorealistic style, no people, isolated scene",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M7"
+  },
+  {
+    "slug": "walkie_talkie",
+    "he": "מכשיר קשר",
+    "en_prompt": "Professional expedition walkie-talkie radio device on rocky surface, black and yellow rugged casing, extended antenna, buttons and display visible, tropical expedition equipment style, photorealistic detail, isolated neutral background",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M7"
+  },
+  {
+    "slug": "rock_cliff_m8",
+    "he": "סלע אנכי חלק",
+    "en_prompt": "A steep vertical rock cliff face, smooth wet surface glistening from rain, dark gray stone texture, natural tropical expedition environment, isolated photorealistic prop, no people, no text, neutral background",
+    "css": "bottom:0%; left:0%; width:100%; z-index:3",
+    "size": "1024x1024",
+    "mission": "M8"
+  },
+  {
+    "slug": "rain_effect_m8",
+    "he": "אפקט גשם",
+    "en_prompt": "Transparent rain effect overlay, diagonal streaks of falling water droplets, wet atmosphere, tropical downpour visual layer, photorealistic rain particles, isolated transparent effect, no background objects",
+    "css": "bottom:0%; left:0%; width:100%; z-index:4",
+    "size": "1024x1024",
+    "mission": "M8"
+  },
+  {
+    "slug": "fresh_footprints_m8",
+    "he": "סימני נעליים טריים",
+    "en_prompt": "Fresh wet footprints on rock surface, boot tread marks visible, recent climbing evidence, muddy shoe impressions on stone, photorealistic detail, isolated prop, tropical expedition context, no people",
+    "css": "bottom:10%; left:30%; width:20%; z-index:3",
+    "size": "1024x1024",
+    "mission": "M8"
+  },
+  {
+    "slug": "flashing_keypad",
+    "he": "לוח מקשים מהבהב",
+    "en_prompt": "A high-tech metallic keypad panel with glowing red LEDs flashing urgently, mounted on a steel wall. Digital numeric buttons arranged in grid pattern, tropical expedition tech aesthetic, weathered metal surface with warning indicators, isolated on transparent background, photorealistic rendered prop.",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M9"
+  },
+  {
+    "slug": "steel_gate",
+    "he": "שער פלדה מסיבי",
+    "en_prompt": "A massive reinforced steel security gate with heavy industrial bolts and hydraulic mechanisms, weathered metal surface with rust accents, expedition base entrance style, imposing vertical barrier with riveted panels and warning stripes, isolated photorealistic prop without background.",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M9"
+  },
+  {
+    "slug": "dark_tunnel_entrance",
+    "he": "כניסה למנהרה חשוכה",
+    "en_prompt": "A dark tunnel entrance carved into rocky tropical terrain, mysterious shadowy opening with rough stone walls, expedition site atmosphere, ambient darkness fading into depths, natural cave-like structure with moss and moisture, isolated photorealistic environmental prop.",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M9"
+  },
+  {
+    "slug": "scenery_black_box",
+    "he": "קופסה שחורה",
+    "en_prompt": "A mysterious black box prop with angular geometric shape, vibrating appearance with motion blur effect, weathered metallic surface, industrial rivets and panels, ominous ticking mechanism visible, isolated on neutral background, photorealistic tropical expedition style, dramatic lighting casting shadows",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M10"
+  },
+  {
+    "slug": "scenery_tunnel_floor",
+    "he": "רצפת מנהרה",
+    "en_prompt": "Dark concrete tunnel floor surface with rough textured stone, worn industrial grating patterns, dirt and debris scattered, metallic drainage channels, subtle moisture reflections, tropical cave environment aesthetic, overhead perspective view, photorealistic expedition setting, neutral isolated background",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M10"
+  },
+  {
+    "slug": "scenery_tunnel_walls",
+    "he": "קירות מנהרה",
+    "en_prompt": "Rough hewn tunnel walls with exposed rock and concrete reinforcement, industrial metal supports and beams, tropical cave moisture stains, moss patches, riveted metal panels sections, dramatic vertical perspective, photorealistic expedition aesthetic, weathered surfaces, isolated neutral background",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M10"
+  },
+  {
+    "slug": "cliff_waterfall",
+    "he": "מצוק עם מפל מים",
+    "en_prompt": "Towering 50-meter tropical cliff face with massive waterfall cascading down into pool below, moss-covered rocky surface, lush jungle vegetation clinging to edges, mist rising from impact zone, dramatic height perspective, photorealistic expedition scenery",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M11"
+  },
+  {
+    "slug": "escape_boat_distant",
+    "he": "סירת המילוט המתרחקת",
+    "en_prompt": "Small motorboat with running engine moving away across water surface, viewed from high above, white wake trail behind vessel, tropical expedition boat disappearing into distance, photorealistic aerial perspective, no people visible",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M11"
+  },
+  {
+    "slug": "churning_water_pool",
+    "he": "מים גועשים בתחתית",
+    "en_prompt": "Turbulent churning water pool at base of waterfall, white foam and splashing waves, deep tropical pool with ripples and currents, impact zone where waterfall meets surface, photorealistic water dynamics, aerial view",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M11"
+  },
+  {
+    "slug": "competitor_boat_at_cave",
+    "he": "סירת מתחרים עוגנת בפתח מערה",
+    "en_prompt": "A weathered wooden expedition boat moored at the entrance of a dark cave opening, tropical jungle setting, vine-covered stone cave mouth, boat secured with rope to rocky shore, photorealistic adventure style, isolated prop view",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M12"
+  },
+  {
+    "slug": "dark_cave_entrance",
+    "he": "פתח מערה חשוכה",
+    "en_prompt": "Dark mysterious cave entrance carved into tropical limestone cliff, shadowy interior, moss-covered rocks at opening, water pooling at base, jungle vines hanging over mouth, photorealistic expedition style, isolated environmental prop",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M12"
+  },
+  {
+    "slug": "wet_footprints_trail",
+    "he": "עקבות רטובים מובילים פנימה",
+    "en_prompt": "Trail of wet muddy footprints leading into darkness, multiple boot prints in wet soil and stone, water dripping marks, tropical cave floor texture, photorealistic detail, isolated ground texture prop",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M12"
+  },
+  {
+    "slug": "main_boat_at_shore",
+    "he": "הסירה המרכזית עומדת לעזוב את הגדה",
+    "en_prompt": "Large expedition riverboat positioned at tropical riverbank ready to depart, wooden hull with supplies visible, mooring ropes loosened, lush green shore vegetation in background, photorealistic adventure style, isolated vessel prop",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M12"
+  },
+  {
+    "slug": "river_shore_bank",
+    "he": "גדת נהר טרופית",
+    "en_prompt": "Tropical river shoreline with muddy bank, exposed tree roots, scattered rocks, shallow water edge, dense jungle vegetation background, photorealistic natural environment, isolated landscape prop",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M12"
+  },
+  {
+    "slug": "dense_jungle_thicket",
+    "he": "סבך ג'ונגל צפוף",
+    "en_prompt": "Dense tropical jungle thicket with tangled vines, overlapping palm fronds, thick undergrowth, twisted branches blocking paths, creating maze-like confusion, photorealistic expedition style, isolated neutral background, no characters, no text",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M13"
+  },
+  {
+    "slug": "darkening_sky",
+    "he": "שמיים מתכהים",
+    "en_prompt": "Darkening tropical sky transitioning from dusk to night, ominous clouds gathering, fading daylight, purple and dark blue gradients, atmospheric gloom spreading over jungle canopy, photorealistic expedition style, isolated neutral background, no characters, no text",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M13"
+  },
+  {
+    "slug": "overgrown_path",
+    "he": "שביל מכוסה צמחייה",
+    "en_prompt": "Overgrown jungle path barely visible beneath dense vegetation, obscured trail markers, wild tropical plants reclaiming the route, unclear direction forward, photorealistic expedition style, isolated neutral background, no characters, no text",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M13"
+  },
+  {
+    "slug": "fake_map_torn",
+    "he": "מפה קרועה מזויפת",
+    "en_prompt": "Torn weathered fake map showing incorrect jungle paths, misleading trail markings, faded fraudulent cartography, deceiving route indicators, water-damaged parchment with false information, photorealistic expedition style, isolated neutral background, no characters, no text on map content",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M13"
+  },
+  {
+    "slug": "encroaching_darkness",
+    "he": "חושך מתקרב",
+    "en_prompt": "Encroaching darkness spreading through jungle undergrowth, deep shadows consuming the forest floor, diminishing visibility, ominous nightfall approaching rapidly, photorealistic expedition style, isolated neutral background, no characters, no text",
+    "css": "",
+    "size": "1024x1024",
+    "mission": "M13"
+  },
+  {
+    "slug": "altar_stone",
+    "he": "מזבח אבן",
+    "en_prompt": "Ancient stone altar pedestal in tropical temple ruins, weathered gray granite with moss patches, flat sacrificial top surface, carved symbols on sides, dramatic shadows, isolated view, photorealistic expedition archaeology style",
+    "css": "bottom:10%; left:30%; width:40%; z-index:3",
+    "size": "1024x1024",
+    "mission": "M14"
+  },
+  {
+    "slug": "temple_entrance_m14",
+    "he": "כניסת היכל",
+    "en_prompt": "Grand entrance interior of ancient tropical temple, massive stone archway with jungle vines, weathered carved pillars, filtered light beams through cracks, overgrown vegetation creeping inside, atmospheric mist, photorealistic expedition archaeology style",
+    "css": "bottom:0%; left:0%; width:100%; z-index:2",
+    "size": "1024x1024",
+    "mission": "M14"
+  },
+  {
+    "slug": "guard_shadows",
+    "he": "צללי שומרים",
+    "en_prompt": "Ominous silhouette shadows cast on ancient temple stone floor, multiple humanoid figures approaching, dramatic backlighting creating sharp dark shapes, threatening presence, atmospheric tension, photorealistic cinematic style, no visible characters only shadows",
+    "css": "bottom:0%; left:0%; width:100%; z-index:4",
+    "size": "1024x1024",
+    "mission": "M14"
+  },
+  {
+    "slug": "finish_line",
+    "he": "קו סיום",
+    "en_prompt": "A finish line banner stretched across a tropical jungle path, white fabric with checkered pattern hanging between wooden posts, empty and abandoned setting, vines hanging nearby, dappled sunlight filtering through canopy, photorealistic expedition style, isolated prop",
+    "css": "bottom:5%; left:45%; width:10%; z-index:4",
+    "size": "1024x1024",
+    "mission": "M15"
+  },
+  {
+    "slug": "fireworks",
+    "he": "זיקוקים",
+    "en_prompt": "Colorful fireworks bursting in tropical sky, bright explosive patterns with red yellow blue sparks radiating outward, vivid celebration display against evening atmosphere, photorealistic pyrotechnic effect, isolated element without ground or characters",
+    "css": "bottom:60%; left:70%; width:20%; z-index:1",
+    "size": "1024x1024",
+    "mission": "M15"
+  },
+  {
+    "slug": "distant_celebration_lights",
+    "he": "אורות חגיגה/מוזיקה מרחוק",
+    "en_prompt": "Distant celebration lights glowing through tropical jungle foliage, warm golden and colorful party lights twinkling far away, atmospheric haze suggesting festive gathering, soft bokeh effect, photorealistic distant light source, isolated scenic element",
+    "css": "bottom:10%; left:65%; width:25%; z-index:2",
+    "size": "1024x1024",
+    "mission": "M15"
+  }
+]
