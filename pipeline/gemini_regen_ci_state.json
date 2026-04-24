@@ -1,0 +1,18 @@
+{
+  "ts": "2026-04-24T16:41:28Z",
+  "model": "imagen-4.0-generate-001",
+  "processed": [
+    {
+      "slug": "גלשן_מ01",
+      "status": "OK",
+      "raw": "pipeline/review/tools_qa_gemini_ci/גלשן_מ01_raw.png",
+      "final": "pipeline/review/tools_qa_gemini_ci/גלשן_מ01_final.png"
+    },
+    {
+      "slug": "מצנח_בסיס_מ11",
+      "status": "OK",
+      "raw": "pipeline/review/tools_qa_gemini_ci/מצנח_בסיס_מ11_raw.png",
+      "final": "pipeline/review/tools_qa_gemini_ci/מצנח_בסיס_מ11_final.png"
+    }
+  ]
+}
