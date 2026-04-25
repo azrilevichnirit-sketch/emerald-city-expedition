@@ -1,0 +1,13 @@
+{
+  "asset": "סנפלינג_מ11.png",
+  "type": "tool_png",
+  "before_kb": 819,
+  "after_kb": 170,
+  "ratio": 4.82,
+  "in_budget": false,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\סנפלינג_מ11.png",
+  "dst": "assets\\optimized\\tools\\סנפלינג_מ11.webp",
+  "status": "compressed_pending_panel"
+}

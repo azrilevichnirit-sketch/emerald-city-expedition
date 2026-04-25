@@ -1,0 +1,13 @@
+{
+  "asset": "גריקן_מ06.png",
+  "type": "tool_png",
+  "before_kb": 1448,
+  "after_kb": 102,
+  "ratio": 14.2,
+  "in_budget": true,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\גריקן_מ06.png",
+  "dst": "assets\\optimized\\tools\\גריקן_מ06.webp",
+  "status": "compressed_pending_panel"
+}

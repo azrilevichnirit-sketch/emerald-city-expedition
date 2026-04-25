@@ -1,0 +1,27 @@
+{
+  "_stage": "harmony",
+  "_mission": "M12",
+  "_generated_at": "2026-04-25T12:34:30Z",
+  "_generated_by": "agent_09_harmony",
+  "scene_id": "M12",
+  "status": "PASS",
+  "checks_passed": [
+    "assembly_timing_layer_coverage",
+    "assembly_timing_file_references",
+    "assembly_interaction_tool_slots",
+    "continuity_timing_entry_transition",
+    "timing_background_constraints",
+    "timing_tool_entry_after_transition",
+    "timing_mission_text_placement",
+    "timing_checkpoint_text_placement",
+    "timing_total_duration_range",
+    "storyboard_beats_within_duration",
+    "storyboard_scene_coverage",
+    "assembly_position_bounds",
+    "timing_track_file_existence",
+    "storyboard_visible_elements_validity",
+    "interaction_slot_completeness"
+  ],
+  "checks_failed": [],
+  "summary": "All cross-layer consistency checks pass. Assembly layers match timing tracks, interaction elements cover all tool slots A/B/C, continuity entry_transition (650ms) exactly matches timing entry_transition_ms, timing constraints satisfied (background loops full duration, tools enter after transition at 800/1200/1600ms, mission text in first 43%, checkpoint text in final 21%, total 12000ms within range), storyboard beats span [0, 12000ms] with proper coverage, all positions within [0,100] bounds, and no invalid file references detected."
+}

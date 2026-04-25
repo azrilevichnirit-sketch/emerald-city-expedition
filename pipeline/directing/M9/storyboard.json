@@ -1,0 +1,105 @@
+{
+  "_stage": "storyboard",
+  "_mission": "M9",
+  "_generated_at": "2026-04-25T12:40:10Z",
+  "_generated_by": "agent_08_storyboard",
+  "scene_id": "M9",
+  "beats": [
+    {
+      "t_ms": 0,
+      "description": "Scene opens: dark tunnel gate entrance with red-flashing keypad panel visible in background. Player (Nirit) appears mid-reach, urgent posture, eyes locked on the panel. Push-up transition completes vertical arrival at gate threshold.",
+      "visible_elements": [
+        "background.bg_M9",
+        "player.pose_06"
+      ],
+      "audio_hint": "Low mechanical hum, urgent electronic beeping (60-second countdown implied), echo of dripping water in tunnel"
+    },
+    {
+      "t_ms": 500,
+      "description": "Mission text appears: 'לוח המקשים מהבהב באדום. אם לא אקיש את הקוד ב-60 השניות הקרובות, השער יינעל הרמטית וייחסם לכל היום. איך אני מפצחת את המעבר הזה תחת לחץ?' Overlays bottom-center, white text with subtle shadow for readability against dark tunnel.",
+      "visible_elements": [
+        "background.bg_M9",
+        "player.pose_06",
+        "text.mission"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 800,
+      "description": "Tool A (oil canister) materializes upper-left of player's eyeline. Metallic sheen catches faint red glow from keypad. First vertex of tool triangle established.",
+      "visible_elements": [
+        "background.bg_M9",
+        "player.pose_06",
+        "text.mission",
+        "tool.A"
+      ],
+      "audio_hint": "Soft inventory chime (tool available)"
+    },
+    {
+      "t_ms": 1200,
+      "description": "Tool B (multi-tool) appears center-top, most prominent position in composition. Silver-gray casing, multiple folded implements visible. Apex of visual triangle — correct solution positioned to draw eye naturally downward to player's gesture.",
+      "visible_elements": [
+        "background.bg_M9",
+        "player.pose_06",
+        "text.mission",
+        "tool.A",
+        "tool.B"
+      ],
+      "audio_hint": "Second inventory chime (slightly higher pitch)"
+    },
+    {
+      "t_ms": 1600,
+      "description": "Tool C (welding torch) enters upper-right, completing the arc. Blue-orange flame icon visible on handle. All three options now available — shallow arc formation guides player decision under time pressure.",
+      "visible_elements": [
+        "background.bg_M9",
+        "player.pose_06",
+        "text.mission",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": "Third inventory chime (completes chord progression)"
+    },
+    {
+      "t_ms": 4500,
+      "description": "Mission text fades out. Player remains in urgent reaching pose. Red keypad flashing continues (background element). Tool choices persist, awaiting interaction.",
+      "visible_elements": [
+        "background.bg_M9",
+        "player.pose_06",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 9500,
+      "description": "Checkpoint text appears: 'השער נפתח. הליכה במנהרה חשוכה עם הדים של מים.' Implies successful code entry (multi-tool used to bypass panel). Text overlays lower-third, signaling scene resolution imminent.",
+      "visible_elements": [
+        "background.bg_M9",
+        "player.pose_06",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": "Heavy metallic clunk (gate unlocking), low rumble of hydraulics, echo deepens as tunnel opens"
+    },
+    {
+      "t_ms": 12000,
+      "description": "Scene ends. All elements hold final frame: checkpoint text visible, tools remain on-screen, player's pose frozen mid-reach. Transition to M10 (dark tunnel walk) will begin from this state.",
+      "visible_elements": [
+        "background.bg_M9",
+        "player.pose_06",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": "Ambient tunnel echo sustains into next scene"
+    }
+  ],
+  "summary_he": "נירית מגיעה לשער המנהרה אחרי הטיפוס המפרך במעלה הצוק. לוח מקשים אדום מהבהב מולה — 60 שניות עד נעילה הרמטית. שלושה כלים צפים מעל קו המבט שלה: שמן לשימון משמאל, רב-כלי במרכז (הפתרון הנכון, בולט ביותר), ומבער ריתוך מימין. המשולש החזותי מוביל את העין למטה אל תנוחת הדחיפות שלה — יד קדימה, ממוקדת בלוח. כשהיא בוחרת נכון, השער נפתח עם חריקה מתכתית כבדה. טקסט המעבר מופיע: 'השער נפתח. הליכה במנהרה חשוכה עם הדים של מים.' הדרך פנויה פנימה, אל תוך ההד והחושך.",
+  "summary_en": "High-tension keypad puzzle at tunnel gate entrance. Player (pose_06 urgent reach) faces red-flashing panel with 60-second countdown. Three tools appear sequentially (800ms intervals) forming visual triangle: oil left, multi-tool center-top (correct answer), welding torch right. Mission text (500ms) establishes stakes; checkpoint text (9500ms) confirms gate unlock. Scene runs 12s total, tools persist throughout for interaction. Composition guides eye from tool arc down to player's forward gesture, emphasizing time pressure and focused problem-solving.",
+  "rationale": "Beats follow strict chronological order from timing tracks. Every visible_elements entry cross-checked against ALLOWED list: background.bg_M9, player.pose_06, tool.A/B/C (slot form used per instruction). No Hebrew filenames translated, no scenery invented (tunnel elements baked into bg_M9 per merge_to_bg rules). Mission/checkpoint text beats align with timing tracks. Audio hints suggest tension (beeping, countdown) and resolution (gate mechanics, tunnel echo) without inventing sound design. Hebrew summary written for Nirit as vivid narrative; English summary technical and concise."
+}

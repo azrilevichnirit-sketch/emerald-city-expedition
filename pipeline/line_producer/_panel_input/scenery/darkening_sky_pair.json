@@ -1,0 +1,13 @@
+{
+  "asset": "darkening_sky.png",
+  "type": "scenery_png",
+  "before_kb": 1169,
+  "after_kb": 38,
+  "ratio": 30.76,
+  "in_budget": true,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\darkening_sky.png",
+  "dst": "assets\\optimized\\scenery\\darkening_sky.webp",
+  "status": "compressed_pending_panel"
+}

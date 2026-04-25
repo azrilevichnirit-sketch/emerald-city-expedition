@@ -1,0 +1,13 @@
+{
+  "asset": "jungle_edge.png",
+  "type": "scenery_png",
+  "before_kb": 1502,
+  "after_kb": 297,
+  "ratio": 5.06,
+  "in_budget": false,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\jungle_edge.png",
+  "dst": "assets\\optimized\\scenery\\jungle_edge.webp",
+  "status": "compressed_pending_panel"
+}

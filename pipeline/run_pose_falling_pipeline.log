@@ -1,0 +1,40 @@
+[1/7] reusing cached actor_director debate
+[2/7] visual_prompt_writer → Veo prompt
+    prompt length: 1117 chars
+[3/7] Veo veo-3.0-fast-generate-001 — submitting image-to-video
+    operation: models/veo-3.0-fast-generate-001/operations/1p8742s5fnmj
+    image-to-video blocked by RAI (["Sorry, we can't create videos from input images containing celebrity or their likenesses. Please remove the reference and try again."]); falling back to text-to-video
+    operation: models/veo-3.0-fast-generate-001/operations/cal4msy6vbxx
+    poll 1/60 — still running
+    poll 2/60 — still running
+    poll 3/60 — still running
+    wrote: C:\Users\azril\OneDrive\Desktop\fincail_game\new\pipeline\review\pose_falling\pose_07_rA_raw.mp4 (1527487 bytes)
+[4/7] ffmpeg keyframes for QA
+[5/7] Gemini vision QA
+[6/7] Claude vision director review
+[7/7] finalize
+{
+  "qa": {
+    "match_brief": true,
+    "character_consistent": true,
+    "green_screen_pure": true,
+    "shows_falling": true,
+    "wind_effect_visible": true,
+    "notes": "The character, clothing, backpack, and pose are consistent across all four keyframes. The green screen is pure. The character appears to be falling, and the wind effect is clearly visible in her hair and clothing. The diagonal-horizontal orientation is maintained. The facial expression is also consistent with the prompt.",
+    "verdict": "pass"
+  },
+  "director": {
+    "verdict": "pass",
+    "reason": "All four keyframes successfully demonstrate the falling action with proper technical execution, character consistency, and narrative coherence for the M1→M11 transition.",
+    "narrative_fit_M1": "Perfect setup for jungle canopy escape moment. The free-fall pose with arms extended in X-position, intense facial expression, and visible wind effects establishes the high-stakes action beat. The researcher's determined look and athletic positioning convey both danger and capability, fitting the adventure tone.",
+    "narrative_fit_M11": "Excellent continuity for the 'swinging vine catch' payoff. The diagonal-horizontal orientation and extended limbs create perfect staging for the character to grab a vine mid-fall. The sustained tension in her expression and body positioning across all frames maintains dramatic momentum toward the rescue moment.",
+    "character_consistent": true,
+    "technical_quality": "Excellent green screen keying with pure #00B140 background across all frames. Wind effects are convincingly rendered - hair streams upward naturally, backpack straps flutter realistically, and fabric ripples are visible on clothing. The rotation is subtle and maintains spatial orientation. Lighting is even, and the character remains in sharp focus throughout all keyframes.",
+    "notes": "The sequence shows proper progression of the fall with consistent character appearance (wine shirt, gray khakis, khaki backpack, tight bun with escaping strands). Facial expression maintains appropriate intensity without breaking character. The X-position with extended limbs is held well across frames, providing clear silhouette for VFX integration. Minor rotation between frames adds realism without disorienting the viewer. Ready for compositing into jungle environment."
+  },
+  "prompt": "A 30-year-old athletic female researcher in free fall against solid green screen background #00B140, body positioned diagonally-horizontal in X-position with arms and legs extended outward. She wears a dark wine-colored shirt, gray khaki pants, and khaki backpack. Her dark hair is pulled back in a tight bun, with loose strands and clothing fabric violently whipping upward as if caught in powerful upward wind resistance. Her facial expression shows intense concentration mixed with adrenaline focu",
+  "qa_pass": true,
+  "director_pass": true,
+  "delivered": true,
+  "final_path": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\assets\\player\\pose_07.mp4"
+}

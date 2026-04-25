@@ -1,0 +1,13 @@
+{
+  "asset": "temple_entrance_m14.png",
+  "type": "scenery_png",
+  "before_kb": 970,
+  "after_kb": 148,
+  "ratio": 6.55,
+  "in_budget": true,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\temple_entrance_m14.png",
+  "dst": "assets\\optimized\\scenery\\temple_entrance_m14.webp",
+  "status": "compressed_pending_panel"
+}

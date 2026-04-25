@@ -1,0 +1,43 @@
+{
+  "scanned_at": "2026-04-20",
+  "scanner": "folder_organizer (manual execution per Producer approval)",
+  "project_root": "C:/Users/azril/OneDrive/Desktop/fincail_game/new",
+  "all_files": [
+    { "current_path": "assets/backgrounds/bg_01.mp4", "filename": "bg_01.mp4", "extension": "mp4", "classified_as": "backgrounds" },
+    { "current_path": "assets/backgrounds/bg_02.mp4", "filename": "bg_02.mp4", "extension": "mp4", "classified_as": "backgrounds" },
+    { "current_path": "assets/backgrounds/bg_03.mp4", "filename": "bg_03.mp4", "extension": "mp4", "classified_as": "backgrounds" },
+    { "current_path": "assets/backgrounds/bg_04.mp4", "filename": "bg_04.mp4", "extension": "mp4", "classified_as": "backgrounds" },
+    { "current_path": "assets/backgrounds/bg_05.mp4", "filename": "bg_05.mp4", "extension": "mp4", "classified_as": "backgrounds" },
+    { "current_path": "assets/backgrounds/bg_06.mp4", "filename": "bg_06.mp4", "extension": "mp4", "classified_as": "backgrounds" },
+    { "current_path": "assets/backgrounds/bg_07.mp4", "filename": "bg_07.mp4", "extension": "mp4", "classified_as": "backgrounds" },
+    { "current_path": "assets/backgrounds/bg_08.mp4", "filename": "bg_08.mp4", "extension": "mp4", "classified_as": "backgrounds" },
+    { "current_path": "assets/backgrounds/bg_09.mp4", "filename": "bg_09.mp4", "extension": "mp4", "classified_as": "backgrounds" },
+    { "current_path": "assets/player/pose_01.mp4", "filename": "pose_01.mp4", "extension": "mp4", "classified_as": "player" },
+    { "current_path": "assets/player/pose_02.mp4", "filename": "pose_02.mp4", "extension": "mp4", "classified_as": "player" },
+    { "current_path": "assets/player/pose_03.mp4", "filename": "pose_03.mp4", "extension": "mp4", "classified_as": "player" },
+    { "current_path": "assets/player/pose_04.mp4", "filename": "pose_04.mp4", "extension": "mp4", "classified_as": "player" },
+    { "current_path": "assets/player/pose_05.mp4", "filename": "pose_05.mp4", "extension": "mp4", "classified_as": "player" },
+    { "current_path": "assets/player/pose_06.mp4", "filename": "pose_06.mp4", "extension": "mp4", "classified_as": "player" },
+    { "current_path": "assets/rivals/parachute_blue_top.webp", "filename": "parachute_blue_top.webp", "extension": "webp", "classified_as": "rivals" },
+    { "current_path": "assets/rivals/rival_female_01.webp", "filename": "rival_female_01.webp", "extension": "webp", "classified_as": "rivals" },
+    { "current_path": "assets/rivals/rival_female_02.webp", "filename": "rival_female_02.webp", "extension": "webp", "classified_as": "rivals" },
+    { "current_path": "assets/rivals/rival_female_03.webp", "filename": "rival_female_03.webp", "extension": "webp", "classified_as": "rivals" },
+    { "current_path": "assets/rivals/rival_female_04.webp", "filename": "rival_female_04.webp", "extension": "webp", "classified_as": "rivals" },
+    { "current_path": "assets/rivals/rival_male_01.webp", "filename": "rival_male_01.webp", "extension": "webp", "classified_as": "rivals" },
+    { "current_path": "assets/rivals/rival_male_02.webp", "filename": "rival_male_02.webp", "extension": "webp", "classified_as": "rivals" },
+    { "current_path": "assets/rivals/rival_male_03.webp", "filename": "rival_male_03.webp", "extension": "webp", "classified_as": "rivals" },
+    { "current_path": "assets/rivals/rival_male_04.webp", "filename": "rival_male_04.webp", "extension": "webp", "classified_as": "rivals" }
+  ],
+  "empty_folders": [
+    "assets/tools",
+    "assets/scenery",
+    "assets/effects",
+    "pipeline"
+  ],
+  "unrecognized": [],
+  "notes": [
+    "player files are named pose_*.mp4 but folder_organizer.md spec suggests anim_*.mp4 pattern — naming mismatch, NOT renamed (אסור לשנות שמות).",
+    "rivals files are .webp but content_lock.json references parachute_blue_top.png — extension mismatch for parachute_blue_top (rest of rivals not referenced in content_lock).",
+    "Originals: folders bg/, poses_video/, rivals/ were renamed via mv (not copied). Reversal requires re-renaming."
+  ]
+}

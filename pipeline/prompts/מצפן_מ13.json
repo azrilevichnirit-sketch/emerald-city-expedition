@@ -1,0 +1,27 @@
+{
+  "asset": "מצפן_מ13",
+  "label_verbatim": "מצפן כיס",
+  "target_path": "assets/tools/מצפן_מ13.png",
+  "type": "tool_item",
+  "source_mission": "M13 slot B",
+  "consequence_type": "navigate",
+  "points": 2,
+  "scene_context": "M13 — מצפן כיס",
+  "pipeline_version": "0E_rembg_v1",
+  "prompts": {
+    "leonardo": "a brass pocket compass with ornate round case, hinged lid open, visible compass rose dial with N-E-S-W markings and a red magnetic needle, complete single compass in isolation, 3/4 view angle, camera elevation 25-30 degrees, rotated 15 degrees right, hard directional key light from upper-left 10 oclock, isolated object on plain neutral studio background, product shot, clean sharp edges, stylized realism, cinematic game item, NOT cartoon, fills 65% of frame centered, square composition",
+    "leonardo_negative": "pocket watch, clock, sundial, human figure, person, hands, holding, gradient background, busy background, text, watermark, logo, cartoon style, anime, flat vector illustration, rusty, broken, damaged"
+  },
+  "leonardo_params": {
+    "modelId": "aa77f04e-3eec-4034-9c07-d0f619684628",
+    "width": 1024,
+    "height": 1024,
+    "num_images": 1,
+    "alchemy": true,
+    "photoReal": false
+  },
+  "directors_note": "מצפן כיס — single isolated object per Camera Bible, sharp edges for rembg.",
+  "approved": true,
+  "_approved_at": "2026-04-20",
+  "_approved_by": "director + production_designer (Claude agent roles) per camera_bible.json + pipeline v0E_rembg_v1"
+}

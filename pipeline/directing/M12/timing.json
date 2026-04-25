@@ -1,0 +1,116 @@
+{
+  "_stage": "timing",
+  "_mission": "M12",
+  "_generated_at": "2026-04-25T12:33:31Z",
+  "_generated_by": "agent_06_timing",
+  "scene_id": "M12",
+  "total_duration_ms": 12000,
+  "entry_transition_ms": 650,
+  "tracks": [
+    {
+      "role": "background",
+      "file": "bg_M12.mp4",
+      "slot": null,
+      "pose": null,
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": true,
+      "loop_segment_ms": [
+        0,
+        12000
+      ],
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "player",
+      "file": "pose_01.mp4",
+      "slot": null,
+      "pose": "pose_01.mp4",
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": true,
+      "loop_segment_ms": [
+        0,
+        12000
+      ],
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/כרטיס_סירה_מ12.png",
+      "slot": "A",
+      "pose": null,
+      "in_ms": 800,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_left",
+      "appear_ms": 350,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/מצלמה_פלאש_מ12.png",
+      "slot": "B",
+      "pose": null,
+      "in_ms": 1200,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_left",
+      "appear_ms": 350,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/לפיד_מ12.png",
+      "slot": "C",
+      "pose": null,
+      "in_ms": 1600,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_left",
+      "appear_ms": 350,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "mission_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 700,
+      "out_ms": 5200,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 300
+    },
+    {
+      "role": "checkpoint_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 9500,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    }
+  ],
+  "rationale": "M12: 12s total. Entry transition push_up 650ms. Background bg_M12.mp4 loops full duration. Player pose_01.mp4 (anim_look_around, recommended for M12) loops throughout—appropriate for surveying the cave entrance and rival boat scene. Tools staggered: boat ticket A@800ms, camera B@1200ms, torch C@1600ms (400ms apart), each slide_left 350ms. Mission text visible 700-5200ms (4.5s). Checkpoint text 9500-12000ms (2.5s before end) for narrator wrap-up about golden city gates."
+}

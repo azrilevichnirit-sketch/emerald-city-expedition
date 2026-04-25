@@ -1,0 +1,89 @@
+{
+  "_for_mission": "M9",
+  "_source": "directing/assembly.json",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "bg_M9.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": "pose_06.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 48,
+        "y_pct": 58
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_06.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "tools/שמן_לשימון_מ09.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 15,
+        "y_pct": 25
+      },
+      "scale": 0.18,
+      "rot_deg": -8,
+      "anchor": "center",
+      "fit": null,
+      "pose_candidates": []
+    },
+    {
+      "z": 33,
+      "role": "tool",
+      "file": "tools/רב_כלי_מ09.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 18
+      },
+      "scale": 0.2,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": null,
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "tools/מבער_ריתוך_מ09.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 25
+      },
+      "scale": 0.19,
+      "rot_deg": 8,
+      "anchor": "center",
+      "fit": null,
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "High-tension keypad scene: player centered slightly left, reaching forward (pose_06 hold at 5.5s) toward imaginary red-flashing panel. Tools arranged in shallow arc above player's eyeline — oil left, multi-tool center-top (correct answer, most prominent), welding torch right — creating visual triangle that guides eye downward to player's urgent gesture."
+}

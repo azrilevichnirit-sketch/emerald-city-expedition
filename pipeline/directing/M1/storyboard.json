@@ -1,0 +1,113 @@
+{
+  "_stage": "storyboard",
+  "_mission": "M1",
+  "_generated_at": "2026-04-25T12:33:07Z",
+  "_generated_by": "agent_08_storyboard",
+  "scene_id": "M1",
+  "beats": [
+    {
+      "t_ms": 0,
+      "description": "Scene opens cold from black — cabin door blown open, wind roar, sudden brightness. Background visible: aircraft interior mid-crisis, emergency lighting, open door frame with sky rushing past.",
+      "visible_elements": [
+        "background.bg_M1"
+      ],
+      "audio_hint": "Wind roar, metal stress, sudden atmospheric pressure drop — urgent, chaotic"
+    },
+    {
+      "t_ms": 1200,
+      "description": "Player (Nirit) appears center-frame in falling pose — body braced, urgency in posture. Transition complete: viewer now fully IN the crisis moment.",
+      "visible_elements": [
+        "background.bg_M1",
+        "player.pose_07"
+      ],
+      "audio_hint": "Wind intensity peaks, fabric flutter"
+    },
+    {
+      "t_ms": 1700,
+      "description": "Mission text appears: 'דלת המטוס נפרצה והרוח שואבת הכל החוצה! המתחרים כבר באוויר וצוברים יתרון מטורף. אני חייבת לקפוץ עכשיו כדי לא לפספס את אזור הנחיתה – איך אני מזנקת מכאן?' — establishes stakes and urgency.",
+      "visible_elements": [
+        "background.bg_M1",
+        "player.pose_07",
+        "text.mission"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 2000,
+      "description": "First tool enters (slot A: מצנח_מ01) — basic parachute option appears above player in gentle arc. Tooltip available after 600ms: 'מצנח בסיסי - נחיתה בטוחה'.",
+      "visible_elements": [
+        "background.bg_M1",
+        "player.pose_07",
+        "text.mission",
+        "tool.A"
+      ],
+      "audio_hint": "Soft UI chime — option available"
+    },
+    {
+      "t_ms": 2400,
+      "description": "Second tool enters (slot B: גלשן_מ01) — controlled glide option appears, continuing the arc. Tooltip available after 600ms: 'גלישה מבוקרת - שליטה טובה יותר'.",
+      "visible_elements": [
+        "background.bg_M1",
+        "player.pose_07",
+        "text.mission",
+        "tool.A",
+        "tool.B"
+      ],
+      "audio_hint": "Second UI chime, slightly higher pitch"
+    },
+    {
+      "t_ms": 2800,
+      "description": "Third tool enters (slot C: כנפיים_מ01) — full flight wings complete the arc. All three aerial-escape methods now visible. Tooltip available after 600ms: 'טיסה מלאה - הבחירה המושלמת!' — choice moment fully established.",
+      "visible_elements": [
+        "background.bg_M1",
+        "player.pose_07",
+        "text.mission",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": "Third chime completes musical phrase — decision point"
+    },
+    {
+      "t_ms": 6200,
+      "description": "Mission text fades out — player has absorbed the crisis and sees all options. Visual focus shifts entirely to the three escape methods and Nirit's urgent posture.",
+      "visible_elements": [
+        "background.bg_M1",
+        "player.pose_07",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 9500,
+      "description": "Checkpoint text appears: 'הנחיתה הושלמה. הג'ונגל סמיך משחשבתי, חייבים לזוז.' — signals successful descent (regardless of tool chosen) and next challenge. Transition to jungle terrain imminent.",
+      "visible_elements": [
+        "background.bg_M1",
+        "player.pose_07",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": "Wind fades, jungle ambience rises — canopy rustle, distant animal calls"
+    },
+    {
+      "t_ms": 12000,
+      "description": "Scene ends. All elements remain visible through final frame — tools, player, checkpoint text, background. Viewer ready for next mission beat.",
+      "visible_elements": [
+        "background.bg_M1",
+        "player.pose_07",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": null
+    }
+  ],
+  "summary_he": "דלת המטוס נפרצה באלימות והרוח שואבת הכל החוצה — ניריט במרכז הפריים, גופה מוכן לקפיצה, תנוחת חירום מלאת דחיפות. המתחרים כבר באוויר וצוברים יתרון מטורף, והיא חייבת לקפוץ עכשיו כדי לא לפספס את אזור הנחיתה. שלוש אפשרויות בריחה מרחפות מעליה בקשת עדינה: מצנח בסיסי לנחיתה בטוחה, גלשן לשליטה מבוקרת, וכנפיים מלאות — הבחירה המושלמת. הרוח שואגת, הלחץ עולה, וכל שנייה קריטית. הנחיתה מושלמת בסופו של דבר, אבל הג'ונגל סמיך משחשבה — חייבים לזוז מיד.",
+  "summary_en": "Cold open: aircraft door blown open mid-flight, wind roaring, Nirit center-frame in urgent falling pose. Three aerial-escape tools appear sequentially (parachute, glider, wings) in gentle arc above her — each with Hebrew tooltip after 600ms. Mission text establishes crisis: rivals already airborne, must jump NOW to hit landing zone. Checkpoint text at t=9500ms confirms successful descent, transitions focus to dense jungle ahead. Total duration 12 seconds, all elements remain visible through final frame.",
+  "rationale": "Every beat derived directly from timing tracks (stage 6) and interaction spec (stage 7). visible_elements cross-checked against ALLOWED list — all entries use exact file stems (pose_07, bg_M1) or slot references (tool.A/B/C). Hebrew filenames preserved (מצנח_מ01, גלשן_מ01, כנפיים_מ01). No scenery layers (none in assembly). No invented nicknames. Hebrew summary written for Nirit with narrative urgency; English summary technical and concise. Audio hints suggest wind/UI/jungle ambience for later sound design but do not prescribe final mix."
+}

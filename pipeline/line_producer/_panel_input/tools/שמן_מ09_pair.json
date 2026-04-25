@@ -1,0 +1,13 @@
+{
+  "asset": "שמן_מ09.png",
+  "type": "tool_png",
+  "before_kb": 1245,
+  "after_kb": 113,
+  "ratio": 11.02,
+  "in_budget": true,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\שמן_מ09.png",
+  "dst": "assets\\optimized\\tools\\שמן_מ09.webp",
+  "status": "compressed_pending_panel"
+}

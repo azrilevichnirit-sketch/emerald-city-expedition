@@ -1,0 +1,151 @@
+props to process: 51
+[1/51] broken_door (mission M1)
+  [broken_door] already delivered — skip
+[2/51] competitors_in_air (mission M1)
+  [competitors_in_air] already delivered — skip
+[3/51] dense_jungle (mission M1)
+  [dense_jungle] attempt 1: qa=pass dir=redo - rewriting (debate=False)
+  [dense_jungle] attempt 2: qa=fail dir=redo - rewriting (debate=True)
+  [dense_jungle] pass (a3) -> dense_jungle.png
+[4/51] storm_clouds_lightning (mission M2)
+  [storm_clouds_lightning] already delivered — skip
+[5/51] jungle_trees (mission M2)
+  [jungle_trees] already delivered — skip
+[6/51] rain_effect (mission M2)
+  [rain_effect] already delivered — skip
+[7/51] equipment_pile (mission M2)
+  [equipment_pile] already delivered — skip
+[8/51] path_straight (mission M3)
+  [path_straight] already delivered — skip
+[9/51] tire_tracks (mission M3)
+  [tire_tracks] already delivered — skip
+[10/51] jungle_edge (mission M3)
+  [jungle_edge] already delivered — skip
+[11/51] chasm_background (mission M4)
+  [chasm_background] already delivered — skip
+[12/51] rope_bridge_midground (mission M4)
+  [rope_bridge_midground] already delivered — skip
+[13/51] forest_far_side (mission M4)
+  [forest_far_side] already delivered — skip
+[14/51] rival_team_disappearing (mission M4)
+  [rival_team_disappearing] attempt 1: qa=pass dir=redo - rewriting (debate=False)
+  [rival_team_disappearing] attempt 2: qa=fail dir=fix - rewriting (debate=True)
+  [rival_team_disappearing] attempt 3: qa=fail dir=fix - rewriting (debate=True)
+  [rival_team_disappearing] attempt 4: qa=fail dir=fix - rewriting (debate=True)
+  [rival_team_disappearing] attempt 5: qa=fail dir=fix - rewriting (debate=True)
+  [rival_team_disappearing] attempt 6: qa=fail dir=fix - rewriting (debate=True)
+  [rival_team_disappearing] attempt 7: qa=fail dir=pass - rewriting (debate=True)
+  [rival_team_disappearing] attempt 8: qa=fail dir=redo - exhausted
+[15/51] scenery_bush_right (mission M5)
+  [scenery_bush_right] already delivered — skip
+[16/51] scenery_broken_branches (mission M5)
+  [scenery_broken_branches] already delivered — skip
+[17/51] smoking_jeep (mission M6)
+  [smoking_jeep] already delivered — skip
+[18/51] dust_clouds (mission M6)
+  [dust_clouds] already delivered — skip
+[19/51] uphill_road (mission M6)
+  [uphill_road] already delivered — skip
+[20/51] jungle_background (mission M6)
+  [jungle_background] already delivered — skip
+[21/51] temple_entrance (mission M7)
+  [temple_entrance] already delivered — skip
+[22/51] parked_vehicles (mission M7)
+  [parked_vehicles] already delivered — skip
+[23/51] walkie_talkie (mission M7)
+  [walkie_talkie] already delivered — skip
+[24/51] rock_cliff_m8 (mission M8)
+  [rock_cliff_m8] already delivered — skip
+[25/51] rain_effect_m8 (mission M8)
+  [rain_effect_m8] already delivered — skip
+[26/51] fresh_footprints_m8 (mission M8)
+  [fresh_footprints_m8] already delivered — skip
+[27/51] flashing_keypad (mission M9)
+  [flashing_keypad] already delivered — skip
+[28/51] steel_gate (mission M9)
+  [steel_gate] already delivered — skip
+[29/51] dark_tunnel_entrance (mission M9)
+  [dark_tunnel_entrance] already delivered — skip
+[30/51] scenery_black_box (mission M10)
+  [scenery_black_box] pass (a1) -> scenery_black_box.png
+[31/51] scenery_tunnel_floor (mission M10)
+  [scenery_tunnel_floor] already delivered — skip
+[32/51] scenery_tunnel_walls (mission M10)
+  [scenery_tunnel_walls] already delivered — skip
+[33/51] cliff_waterfall (mission M11)
+  [cliff_waterfall] already delivered — skip
+[34/51] escape_boat_distant (mission M11)
+  [escape_boat_distant] attempt 1: qa=fail dir=redo - rewriting (debate=False)
+  [escape_boat_distant] attempt 2: qa=fail dir=fix - rewriting (debate=True)
+  [escape_boat_distant] attempt 3: qa=pass dir=redo - rewriting (debate=True)
+  [escape_boat_distant] attempt 4: qa=fail dir=redo - rewriting (debate=True)
+  [escape_boat_distant] attempt 5: qa=fail dir=redo - rewriting (debate=True)
+  [escape_boat_distant] attempt 6: qa=fail dir=fix - rewriting (debate=True)
+  [escape_boat_distant] attempt 7: qa=fail dir=redo - rewriting (debate=True)
+  [escape_boat_distant] attempt 8: qa=fail dir=fix - exhausted
+[35/51] churning_water_pool (mission M11)
+  [churning_water_pool] already delivered — skip
+[36/51] competitor_boat_at_cave (mission M12)
+  [competitor_boat_at_cave] attempt 1: qa=pass dir=redo - rewriting (debate=False)
+  [competitor_boat_at_cave] attempt 2: qa=fail dir=pass - rewriting (debate=True)
+  [competitor_boat_at_cave] attempt 3: qa=pass dir=redo - rewriting (debate=True)
+  [competitor_boat_at_cave] pass (a4) -> competitor_boat_at_cave.png
+[37/51] dark_cave_entrance (mission M12)
+  [dark_cave_entrance] already delivered — skip
+[38/51] wet_footprints_trail (mission M12)
+  [wet_footprints_trail] already delivered — skip
+[39/51] main_boat_at_shore (mission M12)
+  [main_boat_at_shore] attempt 1: qa=pass dir=redo - rewriting (debate=False)
+  [main_boat_at_shore] attempt 2: qa=fail dir=fix - rewriting (debate=True)
+  [main_boat_at_shore] attempt 3: qa=fail dir=pass - rewriting (debate=True)
+  [main_boat_at_shore] attempt 4: qa=fail dir=pass - rewriting (debate=True)
+  [main_boat_at_shore] attempt 5: qa=fail dir=pass - rewriting (debate=True)
+  [main_boat_at_shore] attempt 6: qa=fail dir=pass - rewriting (debate=True)
+  [main_boat_at_shore] attempt 7: qa=fail dir=fix - rewriting (debate=True)
+  [main_boat_at_shore] attempt 8: qa=fail dir=redo - exhausted
+[40/51] river_shore_bank (mission M12)
+  [river_shore_bank] attempt 1: qa=pass dir=redo - rewriting (debate=False)
+  [river_shore_bank] attempt 2: qa=fail dir=redo - rewriting (debate=True)
+  [river_shore_bank] attempt 3: qa=fail dir=redo - rewriting (debate=True)
+  [river_shore_bank] pass (a4) -> river_shore_bank.png
+[41/51] dense_jungle_thicket (mission M13)
+  [dense_jungle_thicket] already delivered — skip
+[42/51] darkening_sky (mission M13)
+  [darkening_sky] already delivered — skip
+[43/51] overgrown_path (mission M13)
+  [overgrown_path] already delivered — skip
+[44/51] fake_map_torn (mission M13)
+  [fake_map_torn] already delivered — skip
+[45/51] encroaching_darkness (mission M13)
+  [encroaching_darkness] attempt 1: qa=pass dir=redo - rewriting (debate=False)
+  [encroaching_darkness] attempt 2: qa=fail dir=redo - rewriting (debate=True)
+  [encroaching_darkness] pass (a3) -> encroaching_darkness.png
+[46/51] altar_stone (mission M14)
+  [altar_stone] already delivered — skip
+[47/51] temple_entrance (mission M14)
+  [temple_entrance] already delivered — skip
+[48/51] guard_shadows (mission M14)
+  [guard_shadows] already delivered — skip
+[49/51] finish_line (mission M15)
+  [finish_line] attempt 1: qa=fail dir=redo - rewriting (debate=False)
+  [finish_line] attempt 2: qa=fail dir=redo - rewriting (debate=True)
+  [finish_line] attempt 3: qa=fail dir=redo - rewriting (debate=True)
+  [finish_line] attempt 4: qa=fail dir=pass - rewriting (debate=True)
+  [finish_line] attempt 5: qa=fail dir=pass - rewriting (debate=True)
+  [finish_line] attempt 6: qa=fail dir=redo - rewriting (debate=True)
+  [finish_line] attempt 7: qa=fail dir=redo - rewriting (debate=True)
+  [finish_line] attempt 8: qa=fail dir=redo - exhausted
+[50/51] fireworks (mission M15)
+  [fireworks] attempt 1: qa=pass dir=fix - rewriting (debate=False)
+  [fireworks] pass (a2) -> fireworks.png
+[51/51] distant_celebration_lights (mission M15)
+  [distant_celebration_lights] attempt 1: qa=pass dir=redo - rewriting (debate=False)
+  [distant_celebration_lights] attempt 2: qa=fail dir=fix - rewriting (debate=True)
+  [distant_celebration_lights] attempt 3: qa=fail dir=fix - rewriting (debate=True)
+  [distant_celebration_lights] attempt 4: qa=fail dir=redo - rewriting (debate=True)
+  [distant_celebration_lights] attempt 5: qa=fail dir=fix - rewriting (debate=True)
+  [distant_celebration_lights] attempt 6: qa=fail dir=pass - rewriting (debate=True)
+  [distant_celebration_lights] attempt 7: qa=fail dir=pass - rewriting (debate=True)
+  [distant_celebration_lights] attempt 8: qa=fail dir=redo - exhausted
+
+done in 2005s. delivered=45 flagged=5 errors=0

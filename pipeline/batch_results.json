@@ -1,0 +1,10 @@
+[
+  {
+    "asset": "גלשן_מ01",
+    "status": "ok",
+    "generationId": "7e98e58e-e144-4080-8abd-ddc8cab067dd",
+    "raw": "C:\\emerald\\pipeline\\review\\tools_qa\\גלשן_מ01_raw.png",
+    "rembg": "C:\\emerald\\pipeline\\review\\tools_qa\\גלשן_מ01_rembg.png",
+    "final": "C:\\emerald\\pipeline\\review\\tools_qa\\גלשן_מ01_final.png"
+  }
+]

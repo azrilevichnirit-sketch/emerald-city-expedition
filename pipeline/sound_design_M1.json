@@ -1,0 +1,210 @@
+{
+  "_status": "v5",
+  "_created_by": "sound_designer",
+  "_created_at": "2026-04-25",
+  "_supersedes": "sound_design_M1.json (placeholder PLACEHOLDER pass with audio_hints only)",
+  "_source_brief": "scene_briefs/scene_M1.json v4 + pose_composition_map.json v5 + set_lists/set_list_M1.json v5",
+  "_v5_alignment_notes": [
+    "Aligned to pose_composition_map v5 event vocabulary: scene_entry, mission_text_shown (NEW), tool_clicked, catch_complete, jump_apex, landing_complete.",
+    "Two-phase ambient: phase_1_sky (wind rush, until jump_apex), phase_2_jungle (jungle birds + foliage, from jump_apex). 800ms cross-fade per scene_designer iron rule.",
+    "Phase 2 visual is bg_jungle_clearing.mp4 (set_list_M1 v5) — ground POV. Sound matches: forest-floor ambient (close birds + foliage rustle), NOT canopy-from-above ambient.",
+    "scene_entry sound: subtle metallic creak/hiss to suggest the breached door OFFSCREEN (door is not shown; audio implies it). Volume kept low (0.35) so it doesn't compete with wind.",
+    "mission_text_shown gets a soft UI tone (0.4 volume) — single bell, not a chime cluster. Tools each get their own appearance chimes (sound only on click per Nirit's reduce-noise direction; tools appear silently except for very subtle tick).",
+    "Per-tool click sounds: A=fabric whoosh-snap (parachute pack), B=metallic glider-snap (foil board), C=fast whoosh-acceleration (wingsuit zip).",
+    "Catch sequence has TWO sounds: palm_contact (soft thud at click+1500ms when tool reaches palm) and catch_complete (small confirmation bell at click+2500ms).",
+    "Jump: whoosh-up at jump_apex.",
+    "Landing: ground-impact thud at landing_complete (= jump_apex+2000ms = pose_03 frame 5.0 hands-on-ground), followed by 200ms silence before checkpoint_text confirmation tone.",
+    "All audio files are PENDING — no real assets exist on disk. Builder treats sound as optional fallback (silent if file missing per task spec)."
+  ],
+  "_audio_assets_disk_check": {
+    "checked_paths": [
+      "C:/emerald/assets/audio/**/*",
+      "C:/emerald/sounds/**/*",
+      "C:/emerald/**/*.{mp3,wav,ogg,m4a}"
+    ],
+    "result": "ZERO audio files on disk as of 2026-04-25. Every sound below is marked _status='pending — sound asset not yet sourced'. Builder MUST treat each missing file as silent fallback (no console error, just skip)."
+  },
+  "_builder_contract": {
+    "missing_file_behavior": "If audio_file resolves to a 'placeholder:*' string OR the file does not exist (HEAD/load fails), builder logs a single console.info('[sound] missing: <key>') and proceeds silently. NO blocking errors. Sound is decorative in v5 — visuals must be self-sufficient.",
+    "ambient_loop_mechanics": "Use Web Audio API AudioBufferSourceNode with loop=true OR an HTMLAudioElement with .loop=true. Either is acceptable. Volume controlled via GainNode (Web Audio) or .volume property (HTMLAudio).",
+    "crossfade_mechanics": "phase_1 -> phase_2 crossfade triggered on jump_apex event. phase_1 GainNode ramps from current volume to 0 over 800ms. phase_2 starts simultaneously with GainNode ramp from 0 to 0.5 over 800ms. linearRampToValueAtTime is sufficient.",
+    "event_listener_targets": "Same EventTarget the pose composition map uses (per pose_composition_map _builder_requirements.7_event_emission). Sound subsystem subscribes to: scene_entry, mission_text_shown, tool_clicked, catch_complete, jump_apex, landing_complete, checkpoint_text_shown.",
+    "tool_clicked_event_payload": "Builder MUST include the slot ID ('A' | 'B' | 'C') in the tool_clicked event detail so the sound subsystem can play the correct per-slot sound.",
+    "checkpoint_text_shown_event": "Builder must emit a 'checkpoint_text_shown' event when the checkpoint_text track's fade_in begins (= landing_complete + 200ms per scene_M1 timing). Sound subsystem listens to play the confirmation tone.",
+    "concurrent_polyphony": "Up to 4 simultaneous sounds expected (phase ambient + event SFX + crossfade tail + UI tick). Builder MUST allow concurrent playback — do NOT use a single global Audio element."
+  },
+  "scene_id": "M1",
+
+  "ambient_phases": {
+    "phase_1_sky": {
+      "description": "Wind rush loop — open-air altitude. Distant high-frequency airflow with low rumble undertone. NOT a storm — clean, fast, motion-implying.",
+      "audio_file": "placeholder:wind_rush_loop.mp3",
+      "_status": "pending — sound asset not yet sourced",
+      "volume": 0.7,
+      "loop": true,
+      "active_from_event": "scene_entry",
+      "active_until_event": "jump_apex",
+      "fade_in_ms": 0,
+      "fade_out_ms": 800,
+      "_note": "Starts immediately on scene_entry (no fade-in — matches the hard_cut entry transition in scene_M1). Fades out across the bg crossfade at jump_apex."
+    },
+    "phase_2_jungle": {
+      "description": "Jungle floor ambient — close birds (small chirps), gentle foliage rustle, distant insect texture. Matches bg_jungle_clearing.mp4 ground POV.",
+      "audio_file": "placeholder:jungle_ambient_loop.mp3",
+      "_status": "pending — sound asset not yet sourced",
+      "volume": 0.5,
+      "loop": true,
+      "active_from_event": "jump_apex",
+      "active_until_event": null,
+      "fade_in_ms": 800,
+      "fade_out_ms": 600,
+      "_note": "Crossfades in over 800ms starting at jump_apex (matches transition_phases.phase_1_to_2). Continues until scene fade-to-black, then fades out 600ms (mirrors video fade_to_black)."
+    }
+  },
+
+  "transition_phases": {
+    "phase_1_to_2": {
+      "trigger": "jump_apex",
+      "phase_1_fadeout_ms": 800,
+      "phase_2_fadein_ms": 800,
+      "_note": "Audio crossfade duration MAY differ from set_list bg crossfade (400ms) — sound carries 800ms per sound_designer.md iron rule ('audio crossfade = video transition duration' for SCENE-level transitions; intra-scene phase swaps use 800ms for smoother sonic continuity)."
+    }
+  },
+
+  "events": [
+    {
+      "id": "evt_scene_entry_door_breach",
+      "trigger": "scene_entry",
+      "delay_after_trigger_ms": 0,
+      "audio_file": "placeholder:metallic_creak_hiss_subtle.mp3",
+      "_status": "pending — sound asset not yet sourced",
+      "volume": 0.35,
+      "duration_ms_estimate": 700,
+      "loop": false,
+      "_note": "Subtle door-breach implication — door is OFFSCREEN per scene_M1 v4 ('no plane visual, no door visual'), so this is felt-not-seen. Low volume so it doesn't compete with wind ambient. Plays once at scene start."
+    },
+    {
+      "id": "evt_mission_text_appear",
+      "trigger": "mission_text_shown",
+      "delay_after_trigger_ms": 0,
+      "audio_file": "placeholder:ui_soft_bell.mp3",
+      "_status": "pending — sound asset not yet sourced",
+      "volume": 0.4,
+      "duration_ms_estimate": 600,
+      "loop": false,
+      "_note": "Gentle bell/whoosh as mission text fades in. Marks the moment of 'pause and read' — also the moment running stops per pose_composition_map v5."
+    },
+    {
+      "id": "evt_tool_A_click",
+      "trigger": "tool_clicked",
+      "trigger_filter": { "slot": "A" },
+      "delay_after_trigger_ms": 0,
+      "audio_file": "placeholder:fabric_whoosh_snap.mp3",
+      "_status": "pending — sound asset not yet sourced",
+      "volume": 0.8,
+      "duration_ms_estimate": 800,
+      "loop": false,
+      "_note": "מצנח עגול רחב — fabric pack launching. Soft fabric flutter into a snap at the end (= tool reaches palm)."
+    },
+    {
+      "id": "evt_tool_B_click",
+      "trigger": "tool_clicked",
+      "trigger_filter": { "slot": "B" },
+      "delay_after_trigger_ms": 0,
+      "audio_file": "placeholder:metallic_glider_snap.mp3",
+      "_status": "pending — sound asset not yet sourced",
+      "volume": 0.8,
+      "duration_ms_estimate": 800,
+      "loop": false,
+      "_note": "גלשן רחיפה — metallic foil-board release with sharp snap. Crisper / more mechanical than A."
+    },
+    {
+      "id": "evt_tool_C_click",
+      "trigger": "tool_clicked",
+      "trigger_filter": { "slot": "C" },
+      "delay_after_trigger_ms": 0,
+      "audio_file": "placeholder:whoosh_acceleration.mp3",
+      "_status": "pending — sound asset not yet sourced",
+      "volume": 0.9,
+      "duration_ms_estimate": 800,
+      "loop": false,
+      "_note": "חליפת כנפיים — fast whoosh-zip acceleration. Highest energy of the three — wingsuit suggests speed."
+    },
+    {
+      "id": "evt_palm_contact",
+      "trigger": "tool_clicked",
+      "delay_after_trigger_ms": 1500,
+      "audio_file": "placeholder:palm_grab_thud_soft.mp3",
+      "_status": "pending — sound asset not yet sourced",
+      "volume": 0.6,
+      "duration_ms_estimate": 250,
+      "loop": false,
+      "_note": "Soft palm thud at the moment tool reaches hand (= pose_06 frame 4.5 = click+1500ms per pose_composition_map). 'Got it' beat. Low-mid frequency, brief."
+    },
+    {
+      "id": "evt_catch_complete_confirm",
+      "trigger": "catch_complete",
+      "delay_after_trigger_ms": 0,
+      "audio_file": "placeholder:catch_confirm_bell_small.mp3",
+      "_status": "pending — sound asset not yet sourced",
+      "volume": 0.45,
+      "duration_ms_estimate": 400,
+      "loop": false,
+      "_note": "Small confirmation bell at catch_complete (= click+2500ms = pose_06 frame 5.5 hold). Fires immediately before jump starts. Quieter than palm_contact — the GRAB is the impact, this is the 'locked-in' chime."
+    },
+    {
+      "id": "evt_jump_whoosh_up",
+      "trigger": "catch_complete",
+      "delay_after_trigger_ms": 0,
+      "audio_file": "placeholder:whoosh_jump_up.mp3",
+      "_status": "pending — sound asset not yet sourced",
+      "volume": 0.7,
+      "duration_ms_estimate": 600,
+      "loop": false,
+      "_note": "Whoosh-up matched to the 600ms CSS jump animation (translateY -12vh + scale 1.04 + rotate -2deg). Pitch rising. Plays in parallel with catch_confirm_bell_small (catch_complete event fires both simultaneously by design — different audible registers)."
+    },
+    {
+      "id": "evt_landing_impact",
+      "trigger": "landing_complete",
+      "delay_after_trigger_ms": 0,
+      "audio_file": "placeholder:ground_impact_thud_with_rustle.mp3",
+      "_status": "pending — sound asset not yet sourced",
+      "volume": 0.75,
+      "duration_ms_estimate": 600,
+      "loop": false,
+      "_note": "Ground-impact thud + brief crouch rustle (foliage / dirt) when pose_03 reaches frame 5.0 (hands-on-ground). Aligned with set_list_M1 dust_clouds visual at jump_apex+1800ms-ish. Heavier, low-frequency. After this fires, next 200ms must be silent — no event scheduled in that window. Then checkpoint_text_shown fires."
+    },
+    {
+      "id": "evt_checkpoint_confirm",
+      "trigger": "checkpoint_text_shown",
+      "delay_after_trigger_ms": 0,
+      "audio_file": "placeholder:checkpoint_confirm_tone.mp3",
+      "_status": "pending — sound asset not yet sourced",
+      "volume": 0.5,
+      "duration_ms_estimate": 700,
+      "loop": false,
+      "_note": "Subtle confirmation tone (warmer than the mission_text bell — closer to a soft chord resolve). Marks 'level complete' beat. Fires landing_complete+200ms via the dedicated checkpoint_text_shown event. NEVER fires before pose_03 reaches frame 5.0 — Nirit critical: 'עוד לפני שהיא מגיעה לקרקרע כבר עולה איזה יופי נחתתי, וואלה זה נורא'."
+    }
+  ],
+
+  "event_count_summary": {
+    "total_events": 10,
+    "by_trigger": {
+      "scene_entry": 1,
+      "mission_text_shown": 1,
+      "tool_clicked": 5,
+      "catch_complete": 2,
+      "landing_complete": 1,
+      "checkpoint_text_shown": 1
+    },
+    "_note": "tool_clicked has 5 entries: 3 per-slot click sounds (A/B/C, mutually exclusive via trigger_filter.slot) + palm_contact (delay +1500ms, fires for any slot) + jump_whoosh_up is on catch_complete not tool_clicked. catch_complete fires both confirm_bell and jump_whoosh_up (different registers, intentional layering)."
+  },
+
+  "exit_audio": {
+    "type": "cross_fade_to_M2",
+    "duration_ms": 600,
+    "_note": "Matches scene_M1.exit_transition.fade_to_black duration. phase_2_jungle ambient fades out over 600ms in parallel with video fade-to-black. M2 sound design picks up from 0 with its own scene_entry sound."
+  },
+
+  "_human_review_note": "FOR REVIEWER: (1) Every audio_file is a 'placeholder:*' string — ZERO real audio assets exist on disk as of 2026-04-25. Builder treats missing files as silent fallback per _builder_contract.missing_file_behavior. Visuals carry the scene without sound. (2) New event 'checkpoint_text_shown' added to the trigger vocabulary (parallel to v5's 'mission_text_shown' addition in pose_composition_map). Builder must emit it from the same RAF tick that starts the checkpoint_text fade-in CSS animation, mirroring the mission_text_shown contract. (3) Tool sounds are designed by physical metaphor (A=fabric, B=metallic, C=zip-acceleration) per role definition's tool_selected_A/B/C examples. (4) Audio crossfade phase_1->phase_2 = 800ms (sound_designer iron rule) while set_list_M1 bg crossfade = 400ms — DELIBERATE: bg cuts faster for visual snap, audio carries longer for sonic continuity. (5) When real sounds are sourced, replace placeholder:* strings with paths under C:/emerald/assets/audio/M1/ and remove _status='pending' flags."
+}

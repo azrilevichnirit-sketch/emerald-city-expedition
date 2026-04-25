@@ -1,0 +1,13 @@
+{
+  "asset": "מבער_מ09.png",
+  "type": "tool_png",
+  "before_kb": 1410,
+  "after_kb": 160,
+  "ratio": 8.81,
+  "in_budget": false,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\מבער_מ09.png",
+  "dst": "assets\\optimized\\tools\\מבער_מ09.webp",
+  "status": "compressed_pending_panel"
+}

@@ -1,0 +1,309 @@
+{
+  "tools": {
+    "אוהל_מ02": {
+      "status": "already_approved"
+    },
+    "אופניים_מ06": {
+      "status": "ok",
+      "gen_id": "2500d757-6751-476d-b621-cfcfb668ae35",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\אופניים_מ06_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\אופניים_מ06_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\אופניים_מ06_final.png"
+    },
+    "בנגי_מ11": {
+      "status": "ok",
+      "gen_id": "ec65d1f3-942c-4563-bd9d-20eba2b21101",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\בנגי_מ11_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\בנגי_מ11_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\בנגי_מ11_final.png"
+    },
+    "ברזנט_מ02": {
+      "status": "ok",
+      "gen_id": "84a68b61-f5ee-4198-b8bd-80344963d49d",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\ברזנט_מ02_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\ברזנט_מ02_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\ברזנט_מ02_final.png"
+    },
+    "גריקן_מ06": {
+      "status": "ok",
+      "gen_id": "03e04215-cc9f-45c1-b6b0-fa6b7796ad1e",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\גריקן_מ06_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\גריקן_מ06_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\גריקן_מ06_final.png"
+    },
+    "כדור_בדולח_מ14": {
+      "status": "ok",
+      "gen_id": "0de56af1-ff2b-4975-b862-30997f535fbd",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\כדור_בדולח_מ14_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\כדור_בדולח_מ14_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\כדור_בדולח_מ14_final.png"
+    },
+    "מבער_מ09": {
+      "status": "ok",
+      "gen_id": "2600f0a0-eeb4-4cc7-a0fb-fe4a165f6949",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מבער_מ09_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מבער_מ09_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מבער_מ09_final.png"
+    },
+    "מגאפון_מ15": {
+      "status": "ok",
+      "gen_id": "88d43a84-b3ae-4d67-b303-452f60aac06b",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מגאפון_מ15_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מגאפון_מ15_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מגאפון_מ15_final.png"
+    },
+    "מטבעות_מ14": {
+      "status": "ok",
+      "gen_id": "def80bc1-d587-485c-9af0-40394b03ce8c",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מטבעות_מ14_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מטבעות_מ14_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מטבעות_מ14_final.png"
+    },
+    "מצלמה_זעירה_מ10": {
+      "status": "ok",
+      "gen_id": "b8f0827a-bd04-44af-b89d-34a57f26b23a",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מצלמה_זעירה_מ10_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מצלמה_זעירה_מ10_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מצלמה_זעירה_מ10_final.png"
+    },
+    "מצנח_מ01": {
+      "status": "ok",
+      "gen_id": "49b5b909-a6ce-46dd-9c5d-3b437bdecaf4",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מצנח_מ01_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מצנח_מ01_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מצנח_מ01_final.png"
+    },
+    "מצפן_מ13": {
+      "status": "ok",
+      "gen_id": "554f6f81-45dc-4a1f-8724-7573105b7c21",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מצפן_מ13_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מצפן_מ13_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מצפן_מ13_final.png"
+    },
+    "משקפת_מ03": {
+      "status": "ok",
+      "gen_id": "62bff7e9-e809-4b25-8945-2f51ce9fb0ec",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\משקפת_מ03_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\משקפת_מ03_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\משקפת_מ03_final.png"
+    },
+    "ערכה_מ06": {
+      "status": "ok",
+      "gen_id": "f5e00d28-74e2-4cb8-be8b-1750e238d54e",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\ערכה_מ06_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\ערכה_מ06_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\ערכה_מ06_final.png"
+    },
+    "פטיש_מ02": {
+      "status": "already_approved"
+    },
+    "פנס_עוצמתי_מ05": {
+      "status": "already_approved"
+    },
+    "רב_כלי_מ09": {
+      "status": "ok",
+      "gen_id": "df256f6b-d516-4fe0-9583-a06c9b0870a0",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\רב_כלי_מ09_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\רב_כלי_מ09_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\רב_כלי_מ09_final.png"
+    },
+    "רחפן_מ13": {
+      "status": "ok",
+      "gen_id": "ee2019b2-3fc3-43ed-ac38-f43f6b93bbda",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\רחפן_מ13_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\רחפן_מ13_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\רחפן_מ13_final.png"
+    },
+    "תיבה_מ14": {
+      "status": "ok",
+      "gen_id": "84c28333-57d1-4b7f-8825-0bed74c87de2",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\תיבה_מ14_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\תיבה_מ14_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\תיבה_מ14_final.png"
+    },
+    "גלשן_מ01": {
+      "status": "ok",
+      "gen_id": "b21ed777-7d14-4450-a56d-ee1c4a4cac7f",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\גלשן_מ01_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\גלשן_מ01_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\גלשן_מ01_final.png"
+    },
+    "דגל_מ07": {
+      "status": "ok",
+      "gen_id": "d8f38399-b7bf-43ce-ae9b-4381bd3f58e6",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\דגל_מ07_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\דגל_מ07_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\דגל_מ07_final.png"
+    },
+    "דגל_סיום_מ15": {
+      "status": "ok",
+      "gen_id": "98b266bf-a347-44ab-8723-790e9b74faf7",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\דגל_סיום_מ15_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\דגל_סיום_מ15_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\דגל_סיום_מ15_final.png"
+    },
+    "זיקוק_מ15": {
+      "status": "ok",
+      "gen_id": "2a7ccf4a-2a1b-4f39-80c3-b6e255be382d",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\זיקוק_מ15_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\זיקוק_מ15_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\זיקוק_מ15_final.png"
+    },
+    "חבל_קשרים_מ08": {
+      "status": "ok",
+      "gen_id": "0820c713-b268-4749-96f1-c68733965967",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\חבל_קשרים_מ08_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\חבל_קשרים_מ08_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\חבל_קשרים_מ08_final.png"
+    },
+    "טפרי_טיפוס_מ08": {
+      "status": "ok",
+      "gen_id": "afd9a0c7-61de-4216-990b-37afd51ada62",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\טפרי_טיפוס_מ08_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\טפרי_טיפוס_מ08_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\טפרי_טיפוס_מ08_final.png"
+    },
+    "כנפיים_מ01": {
+      "status": "ok",
+      "gen_id": "b78869ef-fc21-4e3b-95dd-2b164dc882b4",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\כנפיים_מ01_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\כנפיים_מ01_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\כנפיים_מ01_final.png"
+    },
+    "כרטיס_מ12": {
+      "status": "ok",
+      "gen_id": "f775211b-0f89-4d66-b6ae-cf5546b9c61d",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\כרטיס_מ12_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\כרטיס_מ12_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\כרטיס_מ12_final.png"
+    },
+    "לום_מ07": {
+      "status": "ok",
+      "gen_id": "f688bd6e-0689-4b88-bf69-929ff45035e4",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\לום_מ07_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\לום_מ07_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\לום_מ07_final.png"
+    },
+    "לפיד_יד_מ12": {
+      "status": "ok",
+      "gen_id": "fd637598-87a8-4f85-94cc-1fa5d740585a",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\לפיד_יד_מ12_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\לפיד_יד_מ12_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\לפיד_יד_מ12_final.png"
+    },
+    "לפיד_מ05": {
+      "status": "ok",
+      "gen_id": "9e0315c0-4cb5-4d87-b2b7-d22a328679b7",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\לפיד_מ05_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\לפיד_מ05_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\לפיד_מ05_final.png"
+    },
+    "מפה_מ03": {
+      "status": "ok",
+      "gen_id": "240f8a81-835e-4400-bef8-495dda900b73",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מפה_מ03_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מפה_מ03_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מפה_מ03_final.png"
+    },
+    "מפתח_מ03": {
+      "status": "ok",
+      "gen_id": "e00d0c1b-81fb-4e51-81ca-9e3a66ac71cd",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מפתח_מ03_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מפתח_מ03_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מפתח_מ03_final.png"
+    },
+    "מצלמה_פלאש_מ12": {
+      "status": "ok",
+      "gen_id": "45010536-c013-486c-9d7e-299b4ebb4819",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מצלמה_פלאש_מ12_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מצלמה_פלאש_מ12_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מצלמה_פלאש_מ12_final.png"
+    },
+    "מצנח_בסיס_מ11": {
+      "status": "ok",
+      "gen_id": "bb0d5ca0-e0a7-4f9f-866f-47e037ca2131",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מצנח_בסיס_מ11_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מצנח_בסיס_מ11_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\מצנח_בסיס_מ11_final.png"
+    },
+    "סולם_חבלים_מ08": {
+      "status": "ok",
+      "gen_id": "a2ee0874-b926-4253-9dc1-fcf0820f77a4",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\סולם_חבלים_מ08_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\סולם_חבלים_מ08_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\סולם_חבלים_מ08_final.png"
+    },
+    "סנפלינג_מ11": {
+      "status": "ok",
+      "gen_id": "c0f98a8a-ecc1-4c33-923c-b90c25892ec8",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\סנפלינג_מ11_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\סנפלינג_מ11_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\סנפלינג_מ11_final.png"
+    },
+    "סרגל_מ13": {
+      "status": "ok",
+      "gen_id": "ed8405b8-630e-4a16-bc2d-755ab57cfb54",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\סרגל_מ13_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\סרגל_מ13_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\סרגל_מ13_final.png"
+    },
+    "פריסקופ_מ07": {
+      "status": "ok",
+      "gen_id": "dc30989d-8d11-408f-be46-d24434839d9f",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\פריסקופ_מ07_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\פריסקופ_מ07_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\פריסקופ_מ07_final.png"
+    },
+    "קאטר_מ10": {
+      "status": "ok",
+      "gen_id": "50050ab9-436c-494d-8b3b-2f57d8393af7",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\קאטר_מ10_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\קאטר_מ10_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\קאטר_מ10_final.png"
+    },
+    "קרשים_מ04": {
+      "status": "ok",
+      "gen_id": "fbdf2f87-f649-410f-b18e-ec9cf1f072af",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\קרשים_מ04_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\קרשים_מ04_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\קרשים_מ04_final.png"
+    },
+    "רובה_חבלים_מ04": {
+      "status": "ok",
+      "gen_id": "7c4f5d75-9925-445e-9fec-f7e3b0152b27",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\רובה_חבלים_מ04_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\רובה_חבלים_מ04_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\רובה_חבלים_מ04_final.png"
+    },
+    "רשת_מ05": {
+      "status": "ok",
+      "gen_id": "6118a980-356b-4f78-b095-a4bbe45aa44f",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\רשת_מ05_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\רשת_מ05_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\רשת_מ05_final.png"
+    },
+    "רתמה_מ04": {
+      "status": "ok",
+      "gen_id": "30020c3b-e86e-4b87-8261-3b8fe7a9cd59",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\רתמה_מ04_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\רתמה_מ04_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\רתמה_מ04_final.png"
+    },
+    "שמיכה_מ10": {
+      "status": "ok",
+      "gen_id": "865cdb8b-d89e-47f5-94cd-b1eb37fc0fd1",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\שמיכה_מ10_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\שמיכה_מ10_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\שמיכה_מ10_final.png"
+    },
+    "שמן_מ09": {
+      "status": "ok",
+      "gen_id": "e8ac59ea-141b-4bed-8e3c-2f4dd7ff38bf",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\שמן_מ09_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\שמן_מ09_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa\\שמן_מ09_final.png"
+    }
+  },
+  "started_at": "2026-04-21 06:26:39",
+  "finished_at": "2026-04-21 07:00:35"
+}

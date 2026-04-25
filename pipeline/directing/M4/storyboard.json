@@ -1,0 +1,105 @@
+{
+  "_stage": "storyboard",
+  "_mission": "M4",
+  "_generated_at": "2026-04-25T12:33:01Z",
+  "_generated_by": "agent_08_storyboard",
+  "scene_id": "M4",
+  "beats": [
+    {
+      "t_ms": 0,
+      "description": "Scene opens mid-push_up transition (550ms total). Swaying rope bridge over chasm visible in background loop. Player in reaching pose, left-of-center, facing right toward empty tool area. Wind and vertical instability implied by background motion.",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_06"
+      ],
+      "audio_hint": "Wind gusts, creaking rope bridge, distant rushing water below chasm"
+    },
+    {
+      "t_ms": 600,
+      "description": "Mission text appears: 'השביל נקטע בתהום! גשר החבלים רעוע והרוח מטלטלת אותו בחוזקה, בזמן שהצוות המוביל כבר בצד השני וממשיך להיעלם בתוך היער. איך אני צולחת את התהום הזו עכשיו?' Tooltips become available for all three tools (though tools not yet visible).",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_06",
+        "text.mission"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 800,
+      "description": "Rope gun (tool.C) enters top-right position. First tool in descending diagonal arrangement. Professional crossing solution now visible.",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_06",
+        "text.mission",
+        "tool.C"
+      ],
+      "audio_hint": "Metallic clink as equipment appears"
+    },
+    {
+      "t_ms": 1200,
+      "description": "Safety harness (tool.B) enters middle-right position. Second tool in diagonal, creating visual gradient from professional to makeshift solutions.",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_06",
+        "text.mission",
+        "tool.C",
+        "tool.B"
+      ],
+      "audio_hint": "Fabric/strap rustle"
+    },
+    {
+      "t_ms": 1600,
+      "description": "Wood planks with hammer (tool.A) enters bottom-right position. All three crossing options now visible in descending diagonal. Player's reaching pose creates tension line toward tools across metaphorical chasm space.",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_06",
+        "text.mission",
+        "tool.C",
+        "tool.B",
+        "tool.A"
+      ],
+      "audio_hint": "Wood thunk"
+    },
+    {
+      "t_ms": 4600,
+      "description": "Mission text fades out. Visual focus shifts entirely to player-tool relationship and background chasm environment. All three tools remain interactive.",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_06",
+        "tool.C",
+        "tool.B",
+        "tool.A"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 9500,
+      "description": "Checkpoint text appears: 'אני בצד השני. הצמחייה סוגרת עליי, האווירה משתנה.' Signals imminent scene conclusion and transition to denser jungle environment (M5).",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_06",
+        "tool.C",
+        "tool.B",
+        "tool.A",
+        "text.checkpoint"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 12000,
+      "description": "Scene ends. All elements remain visible through final frame. Transition to M5 will follow.",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_06",
+        "tool.C",
+        "tool.B",
+        "tool.A",
+        "text.checkpoint"
+      ],
+      "audio_hint": "Wind intensity increases, foreshadowing jungle density ahead"
+    }
+  ],
+  "summary_he": "נירית עומדת מול תהום שחוסמת את דרכה, גשר החבלים הישן מתנדנד באלימות ברוח והצוות המוביל כבר נעלם ביער שמעבר לצד השני. היא מושיטה יד קדימה, גופה מתוח לעבר שלושת הפתרונות שמופיעים בזה אחר זה: רובה חבלים מקצועי, רתמת בטיחות, ולוחות עץ עם פטיש לגשר מאולתר. הרוח שואגת, המים רועשים בעומק התהום, והזמן דוחק. כל בחירה נושאת סיכון שונה - מהירות מול בטיחות, אלתור מול ציוד מקצועי. ברגע שהיא מחליטה וצולחת, הצמחייה הצפופה סוגרת עליה מהצד השני, והאווירה משתנה לחשוכה ומאיימת יותר.",
+  "summary_en": "Player faces chasm with unstable rope bridge, rival team already disappeared into far jungle. Three crossing tools appear in descending diagonal: rope gun (professional), safety harness (cautious), wood planks (improvised). Composition creates visual tension across empty space between player's reaching pose and tools. Wind and vertical instability dominate atmosphere. Checkpoint text signals successful crossing into denser, darker jungle ahead (M5 transition).",
+  "rationale": "All beats derived strictly from timing tracks (t_ms values) and assembly layers. visible_elements cross-checked against ALLOWED list - only bg_M5, pose_06, tool.A/B/C, and text roles used. No scenery elements added (chasm/bridge baked into bg_M5 per merge_to_bg rules). Hebrew summary emphasizes narrative tension and environmental threat for Nirit's review. English summary focuses on technical composition and transition setup."
+}

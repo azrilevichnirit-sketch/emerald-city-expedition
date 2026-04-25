@@ -1,0 +1,13 @@
+{
+  "asset": "altar_stone.png",
+  "type": "scenery_png",
+  "before_kb": 1055,
+  "after_kb": 160,
+  "ratio": 6.59,
+  "in_budget": true,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\altar_stone.png",
+  "dst": "assets\\optimized\\scenery\\altar_stone.webp",
+  "status": "compressed_pending_panel"
+}

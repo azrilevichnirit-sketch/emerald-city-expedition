@@ -1,0 +1,13 @@
+{
+  "asset": "churning_water_pool.png",
+  "type": "scenery_png",
+  "before_kb": 1644,
+  "after_kb": 266,
+  "ratio": 6.18,
+  "in_budget": false,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\churning_water_pool.png",
+  "dst": "assets\\optimized\\scenery\\churning_water_pool.webp",
+  "status": "compressed_pending_panel"
+}

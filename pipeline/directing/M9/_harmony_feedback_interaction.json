@@ -1,0 +1,9 @@
+{
+  "stage": "interaction",
+  "feedback_round": 1,
+  "fixes": [
+    "- Interaction tool labels describe boat repair (oil for engine, multi-tool for steering, welding torch for hull) but mission context is keypad/gate puzzle at hermetic seal entrance — semantic mismatch between interaction tooltips and assembly/storyboard narrative.\n  fix: Rewrite tool tooltips to match keypad bypass scenario (e.g., oil for stuck mechanism, multi-tool for electronic bypass, welding torch for forced entry) instead of boat repair context.",
+    "- Multi-tool (slot B) awards 2 points and is described as 'correct answer' in assembly/storyboard, but interaction awards oil 1pt, multi-tool 2pt, welding torch 3pt — highest points go to wrong tool (welding torch should be lowest/penalty if multi-tool is correct).\n  fix: Adjust point values so multi-tool (slot B, the correct electronic bypass tool) awards highest points (3pt), with oil and welding torch as lower-value distractors (1pt each or 1pt/2pt)."
+  ],
+  "_written_at": "2026-04-25 15:39:18"
+}

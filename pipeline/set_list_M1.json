@@ -1,0 +1,89 @@
+{
+  "_for_mission": "M1",
+  "_source": "directing/assembly.json",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "bg_M1.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": "pose_07.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 45
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_07.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "tools/מצנח_מ01.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 20,
+        "y_pct": 25
+      },
+      "scale": 0.9,
+      "rot_deg": -8,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 33,
+      "role": "tool",
+      "file": "tools/גלשן_מ01.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 20
+      },
+      "scale": 0.95,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "tools/כנפיים_מ01.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 80,
+        "y_pct": 25
+      },
+      "scale": 0.9,
+      "rot_deg": 8,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Player centered mid-frame in falling pose (pose_07) matches mission urgency — door blown open, must jump NOW. Three aerial-escape tools arranged in gentle arc above player (20-25% y) to reinforce 'choose your descent method' decision. Slight rotation on A/C creates dynamic tension without obscuring readability."
+}

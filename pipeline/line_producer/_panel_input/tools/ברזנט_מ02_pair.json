@@ -1,0 +1,13 @@
+{
+  "asset": "ברזנט_מ02.png",
+  "type": "tool_png",
+  "before_kb": 2567,
+  "after_kb": 321,
+  "ratio": 8.0,
+  "in_budget": false,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\ברזנט_מ02.png",
+  "dst": "assets\\optimized\\tools\\ברזנט_מ02.webp",
+  "status": "compressed_pending_panel"
+}

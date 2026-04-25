@@ -1,0 +1,13 @@
+{
+  "asset": "משקפת_מ03.png",
+  "type": "tool_png",
+  "before_kb": 1850,
+  "after_kb": 217,
+  "ratio": 8.53,
+  "in_budget": false,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\משקפת_מ03.png",
+  "dst": "assets\\optimized\\tools\\משקפת_מ03.webp",
+  "status": "compressed_pending_panel"
+}

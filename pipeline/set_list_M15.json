@@ -1,0 +1,90 @@
+{
+  "_for_mission": "M15",
+  "_source": "directing/assembly.json",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "assets/backgrounds/bg_M15.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": "assets/poses/pose_01.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 35,
+        "y_pct": 58
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_01.mp4",
+        "pose_04.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "assets/tools/דגל_סיום_מ15.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 15,
+        "y_pct": 75
+      },
+      "scale": 0.9,
+      "rot_deg": -8,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 33,
+      "role": "tool",
+      "file": "assets/tools/מגאפון_מ15.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 82
+      },
+      "scale": 0.95,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "assets/tools/זיקוק_מ15.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 75
+      },
+      "scale": 0.9,
+      "rot_deg": 5,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Player positioned left-of-center facing the empty finish line (right), creating visual tension toward the unseen celebration. Tools form a wide arc across bottom third: white flag (A) lower-left suggests abandonment, megaphone (B) center-bottom offers communication, firework (C) lower-right promises joining the distant party. Asymmetric layout mirrors the mission's core dilemma — stay at the empty official finish or pivot toward the real celebration."
+}

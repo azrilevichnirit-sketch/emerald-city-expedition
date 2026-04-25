@@ -1,0 +1,133 @@
+{
+  "_status": "v5 — uses existing assets only, no Nano Banana",
+  "_created_by": "set_manager",
+  "_created_at": "2026-04-25",
+  "_supersedes": "C:/emerald/pipeline/set_list_M1.json (legacy v0 layout) and scene_M1.json v4 background block (CSS gradient — Nirit-rejected)",
+  "_nirit_v4_rejection_addressed": [
+    "'היא רצה עם רקע בלי כלום, זה לא שמיים, זה לא מטוס, זה סתם רקע כחול וזהוב' — FIXED: Phase 1 now uses bg_airplane.mp4 (real photoreal aerial sky+clouds+canopy, NOT a gradient).",
+    "'למה ננו בננה, כבר יש כל כך הרבה רקעים של השמיים' — FIXED: zero new generation. Both phases use existing bg files Nirit's project already owns."
+  ],
+  "_assets_verified_on_disk": true,
+  "_no_nano_banana": true,
+  "_no_veo": true,
+  "_no_leonardo": true,
+  "mission": "M1",
+
+  "phases": {
+    "phase_1_pre_jump": {
+      "_role": "altitude_pov_just_before_jump",
+      "_visual_read": "Player is in the open sky with jungle landing zone far below; rival competitors already drifting through the air ahead of her.",
+      "bg_video": "C:/emerald/backgrounds/bg_airplane.mp4",
+      "bg_image": null,
+      "bg_fit": "cover",
+      "bg_loop": true,
+      "bg_z_index": 0,
+      "bg_note": "Despite the filename, this video is an aerial shot of jungle canopy from high altitude with open blue sky and wispy clouds filling the upper 60% of frame. Verified via ffmpeg keyframe extract @ 1.5s. NO plane interior, NO ramp, NO door — exactly the 'I'm about to jump' POV without any of the cargo-bay imagery Nirit killed in v3.",
+      "scenery_overlays": [
+        {
+          "file": "C:/emerald/assets/scenery/competitors_in_air.png",
+          "position_pct": { "x": 50, "y": 22 },
+          "css": "top:6%; left:5%; width:90%; opacity:0.78; z-index:3; filter:blur(0.4px)",
+          "scale": 0.85,
+          "z_index": 3,
+          "opacity": 0.78,
+          "animation": {
+            "name": "rivalsDriftA",
+            "keyframes": "0% { transform: translateX(0); } 50% { transform: translateX(2vw); } 100% { transform: translateX(0); }",
+            "duration_s": 18,
+            "timing_function": "linear",
+            "iteration": "infinite"
+          },
+          "chroma_key_required": true,
+          "chroma_color_hex": "#00B140",
+          "rationale": "Visualizes mission_text 'המתחרים כבר באוויר וצוברים יתרון מטורף' literally. Six chroma-keyed rival silhouettes (paragliders, hang glider, wingsuits) drifting in the upper-third of the sky. REPLACES v4's CSS-dot rivals with real figures Nirit's team already produced. Slow drift = felt-not-counted presence.",
+          "supersedes": "scene_M1.json rivals[] (5 CSS dots) — see _human_review_note"
+        }
+      ],
+      "rationale": "Combines real photoreal sky+clouds+altitude (bg_airplane.mp4) with literal-illustration rivals (competitors_in_air.png) — directly answers Nirit's two complaints. No Nano Banana, no new generation. Both files verified on disk."
+    },
+
+    "phase_2_landing": {
+      "_role": "ground_pov_jungle_landing_floor",
+      "_visual_read": "Player has just landed in a dense jungle clearing — wet ground, palms, distant misty trees. Matches checkpoint_text 'הג'ונגל סמיך משחשבתי, חייבים לזוז'.",
+      "bg_video": "C:/emerald/backgrounds/bg_jungle_clearing.mp4",
+      "bg_image": null,
+      "bg_fit": "cover",
+      "bg_loop": true,
+      "bg_loop_segment_ms": [0, 6000],
+      "bg_z_index": 0,
+      "bg_note": "Ground-level dense jungle: wet stones and puddles in the foreground, palms and dense foliage flanking, misty distant trees, narrow strip of pale sky through the canopy. PERFECT match for pose_03 crouch landing (hands-on-ground). Verified via ffmpeg keyframe extract @ 1.5s. Replaces v4's bg_M5.mp4 — bg_M5 is canopy-from-above (between leaves), wrong perspective for a character whose hands are touching the ground.",
+      "scenery_overlays": [
+        {
+          "file": "C:/emerald/scenery/two_jungle_trees.png",
+          "position_pct": { "x": 12, "y": 60 },
+          "css": "bottom:0%; left:-5%; width:35%; opacity:0.95; z-index:4",
+          "scale": 1.0,
+          "z_index": 4,
+          "opacity": 0.95,
+          "chroma_key_required": true,
+          "chroma_color_hex": "#00B140",
+          "rationale": "Foreground framing trees — anchors the 'jungle is denser than I thought' read of the checkpoint text by adding closer foliage in front of the bg video. Slight parallax optional."
+        },
+        {
+          "file": "C:/emerald/assets/scenery/dust_clouds.png",
+          "position_pct": { "x": 70, "y": 90 },
+          "css": "bottom:8%; right:30%; width:18%; opacity:0; z-index:6; pointer-events:none",
+          "scale": 0.6,
+          "z_index": 6,
+          "opacity_keyframes": "0% { opacity:0; transform: scale(0.7); } 30% { opacity:0.6; transform: scale(1.0); } 100% { opacity:0; transform: scale(1.2); }",
+          "trigger": "jump_apex+1800ms",
+          "duration_ms": 900,
+          "chroma_key_required": true,
+          "chroma_color_hex": "#00B140",
+          "rationale": "Landing impact dust puff at the player's feet at touchdown (= pose_03 frame 5.0 = hands-on-ground). One-shot, brief, sells the landing weight. Position aligned with player CSS bottom:5% right:30% from scene_M1 phase_4_landing."
+        }
+      ],
+      "rationale": "Ground-POV jungle floor matches the pose semantics (crouch, hands-on-ground) and the checkpoint text ('jungle denser than I thought'). Foreground trees add depth. Dust puff anchors the impact moment. All files verified on disk."
+    }
+  },
+
+  "transitions": {
+    "phase_1_to_2": {
+      "trigger": "jump_apex",
+      "trigger_resolves_to_ms_offset": "tool_clicked + 2500 (catch_complete) + 300 (jump rise)",
+      "duration_ms": 400,
+      "type": "crossfade",
+      "easing": "ease-in-out",
+      "_note": "Tightened from scene_M1.json's 500ms to 400ms — the player CSS jump itself is 600ms, and we want bg to settle before pose_03 crouch begins (jump_apex + 0ms). 400ms gives a snappy bg-cut feel without jarring."
+    }
+  },
+
+  "scenery_inventory": {
+    "phase_1_total_overlays": 1,
+    "phase_2_total_overlays": 2,
+    "total_existing_files_used": 4,
+    "total_new_files_required": 0,
+    "files_used": [
+      "C:/emerald/backgrounds/bg_airplane.mp4",
+      "C:/emerald/backgrounds/bg_jungle_clearing.mp4",
+      "C:/emerald/assets/scenery/competitors_in_air.png",
+      "C:/emerald/scenery/two_jungle_trees.png",
+      "C:/emerald/assets/scenery/dust_clouds.png"
+    ]
+  },
+
+  "builder_notes": {
+    "chroma_keying": "All scenery PNGs in this set_list (competitors_in_air, two_jungle_trees, dust_clouds) are on green chroma #00B140 per project convention. Builder must run them through the same chroma-keyer pipeline used for poses/tools. Do NOT composite them as raw PNGs — the green will show.",
+    "z_order": "z=0 bg_video; z=3 competitors (Phase 1); z=4 two_jungle_trees (Phase 2); z=5 player canvas (per scene_M1.json); z=6 dust_clouds (Phase 2 transient).",
+    "phase_swap_mechanics": "Two stacked <video> elements. Phase 1 plays from t=0. At jump_apex event, Phase 2 video starts (currentTime=0) and crossfades over 400ms via opacity. Phase 1 element pauses + display:none after fade.",
+    "no_player_layer_changes": "set_list does NOT modify player composition. scene_M1.json v4 player block (pose_04 -> pose_06 -> pose_03 with click-gated catch) remains authoritative."
+  },
+
+  "supersedes_in_scene_M1": {
+    "background.phase_1": "REPLACE css_gradient_with_motion block with phase_1_pre_jump.bg_video reference here.",
+    "background.phase_2.file": "REPLACE 'backgrounds/bg_M5.mp4' with 'C:/emerald/backgrounds/bg_jungle_clearing.mp4'.",
+    "rivals[]": "REPLACE 5 CSS-dot rival specs with phase_1_pre_jump.scenery_overlays[0] (competitors_in_air.png chroma-keyed overlay).",
+    "scenery": "REPLACE the empty scenery=[{file:null}] with the per-phase overlays defined here.",
+    "_note_to_director": "scene_M1.json should be updated downstream by director or composition_root pulling this set_list. set_manager does NOT modify scene_M1.json directly per task constraints."
+  },
+
+  "_human_review_note": "FOR REVIEWER: (1) bg_airplane.mp4 — please open the file and confirm it reads as 'altitude POV just before jump' (filename is misleading; content is aerial sky+canopy). Path: C:/emerald/backgrounds/bg_airplane.mp4. (2) competitors_in_air.png contains SIX rival figures vs scene_M1.json rivals.count = 5 — accepted as 'felt-not-counted'. (3) bg_jungle_clearing.mp4 chosen over bg_M5.mp4 for Phase 2 because crouch landing needs ground perspective. Reviewer may swap if preferred — both files exist. (4) NO Nano Banana / Veo / Leonardo invoked anywhere in this set_list. Every path is a file already on disk as of 2026-04-25.",
+
+  "_open_issues": []
+}

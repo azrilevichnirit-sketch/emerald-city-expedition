@@ -1,0 +1,113 @@
+{
+  "_stage": "storyboard",
+  "_mission": "M6",
+  "_generated_at": "2026-04-25T12:34:18Z",
+  "_generated_by": "agent_08_storyboard",
+  "scene_id": "M6",
+  "beats": [
+    {
+      "t_ms": 0,
+      "description": "Scene opens: uphill road, smoking jeep right-midground emitting thick smoke, player crouched left-of-center examining the situation. Rivals' dust visible in distant horizon (baked into background). Golden hour lighting.",
+      "visible_elements": [
+        "background.bg_M6",
+        "scenery.smoking_jeep",
+        "player.pose_03"
+      ],
+      "audio_hint": "Engine sputtering, hissing steam, distant vehicle sounds fading"
+    },
+    {
+      "t_ms": 600,
+      "description": "Mission text appears: 'הג'יפ מוציא עשן סמיך ובקושי סוחב בעליות, כשאבק המתחרים כבר נראה רחוק באופק. אני חייבת להחליט אם לתקן או לשנות אסטרטגיה – איך אני ממשיכה מכאן?' Tooltips become available for all tools.",
+      "visible_elements": [
+        "background.bg_M6",
+        "scenery.smoking_jeep",
+        "player.pose_03",
+        "text.mission"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 800,
+      "description": "Oil can (ג'ריקן שמן) materializes upper-left frame — quick-fix option. Tooltip available: 'דלק לרכב התקוע'",
+      "visible_elements": [
+        "background.bg_M6",
+        "scenery.smoking_jeep",
+        "player.pose_03",
+        "text.mission",
+        "tool.A"
+      ],
+      "audio_hint": "Subtle metallic clink"
+    },
+    {
+      "t_ms": 1200,
+      "description": "Toolkit (ערכת כלי עבודה) appears center-top — repair option. Tooltip available: 'תיקון מהיר לרכב'",
+      "visible_elements": [
+        "background.bg_M6",
+        "scenery.smoking_jeep",
+        "player.pose_03",
+        "text.mission",
+        "tool.A",
+        "tool.B"
+      ],
+      "audio_hint": "Tool case settling sound"
+    },
+    {
+      "t_ms": 1600,
+      "description": "Mountain bike (אופני הרים) enters upper-right — strategic pivot option. Tooltip available: 'המשך מהיר בשטח קשה'. All three tools now form wide decision arc across frame.",
+      "visible_elements": [
+        "background.bg_M6",
+        "scenery.smoking_jeep",
+        "player.pose_03",
+        "text.mission",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": "Bike frame resonance"
+    },
+    {
+      "t_ms": 5100,
+      "description": "Mission text fades out. Player remains in examination pose, all three tool options visible, smoking jeep continues emitting smoke.",
+      "visible_elements": [
+        "background.bg_M6",
+        "scenery.smoking_jeep",
+        "player.pose_03",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 9500,
+      "description": "Checkpoint text appears: 'אנחנו דוהרים קדימה. מבנה עתיק מרשים מופיע בדרך.' — foreshadowing forward momentum and ancient structure ahead.",
+      "visible_elements": [
+        "background.bg_M6",
+        "scenery.smoking_jeep",
+        "player.pose_03",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 12000,
+      "description": "Scene ends. All elements remain visible through final frame — decision triangle unresolved, awaiting player choice.",
+      "visible_elements": [
+        "background.bg_M6",
+        "scenery.smoking_jeep",
+        "player.pose_03",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": "Ambient wind, engine struggling"
+    }
+  ],
+  "summary_he": "נירית כרועה ליד הג'יפ המעשן, מבטה עובר בין שלושת הפתרונות המרחפים מעליה כמו שאלה פתוחה. ג'ריקן השמן משמאל מבטיח תיקון מהיר אך שטחי, ערכת הכלים במרכז מציעה תיקון יסודי שיעכב אותה, והאופניים מימין מייצגים נטישת הרכב לטובת זריזות בשטח. עשן סמיך מתפתל מהמנוע הגוסס, ואבק המתחרים כבר נמוג באופק הרחוק – הזמן דוחק. המתח הוויזואלי נוצר מהמשולש שבין נירית הכרועה לבין שלושת הכלים המסודרים בקשת רחבה, כשהג'יפ המעשן יוצר קו אלכסוני המדגיש את הדחיפות. טקסט המשימה מציג את הדילמה במפורש – לתקן או לשנות אסטרטגיה – ואז נמוג, משאיר את נירית עם שלושת הבחירות הבוערות בעוד טקסט נקודת הביקורת מבשר על מבנה עתיק מרשים שמחכה בדרך.",
+  "summary_en": "Player crouched beside smoking jeep examines three-option decision triangle: oil can (quick fix, left), toolkit (thorough repair, center-top), mountain bike (strategic pivot, right). Rivals' dust receding in background (baked into bg_M6) creates urgency. Mission text presents dilemma explicitly, fades at 5.1s; checkpoint text at 9.5s foreshadows ancient structure ahead. Tools enter sequentially 800ms–1600ms, forming wide arc. Smoking jeep scenery layer loops throughout, diagonal composition drives tension toward time pressure.",
+  "rationale": "Beats track every observable timing event from stage 6: scene open (t=0), mission text (600ms), three tool entries (800/1200/1600ms), mission text fade (5100ms), checkpoint text (9500ms), scene end (12000ms). All visible_elements cross-checked against ALLOWED list — used slot form (tool.A/B/C) and exact stems (bg_M6, pose_03, smoking_jeep). Hebrew summary vivid narrative for Nirit (5 sentences, decision triangle metaphor, visual tension). English summary technical, shorter. No invented elements, no merge_to_bg items referenced separately (rivals' dust correctly noted as baked into background)."
+}

@@ -1,0 +1,128 @@
+{
+  "_stage": "interaction",
+  "_mission": "M12",
+  "_generated_at": "2026-04-25T12:33:46Z",
+  "_generated_by": "agent_07_interaction",
+  "scene_id": "M12",
+  "interactive_elements": [
+    {
+      "slot": "A",
+      "label": "כרטיס עלייה לסירה",
+      "points": 1,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.06,
+        "glow_color": "#8BC34A"
+      },
+      "click": {
+        "feedback_animation": "pulse_out",
+        "feedback_ms": 450,
+        "points_popup": {
+          "text": "+1",
+          "color": "#8BC34A",
+          "from_xy_pct": {
+            "x": 70,
+            "y": 25
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 800
+        }
+      },
+      "tooltip": {
+        "he": "כרטיס לסירת הבריחה",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "B",
+      "label": "מצלמה עם פלאש",
+      "points": 2,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.08,
+        "glow_color": "#FF9800"
+      },
+      "click": {
+        "feedback_animation": "flash",
+        "feedback_ms": 500,
+        "points_popup": {
+          "text": "+2",
+          "color": "#FF9800",
+          "from_xy_pct": {
+            "x": 85,
+            "y": 50
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 850
+        }
+      },
+      "tooltip": {
+        "he": "תאיר את החושך בפלאש",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "C",
+      "label": "לפיד יד בוער",
+      "points": 3,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.1,
+        "glow_color": "#FF5722"
+      },
+      "click": {
+        "feedback_animation": "bounce",
+        "feedback_ms": 550,
+        "points_popup": {
+          "text": "+3",
+          "color": "#FF5722",
+          "from_xy_pct": {
+            "x": 78,
+            "y": 75
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 900
+        }
+      },
+      "tooltip": {
+        "he": "אור חזק לדרך חשוכה",
+        "show_after_ms": 600
+      }
+    }
+  ],
+  "global_ui": {
+    "score_display": {
+      "pos": {
+        "x_pct": 88,
+        "y_pct": 8
+      },
+      "font_size_px": 28
+    },
+    "mission_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 6
+      },
+      "width_pct": 70,
+      "font_size_px": 18
+    },
+    "checkpoint_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 92
+      },
+      "width_pct": 80,
+      "font_size_px": 16
+    }
+  },
+  "rationale": "M12 escape scene: A (boarding pass, 1pt) gets green glow for basic utility; B (camera flash, 2pts) gets orange with flash animation for medium value; C (burning torch, 3pts) gets red-orange with bounce for highest value light source in darkness. All tooltips emphasize illumination/escape theme. Points fly from tool positions to top-right score. Global UI positioned to avoid tool cluster (right side 70-85%, y 25-75%)."
+}

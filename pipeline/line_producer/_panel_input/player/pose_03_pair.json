@@ -1,0 +1,13 @@
+{
+  "asset": "pose_03.mp4",
+  "type": "pose_mp4",
+  "before_kb": 1613,
+  "after_kb": 832,
+  "ratio": 1.94,
+  "in_budget": true,
+  "budget_kb": 1200,
+  "codec": "H.264 CRF 24, max_w 1280, preset slow",
+  "src": "assets\\player\\pose_03.mp4",
+  "dst": "assets\\optimized\\player\\pose_03.mp4",
+  "status": "compressed_pending_panel"
+}

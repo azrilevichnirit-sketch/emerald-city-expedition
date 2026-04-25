@@ -1,0 +1,148 @@
+{
+  "אוהל_מ02": {
+    "status": "already_approved"
+  },
+  "אופניים_מ06": {
+    "status": "already_approved"
+  },
+  "בנגי_מ11": {
+    "status": "already_approved"
+  },
+  "ברזנט_מ02": {
+    "status": "already_approved"
+  },
+  "גלשן_מ01": {
+    "status": "auto_pass",
+    "non_chroma_pct": 0.4303
+  },
+  "גריקן_מ06": {
+    "status": "already_approved"
+  },
+  "דגל_מ07": {
+    "status": "already_approved"
+  },
+  "דגל_סיום_מ15": {
+    "status": "already_approved"
+  },
+  "זיקוק_מ15": {
+    "status": "already_approved"
+  },
+  "חבל_קשרים_מ08": {
+    "status": "auto_pass",
+    "non_chroma_pct": 0.4809
+  },
+  "טפרי_טיפוס_מ08": {
+    "status": "already_approved"
+  },
+  "כדור_בדולח_מ14": {
+    "status": "already_approved"
+  },
+  "כנפיים_מ01": {
+    "status": "already_approved"
+  },
+  "כרטיס_מ12": {
+    "status": "already_approved"
+  },
+  "לום_מ07": {
+    "status": "auto_pass",
+    "non_chroma_pct": 0.4333
+  },
+  "לפיד_יד_מ12": {
+    "status": "auto_pass",
+    "non_chroma_pct": 0.1124
+  },
+  "לפיד_מ05": {
+    "status": "auto_pass",
+    "non_chroma_pct": 0.237
+  },
+  "מבער_מ09": {
+    "status": "already_approved"
+  },
+  "מגאפון_מ15": {
+    "status": "already_approved"
+  },
+  "מטבעות_מ14": {
+    "status": "already_approved"
+  },
+  "מפה_מ03": {
+    "status": "auto_fail_empty",
+    "non_chroma_pct": 0.0039
+  },
+  "מפתח_מ03": {
+    "status": "already_approved"
+  },
+  "מצלמה_זעירה_מ10": {
+    "status": "already_approved"
+  },
+  "מצלמה_פלאש_מ12": {
+    "status": "already_approved"
+  },
+  "מצנח_בסיס_מ11": {
+    "status": "auto_pass",
+    "non_chroma_pct": 0.426
+  },
+  "מצנח_מ01": {
+    "status": "already_approved"
+  },
+  "מצפן_מ13": {
+    "status": "already_approved"
+  },
+  "משקפת_מ03": {
+    "status": "already_approved"
+  },
+  "סולם_חבלים_מ08": {
+    "status": "already_approved"
+  },
+  "סנפלינג_מ11": {
+    "status": "auto_pass",
+    "non_chroma_pct": 0.3938
+  },
+  "סרגל_מ13": {
+    "status": "auto_pass",
+    "non_chroma_pct": 0.3073
+  },
+  "ערכה_מ06": {
+    "status": "already_approved"
+  },
+  "פטיש_מ02": {
+    "status": "already_approved"
+  },
+  "פנס_עוצמתי_מ05": {
+    "status": "already_approved"
+  },
+  "פריסקופ_מ07": {
+    "status": "auto_pass",
+    "non_chroma_pct": 0.1712
+  },
+  "קאטר_מ10": {
+    "status": "already_approved"
+  },
+  "קרשים_מ04": {
+    "status": "already_approved"
+  },
+  "רב_כלי_מ09": {
+    "status": "already_approved"
+  },
+  "רובה_חבלים_מ04": {
+    "status": "already_approved"
+  },
+  "רחפן_מ13": {
+    "status": "already_approved"
+  },
+  "רשת_מ05": {
+    "status": "auto_pass",
+    "non_chroma_pct": 0.6789
+  },
+  "רתמה_מ04": {
+    "status": "already_approved"
+  },
+  "שמיכה_מ10": {
+    "status": "already_approved"
+  },
+  "שמן_מ09": {
+    "status": "already_approved"
+  },
+  "תיבה_מ14": {
+    "status": "already_approved"
+  }
+}

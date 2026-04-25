@@ -1,0 +1,13 @@
+{
+  "asset": "זיקוק_מ15.png",
+  "type": "tool_png",
+  "before_kb": 650,
+  "after_kb": 87,
+  "ratio": 7.47,
+  "in_budget": true,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\זיקוק_מ15.png",
+  "dst": "assets\\optimized\\tools\\זיקוק_מ15.webp",
+  "status": "compressed_pending_panel"
+}

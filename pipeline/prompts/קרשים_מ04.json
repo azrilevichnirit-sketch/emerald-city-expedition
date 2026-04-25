@@ -1,0 +1,29 @@
+{
+  "asset": "קרשים_מ04",
+  "label_verbatim": "לוחות עץ ופטיש",
+  "target_path": "assets/tools/קרשים_מ04.png",
+  "type": "tool_item",
+  "source_mission": "M4 slot A",
+  "consequence_type": "build",
+  "points": 1,
+  "scene_context": "M4 — לוחות עץ ופטיש",
+  "pipeline_version": "0E_rembg_v1",
+  "prompts": {
+    "leonardo": "a small stack of 4 RECTANGULAR wooden PLANKS boards piled neatly on top of each other, pine-colored wood with visible grain, AND a CARPENTER HAMMER with wooden handle and steel head RESTING ON TOP of the stack clearly visible at the top, hammer is the prominent second element, both items together as one composed group, 3/4 view angle, camera elevation 25-30 degrees, rotated 15 degrees right, hard directional key light from upper-left 10 oclock, isolated object on plain neutral studio background, product shot, clean sharp edges, stylized realism, cinematic game item, NOT cartoon, fills 65% of frame centered, square composition, prominent 3D subject",
+    "leonardo_negative": "only planks, no hammer, workshop scene, many tools, human figure, person, hands, holding, gradient background, busy background, text, watermark, logo, cartoon style, anime, flat vector illustration"
+  },
+  "leonardo_params": {
+    "modelId": "aa77f04e-3eec-4034-9c07-d0f619684628",
+    "width": 1024,
+    "height": 1024,
+    "num_images": 1,
+    "alchemy": true,
+    "photoReal": false
+  },
+  "directors_note": "לוחות עץ ופטיש — single isolated object per Camera Bible, sharp edges for rembg.",
+  "approved": true,
+  "_approved_at": "2026-04-20",
+  "_approved_by": "director + production_designer (Claude agent roles) per camera_bible.json + pipeline v0E_rembg_v1",
+  "_retry_attempt": 1,
+  "_rewrite_round": 2
+}

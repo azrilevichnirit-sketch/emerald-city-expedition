@@ -1,0 +1,356 @@
+{
+  "_for_mission": "M10",
+  "_built_at": "2026-04-25T12:54:13Z",
+  "_source": "directing/{assembly,continuity,timing,interaction,storyboard}.json",
+  "scene_id": "M10",
+  "duration_ms": 12000,
+  "entry_transition": {
+    "type": "push_up",
+    "duration_ms": 450,
+    "notes": "Gate opens upward/player steps down into tunnel — vertical push simulates descent into underground space. Lighting cools from exterior green-keypad glow to enclosed tunnel dimness."
+  },
+  "exit_transition": null,
+  "background": {
+    "z": 0,
+    "role": "background",
+    "file": "bg_M10.mp4",
+    "slot": null,
+    "pos": {
+      "x_pct": 50,
+      "y_pct": 50
+    },
+    "scale": 1.0,
+    "rot_deg": 0,
+    "anchor": "center",
+    "fit": "cover",
+    "pose_candidates": []
+  },
+  "player": {
+    "pose_file": "pose_06.mp4",
+    "pose_semantic": "anim_reach_forward",
+    "loop_segment_sec": null,
+    "hold_frame_sec": 5.5,
+    "one_shot": true,
+    "catch_pose": true
+  },
+  "tracks": [
+    {
+      "role": "background",
+      "file": "bg_M10.mp4",
+      "slot": null,
+      "pose": null,
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": true,
+      "loop_segment_ms": null,
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "player",
+      "file": null,
+      "slot": null,
+      "pose": "anim_crouch",
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": true,
+      "loop_segment_ms": [
+        0,
+        8000
+      ],
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/מצלמה_זעירה_מ10.png",
+      "slot": "A",
+      "pose": null,
+      "in_ms": 800,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_up",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/שמיכת_מיגון_מ10.png",
+      "slot": "B",
+      "pose": null,
+      "in_ms": 1200,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_up",
+      "appear_ms": 350,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/קאטר_מ10.png",
+      "slot": "C",
+      "pose": null,
+      "in_ms": 1600,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_up",
+      "appear_ms": 400,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "mission_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 500,
+      "out_ms": 5000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 400
+    },
+    {
+      "role": "checkpoint_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 9500,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 400,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    }
+  ],
+  "interactive_elements": [
+    {
+      "slot": "A",
+      "label": "מצלמה זעירה",
+      "points": 1,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.05,
+        "glow_color": "#4A90E2"
+      },
+      "click": {
+        "feedback_animation": "pulse_out",
+        "feedback_ms": 450,
+        "points_popup": {
+          "text": "+1",
+          "color": "#4A90E2",
+          "from_xy_pct": {
+            "x": 75,
+            "y": 25
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 800
+        }
+      },
+      "tooltip": {
+        "he": "צלם את השומרים בלי להתגלות",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "B",
+      "label": "שמיכת מיגון",
+      "points": 2,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.07,
+        "glow_color": "#F5A623"
+      },
+      "click": {
+        "feedback_animation": "flash",
+        "feedback_ms": 500,
+        "points_popup": {
+          "text": "+2",
+          "color": "#F5A623",
+          "from_xy_pct": {
+            "x": 85,
+            "y": 50
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 850
+        }
+      },
+      "tooltip": {
+        "he": "הסתר מתחת לשמיכה תרמית",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "C",
+      "label": "קאטר לחיתוך חוטים",
+      "points": 3,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.1,
+        "glow_color": "#E94B3C"
+      },
+      "click": {
+        "feedback_animation": "bounce",
+        "feedback_ms": 550,
+        "points_popup": {
+          "text": "+3",
+          "color": "#E94B3C",
+          "from_xy_pct": {
+            "x": 78,
+            "y": 75
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 900
+        }
+      },
+      "tooltip": {
+        "he": "חתוך את גדר התיל בשקט",
+        "show_after_ms": 600
+      }
+    }
+  ],
+  "global_ui": {
+    "score_display": {
+      "pos": {
+        "x_pct": 88,
+        "y_pct": 8
+      },
+      "font_size_px": 28
+    },
+    "mission_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 6
+      },
+      "width_pct": 60,
+      "font_size_px": 18
+    },
+    "checkpoint_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 92
+      },
+      "width_pct": 70,
+      "font_size_px": 16
+    }
+  },
+  "beats": [
+    {
+      "t_ms": 0,
+      "description": "Scene opens: underground tunnel interior revealed via upward push transition (450ms). Player character positioned left-of-center, facing right toward danger zone. Black box visible in background, trembling and emitting rapid ticking sound. Dim tunnel lighting, cool tone.",
+      "visible_elements": [
+        "background.bg_M10",
+        "player.player_character"
+      ],
+      "audio_hint": "Rapid mechanical ticking (black box), low ambient tunnel hum"
+    },
+    {
+      "t_ms": 500,
+      "description": "Mission text appears: 'קופסה שחורה רועדת על הרצפה ומשמיעה תקתוק מהיר. הצג סופר לאחור: 3... 2... 1... אני חייבת להגיב בשבריר שנייה! מה הפעולה המיידית שלי?' Countdown timer visible, creating urgency.",
+      "visible_elements": [
+        "background.bg_M10",
+        "player.player_character",
+        "text.mission_text"
+      ],
+      "audio_hint": "Ticking intensifies slightly as text appears"
+    },
+    {
+      "t_ms": 800,
+      "description": "Tool A (thermal camera) enters frame, positioned upper-right in urgency triangle. High position suggests reconnaissance/assessment role.",
+      "visible_elements": [
+        "background.bg_M10",
+        "player.player_character",
+        "text.mission_text",
+        "tool.A"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 1200,
+      "description": "Tool B (thermal blanket) enters frame, positioned mid-right. Middle tier of triangle suggests shielding/protective action.",
+      "visible_elements": [
+        "background.bg_M10",
+        "player.player_character",
+        "text.mission_text",
+        "tool.A",
+        "tool.B"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 1600,
+      "description": "Tool C (wire cutter) enters frame, positioned lower-right. Bottom of triangle suggests direct intervention. All three tools now visible in descending diagonal, forming complete visual urgency hierarchy. Interaction becomes available.",
+      "visible_elements": [
+        "background.bg_M10",
+        "player.player_character",
+        "text.mission_text",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": "Subtle UI ready tone"
+    },
+    {
+      "t_ms": 5000,
+      "description": "Mission text fades out. Player has had 3.4 seconds with all tools visible to make decision. Ticking continues, countdown pressure persists.",
+      "visible_elements": [
+        "background.bg_M10",
+        "player.player_character",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 9500,
+      "description": "Checkpoint text appears: 'הסיכון חלף. אור בקצה המנהרה, מפל אדיר נחשף.' Danger resolved, light visible at tunnel end, waterfall revealed. Tone shifts from tension to relief/discovery.",
+      "visible_elements": [
+        "background.bg_M10",
+        "player.player_character",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint_text"
+      ],
+      "audio_hint": "Ticking stops abruptly; distant waterfall roar fades in"
+    },
+    {
+      "t_ms": 12000,
+      "description": "Scene ends. All elements remain visible through final frame. Player has absorbed success state and waterfall revelation before transition to next mission.",
+      "visible_elements": [
+        "background.bg_M10",
+        "player.player_character",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint_text"
+      ],
+      "audio_hint": "Waterfall ambience sustains into transition"
+    }
+  ],
+  "summary_he": "נירית, זה רגע של לחץ טהור. השחקנית נכנסת למנהרה התת-קרקעית דרך מעבר אנכי (הדלת נדחפת כלפי מעלה, היא יורדת פנימה), והתאורה הקרירה חושפת קופסה שחורה רועדת על הרצפה — תקתוק מהיר, ספירה לאחור: 3, 2, 1. טקסט המשימה מופיע אחרי חצי שנייה ושואל 'מה הפעולה המיידית שלי?' שלושת הכלים נכנסים בזה אחר זה (מצלמת חום, שמיכה תרמית, חותך חוטים) ויוצרים משולש חזותי של דחיפות — מלמעלה (סריקה) דרך האמצע (הגנה) ועד למטה (פעולה ישירה). אחרי 3.4 שניות עם כל הכלים גלויים, טקסט המשימה נעלם והתקתוק ממשיך. ב-9.5 שניות מופיע טקסט ה-checkpoint: 'הסיכון חלף. אור בקצה המנהרה, מפל אדיר נחשף' — התקתוק נעצר בבת אחת, שאגת מפל רחוקה נשמעת, והסצנה עוברת ממתח לגילוי. 12 שניות של אדרנלין מבוקר.",
+  "summary_en": "Underground tunnel entry via upward push transition. Player left-of-center faces trembling black box (right background) emitting rapid ticking and countdown. Mission text at 0.5s asks for immediate action. Three tools enter sequentially (0.8s, 1.2s, 1.6s) forming descending diagonal urgency triangle: thermal camera (recon, top), thermal blanket (shield, mid), wire cutter (direct action, bottom). Mission text fades at 5s; ticking persists. Checkpoint text at 9.5s announces danger passed, light/waterfall revealed. Ticking stops, waterfall ambience begins. Scene ends at 12s with relief/discovery tone established."
+}

@@ -1,0 +1,13 @@
+{
+  "asset": "parked_vehicles.png",
+  "type": "scenery_png",
+  "before_kb": 739,
+  "after_kb": 124,
+  "ratio": 5.96,
+  "in_budget": true,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\parked_vehicles.png",
+  "dst": "assets\\optimized\\scenery\\parked_vehicles.webp",
+  "status": "compressed_pending_panel"
+}

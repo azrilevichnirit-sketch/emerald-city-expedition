@@ -1,0 +1,13 @@
+{
+  "asset": "רשת_מ05.png",
+  "type": "tool_png",
+  "before_kb": 682,
+  "after_kb": 77,
+  "ratio": 8.86,
+  "in_budget": true,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\רשת_מ05.png",
+  "dst": "assets\\optimized\\tools\\רשת_מ05.webp",
+  "status": "compressed_pending_panel"
+}

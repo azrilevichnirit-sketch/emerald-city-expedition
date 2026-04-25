@@ -1,0 +1,113 @@
+{
+  "_stage": "timing",
+  "_mission": "M10",
+  "_generated_at": "2026-04-25T11:38:13Z",
+  "_generated_by": "agent_06_timing",
+  "scene_id": "M10",
+  "total_duration_ms": 12000,
+  "entry_transition_ms": 450,
+  "tracks": [
+    {
+      "role": "background",
+      "file": "bg_M10.mp4",
+      "slot": null,
+      "pose": null,
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": true,
+      "loop_segment_ms": null,
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "player",
+      "file": null,
+      "slot": null,
+      "pose": "anim_crouch",
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": true,
+      "loop_segment_ms": [
+        0,
+        8000
+      ],
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/מצלמה_זעירה_מ10.png",
+      "slot": "A",
+      "pose": null,
+      "in_ms": 800,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_up",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/שמיכת_מיגון_מ10.png",
+      "slot": "B",
+      "pose": null,
+      "in_ms": 1200,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_up",
+      "appear_ms": 350,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/קאטר_מ10.png",
+      "slot": "C",
+      "pose": null,
+      "in_ms": 1600,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_up",
+      "appear_ms": 400,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "mission_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 500,
+      "out_ms": 5000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 400
+    },
+    {
+      "role": "checkpoint_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 9500,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 400,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    }
+  ],
+  "rationale": "M10: Black box bomb scenario demands urgent tension. Total 12s. Background loops full duration. Player in anim_crouch (tense, cautious posture, loops 0-8s). Tools stagger in 800/1200/1600ms with slide_up (400ms stagger, 300-400ms animations). Mission_text 500-5000ms (4.5s visible). Checkpoint_text 9500-12000ms (2.5s before end, narrator wrap). Entry transition 450ms matches stage 5."
+}

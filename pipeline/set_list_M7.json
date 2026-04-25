@@ -1,0 +1,89 @@
+{
+  "_for_mission": "M7",
+  "_source": "directing/assembly.json",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "bg_M7.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": "pose_01.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 35,
+        "y_pct": 62
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_01.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "tools/דגל_משימה_מ07.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 72,
+        "y_pct": 25
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 33,
+      "role": "tool",
+      "file": "tools/פריסקופ_מ07.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "tools/לום_ברזל_מ07.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 78,
+        "y_pct": 75
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Player positioned left-of-center in 'look around' pose, scanning the hidden temple entrance where rival vehicles are parked. Tools arranged in descending diagonal (top-right to bottom-right) creating visual flow from mission flag → periscope (intelligence gathering) → crowbar (forced entry). Background layers (wet ground / vehicles+gate / jungle+mist) provide depth per bg brief."
+}

@@ -1,0 +1,13 @@
+{
+  "asset": "כרטיס_מ12.png",
+  "type": "tool_png",
+  "before_kb": 1089,
+  "after_kb": 156,
+  "ratio": 6.98,
+  "in_budget": false,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\כרטיס_מ12.png",
+  "dst": "assets\\optimized\\tools\\כרטיס_מ12.webp",
+  "status": "compressed_pending_panel"
+}

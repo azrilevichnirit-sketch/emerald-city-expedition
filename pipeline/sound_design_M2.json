@@ -1,0 +1,27 @@
+{
+  "_for_mission": "M2",
+  "_status": "PLACEHOLDER (sound pass not yet run)",
+  "_source": "storyboard.beats[].audio_hint",
+  "audio_cues": [
+    {
+      "t_ms": 0,
+      "hint": "Thunder rumble building, wind gusts, jungle ambience with urgency"
+    },
+    {
+      "t_ms": 2000,
+      "hint": "Subtle material sound — fabric rustle"
+    },
+    {
+      "t_ms": 2400,
+      "hint": "Metal clink — tool placement"
+    },
+    {
+      "t_ms": 2800,
+      "hint": "Soft thud — final tool arrival"
+    },
+    {
+      "t_ms": 9500,
+      "hint": "Rain intensity shifts — storm passing or shelter secured implication"
+    }
+  ]
+}

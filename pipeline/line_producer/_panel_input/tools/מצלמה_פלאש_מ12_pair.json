@@ -1,0 +1,13 @@
+{
+  "asset": "מצלמה_פלאש_מ12.png",
+  "type": "tool_png",
+  "before_kb": 1747,
+  "after_kb": 198,
+  "ratio": 8.82,
+  "in_budget": false,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\מצלמה_פלאש_מ12.png",
+  "dst": "assets\\optimized\\tools\\מצלמה_פלאש_מ12.webp",
+  "status": "compressed_pending_panel"
+}

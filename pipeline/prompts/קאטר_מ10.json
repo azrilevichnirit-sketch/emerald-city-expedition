@@ -1,0 +1,29 @@
+{
+  "asset": "קאטר_מ10",
+  "label_verbatim": "קאטר לחיתוך חוטים",
+  "target_path": "assets/tools/קאטר_מ10.png",
+  "type": "tool_item",
+  "source_mission": "M10 slot C",
+  "consequence_type": "cut",
+  "points": 3,
+  "scene_context": "M10 — קאטר לחיתוך חוטים",
+  "pipeline_version": "0E_rembg_v1",
+  "prompts": {
+    "leonardo": "a COMPLETE pair of heavy-duty wire cutter pliers in FULL view, both red rubber-coated handles at bottom AND steel jaws at top fully visible within the frame, jaws slightly open, the entire tool comfortably fits inside the square frame with margin, nothing cropped, nothing cut off, 3/4 view angle, camera elevation 25-30 degrees, rotated 15 degrees right, hard directional key light from upper-left 10 oclock, isolated object on plain neutral studio background, product shot, clean sharp edges, stylized realism, cinematic game item, NOT cartoon, fills 65% of frame centered, square composition, prominent 3D subject",
+    "leonardo_negative": "cropped image, handles missing, partial tool, scissors, human figure, person, hands, holding, gradient background, busy background, text, watermark, logo, cartoon style, anime, flat vector illustration"
+  },
+  "leonardo_params": {
+    "modelId": "aa77f04e-3eec-4034-9c07-d0f619684628",
+    "width": 1024,
+    "height": 1024,
+    "num_images": 1,
+    "alchemy": true,
+    "photoReal": false
+  },
+  "directors_note": "קאטר לחיתוך חוטים — single isolated object per Camera Bible, sharp edges for rembg.",
+  "approved": true,
+  "_approved_at": "2026-04-20",
+  "_approved_by": "director + production_designer (Claude agent roles) per camera_bible.json + pipeline v0E_rembg_v1",
+  "_retry_attempt": 1,
+  "_rewrite_round": 2
+}

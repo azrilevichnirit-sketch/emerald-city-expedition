@@ -1,0 +1,13 @@
+{
+  "asset": "תיבה_מ14.png",
+  "type": "tool_png",
+  "before_kb": 1699,
+  "after_kb": 184,
+  "ratio": 9.23,
+  "in_budget": false,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\תיבה_מ14.png",
+  "dst": "assets\\optimized\\tools\\תיבה_מ14.webp",
+  "status": "compressed_pending_panel"
+}

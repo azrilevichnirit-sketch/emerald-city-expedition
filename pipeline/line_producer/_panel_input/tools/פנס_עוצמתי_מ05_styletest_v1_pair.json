@@ -1,0 +1,13 @@
+{
+  "asset": "פנס_עוצמתי_מ05_styletest_v1.png",
+  "type": "tool_png",
+  "before_kb": 1484,
+  "after_kb": 132,
+  "ratio": 11.24,
+  "in_budget": true,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\פנס_עוצמתי_מ05_styletest_v1.png",
+  "dst": "assets\\optimized\\tools\\פנס_עוצמתי_מ05_styletest_v1.webp",
+  "status": "compressed_pending_panel"
+}

@@ -1,0 +1,104 @@
+{
+  "_for_mission": "M6",
+  "_source": "directing/assembly.json",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "bg_M6.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 15,
+      "role": "scenery",
+      "file": "assets/scenery/smoking_jeep.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 72,
+        "y_pct": 58
+      },
+      "scale": 0.45,
+      "rot_deg": -8,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": "pose_03.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 38,
+        "y_pct": 62
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_03.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "tools/ג'ריקן_שמן_מ06.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 15,
+        "y_pct": 35
+      },
+      "scale": 0.75,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": null,
+      "pose_candidates": []
+    },
+    {
+      "z": 33,
+      "role": "tool",
+      "file": "tools/ערכת_כלי_עבודה_מ06.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 25
+      },
+      "scale": 0.8,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": null,
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "tools/אופני_הרים_מ06.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 35
+      },
+      "scale": 0.75,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": null,
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Player crouched left-of-center examining situation, smoking jeep right-midground creates diagonal tension toward rivals' dust (baked in bg). Tools form wide arc across upper frame — oil can (quick fix) left, toolkit (repair) center-top, mountain bike (pivot strategy) right — mirroring the decision triangle in mission_text."
+}

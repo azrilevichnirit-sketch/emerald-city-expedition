@@ -1,0 +1,82 @@
+{
+  "tools": {
+    "דגל_סיום_מ15": {
+      "status": "ok",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\דגל_סיום_מ15_rA_final.png",
+      "fix_note": "remove '15' number; pure white flag (plain)",
+      "bg": "gray"
+    },
+    "סולם_חבלים_מ08": {
+      "status": "ok",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\סולם_חבלים_מ08_rA_final.png",
+      "fix_note": "classic vertical rope ladder with wooden rungs, not a 2D mesh",
+      "bg": "white"
+    },
+    "זיקוק_מ15": {
+      "status": "ok",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\זיקוק_מ15_rA_final.png",
+      "fix_note": "festive celebratory firework bursting, not a military rocket",
+      "bg": "white"
+    },
+    "מצנח_מ01": {
+      "status": "ok",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\מצנח_מ01_rA_final.png",
+      "fix_note": "side/below angle (not top-down); classic round canopy deployed",
+      "bg": "white"
+    },
+    "פטיש_מ02": {
+      "status": "ok",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\פטיש_מ02_rA_final.png",
+      "fix_note": "several shiny nails prominently visible, not tiny",
+      "bg": "white"
+    },
+    "מפתח_מ03": {
+      "status": "ok",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\מפתח_מ03_rA_final.png",
+      "fix_note": "ATV/quad-bike key, rugged rubber grip, not modern sedan fob",
+      "bg": "white"
+    },
+    "רובה_חבלים_מ04": {
+      "status": "ok",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\רובה_חבלים_מ04_rA_final.png",
+      "fix_note": "grappling gun — visible hook projectile at muzzle, not industrial stapler",
+      "bg": "white"
+    },
+    "רשת_מ05": {
+      "status": "ok",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\רשת_מ05_rA_final.png",
+      "fix_note": "dynamic defensive net with weighted edges, not a static small mesh",
+      "bg": "white"
+    },
+    "לפיד_מ05": {
+      "status": "ok",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\לפיד_מ05_rA_final.png",
+      "fix_note": "compact square proportions for inventory, not thin+tall",
+      "bg": "white"
+    },
+    "חבל_קשרים_מ08": {
+      "status": "ok",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\חבל_קשרים_מ08_rA_final.png",
+      "fix_note": "square frame — coiled or folded rope, not thin-tall strip",
+      "bg": "white"
+    },
+    "רב_כלי_מ09": {
+      "status": "ok",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\רב_כלי_מ09_rA_final.png",
+      "fix_note": "folded Leatherman-style multi-tool, one compact unit",
+      "bg": "white"
+    },
+    "שמיכה_מ10": {
+      "status": "ok",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\שמיכה_מ10_rA_final.png",
+      "fix_note": "clearer blast blanket / protective shield reading, not pillow-on-case",
+      "bg": "white"
+    },
+    "בנגי_מ11": {
+      "status": "ok",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\בנגי_מ11_rA_final.png",
+      "fix_note": "stretched extended bungee cord, visibly elastic, not coiled like rope",
+      "bg": "white"
+    }
+  }
+}

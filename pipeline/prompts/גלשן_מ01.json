@@ -1,0 +1,35 @@
+{
+  "asset": "גלשן_מ01",
+  "label_verbatim": "גלשן רחיפה",
+  "target_path": "assets/tools/גלשן_מ01.png",
+  "type": "tool_item",
+  "source_mission": "M1 slot B",
+  "consequence_type": "wear",
+  "points": 2,
+  "scene_context": "M1 — גלשן רחיפה (HANG-GLIDER, triangular delta wing — NOT a paraglider)",
+  "pipeline_version": "0E_rembg_v3",
+  "_v3_redirect": "Previous v1/v2 generated a circular paraglider canopy — visually identical to slot A מצנח. v3 must produce a triangular hang-glider (delta wing) so the player can distinguish A from B at a glance.",
+  "prompts": {
+    "leonardo": "a triangular hang-glider, delta-wing flying device, FLAT TRIANGULAR sail stretched over a rigid aluminum frame in a sharp delta shape (V-shape like an arrowhead pointing forward), wing fabric is metallic blue with thin silver edges, NOT colorful NOT rainbow, the leading-edge tubes form a clear V silhouette, a horizontal control bar (trapeze) hangs below the wing, NO suspension lines NO ropes NO harness seat dangling, NOT round NOT a dome NOT a parachute canopy, 3/4 view from slightly below showing the triangular profile and the horizontal control bar, camera elevation 15 degrees, wing rotated 20 degrees so the triangular shape is clearly readable, hard directional key light from upper-left 10 o'clock, isolated single object on plain neutral studio background, product shot, clean sharp edges suitable for rembg, stylized realism, cinematic game item, NOT cartoon, fills 60% of frame centered, square composition, the silhouette must read as a flat triangular wing — the visual OPPOSITE of a round parachute",
+    "leonardo_negative": "parachute, paraglider, paragliding canopy, round canopy, dome, sphere, balloon, hot air balloon, rainbow stripes, colorful fabric, suspension lines, ropes, harness seat, person, human figure, hands, holding, gradient background, busy background, text, watermark, logo, cartoon style, anime, flat vector illustration, soft fabric, ram-air canopy, cellular wing"
+  },
+  "leonardo_params": {
+    "modelId": "aa77f04e-3eec-4034-9c07-d0f619684628",
+    "width": 1024,
+    "height": 1024,
+    "num_images": 1,
+    "alchemy": true,
+    "photoReal": false
+  },
+  "directors_note": "Hang-glider משולש. צללית של V/חץ, מסגרת מתכת, מפרש כחול-כסוף שטוח. חייב להיראות הפוך לחלוטין מהמצנח של slot A: זווית במקום עיגול, מתכתי במקום צבעוני, משולש במקום כיפה. אסור: חבלים, רתמה תלויה, סלילים. כן: trapeze bar אופקי תחת הכנף.",
+  "approved": true,
+  "_approved_at": "2026-04-25",
+  "_approved_by": "director (Claude in production company role) per scene_M1.json v3 assets_needing_regen.glider",
+  "_retry_attempt": 3,
+  "_rewrite_round": 3,
+  "_history": [
+    {"round": 1, "result": "paraglider — wrong", "fail_reason": "round canopy"},
+    {"round": 2, "result": "paraglider — wrong", "fail_reason": "still circular, looked like slot A"},
+    {"round": 3, "result": "pending", "intent": "force triangular delta-wing silhouette"}
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "asset": "קרשים_מ04.png",
+  "type": "tool_png",
+  "before_kb": 1460,
+  "after_kb": 153,
+  "ratio": 9.54,
+  "in_budget": false,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\קרשים_מ04.png",
+  "dst": "assets\\optimized\\tools\\קרשים_מ04.webp",
+  "status": "compressed_pending_panel"
+}

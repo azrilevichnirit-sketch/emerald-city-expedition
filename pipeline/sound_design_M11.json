@@ -1,0 +1,35 @@
+{
+  "_for_mission": "M11",
+  "_status": "PLACEHOLDER (sound pass not yet run)",
+  "_source": "storyboard.beats[].audio_hint",
+  "audio_cues": [
+    {
+      "t_ms": 0,
+      "hint": "Deep tunnel ambience, distant water roar growing"
+    },
+    {
+      "t_ms": 650,
+      "hint": "Waterfall roar peaks, boat engine hum faint below, wind gusts"
+    },
+    {
+      "t_ms": 800,
+      "hint": "Tool materialization whoosh"
+    },
+    {
+      "t_ms": 1200,
+      "hint": "Second whoosh, slightly lower pitch"
+    },
+    {
+      "t_ms": 1600,
+      "hint": "Final whoosh completes chord"
+    },
+    {
+      "t_ms": 9500,
+      "hint": "Water sounds intensify, boat engine louder (player now at river level)"
+    },
+    {
+      "t_ms": 12000,
+      "hint": "Crossfade to next scene"
+    }
+  ]
+}

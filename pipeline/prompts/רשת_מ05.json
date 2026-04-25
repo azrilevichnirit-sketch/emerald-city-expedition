@@ -1,0 +1,29 @@
+{
+  "asset": "רשת_מ05",
+  "label_verbatim": "רשת הגנה",
+  "target_path": "assets/tools/רשת_מ05.png",
+  "type": "tool_item",
+  "source_mission": "M5 slot B",
+  "consequence_type": "defend",
+  "points": 2,
+  "scene_context": "M5 — רשת הגנה",
+  "pipeline_version": "0E_rembg_v1",
+  "prompts": {
+    "leonardo": "a heavy PROTECTIVE MESH NET rolled into a large compact BUNDLE CYLINDER about 40cm long, thick dark-grey CORDED ROPE strands forming a visible square grid pattern, 3D bulging cylindrical bundle shape with strong shadows, edges tied with cord, net bundle is thick and opaque, prominent subject, 3/4 view angle, camera elevation 25-30 degrees, rotated 15 degrees right, hard directional key light from upper-left 10 oclock, isolated object on plain neutral studio background, product shot, clean sharp edges, stylized realism, cinematic game item, NOT cartoon, fills 65% of frame centered, square composition, prominent 3D subject",
+    "leonardo_negative": "thin wire mesh, spider web, transparent net, fishing net spread out, wire fence, human figure, person, hands, holding, gradient background, busy background, text, watermark, logo, cartoon style, anime, flat vector illustration"
+  },
+  "leonardo_params": {
+    "modelId": "aa77f04e-3eec-4034-9c07-d0f619684628",
+    "width": 1024,
+    "height": 1024,
+    "num_images": 1,
+    "alchemy": true,
+    "photoReal": false
+  },
+  "directors_note": "רשת הגנה — single isolated object per Camera Bible, sharp edges for rembg.",
+  "approved": true,
+  "_approved_at": "2026-04-20",
+  "_approved_by": "director + production_designer (Claude agent roles) per camera_bible.json + pipeline v0E_rembg_v1",
+  "_retry_attempt": 1,
+  "_rewrite_round": 2
+}

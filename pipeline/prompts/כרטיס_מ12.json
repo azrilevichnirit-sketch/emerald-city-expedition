@@ -1,0 +1,29 @@
+{
+  "asset": "כרטיס_מ12",
+  "label_verbatim": "כרטיס עלייה לסירה",
+  "target_path": "assets/tools/כרטיס_מ12.png",
+  "type": "tool_item",
+  "source_mission": "M12 slot A",
+  "consequence_type": "board",
+  "points": 1,
+  "scene_context": "M12 — כרטיס עלייה לסירה",
+  "pipeline_version": "0E_rembg_v1",
+  "prompts": {
+    "leonardo": "a single paper boat boarding pass TICKET card, rectangular cream-colored card stock paper lying flat on the surface, printed with bold black text BOARDING PASS and a small boat logo, weathered slightly torn edges, paper ticket only, nothing else in frame, FLAT PRINTED PAPER CARD, 3/4 view angle, camera elevation 25-30 degrees, rotated 15 degrees right, hard directional key light from upper-left 10 oclock, isolated object on plain neutral studio background, product shot, clean sharp edges, stylized realism, cinematic game item, NOT cartoon, fills 65% of frame centered, square composition, prominent 3D subject",
+    "leonardo_negative": "physical boat, ship, vessel, marine vehicle, 3D model of boat, human figure, person, hands, holding, gradient background, busy background, text, watermark, logo, cartoon style, anime, flat vector illustration"
+  },
+  "leonardo_params": {
+    "modelId": "aa77f04e-3eec-4034-9c07-d0f619684628",
+    "width": 1024,
+    "height": 1024,
+    "num_images": 1,
+    "alchemy": true,
+    "photoReal": false
+  },
+  "directors_note": "כרטיס עלייה לסירה — single isolated object per Camera Bible, sharp edges for rembg.",
+  "approved": true,
+  "_approved_at": "2026-04-20",
+  "_approved_by": "director + production_designer (Claude agent roles) per camera_bible.json + pipeline v0E_rembg_v1",
+  "_retry_attempt": 1,
+  "_rewrite_round": 2
+}

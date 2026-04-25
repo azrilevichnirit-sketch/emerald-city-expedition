@@ -1,0 +1,13 @@
+{
+  "asset": "competitor_boat_at_cave.png",
+  "type": "scenery_png",
+  "before_kb": 680,
+  "after_kb": 71,
+  "ratio": 9.58,
+  "in_budget": true,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\competitor_boat_at_cave.png",
+  "dst": "assets\\optimized\\scenery\\competitor_boat_at_cave.webp",
+  "status": "compressed_pending_panel"
+}

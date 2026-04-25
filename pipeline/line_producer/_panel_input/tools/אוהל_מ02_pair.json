@@ -1,0 +1,13 @@
+{
+  "asset": "אוהל_מ02.png",
+  "type": "tool_png",
+  "before_kb": 1391,
+  "after_kb": 116,
+  "ratio": 11.99,
+  "in_budget": true,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\אוהל_מ02.png",
+  "dst": "assets\\optimized\\tools\\אוהל_מ02.webp",
+  "status": "compressed_pending_panel"
+}

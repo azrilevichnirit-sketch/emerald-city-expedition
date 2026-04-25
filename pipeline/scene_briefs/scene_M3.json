@@ -1,0 +1,356 @@
+{
+  "_for_mission": "M3",
+  "_built_at": "2026-04-25T12:54:13Z",
+  "_source": "directing/{assembly,continuity,timing,interaction,storyboard}.json",
+  "scene_id": "M3",
+  "duration_ms": 12000,
+  "entry_transition": {
+    "type": "fade_from_black",
+    "duration_ms": 650,
+    "notes": "Night storm dissolves to morning light — visual reset from defensive crisis to new day's choice. Black fade reinforces temporal jump (night→dawn) and emotional shift from survival mode to strategic decision-making."
+  },
+  "exit_transition": null,
+  "background": {
+    "z": 0,
+    "role": "background",
+    "file": "bg_03.mp4",
+    "slot": null,
+    "pos": {
+      "x_pct": 50,
+      "y_pct": 50
+    },
+    "scale": 1.0,
+    "rot_deg": 0,
+    "anchor": "center",
+    "fit": "cover",
+    "pose_candidates": []
+  },
+  "player": {
+    "pose_file": "pose_01.mp4",
+    "pose_semantic": "anim_look_around",
+    "loop_segment_sec": {
+      "start": 0.0,
+      "end": 8.0
+    },
+    "hold_frame_sec": null,
+    "one_shot": false,
+    "catch_pose": false
+  },
+  "tracks": [
+    {
+      "role": "background",
+      "file": "bg_03.mp4",
+      "slot": null,
+      "pose": null,
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": true,
+      "loop_segment_ms": null,
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "player",
+      "file": "pose_01.mp4",
+      "slot": null,
+      "pose": "pose_01.mp4",
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": true,
+      "loop_segment_ms": null,
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/מפה_מקומטת_מ03.png",
+      "slot": "A",
+      "pose": null,
+      "in_ms": 1000,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_left",
+      "appear_ms": 350,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/משקפת_שדה_מ03.png",
+      "slot": "B",
+      "pose": null,
+      "in_ms": 1400,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_up",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/מפתח_טרקטורון_מ03.png",
+      "slot": "C",
+      "pose": null,
+      "in_ms": 1800,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "pop",
+      "appear_ms": 250,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "mission_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 650,
+      "out_ms": 5150,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 400,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 400
+    },
+    {
+      "role": "checkpoint_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 9500,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    }
+  ],
+  "interactive_elements": [
+    {
+      "slot": "A",
+      "label": "המפה המקומטת",
+      "points": 1,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.06,
+        "glow_color": "#FFD700"
+      },
+      "click": {
+        "feedback_animation": "pulse_out",
+        "feedback_ms": 450,
+        "points_popup": {
+          "text": "+1",
+          "color": "#FFD700",
+          "from_xy_pct": {
+            "x": 72,
+            "y": 25
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 800
+        }
+      },
+      "tooltip": {
+        "he": "מפה ישנה – מראה את הדרך",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "B",
+      "label": "משקפת שדה",
+      "points": 2,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.08,
+        "glow_color": "#FF8C00"
+      },
+      "click": {
+        "feedback_animation": "bounce",
+        "feedback_ms": 500,
+        "points_popup": {
+          "text": "+2",
+          "color": "#FF8C00",
+          "from_xy_pct": {
+            "x": 85,
+            "y": 52
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 850
+        }
+      },
+      "tooltip": {
+        "he": "משקפת – רואים רחוק יותר",
+        "show_after_ms": 550
+      }
+    },
+    {
+      "slot": "C",
+      "label": "מפתח לטרקטורון מונע",
+      "points": 3,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.1,
+        "glow_color": "#FF4500"
+      },
+      "click": {
+        "feedback_animation": "flash",
+        "feedback_ms": 550,
+        "points_popup": {
+          "text": "+3",
+          "color": "#FF4500",
+          "from_xy_pct": {
+            "x": 78,
+            "y": 78
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 900
+        }
+      },
+      "tooltip": {
+        "he": "מפתח טרקטורון – נסיעה מהירה!",
+        "show_after_ms": 500
+      }
+    }
+  ],
+  "global_ui": {
+    "score_display": {
+      "pos": {
+        "x_pct": 88,
+        "y_pct": 8
+      },
+      "font_size_px": 28
+    },
+    "mission_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 6
+      },
+      "width_pct": 60,
+      "font_size_px": 18
+    },
+    "checkpoint_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 92
+      },
+      "width_pct": 70,
+      "font_size_px": 16
+    }
+  },
+  "beats": [
+    {
+      "t_ms": 0,
+      "description": "Scene opens: fade from black (650ms) reveals morning jungle crossroads. Background shows dirt path with fresh tire tracks veering left. Nirit stands left-of-center in scanning pose, surveying the decision point.",
+      "visible_elements": [
+        "background.bg_03",
+        "player.pose_01"
+      ],
+      "audio_hint": "Morning jungle ambience (birds, distant engine rumble fading), subtle tension underscore"
+    },
+    {
+      "t_ms": 650,
+      "description": "Mission text appears: 'הבוקר עלה. המפה מראה שביל ישר, אבל משמאל יש עקבות צמיגים טריות ורעש מנועים של הקבוצות האחרות שבורחות קדימה. האם אני נצמדת למפה או דוהרת אחריהם?' overlays scene, establishing the strategic dilemma.",
+      "visible_elements": [
+        "background.bg_03",
+        "player.pose_01",
+        "text.mission"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 1000,
+      "description": "Crumpled map (tool A) enters top-right of frame — the conservative choice, showing the official straight path through the jungle.",
+      "visible_elements": [
+        "background.bg_03",
+        "player.pose_01",
+        "text.mission",
+        "tool.A"
+      ],
+      "audio_hint": "Soft paper rustle"
+    },
+    {
+      "t_ms": 1400,
+      "description": "Field binoculars (tool B) appear mid-right, slightly below map — reconnaissance option to scout ahead before committing.",
+      "visible_elements": [
+        "background.bg_03",
+        "player.pose_01",
+        "text.mission",
+        "tool.A",
+        "tool.B"
+      ],
+      "audio_hint": "Metallic clink (binoculars settling)"
+    },
+    {
+      "t_ms": 1800,
+      "description": "Tractor key (tool C) materializes lower-right, completing diagonal cascade — the aggressive pursuit option to chase rival teams.",
+      "visible_elements": [
+        "background.bg_03",
+        "player.pose_01",
+        "text.mission",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": "Key jingle"
+    },
+    {
+      "t_ms": 5150,
+      "description": "Mission text fades out. All three tools remain visible and interactive, forming clear visual hierarchy: passive study → active recon → full commitment.",
+      "visible_elements": [
+        "background.bg_03",
+        "player.pose_01",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 9500,
+      "description": "Checkpoint text appears: 'הנתיב נבחר. אני מרגישה את המתחרים נושפת בעורפי.' — confirms player has made decision, adds urgency with rivals closing in.",
+      "visible_elements": [
+        "background.bg_03",
+        "player.pose_01",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": "Tension swell (competitors approaching)"
+    },
+    {
+      "t_ms": 12000,
+      "description": "Scene ends. All elements remain visible through final frame, maintaining decision weight as scene transitions to consequence.",
+      "visible_elements": [
+        "background.bg_03",
+        "player.pose_01",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": null
+    }
+  ],
+  "summary_he": "הבוקר מתחיל בצומת דרכים מכריע. נירית עומדת בשביל מפוצל, מסתכלת על עקבות הצמיגים הטריות של הקבוצות המתחרות שדוהרות שמאלה — מחוץ למסלול הרשמי. שלושה כלים מופיעים בזה אחר זה: מפה מקומטת שמראה את הדרך הבטוחה והישרה, משקפת שדה לסריקת השטח מרחוק, ומפתח טרקטורון להתחלת מרדף אחרי המתחרים. כל כלי מייצג רמת סיכון שונה — האם לשחק בטוח, לאסוף מידע, או לקחת סיכון גדול? הטקסט מדגיש את הלחץ: הזמן עובר, המתחרים מתרחקים, וההחלטה הזאת תקבע את כל המשך המסע. הסצנה נסגרת עם תחושת דחיפות — נירית מרגישה את היריבים נושמים לה בעורף.",
+  "summary_en": "Morning crossroads decision point. Nirit surveys jungle path split: official straight route vs. fresh tire tracks of rival teams veering left. Three tools cascade in (map → binoculars → tractor key), representing escalating commitment levels from passive study to active pursuit. Visual hierarchy guides player through risk spectrum. Scene builds urgency through text overlay and tool timing, closing with checkpoint confirmation that rivals are closing in. No scenery layers (environmental elements baked into bg_03). Player maintains scanning pose throughout, creating tension with static decision tools."
+}

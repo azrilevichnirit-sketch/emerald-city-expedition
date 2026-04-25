@@ -1,0 +1,13 @@
+{
+  "asset": "לפיד_מ05.png",
+  "type": "tool_png",
+  "before_kb": 119,
+  "after_kb": 18,
+  "ratio": 6.61,
+  "in_budget": true,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\לפיד_מ05.png",
+  "dst": "assets\\optimized\\tools\\לפיד_מ05.webp",
+  "status": "compressed_pending_panel"
+}

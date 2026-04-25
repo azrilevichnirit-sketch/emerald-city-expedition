@@ -1,0 +1,31 @@
+{
+  "_for_mission": "M9",
+  "_status": "PLACEHOLDER (sound pass not yet run)",
+  "_source": "storyboard.beats[].audio_hint",
+  "audio_cues": [
+    {
+      "t_ms": 0,
+      "hint": "Low mechanical hum, urgent electronic beeping (60-second countdown implied), echo of dripping water in tunnel"
+    },
+    {
+      "t_ms": 800,
+      "hint": "Soft inventory chime (tool available)"
+    },
+    {
+      "t_ms": 1200,
+      "hint": "Second inventory chime (slightly higher pitch)"
+    },
+    {
+      "t_ms": 1600,
+      "hint": "Third inventory chime (completes chord progression)"
+    },
+    {
+      "t_ms": 9500,
+      "hint": "Heavy metallic clunk (gate unlocking), low rumble of hydraulics, echo deepens as tunnel opens"
+    },
+    {
+      "t_ms": 12000,
+      "hint": "Ambient tunnel echo sustains into next scene"
+    }
+  ]
+}

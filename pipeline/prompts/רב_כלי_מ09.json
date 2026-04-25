@@ -1,0 +1,27 @@
+{
+  "asset": "רב_כלי_מ09",
+  "label_verbatim": "רב-כלי",
+  "target_path": "assets/tools/רב_כלי_מ09.png",
+  "type": "tool_item",
+  "source_mission": "M9 slot B",
+  "consequence_type": "fix",
+  "points": 2,
+  "scene_context": "M9 — רב-כלי",
+  "pipeline_version": "0E_rembg_v1",
+  "prompts": {
+    "leonardo": "a stainless steel multi-tool with pliers head opened and several folded tools visible, knife blade, screwdriver, scissors partially fanned out, complete single multi-tool in isolation, 3/4 view angle, camera elevation 25-30 degrees, rotated 15 degrees right, hard directional key light from upper-left 10 oclock, isolated object on plain neutral studio background, product shot, clean sharp edges, stylized realism, cinematic game item, NOT cartoon, fills 65% of frame centered, square composition",
+    "leonardo_negative": "swiss army knife closed, single knife, wrench, human figure, person, hands, holding, gradient background, busy background, text, watermark, logo, cartoon style, anime, flat vector illustration, rusty, broken, damaged"
+  },
+  "leonardo_params": {
+    "modelId": "aa77f04e-3eec-4034-9c07-d0f619684628",
+    "width": 1024,
+    "height": 1024,
+    "num_images": 1,
+    "alchemy": true,
+    "photoReal": false
+  },
+  "directors_note": "רב-כלי — single isolated object per Camera Bible, sharp edges for rembg.",
+  "approved": true,
+  "_approved_at": "2026-04-20",
+  "_approved_by": "director + production_designer (Claude agent roles) per camera_bible.json + pipeline v0E_rembg_v1"
+}

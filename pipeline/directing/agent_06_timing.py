@@ -39,8 +39,8 @@ from __future__ import annotations
 
 import sys
 
-from _lib import (Context, call_claude, extract_json, load_project_context,
-                  parse_missions_arg, write_output)
+from _lib import (Context, call_claude, extract_json, load_project_context, render_pose_recommendations,
+                  render_today_state, parse_missions_arg, write_output)
 
 SYSTEM = """You are timing_director — stage 6 of 9. Sequential pipeline.
 
@@ -91,22 +91,14 @@ def run_one(ctx: Context) -> None:
     if not continuity:
         raise RuntimeError(f"{ctx.mission} continuity missing")
 
-    # Compact pose summaries
-    poses_summary = {}
-    for name, info in ctx.pose_map.get("poses", {}).items():
-        poses_summary[info.get("semantic_name", name)] = {
-            "duration_sec": info.get("duration_sec"),
-            "loop_segment": info.get("loop_segment"),
-            "one_shot": info.get("one_shot"),
-            "hold_frame": info.get("hold_frame"),
-        }
-
     layers_summary = [{
         "z": l.get("z"), "role": l.get("role"), "slot": l.get("slot"),
         "file": l.get("file"), "pose_candidates": l.get("pose_candidates"),
     } for l in assembly.get("layers", [])]
 
     user = f"""CONTEXT — hard constraints:
+
+{render_today_state(ctx)}
 
 Mission {ctx.mission}
   mission_text: {ctx.mission_data.get('mission_text', '')}
@@ -116,14 +108,15 @@ Layers placed by stage 4 (positions already fixed):
 {layers_summary}
 
 Entry transition from stage 5:
-  type: {continuity.get('entry_transition', {{}}).get('type')}
-  duration_ms: {continuity.get('entry_transition', {{}}).get('duration_ms')}
+  type: {(continuity.get('entry_transition') or {}).get('type')}
+  duration_ms: {(continuity.get('entry_transition') or {}).get('duration_ms')}
 
-Available poses (name -> timing info):
-{poses_summary}
+{render_pose_recommendations(ctx)}
 
 TASK: produce timing.json. One track per layer (background, scenery items, player,
-each tool A/B/C), plus mission_text track and checkpoint_text track.
+each tool A/B/C), plus mission_text text track and checkpoint_text track. The
+player track's `file` field MUST be a .mp4 filename from the pose_map (e.g.
+'pose_07.mp4'), NOT a semantic string like 'anim_falling'.
 """
     print(f"[{ctx.mission}] stage 6 timing — calling Claude…")
     raw = call_claude(system=SYSTEM, user=user, max_tokens=3000, temperature=0.3)
@@ -137,6 +130,7 @@ def main(argv: list[str]) -> int:
     arg = argv[1] if len(argv) > 1 else "all"
     missions = parse_missions_arg(arg)
     print(f"agent_06 timing — {len(missions)} mission(s)")
+    failures = 0
     for m in missions:
         try:
             ctx = load_project_context(m)
@@ -145,10 +139,11 @@ def main(argv: list[str]) -> int:
                 continue
             run_one(ctx)
         except Exception as e:
+            failures += 1
             print(f"  [{m}] FAIL: {type(e).__name__}: {e}")
             import traceback
             traceback.print_exc()
-    return 0
+    return 1 if failures else 0
 
 
 if __name__ == "__main__":

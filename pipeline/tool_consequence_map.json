@@ -1,0 +1,158 @@
+{
+  "_status": "v5 — synced with pose_composition_map v5 + scene_M1 v5 + set_list_M1 v5. Single-position-anchor era: tool attach points are RELATIVE TO THE PLAYER WRAPPER, not the screen. Player wrapper holds bottom:6% right:55% height:54% from scene_entry through catch_complete+600ms (= jump_apex), then translates ONCE over 2000ms to bottom:5% right:30% height:55% during pose_03 landing. Catch happens AFTER the scaleX(-1)->scaleX(+1) flip (which is hidden inside the 200ms blend at mission_text_shown), so the palm anchor is computed against scaleX(+1) frontal pose_06 frame 4.5.",
+  "_created_at": "2026-04-25",
+  "_updated_at": "2026-04-25",
+  "_created_by": "production_designer (Claude in production company role)",
+  "_purpose": "Designs the visual narrative for each tool selection. Builder reads this to play the right consequence sequence after a click. Each tool defines: where it flies in from (zone D), where it attaches on the player WRAPPER after the catch, the brief deploy/unfold during the 600ms CSS jump, and the landing settled state under pose_03. NO falling pose. NO new generation.",
+  "_v5_changes_from_v4": [
+    "attach_at_catch.point_on_player_pct CHANGED for all 3 slots: v4 had {x:52, y:38}; v5 = {x:40, y:32} per director v5 _builder_contract item 11 verbatim ('palm rect = player canvas bounding * [0.40 X anchor, 0.32 Y anchor for raised palm at frame 4.5]'). v4's anchor did not match director's brief — v5 aligns.",
+    "attach_at_catch.scale_factor reduced 0.55 -> 0.50 to keep the tool visually inside the smaller palm region at the new anchor.",
+    "attach point semantics CLARIFIED: percentages are computed against the PLAYER WRAPPER's bounding rect (the CSS-positioned element receiving bottom/right/height), NOT against the screen. Single-position-anchor era — no per-phase position swaps. Builder reads getBoundingClientRect on the player wrapper element at the moment of attachment.",
+    "scene_reaction.during_jump REWRITTEN: deploy/unfold/snap-open is now bounded to a 400ms window inside the 600ms CSS jump rise (catch_complete -> jump_apex+100ms). Per debate decision, this honors content_lock 'deploy/wear' semantics without rendering a parachute-fall sequence (Nirit verbatim: 'כבר היה עדיף לוותר פה על החלק של הצניחה' — no falling, no extended canopy descent).",
+    "Facing flip documented: pose_04 running uses scaleX(-1); pose_05/06/03 use scaleX(+1). Single flip is hidden inside the 200ms blend at mission_text_shown. The catch happens AFTER the flip (pose_06 frame 4.5 at click+1500ms), so palm anchor x=40 is the LEFT-side palm of a frontal-facing pose, NOT mirrored. Tool flight target is the post-flip palm — builder uses palm-rect from the live player wrapper (already flipped), no extra mirroring needed.",
+    "post_pose for ALL three slots remains pose_03.mp4#3.0-5.0 (preserved from v4 — Nirit's no-falling rule).",
+    "_audio_hint clarified as informational only — sound_designer owns actual audio.",
+    "Single-position-anchor rule explicitly added to file header (top _status field)."
+  ],
+  "_v4_changes_from_v3": [
+    "(superseded — kept for audit) post_pose changed from pose_07 (falling) to pose_03 (landing) per Nirit: 'כבר היה עדיף לוותר פה על החלק של הצניחה'.",
+    "(superseded — kept for audit) ALL tools now enter from zone D (slide_up).",
+    "(superseded — kept for audit) attach.point_on_player_pct rebalanced to {x:50, y:38}.",
+    "(superseded — kept for audit) scene_reaction.during_jump describes the CSS-jump phase.",
+    "(superseded — kept for audit) behind_player kept where appropriate (glider, wings)."
+  ],
+  "_v3_changes": [
+    "(superseded by v4) post_pose: pose_07.mp4#0-3.5 -> pose_07.mp4#0.0-4.0",
+    "(superseded by v4) entry timings revalidated against pose_06 catch one-shot 3.0-5.5"
+  ],
+  "_schema": {
+    "mission": {
+      "slot_X": {
+        "tool_label": "Hebrew label",
+        "type": "deploy|wear|use|hold (from content_lock)",
+        "entry": {"from": "zone_d", "duration_ms": 1500, "_note": "tool flies from its zone-D button to player palm; duration matches pose_06 raise time so they meet at peak (frame 4.5)"},
+        "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.50, "behind_player": false, "_note": "RELATIVE TO PLAYER WRAPPER bounding rect at the moment of catch"},
+        "attach_at_landing": {"point_on_player_pct": {"x": 50, "y": 60}, "scale_factor": 1.0, "behind_player": false, "_note": "RELATIVE TO PLAYER WRAPPER bounding rect during pose_03 landing"},
+        "scene_reaction": {
+          "during_catch": "what happens between click and palm-contact (click -> +1500ms)",
+          "during_jump": "what happens during the 600ms CSS jump (catch_complete -> catch_complete+600ms; deploy/unfold bounded to first 400ms = catch_complete -> jump_apex+100ms)",
+          "during_land": "what the tool's settled state is during the 2000ms pose_03 landing"
+        },
+        "post_pose": "pose_03.mp4#3.0-5.0 (landing crouch)",
+        "audio_hint": "informational only — sound_designer owns actual audio"
+      }
+    }
+  },
+  "_global_v5_constraints": {
+    "single_position_anchor": "Player wrapper holds bottom:6% right:55% height:54% from scene_entry through catch_complete+600ms. Tool attach points are computed against the wrapper, NOT the screen. The wrapper translates ONCE at jump_apex over 2000ms to bottom:5% right:30% height:55%. Tool follows the wrapper.",
+    "facing_flip": "pose_04 running scaleX(-1); pose_05/06/03 scaleX(+1). Flip is inside the 200ms blend at mission_text_shown. Catch frame (pose_06 #4.5) is scaleX(+1) frontal, so palm anchor x=40 is the post-flip palm. No additional mirroring required.",
+    "no_pose_07": "post_pose for all M1 slots is pose_03.mp4#3.0-5.0. pose_07 falling is rejected per Nirit verbatim and is not used.",
+    "no_new_generation": "Every tool PNG referenced by slot_A/B/C is already on disk per scene_M1 v5 tracks. Builder MUST NOT invoke Nano Banana / Veo / Leonardo. If a file is missing, FAIL LOUDLY.",
+    "deploy_window_bounded": "Per debate decision (debates/production_designer/m1_v5_tool_consequence.json): tool deploy/unfold/snap-open is bounded to 400ms inside the 600ms CSS jump rise (catch_complete -> jump_apex+100ms). After jump_apex+100ms the tool is locked at its landing-attach position; pose_03 plays underneath."
+  },
+  "missions": {
+    "M1": {
+      "_scene_intent": "Nirit runs in (pose_04 #2.0-3.5, scaleX(-1) profile-left), stops when mission_text appears at +1500ms, stands grounded in pose_05 #1.0-2.0 (scaleX(+1) frontal) until the player clicks. On click: pose_06 #3.0-5.5 plays, the chosen tool flies on a 1500ms parabolic arc from its Zone-D button to her palm (anchor x=40, y=32 of the player wrapper at frame 4.5). At click+2500ms catch_complete fires: brief 600ms CSS jump (translateY -12vh + scale 1.04 + rotate -2deg) — during this rise the tool deploys/unfolds/snaps-open over 400ms. At catch_complete+300ms jump_apex: bg cross-fades to jungle, pose_03 #3.0-5.0 starts (one_shot 2000ms), wrapper begins 2000ms CSS-translate to landing position. At jump_apex+1800ms dust puff. At jump_apex+2000ms landing_complete (hands touch ground); tool settled in its type-specific landing state. NO falling animation rendered at any point.",
+      "_pulled_from": [
+        "C:/emerald/pipeline/pose_composition_map.json v5 — pose timeline & catch frame timing (frame 4.5 = palm contact at click+1500ms)",
+        "C:/emerald/pipeline/scene_briefs/scene_M1.json v5 — single-position anchor, facing flip, tool arc geometry, _builder_contract item 11 (palm anchor 0.40 X / 0.32 Y)",
+        "C:/emerald/pipeline/set_lists/set_list_M1.json v5 — bg phases (Phase 1 sky, Phase 2 jungle ground)",
+        "C:/emerald/content_lock.json M1.tools — slot A=מצנח עגול רחב/deploy, B=גלשן רחיפה/wear, C=חליפת כנפיים/wear",
+        "C:/emerald/design_system.md section 8 (z-index stack) and section 13 (Tool Consequence Animations)"
+      ],
+      "_z_index_per_design_system": {
+        "deploy_canopy_above_player": 9,
+        "player_canvas": 10,
+        "wear_silhouette_behind_shoulders": 9,
+        "_note": "design_system.md section 13 specifies wear/deploy = z-index:9 (behind player). The wrapper-relative attach point still applies, but the tool element renders at z=9 so the player canvas (z=10) draws over it where they overlap."
+      },
+      "slot_A": {
+        "tool_label": "מצנח עגול רחב",
+        "type": "deploy",
+        "entry": {
+          "from": "zone_d",
+          "duration_ms": 1500,
+          "_note": "Tool flies from its zone-D button rect to player-wrapper palm rect on a parabolic cubic-bezier(0.34,1.56,0.64,1) arc. 1500ms matches the time from pose_06 trigger (click) to frame 4.5 (palm-forward). Arc peak Y = min(button.top, palm.top) - 80px per scene_M1 v5 _builder_contract item 11."
+        },
+        "attach_at_catch": {
+          "point_on_player_pct": {"x": 40, "y": 32},
+          "scale_factor": 0.50,
+          "behind_player": false,
+          "_note": "Compact bundled parachute in palm. Anchor matches director v5 _builder_contract item 11 (0.40 X / 0.32 Y of player wrapper). z-index = 20 (in-hand, in front of player) for the catch -> jump rise window."
+        },
+        "attach_at_landing": {
+          "point_on_player_pct": {"x": 50, "y": 18},
+          "scale_factor": 1.6,
+          "behind_player": false,
+          "_note": "Canopy settled above her shoulders (y=18 = upper area of player wrapper, above head). Scale 1.6 = wide canopy that reads as 'deployed parachute, soft landing achieved'. behind_player:false because canopy is ABOVE her, not behind — but z-index is set to 9 per design_system.md section 13 deploy rule (player canvas at z=10 draws over any overlap)."
+        },
+        "scene_reaction": {
+          "during_catch": "Parachute is a small folded bundle in palm at the moment of frame-4.5 contact. NOT deployed. Bundle scale 0.50 fits inside palm region.",
+          "during_jump": "Over the first 400ms of the 600ms CSS jump rise (catch_complete -> jump_apex+100ms), the canopy unfurls UPWARD from her hand: scale interpolates 0.50 -> 1.6, position translates from palm-anchor (x=40, y=32) to canopy-above-shoulders anchor (x=50, y=18), z-index switches from 20 to 9 at unfurl-start. The unfurl happens DURING the rising portion of the CSS jump — canopy snap during lift reads as 'snap-deploy with air-catch lift effect', not 'parachuting'. By jump_apex+100ms the canopy is fully open and locked at the landing-attach position.",
+          "during_land": "Canopy stays settled above her shoulders at scale 1.6 throughout pose_03 #3.0-5.0. Optional gentle 0.5Hz vertical bob (±2% Y) for subtle 'fabric still settling' read — NO horizontal drift, NO descent, NO billow loop that would suggest she is still airborne. Builder may omit the bob if it complicates implementation; static is acceptable."
+        },
+        "post_pose": "pose_03.mp4#3.0-5.0",
+        "audio_hint": "Soft palm-grab thud at click+1500ms -> canopy snap at catch_complete -> fabric rustle settling on landing_complete. (Informational; sound_designer owns.)",
+        "_human_review_open": "Playtest the 400ms canopy unfurl during the 600ms rising CSS jump. MUST read as 'snap deployment with lift effect', NOT 'she is now parachuting'. If on review it reads as parachuting, fallback v5.1: replace the unfurl with an INSTANTANEOUS deploy at catch_complete (canopy appears full-scale 1.6 at the landing-attach position immediately, no unfurl animation). post_pose remains pose_03 in either case."
+      },
+      "slot_B": {
+        "tool_label": "גלשן רחיפה",
+        "type": "wear",
+        "entry": {
+          "from": "zone_d",
+          "duration_ms": 1500,
+          "_note": "Same arc semantics as slot A. Tool element holds the compact-folded glider PNG until catch frame 4.5."
+        },
+        "attach_at_catch": {
+          "point_on_player_pct": {"x": 40, "y": 32},
+          "scale_factor": 0.50,
+          "behind_player": false,
+          "_note": "Glider held compact by the trapeze bar in palm — wing folded small. Anchor identical to slot A per director v5 spec. z-index = 20 (in-hand) for catch -> jump-rise window."
+        },
+        "attach_at_landing": {
+          "point_on_player_pct": {"x": 50, "y": 50},
+          "scale_factor": 1.4,
+          "behind_player": true,
+          "_note": "Glider settles BEHIND her shoulders (z-index = 9, behind player canvas at z=10). y=50 = mid-body, slightly above center of player wrapper, so the wing extends visibly above and to the sides of her shoulders. Visible as wide silhouette behind."
+        },
+        "scene_reaction": {
+          "during_catch": "Glider held compact (delta-wing folded) by trapeze bar in palm at frame-4.5 contact. Scale 0.50.",
+          "during_jump": "During the first 400ms of the 600ms CSS jump rise (catch_complete -> jump_apex+100ms), the glider unfolds: the wing extends behind/above her shoulders, scale interpolates 0.50 -> 1.4, position translates from palm-anchor (x=40, y=32) to behind-shoulders anchor (x=50, y=50), behind_player flips false -> true at unfurl-start (z-index 20 -> 9). She tilts forward subtly into glide-stance via the natural pose_06 frame transition. Unfold ends by jump_apex+100ms.",
+          "during_land": "Glider locked at attach_at_landing — wide silhouette behind crouching player throughout pose_03 #3.0-5.0. NO wing-flap loop. Static settled state. Slight tilt (±5deg rotation) baked into the PNG positioning is fine; no animated motion."
+        },
+        "post_pose": "pose_03.mp4#3.0-5.0",
+        "audio_hint": "Whoosh on flight (click -> +1500ms) -> wing snap-extend at catch_complete -> wing-fabric rustle on landing_complete. (Informational; sound_designer owns.)",
+        "_human_review_open": "Glider scale 1.4 at landing wrapper bounds (right:30%, bottom:5%, height:55%) — verify the wing silhouette is wide enough to read but does not clip the right edge of the viewport. If clipping occurs, reduce scale to 1.25."
+      },
+      "slot_C": {
+        "tool_label": "חליפת כנפיים",
+        "type": "wear",
+        "entry": {
+          "from": "zone_d",
+          "duration_ms": 1500,
+          "_note": "Same arc semantics as slot A and B. Tool element holds the compact-bundled wingsuit PNG until catch frame 4.5."
+        },
+        "attach_at_catch": {
+          "point_on_player_pct": {"x": 40, "y": 32},
+          "scale_factor": 0.50,
+          "behind_player": false,
+          "_note": "Wingsuit fabric bundled in palm. z-index = 20 (in-hand) for catch -> jump-rise window."
+        },
+        "attach_at_landing": {
+          "point_on_player_pct": {"x": 50, "y": 50},
+          "scale_factor": 1.7,
+          "behind_player": true,
+          "_note": "Wings folded against her back during the crouch (NOT spread mid-air-style). z-index = 9, behind player canvas at z=10. y=50 = mid-body anchor, scale 1.7 makes the folded-wing silhouette wide and angular behind her shoulders, larger than the glider's because the wingsuit's wing-membrane attaches arm-to-torso across her full body height."
+        },
+        "scene_reaction": {
+          "during_catch": "Wingsuit fabric bundled small in palm at frame-4.5 contact. Scale 0.50. NOT yet snapped open.",
+          "during_jump": "During the first 400ms of the 600ms CSS jump rise (catch_complete -> jump_apex+100ms), the wings snap open from her back: scale interpolates 0.50 -> 1.7, position translates from palm-anchor (x=40, y=32) to behind-back anchor (x=50, y=50), behind_player flips false -> true at snap-start (z-index 20 -> 9). The wing-snap during a rising CSS jump reads as 'glide-deploy', not falling. By jump_apex+100ms wings are at full landing scale.",
+          "during_land": "Wings FOLDED against her back during pose_03 crouch — wide angular silhouette behind shoulders, NOT spread (a spread wing during a hands-on-ground crouch would read incongruously). Locked static at attach_at_landing throughout pose_03 #3.0-5.0. NO flap loop."
+        },
+        "post_pose": "pose_03.mp4#3.0-5.0",
+        "audio_hint": "Sonic whoosh on flight (click -> +1500ms) -> wing snap-open at catch_complete -> fabric settle on landing_complete. (Informational; sound_designer owns.)",
+        "_human_review_open": "Wingsuit scale 1.7 at landing wrapper bounds (right:30%, bottom:5%, height:55%) — verify wings do not clip the right edge of the viewport. If clipping occurs, reduce scale to 1.5 OR shift point_on_player_pct.x from 50 to 45."
+      }
+    }
+  }
+}

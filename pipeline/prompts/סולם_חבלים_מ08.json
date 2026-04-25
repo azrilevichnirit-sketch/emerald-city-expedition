@@ -1,0 +1,29 @@
+{
+  "asset": "סולם_חבלים_מ08",
+  "label_verbatim": "סולם חבלים",
+  "target_path": "assets/tools/סולם_חבלים_מ08.png",
+  "type": "tool_item",
+  "source_mission": "M8 slot A",
+  "consequence_type": "climb",
+  "points": 1,
+  "scene_context": "M8 — סולם חבלים",
+  "pipeline_version": "0E_rembg_v1",
+  "prompts": {
+    "leonardo": "a rope ladder with flat WOODEN PLANK RUNGS: two parallel vertical hemp-colored ropes running top to bottom, with SEVEN FLAT HORIZONTAL WOODEN PLANKS connecting them as rungs, evenly spaced at regular intervals, each rung is a small wooden board about the width of a foot, ladder hangs straight vertically, full ladder visible top to bottom, rungs are the prominent feature, 3/4 view angle, camera elevation 25-30 degrees, rotated 15 degrees right, hard directional key light from upper-left 10 oclock, isolated object on plain neutral studio background, product shot, clean sharp edges, stylized realism, cinematic game item, NOT cartoon, fills 65% of frame centered, square composition, prominent 3D subject",
+    "leonardo_negative": "ropes only, no rungs, metal ladder, step ladder, tangled ropes, human figure, person, hands, holding, gradient background, busy background, text, watermark, logo, cartoon style, anime, flat vector illustration"
+  },
+  "leonardo_params": {
+    "modelId": "aa77f04e-3eec-4034-9c07-d0f619684628",
+    "width": 1024,
+    "height": 1024,
+    "num_images": 1,
+    "alchemy": true,
+    "photoReal": false
+  },
+  "directors_note": "סולם חבלים — single isolated object per Camera Bible, sharp edges for rembg.",
+  "approved": true,
+  "_approved_at": "2026-04-20",
+  "_approved_by": "director + production_designer (Claude agent roles) per camera_bible.json + pipeline v0E_rembg_v1",
+  "_retry_attempt": 1,
+  "_rewrite_round": 2
+}

@@ -1,0 +1,105 @@
+{
+  "_stage": "storyboard",
+  "_mission": "M2",
+  "_generated_at": "2026-04-25T12:39:09Z",
+  "_generated_by": "agent_08_storyboard",
+  "scene_id": "M2",
+  "beats": [
+    {
+      "t_ms": 0,
+      "description": "Scene opens: storm-threatened jungle clearing visible, Nirit in reaching pose toward right side of frame where tools will appear. Cross-dissolve transition from M1 completes.",
+      "visible_elements": [
+        "background.bg_02",
+        "player.pose_06"
+      ],
+      "audio_hint": "Thunder rumble building, wind gusts, jungle ambience with urgency"
+    },
+    {
+      "t_ms": 500,
+      "description": "Mission text appears: 'הברקים כבר מעליי וסערה טרופית עומדת להתפרץ. אם לא אמצא מחסה יבש לציוד עכשיו, כל היתרון שלי ייהרס. מה הדרך הטובה ביותר לאלתר פתרון ללילה?'",
+      "visible_elements": [
+        "background.bg_02",
+        "player.pose_06",
+        "text.mission"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 2000,
+      "description": "Tool A (tarp/ברזנט) materializes top-right position, first in diagonal cascade. Player's reaching gesture now has visible target.",
+      "visible_elements": [
+        "background.bg_02",
+        "player.pose_06",
+        "text.mission",
+        "tool.A"
+      ],
+      "audio_hint": "Subtle material sound — fabric rustle"
+    },
+    {
+      "t_ms": 2400,
+      "description": "Tool B (hammer/פטיש) appears mid-right, second in cascade. Urgency gradient forming visually.",
+      "visible_elements": [
+        "background.bg_02",
+        "player.pose_06",
+        "text.mission",
+        "tool.A",
+        "tool.B"
+      ],
+      "audio_hint": "Metal clink — tool placement"
+    },
+    {
+      "t_ms": 2800,
+      "description": "Tool C (tent/אוהל) completes the diagonal at lower-right. All three shelter solutions now visible, tooltips become available after 600ms (t=3400ms effective).",
+      "visible_elements": [
+        "background.bg_02",
+        "player.pose_06",
+        "text.mission",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": "Soft thud — final tool arrival"
+    },
+    {
+      "t_ms": 4500,
+      "description": "Mission text fades out. Player and three tools remain in tableau, interaction window fully open.",
+      "visible_elements": [
+        "background.bg_02",
+        "player.pose_06",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 9500,
+      "description": "Checkpoint text appears: 'הציוד מוגן. שרדנו את הלילה, המסע האמיתי מתחיל.' — signals resolution phase beginning.",
+      "visible_elements": [
+        "background.bg_02",
+        "player.pose_06",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": "Rain intensity shifts — storm passing or shelter secured implication"
+    },
+    {
+      "t_ms": 12000,
+      "description": "Scene ends. All elements hold through final frame, ready for transition to M3.",
+      "visible_elements": [
+        "background.bg_02",
+        "player.pose_06",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": null
+    }
+  ],
+  "summary_he": "ברקים מבזיקים מעל ראשה של נירית והסערה הטרופית מתקרבת במהירות. היא עומדת בתנוחת הושטה, פניה אל הפתרונות האפשריים שמתגלים בזה אחר זה: ברזנט למחסה מהיר, פטיש לחיזוק מבנה, ואוהל למקלט מושלם. שלושת הכלים מסודרים באלכסון יורד בצד ימין של המסך, יוצרים מדרג חזותי של דחיפות. הטקסט מזהיר: אם לא תמצא מחסה יבש לציוד עכשיו, כל היתרון שלה ייהרס. כשהסערה מגיעה לשיא, הטקסט משתנה: 'הציוד מוגן. שרדנו את הלילה, המסע האמיתי מתחיל.' רגע של הישרדות שהופך לנקודת זינוק.",
+  "summary_en": "Storm urgency scene: Nirit in reaching pose faces three shelter solutions appearing in timed diagonal cascade (tarp 2s, hammer 2.4s, tent 2.8s). Mission text establishes threat to equipment, checkpoint text at 9.5s confirms survival and transition to true journey. Visual composition creates urgency gradient from top-right to lower-right, player oriented into frame toward solutions. 12-second duration allows interaction window between tool reveal completion and resolution phase.",
+  "rationale": "Beats follow assembly timing tracks exactly: bg+player at t=0 (scene open with transition completion), mission text at 500ms, three tools staggered 2000/2400/2800ms matching stage 6, mission text out at 4500ms, checkpoint in at 9500ms, scene end at 12000ms. All visible_elements entries verified against ALLOWED list — using slot notation (tool.A/B/C) for safety and Hebrew stems where specified. No invented elements, no merge_to_bg scenery referenced separately (storm visual baked into bg_02.mp4). Audio hints suggest storm ambience evolution but defer specifics to later audio design. Hebrew summary written for Nirit as narrative preview, English summary technical for Builder handoff."
+}

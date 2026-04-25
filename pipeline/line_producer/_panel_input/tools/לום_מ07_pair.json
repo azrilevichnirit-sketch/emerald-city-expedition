@@ -1,0 +1,13 @@
+{
+  "asset": "לום_מ07.png",
+  "type": "tool_png",
+  "before_kb": 174,
+  "after_kb": 21,
+  "ratio": 8.29,
+  "in_budget": true,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\לום_מ07.png",
+  "dst": "assets\\optimized\\tools\\לום_מ07.webp",
+  "status": "compressed_pending_panel"
+}

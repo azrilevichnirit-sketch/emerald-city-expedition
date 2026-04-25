@@ -1,0 +1,13 @@
+{
+  "asset": "broken_door.png",
+  "type": "scenery_png",
+  "before_kb": 950,
+  "after_kb": 73,
+  "ratio": 13.01,
+  "in_budget": true,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\broken_door.png",
+  "dst": "assets\\optimized\\scenery\\broken_door.webp",
+  "status": "compressed_pending_panel"
+}

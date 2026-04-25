@@ -1,0 +1,170 @@
+{
+  "_status": "v5 — Nirit rejected v4. v4 had pose_04 looping until tool_clicked (no stop-point); v5 stops running on mission_text_shown and adds pose_05 standing-wait window. Sequence: run -> stand -> catch -> CSS jump -> land.",
+  "_created_at": "2026-04-20",
+  "_updated_at": "2026-04-25",
+  "_created_by": "actor_director (Claude playing role)",
+  "_purpose": "Defines the time-sequenced pose-segment track per mission. Builder reads this instead of single-pose loops. Each segment is a slice of a pose video with optional crossfade to next.",
+  "_v5_changes_from_v4": [
+    "M1 RUNNING SEGMENT shortened: pose_04 was loop 2.0-4.0 with loop_until_event=tool_clicked. NOW: pose_04 is one_shot 2.0-3.5 (1500ms), trigger=scene_entry, loop_until_event=null, blend_out_ms=200. Reason — Nirit (verbatim): 'הסדר זה שהיא עוצר ברגע שהמשימה מופיעה'. The running must terminate when mission_text appears (= scene_entry + 1500ms), not when the player clicks. Also: 'רצה את כל הסרטון של הpose במקום שיהיה מנהל pose מתחיל ומתי מסתיים' — segment must be RAF-clamped, not played to video end.",
+    "M1 ADDED standing-wait track: pose_05 LOOP from_sec=1.0 to_sec=2.0, trigger=mission_text_shown (NEW EVENT), loop_until_event=tool_clicked. Reason — Nirit (verbatim): 'היא עומדת במקום בזמן הזה' — during the wait window between mission appearing and player clicking, she stands in place (not running, not floating). pose_05 was rejected in v3/v4 as 'floaty' (Nirit: 'למה היא מרחפת ליציאה של המטוס'); v5 reintroduces it BUT clamped to segment 1.0-2.0 (frontal grounded idle, before the body-rotation sway that read as floaty — verified via pipeline/pose_keyframes/pose_05_t1.png and pose_05_t5.png).",
+    "M1 NEW EVENT 'mission_text_shown' added to trigger vocabulary. Builder fires this event the instant the mission_text track's fade_in starts (= scene_entry + 1500ms per scene_M1.timing.mission_text_appears_ms). Cascades: pose_04 ends on this event; pose_05 starts on this event.",
+    "M1 catch / jump / landing tracks UNCHANGED from v4. pose_06 catch (3.0-5.5, one_shot) on tool_clicked. pose_06 hold + CSS jump (600ms) on catch_complete. pose_03 landing (3.0-5.0, one_shot, is_landing=true) on jump_apex. These were not what Nirit rejected.",
+    "REJECTED again: pose_07 (anim_falling). Not used in v5. Nirit (v3/v4 feedback): 'כבר היה עדיף לוותר פה על החלק של הצניחה'.",
+    "EXPLICIT BUILDER CONTRACT added (_builder_requirements) — fixes Nirit's complaint that v4 'רצה את כל הסרטון של הpose'. Builder MUST RAF-clamp segments, MUST preload all 4 pose videos to separate hidden <video> elements, MUST switch active pose by reference (not by reassigning .src), MUST use fastSeek/loadedmetadata for seek precision, and MUST NEVER use video.loop=true."
+  ],
+  "_v4_changes_from_v3": [
+    "(superseded by v5 M1 changes — kept for audit) DROPPED pose_05 entirely (Nirit: 'למה היא מרחפת ליציאה של המטוס').",
+    "(superseded — kept for audit) DROPPED pose_07 entirely (Nirit: 'כבר היה עדיף לוותר פה על החלק של הצניחה').",
+    "(superseded — kept for audit) ADDED pose_04 running profile #2.0-4.0 LOOPED as the entry.",
+    "Hand-raise (pose_06) NOW STARTS ONLY ON CLICK from frame 3.0 (rest position). v3 played pose_06 from a hand-already-up frame.",
+    "ADDED pose_03 #3.0-5.0 as the LANDING — crouch from standing to hands-on-ground.",
+    "JUMP between catch and land is a CSS transform on the player canvas (translateY+scale curve), NOT a pose.",
+    "Loop seam validation: pose_04 #2.0-4.0 = full leg cycle (NOTE: re-evaluated in v5 — actual stride cycle is ~0.5-0.7s, so 2.0-4.0 contains 3-4 cycles. v5 truncates to 2.0-3.5 with cross-fade to hide whatever frame it ends on)."
+  ],
+  "_v3_changes": [
+    "(superseded by v4 — kept for audit) phase_1_door_stance: 2.0-4.5 -> 2.0-3.5",
+    "(superseded by v4) phase_2_turn: 4.5-5.0 -> 3.5-4.5",
+    "(superseded by v4) phase_3_idle_loop: 5.0-7.5 -> 4.5-6.0",
+    "(superseded by v4) phase_4_catch: 4.5-6.0 -> 3.0-5.5",
+    "(superseded by v4) phase_5_falling: trigger catch_complete+200 -> catch_complete"
+  ],
+  "_schema": {
+    "mission": {
+      "tracks": [
+        {
+          "pose_file": "pose_XX.mp4",
+          "from_sec": 0.0,
+          "to_sec": 4.0,
+          "loop_until_event": "tool_clicked|null",
+          "trigger": "scene_entry|mission_text_shown|t_ms=N|tool_clicked|catch_complete|jump_apex",
+          "blend_in_ms": 0,
+          "blend_out_ms": 300,
+          "comment": "what this segment shows"
+        }
+      ]
+    }
+  },
+  "_trigger_vocabulary": {
+    "scene_entry": "Fires at t_ms=0 when the scene mounts.",
+    "mission_text_shown": "NEW IN v5. Fires the moment the mission_text track's fade_in begins (= scene_entry + scene_M1.timing.mission_text_appears_ms = scene_entry + 1500ms for M1). Builder MUST emit this event from the same RAF tick that starts the mission_text fade-in CSS animation.",
+    "tool_clicked": "Fires when the player clicks/taps a tool slot (A/B/C).",
+    "catch_complete": "Fires when the catch one_shot pose ends (= tool_clicked + duration_ms of catch track).",
+    "jump_apex": "Fires at the peak of the CSS jump (= catch_complete + 300ms for M1, midpoint of the 600ms jump_css_overlay duration_ms)."
+  },
+  "_builder_requirements": {
+    "_critical_per_nirit": "v4 was rejected because the builder 'רצה את כל הסרטון של הpose' — played each pose video to its 8s end ignoring segment markers. v5 makes the contract explicit. ANY of these requirements not met = builder rejection on Human Review.",
+    "1_preload_all_pose_videos_to_separate_elements": "At init, create FOUR hidden <video> elements (one per pose file used in the scene): pose_03.mp4, pose_04.mp4, pose_05.mp4, pose_06.mp4. Each gets its own element with display:none, preload='auto'. DO NOT use a single <video> element and reassign .src between phases — that triggers full reload + loadedmetadata roundtrip per switch (250-800ms hitch). Pose switching = swap which element the chroma-key canvas reads from (change a JS reference), keep all videos preloaded.",
+    "2_raf_clamped_segment_enforcement": "For each active track, run a requestAnimationFrame loop that checks video.currentTime against the segment's to_sec EVERY FRAME (60fps). NOT timeupdate (fires at 4Hz, jitters by 250ms+). NOT video.loop=true. Algorithm: on each RAF tick, if currentTime >= to_sec then: (a) if loop_until_event != null and the event hasn't fired -> currentTime = from_sec (reset within same RAF tick), (b) if one_shot=true and is_pose_hold=true -> pause + remain at to_sec, (c) if one_shot=true and is_landing=true -> pause + remain at to_sec + emit 'landing_complete' event, (d) if one_shot=true and no other flag -> pause + hold last frame.",
+    "3_strict_segment_start": "When a track is triggered, set video.currentTime = from_sec INSIDE the loadedmetadata handler (or use video.fastSeek(from_sec) if supported), THEN call video.play(). Do NOT call play() before currentTime is set — that creates a flicker of unrelated frames before the segment starts. If the video was already preloaded and is being re-entered (e.g., pose_06 used twice in M1), pause it first, set currentTime, then play.",
+    "4_chroma_key_canvas_active_source": "The chroma-key canvas reads from whichever <video> element is currently active. On track transition, update the videoEl reference the chroma loop reads from. NEVER reassign .src on a single video element. The chroma RAF loop should reference an outer-scope variable like activePoseVideo and read from it each frame.",
+    "5_no_video_loop_attribute": "Do NOT set video.loop=true on any element. Looping is achieved purely via RAF currentTime reset (see requirement 2). The video element's loop attribute MUST be false (default) for all pose videos.",
+    "6_no_timeupdate_listeners_for_segment_logic": "timeupdate fires at 4Hz on most browsers (~250ms jitter). It is NOT acceptable for segment boundary enforcement. Use it ONLY for non-critical UI (e.g., showing a debug timecode). All segment in/out logic uses requestAnimationFrame.",
+    "7_event_emission": "Emit these custom events on the document or a scene-level EventTarget so multiple subsystems can listen: 'mission_text_shown' (when mission_text fade-in begins), 'tool_clicked' (on tool selection), 'catch_complete' (when catch track's RAF clamp pauses at to_sec=5.5), 'jump_apex' (at midpoint of CSS jump animation), 'landing_complete' (when landing track's RAF clamp pauses at to_sec=5.0). Other tracks listen via addEventListener.",
+    "8_blend_handling": "blend_in_ms / blend_out_ms cross-fade between the chroma-key canvases of the outgoing and incoming poses. During a blend, BOTH videos play simultaneously (both their chroma loops run); the canvas opacities are interpolated. Once blend_out_ms expires, pause the outgoing video to save CPU."
+  },
+  "missions": {
+    "M1": {
+      "_intent": "Nirit runs in. Mission text appears at +1500ms — she STOPS running and stands in place. Tools fade in at +2000ms (1s after mission). She waits standing for the click. On click: tool flies to her, she catches it, brief CSS jump, lands in crouch. Total post-click time ~5.5s.",
+      "_source_brief": "scene_briefs/scene_M1.json v4 (note: scene_brief itself is v4; this composition map is v5; set_manager / director may sync scene_brief to v5 separately).",
+      "_nirit_binding_quote": "הסדר זה שהיא עוצר ברגע שהמשימה מופיעה ואז כמה שניות לאחר הופעת השאלה הכלים מופיעים, שנייה אחרי המשימה, היא עומדת במקום בזמן הזה, ואז ברגע שיש בחירה זה מקבלת את הכלי בזריקה ואז אמורים לראות אותה נוחתת, את הנחיתה.",
+      "_timeline_summary": [
+        "t=0ms scene_entry — pose_04 #2.0-3.5 starts (one_shot, 1500ms duration)",
+        "t=1500ms mission_text_shown — pose_04 ends, 200ms cross-fade BEGINS, pose_05 #1.0-2.0 LOOP starts",
+        "t=2000ms tools_first_appear — pose_05 still looping",
+        "t=2240ms all 3 tools visible — pose_05 still looping",
+        "t=wait_for_click — pose_05 LOOPS 1.0-2.0 indefinitely",
+        "t=tool_clicked — pose_05 stops, pose_06 #3.0-5.5 starts (one_shot, 2500ms)",
+        "t=tool_clicked+1500ms — palm contact (pose_06 frame 4.5)",
+        "t=tool_clicked+2500ms catch_complete — CSS jump starts (600ms)",
+        "t=catch_complete+300ms jump_apex — pose_03 #3.0-5.0 starts (one_shot, 2000ms landing)",
+        "t=jump_apex+2000ms landing_complete — checkpoint_text fires +200ms later"
+      ],
+      "tracks": [
+        {
+          "pose_file": "pose_04.mp4",
+          "phase": "running_entry",
+          "from_sec": 2.0,
+          "to_sec": 3.5,
+          "trigger": "scene_entry",
+          "loop_until_event": null,
+          "one_shot": true,
+          "is_pose_hold": false,
+          "is_landing": false,
+          "duration_ms": 1500,
+          "blend_in_ms": 0,
+          "blend_out_ms": 200,
+          "playback_rate": 1.0,
+          "comment": "v5: Profile run, one_shot 2.0-3.5 (1500ms = exactly the time until mission_text_shown fires at scene_entry+1500ms). NO LOOP. The 200ms cross-fade-out hides whatever stride frame it ends on, transitioning into pose_05 standing. v4 had loop_until_event=tool_clicked which Nirit rejected: 'הסדר זה שהיא עוצר ברגע שהמשימה מופיעה'. Builder MUST RAF-clamp at to_sec=3.5 and start blend_out at exactly that moment."
+        },
+        {
+          "pose_file": "pose_05.mp4",
+          "phase": "standing_wait",
+          "from_sec": 1.0,
+          "to_sec": 2.0,
+          "trigger": "mission_text_shown",
+          "loop_until_event": "tool_clicked",
+          "one_shot": false,
+          "is_pose_hold": false,
+          "is_landing": false,
+          "blend_in_ms": 200,
+          "blend_out_ms": 100,
+          "playback_rate": 1.0,
+          "comment": "v5 NEW: Standing wait. Per Nirit verbatim 'היא עומדת במקום בזמן הזה' — between mission_text appearing and player clicking, she stands in place (not running, not floating). LOOPS 1.0-2.0 via RAF clamp (NOT video.loop=true). Segment chosen via direct keyframe inspection of pipeline/pose_keyframes/pose_05_t*.png — t=1.0 shows frontal grounded stance with both feet planted; t=3.0 shows side-profile rotation that previously read as 'floaty' (Nirit v3/v4: 'למה היא מרחפת ליציאה של המטוס'). 1.0-2.0 stays well within the pre-rotation, frontal-grounded window. Builder MUST RAF-clamp the loop boundary precisely (when currentTime >= 2.0, set to 1.0 in the same RAF tick; never use video.loop=true; never use timeupdate).",
+          "_human_review_note": "validate pose_05 segment 1.0-2.0 looks grounded, not floaty — Nirit explicitly rejected floaty pose_05 in v3/v4. Keyframes are sampled at 1.0s intervals; the in-between motion within 1.0-2.0 is an informed guess based on bracketing keyframes. If 1.0-2.0 still reads as floaty, fallback: (a) shorten to 1.0-1.5, (b) replace loop with is_pose_hold=true at single frame 1.0 (no movement at all)."
+        },
+        {
+          "pose_file": "pose_06.mp4",
+          "phase": "catch_one_shot",
+          "from_sec": 3.0,
+          "to_sec": 5.5,
+          "trigger": "tool_clicked",
+          "loop_until_event": null,
+          "one_shot": true,
+          "catch_pose": true,
+          "is_pose_hold": false,
+          "is_landing": false,
+          "hold_frame_sec": 5.5,
+          "duration_ms": 2500,
+          "blend_in_ms": 200,
+          "blend_out_ms": 0,
+          "playback_rate": 1.0,
+          "comment": "v4 spec preserved unchanged in v5 — Nirit did NOT reject the catch behavior. ONLY plays on click — never preemptively. 3.0=arm at rest by side, 4.5=arm raised palm-forward (catch contact), 5.5=peak hold. Tool flight is timed to reach palm at the 4.5 frame (click+1500ms). Per Nirit v4: 'היא מרימה יד לקבל את הכלי רק ברגע שהשחקן בוחר כלי ולא שנייה אחת לפני' — pose_06 starts ONLY on tool_clicked. Builder RAF-clamps at to_sec=5.5 and emits catch_complete event."
+        },
+        {
+          "pose_file": "pose_06.mp4",
+          "phase": "jump_css_overlay",
+          "from_sec": 5.5,
+          "to_sec": 5.5,
+          "trigger": "catch_complete",
+          "loop_until_event": null,
+          "one_shot": false,
+          "is_pose_hold": true,
+          "is_landing": false,
+          "duration_ms": 600,
+          "css_transform": "translateY(-12vh) scale(1.04) rotate(-2deg)",
+          "css_easing": "cubic-bezier(0.16,1,0.3,1)",
+          "blend_in_ms": 0,
+          "blend_out_ms": 0,
+          "comment": "v4 preserved unchanged. BRIEF jump — pose_06 frame 5.5 holds (player still gripping tool) while CSS animates the canvas up & subtly tilts. 600ms total (300 up + 300 hover-apex). Jump is purely visual via transform — no jump pose video exists. Builder pauses the video at 5.5 (RAF clamp) and applies the css_transform to the player canvas wrapper (NOT the canvas element itself). At duration_ms midpoint (300ms), emits jump_apex event."
+        },
+        {
+          "pose_file": "pose_03.mp4",
+          "phase": "landing",
+          "from_sec": 3.0,
+          "to_sec": 5.0,
+          "trigger": "jump_apex",
+          "loop_until_event": null,
+          "one_shot": true,
+          "is_pose_hold": false,
+          "is_landing": true,
+          "hold_frame_sec": 5.0,
+          "duration_ms": 2000,
+          "blend_in_ms": 200,
+          "blend_out_ms": 0,
+          "playback_rate": 1.0,
+          "comment": "v4 preserved unchanged in v5 — Nirit's 'floating in standing position' complaint targeted the time AFTER click before landing, which v5 fixes by keeping pose_06 brief (catch 2500ms + jump 600ms = 3100ms total post-click before landing starts) and IMMEDIATELY transitioning to pose_03 landing on jump_apex. NO floaty pose_05 between catch and landing — pose_05 is only used pre-click. pose_03 #3.0=upright, #5.0=crouch with hands touching ground (per pose_map.catch_note: 'הרגע בו השחקנית למטה עם ידיים לרצפה'). Plays as the player canvas CSS-translates down to bottom:5%. Builder RAF-clamps at to_sec=5.0, pauses, emits landing_complete event. Checkpoint text fires landing_complete+200ms — never before."
+        }
+      ]
+    }
+  }
+}

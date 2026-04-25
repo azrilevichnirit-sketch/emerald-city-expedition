@@ -1,0 +1,13 @@
+{
+  "asset": "finish_line.png",
+  "type": "scenery_png",
+  "before_kb": 475,
+  "after_kb": 66,
+  "ratio": 7.2,
+  "in_budget": true,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\finish_line.png",
+  "dst": "assets\\optimized\\scenery\\finish_line.webp",
+  "status": "compressed_pending_panel"
+}

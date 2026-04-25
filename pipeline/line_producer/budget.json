@@ -1,0 +1,39 @@
+{
+  "_approved_at": "2026-04-25",
+  "_approved_by": "Producer (Nirit) — initial draft per agents/line_producer.md spec",
+  "_note": "Update only with explicit Producer approval.",
+  "budgets": {
+    "transition_mp4":   { "max_kb": 600,  "rationale": "2s clip, H.264 CRF 26-28, 720p" },
+    "background_mp4":   { "max_kb": 2500, "rationale": "15-20s loop, 720p, CRF 26" },
+    "pose_mp4":         { "max_kb": 1200, "rationale": "2-3s loop, 720p, transparency preserved" },
+    "tool_png":         { "max_kb": 150,  "rationale": "display <=512px, alpha preserved, WebP-lossy q85" },
+    "scenery_png":      { "max_kb": 200,  "rationale": "display <=768px, alpha preserved, WebP-lossy q85" },
+    "rival_portrait":   { "max_kb": 80,   "rationale": "display <=256px, WebP-lossy q85" }
+  },
+  "totals": {
+    "page_load_budget_mb": 15,
+    "full_game_budget_mb": 80,
+    "rationale": "target mid-range laptop + 4G mobile"
+  },
+  "encoder_defaults": {
+    "video_h264": {
+      "default_crf": 27,
+      "conservative_crf": 24,
+      "preset": "slow",
+      "max_width_px": 1280,
+      "fps_strategy": "preserve_source"
+    },
+    "image_webp": {
+      "default_q": 85,
+      "conservative_q": 92,
+      "alpha_q": 100,
+      "method": 6
+    },
+    "image_png_optim": {
+      "default_q_min": 80,
+      "default_q_max": 95,
+      "conservative_q_min": 88,
+      "conservative_q_max": 99
+    }
+  }
+}

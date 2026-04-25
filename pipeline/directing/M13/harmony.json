@@ -1,0 +1,24 @@
+{
+  "_stage": "harmony",
+  "_mission": "M13",
+  "_generated_at": "2026-04-25T07:30:01Z",
+  "_generated_by": "agent_09_harmony",
+  "scene_id": "M13",
+  "status": "PASS",
+  "checks_passed": [
+    "assembly_timing_layer_coverage",
+    "assembly_timing_file_references",
+    "assembly_interaction_tool_slots",
+    "continuity_timing_entry_transition",
+    "timing_background_constraints",
+    "timing_tool_entry_after_transition",
+    "timing_mission_text_placement",
+    "timing_checkpoint_text_placement",
+    "timing_total_duration_range",
+    "storyboard_beats_within_duration",
+    "storyboard_coverage_open_close",
+    "assembly_position_bounds"
+  ],
+  "checks_failed": [],
+  "summary": "All cross-layer consistency checks pass. Assembly layers match timing tracks, interaction elements align with tool slots, continuity entry transition duration matches timing (600ms exact), timing constraints satisfied (background 0-13000ms loop, tools enter after 600ms transition, mission text in first 38%, checkpoint in last 19%, total 13000ms within 8-18s range), storyboard beats span 0-13000ms with full coverage, and all assembly positions within [0,100] bounds."
+}

@@ -1,0 +1,105 @@
+{
+  "_for_mission": "M8",
+  "_source": "directing/assembly.json",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "bg_M8.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 15,
+      "role": "scenery",
+      "file": "assets/scenery/rain_effect_m8.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": "pose_02.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 42,
+        "y_pct": 58
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_02.mp4",
+        "pose_06.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "tools/סולם_חבלים_מ08.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 15,
+        "y_pct": 25
+      },
+      "scale": 0.75,
+      "rot_deg": -8,
+      "anchor": "center",
+      "fit": null,
+      "pose_candidates": []
+    },
+    {
+      "z": 33,
+      "role": "tool",
+      "file": "tools/חבל_קשרים_מ08.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 18
+      },
+      "scale": 0.8,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": null,
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "tools/טפרי_טיפוס_מ08.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 22
+      },
+      "scale": 0.75,
+      "rot_deg": 5,
+      "anchor": "center",
+      "fit": null,
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Climbing drama: player positioned left-of-center at 58% vertical (mid-climb on slick rock face), facing right into frame toward the summit. Rain overlay reinforces wet/slippery conditions. Three tools arranged in shallow arc across upper third — rope ladder (A) left, knotted rope (B) center-top, metal crampons (C) right — creating visual tension triangle that mirrors the climb decision."
+}

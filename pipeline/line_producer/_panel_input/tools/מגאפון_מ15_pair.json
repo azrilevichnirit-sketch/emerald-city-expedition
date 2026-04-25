@@ -1,0 +1,13 @@
+{
+  "asset": "מגאפון_מ15.png",
+  "type": "tool_png",
+  "before_kb": 1010,
+  "after_kb": 104,
+  "ratio": 9.71,
+  "in_budget": true,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\מגאפון_מ15.png",
+  "dst": "assets\\optimized\\tools\\מגאפון_מ15.webp",
+  "status": "compressed_pending_panel"
+}

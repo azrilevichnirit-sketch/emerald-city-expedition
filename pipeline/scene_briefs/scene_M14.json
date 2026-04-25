@@ -1,0 +1,364 @@
+{
+  "_for_mission": "M14",
+  "_built_at": "2026-04-25T12:54:13Z",
+  "_source": "directing/{assembly,continuity,timing,interaction,storyboard}.json",
+  "scene_id": "M14",
+  "duration_ms": 13000,
+  "entry_transition": {
+    "type": "fade_from_black",
+    "duration_ms": 900,
+    "notes": "Slow emergence from jungle chaos into temple stillness. Black fade honors the 'דממה' (silence) checkpoint and creates breath before final confrontation. Architectural geometry materializes from void — stark contrast to M13's organic entanglement."
+  },
+  "exit_transition": null,
+  "background": {
+    "z": 0,
+    "role": "background",
+    "file": "assets/backgrounds/bg_M14.mp4",
+    "slot": null,
+    "pos": {
+      "x_pct": 50,
+      "y_pct": 50
+    },
+    "scale": 1.0,
+    "rot_deg": 0,
+    "anchor": "center",
+    "fit": "cover",
+    "pose_candidates": []
+  },
+  "player": {
+    "pose_file": "pose_02.mp4",
+    "pose_semantic": "anim_climbing",
+    "loop_segment_sec": {
+      "start": 0.0,
+      "end": 8.0
+    },
+    "hold_frame_sec": null,
+    "one_shot": false,
+    "catch_pose": false
+  },
+  "tracks": [
+    {
+      "role": "background",
+      "file": "assets/backgrounds/bg_M14.mp4",
+      "slot": null,
+      "pose": null,
+      "in_ms": 0,
+      "out_ms": 13000,
+      "loop": true,
+      "loop_segment_ms": null,
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "player",
+      "file": null,
+      "slot": null,
+      "pose": "anim_reach_forward",
+      "in_ms": 0,
+      "out_ms": 13000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "assets/tools/שקית_מטבעות_מ14.png",
+      "slot": "A",
+      "pose": null,
+      "in_ms": 1200,
+      "out_ms": 13000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "assets/tools/תיבת_עץ_מ14.png",
+      "slot": "B",
+      "pose": null,
+      "in_ms": 1550,
+      "out_ms": 13000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "assets/tools/כדור_בדולח_מ14.png",
+      "slot": "C",
+      "pose": null,
+      "in_ms": 1900,
+      "out_ms": 13000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "mission_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 1400,
+      "out_ms": 5900,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 400,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 400
+    },
+    {
+      "role": "checkpoint_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 10500,
+      "out_ms": 13000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 400,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    }
+  ],
+  "interactive_elements": [
+    {
+      "slot": "A",
+      "label": "שקית מטבעות קטנה",
+      "points": 1,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.06,
+        "glow_color": "#FFD700"
+      },
+      "click": {
+        "feedback_animation": "pulse_out",
+        "feedback_ms": 450,
+        "points_popup": {
+          "text": "+1",
+          "color": "#FFD700",
+          "from_xy_pct": {
+            "x": 68,
+            "y": 35
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 800
+        }
+      },
+      "tooltip": {
+        "he": "שקית מטבעות - תשלום קטן",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "B",
+      "label": "תיבת עץ נעולה",
+      "points": 2,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.08,
+        "glow_color": "#FF8C00"
+      },
+      "click": {
+        "feedback_animation": "shake",
+        "feedback_ms": 500,
+        "points_popup": {
+          "text": "+2",
+          "color": "#FF8C00",
+          "from_xy_pct": {
+            "x": 82,
+            "y": 52
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 850
+        }
+      },
+      "tooltip": {
+        "he": "תיבה נעולה - אוצר חבוי",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "C",
+      "label": "כדור בדולח כהה",
+      "points": 3,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.1,
+        "glow_color": "#FF4500"
+      },
+      "click": {
+        "feedback_animation": "bounce",
+        "feedback_ms": 550,
+        "points_popup": {
+          "text": "+3",
+          "color": "#FF4500",
+          "from_xy_pct": {
+            "x": 75,
+            "y": 70
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 900
+        }
+      },
+      "tooltip": {
+        "he": "בדולח כהה - אבן יקרה נדירה",
+        "show_after_ms": 600
+      }
+    }
+  ],
+  "global_ui": {
+    "score_display": {
+      "pos": {
+        "x_pct": 88,
+        "y_pct": 8
+      },
+      "font_size_px": 32
+    },
+    "mission_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 6
+      },
+      "width_pct": 60,
+      "font_size_px": 18
+    },
+    "checkpoint_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 92
+      },
+      "width_pct": 70,
+      "font_size_px": 16
+    }
+  },
+  "beats": [
+    {
+      "t_ms": 0,
+      "description": "Scene opens with fade from black (900ms). Temple interior materializes from void — stark architectural geometry replaces jungle chaos. Background (bg_M14.mp4) reveals altar stone with three mysterious objects waiting in descending diagonal arrangement.",
+      "visible_elements": [
+        "background.bg_M14"
+      ],
+      "audio_hint": "Deep temple ambience, distant guard footsteps echoing"
+    },
+    {
+      "t_ms": 900,
+      "description": "Fade completes. Player avatar visible left-of-center, poised to reach toward altar. Silence ('דממה') holds — the breath before the storm.",
+      "visible_elements": [
+        "background.bg_M14",
+        "player.avatar"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 1200,
+      "description": "First altar object (tool A) becomes interactive — glows or pulses subtly, drawing eye to top-right position of diagonal.",
+      "visible_elements": [
+        "background.bg_M14",
+        "player.avatar",
+        "tool.A"
+      ],
+      "audio_hint": "Soft mystical hum, object A"
+    },
+    {
+      "t_ms": 1400,
+      "description": "Mission text appears: 'הגעתי להיכל. על המזבח מונחות שלוש אפשרויות והשומרים כבר נשמעים ברקע. אני חייבת לקחת משהו ולברוח – מה אני מרימה מהמזבח ברגע האחרון?' Urgency crystallizes.",
+      "visible_elements": [
+        "background.bg_M14",
+        "player.avatar",
+        "tool.A",
+        "mission_text.prompt"
+      ],
+      "audio_hint": "Guard voices grow louder (background layer)"
+    },
+    {
+      "t_ms": 1550,
+      "description": "Second altar object (tool B) becomes interactive — middle position of diagonal now accessible.",
+      "visible_elements": [
+        "background.bg_M14",
+        "player.avatar",
+        "tool.A",
+        "tool.B",
+        "mission_text.prompt"
+      ],
+      "audio_hint": "Soft mystical hum, object B"
+    },
+    {
+      "t_ms": 1900,
+      "description": "Third altar object (tool C) becomes interactive — bottom-right of diagonal completes the choice array. All three options now visible and selectable. Player must decide.",
+      "visible_elements": [
+        "background.bg_M14",
+        "player.avatar",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "mission_text.prompt"
+      ],
+      "audio_hint": "Soft mystical hum, object C; guard footsteps intensify"
+    },
+    {
+      "t_ms": 5900,
+      "description": "Mission text fades out. Player has made selection (interaction logged). Chosen tool visually confirms pickup — glows brighter or lifts slightly.",
+      "visible_elements": [
+        "background.bg_M14",
+        "player.avatar",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": "Metallic clink or stone scrape (pickup confirmation)"
+    },
+    {
+      "t_ms": 10500,
+      "description": "Checkpoint text appears: 'האוצר בידי. ריצה מטורפת לעבר היציאה.' Player avatar shifts posture — clutching treasure, turning toward escape. Guard shouts pierce the temple silence.",
+      "visible_elements": [
+        "background.bg_M14",
+        "player.avatar",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "checkpoint_text.escape"
+      ],
+      "audio_hint": "Urgent string swell, guard alarm shouts"
+    },
+    {
+      "t_ms": 13000,
+      "description": "Scene ends. Player mid-sprint toward exit (implied by checkpoint text). Treasure secured, pursuit imminent. Fade to next transition or mission.",
+      "visible_elements": [
+        "background.bg_M14",
+        "player.avatar",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "checkpoint_text.escape"
+      ],
+      "audio_hint": "Footsteps running, echo fading into transition"
+    }
+  ],
+  "summary_he": "נירית, זה הרגע. אחרי הג'ונגל המטורף של M13, השחקנית נכנסת להיכל בדממה מוחלטת — fade שחור איטי (900ms) חושף ארכיטקטורה קרה וגיאומטרית. על המזבח שלושה חפצים מסודרים באלכסון יורד, כל אחד נדלק בתורו (1200, 1550, 1900ms). הטקסט מזכיר: השומרים כבר כאן, צריך לבחור *עכשיו*. אחרי 4.5 שניות הטקסט נעלם, השחקנית תופסת את האוצר שבחרה, ובt=10500 מופיע צ'קפוינט: \"האוצר בידי. ריצה מטורפת לעבר היציאה.\" 2.5 שניות של ריצה נואשת לפני שהסצנה נגמרת — מתח טהור, אין זמן לחשוב פעמיים.",
+  "summary_en": "M14 opens with 900ms black fade into temple stillness. Three altar objects appear sequentially (1200, 1550, 1900ms) in descending diagonal. Mission text (1400–5900ms) frames urgent choice as guards approach. Player selects one tool; at t=10500 checkpoint confirms treasure secured and escape begins. Scene ends at 13000ms mid-sprint, pursuit imminent."
+}

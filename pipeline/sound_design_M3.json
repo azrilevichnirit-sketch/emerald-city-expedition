@@ -1,0 +1,27 @@
+{
+  "_for_mission": "M3",
+  "_status": "PLACEHOLDER (sound pass not yet run)",
+  "_source": "storyboard.beats[].audio_hint",
+  "audio_cues": [
+    {
+      "t_ms": 0,
+      "hint": "Morning jungle ambience (birds, distant engine rumble fading), subtle tension underscore"
+    },
+    {
+      "t_ms": 1000,
+      "hint": "Soft paper rustle"
+    },
+    {
+      "t_ms": 1400,
+      "hint": "Metallic clink (binoculars settling)"
+    },
+    {
+      "t_ms": 1800,
+      "hint": "Key jingle"
+    },
+    {
+      "t_ms": 9500,
+      "hint": "Tension swell (competitors approaching)"
+    }
+  ]
+}

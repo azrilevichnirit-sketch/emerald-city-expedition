@@ -40,7 +40,8 @@ import sys
 from pathlib import Path
 
 from _lib import (Context, DIRECTING_OUT, call_claude, extract_json,
-                  load_project_context, parse_missions_arg, write_output)
+                  load_project_context, parse_missions_arg, render_today_state,
+                  write_output)
 
 SYSTEM = """You are storyboard_director — stage 8 of 9. Sequential pipeline.
 
@@ -50,11 +51,23 @@ You do NOT:
   - Introduce new elements, positions, timings, or interactions
   - Second-guess stages 4-7 — you only synthesize what they decided
   - Invent sound (mention audio_hint only as a suggestion for later)
+  - INVENT ELEMENT NAMES. Every visible_elements entry must come from the
+    LAYER LIST or TIMING TRACKS shown in the user prompt — never English
+    nicknames, never semantic guesses. If assembly says the file is
+    'pose_07.mp4', you write 'player.pose_07' — NOT 'player.nirit_crouch'
+    or 'player.nirit_storm'. If a tool's filename is Hebrew, use the
+    Hebrew filename (or the slot reference 'tool.A').
 
 You MUST:
   - Produce beats in chronological order (t_ms ascending).
   - Each beat describes ONE observable event (element enters, text appears, interaction available).
   - Beats include t=0 (scene open), all tool entries, text appearances, and scene end.
+  - visible_elements format: '<role>.<exact_file_stem_or_slot>'
+      role ∈ {background, scenery, player, tool, text}
+      identifier MUST match the assembly layers / timing tracks shown.
+      For tools, prefer slot form 'tool.A', 'tool.B', 'tool.C' (always safe).
+  - Cross-check every visible_elements entry against the LAYER LIST and
+    TIMING TRACKS in the prompt before emitting.
   - Hebrew summary written for Nirit (producer) — 4-6 sentences, narrative, vivid.
   - English summary — technical, shorter.
   - audio_hint is optional per beat. Leave null if nothing specific.
@@ -64,7 +77,7 @@ Output ONLY JSON:
   "scene_id": "<M<n>>",
   "beats": [
     {"t_ms": <int>, "description": "<observable event>",
-     "visible_elements": ["<list of role.identifier>"],
+     "visible_elements": ["<role>.<exact_filename_stem_or_slot>"],
      "audio_hint": "<optional or null>"}
   ],
   "summary_he": "<4-6 sentence Hebrew narrative>",
@@ -84,27 +97,81 @@ def run_one(ctx: Context) -> None:
         if not obj:
             raise RuntimeError(f"{ctx.mission} {name} missing")
 
+    # Build a flat lookup of EVERY referenceable element (file stems + slots).
+    # The agent must use ONLY these identifiers in visible_elements.
+    layer_lines = []
+    valid_ids: list[str] = []
+    for layer in assembly.get("layers", []):
+        role = layer.get("role", "?")
+        f = layer.get("file") or layer.get("file_candidates", [None])[0] or "?"
+        stem = Path(str(f)).stem if f and f != "?" else "?"
+        z = layer.get("z", "?")
+        slot = layer.get("slot")
+        slot_part = f" slot={slot}" if slot else ""
+        layer_lines.append(f"  z={z} role={role} file={f} stem={stem}{slot_part}")
+        if stem and stem != "?":
+            valid_ids.append(f"{role}.{stem}")
+        if slot:
+            valid_ids.append(f"{role}.{slot}")
+
+    track_lines = []
+    for t in timing.get("tracks", []):
+        role = t.get("role", "?")
+        slot = t.get("slot", "")
+        f = t.get("file") or t.get("pose") or ""
+        stem = Path(str(f)).stem if f else ""
+        slot_part = f" slot={slot}" if slot else ""
+        file_part = f" file={f} stem={stem}" if f else ""
+        track_lines.append(
+            f"  role={role}{slot_part}{file_part} in={t.get('in_ms')}ms out={t.get('out_ms')}ms"
+        )
+        if stem:
+            valid_ids.append(f"{role}.{stem}")
+        if slot:
+            valid_ids.append(f"{role}.{slot}")
+
+    inter_lines = []
+    for ie in interaction.get("interactive_elements", []):
+        inter_lines.append(
+            f"  slot={ie.get('slot')} kind={ie.get('kind')} tooltip={ie.get('tooltip','')}"
+        )
+
+    valid_ids = sorted(set(valid_ids))
+
     user = f"""CONTEXT — hard constraints from stages 4-7:
+
+{render_today_state(ctx)}
 
 Mission {ctx.mission}
   mission_text: {ctx.mission_data.get('mission_text', '')}
   checkpoint_text: {ctx.mission_data.get('checkpoint_text', '')}
 
-Layout (stage 4):
-  {len(assembly.get('layers', []))} layers. composition_notes: {assembly.get('composition_notes')}
+=== LAYER LIST (stage 4 assembly) ===
+{chr(10).join(layer_lines) if layer_lines else '  (none)'}
 
-Entry transition (stage 5):
+composition_notes: {assembly.get('composition_notes')}
+
+=== ENTRY TRANSITION (stage 5) ===
   {continuity.get('entry_transition')}
 
-Timing (stage 6):
-  total_duration_ms: {timing.get('total_duration_ms')}
-  tracks: {[(t.get('role'), t.get('slot'), t.get('in_ms'), t.get('out_ms')) for t in timing.get('tracks', [])]}
+=== TIMING TRACKS (stage 6) ===
+total_duration_ms: {timing.get('total_duration_ms')}
+{chr(10).join(track_lines) if track_lines else '  (none)'}
 
-Interaction (stage 7):
-  {len(interaction.get('interactive_elements', []))} interactive elements.
+=== INTERACTION (stage 7) ===
+{chr(10).join(inter_lines) if inter_lines else '  (none)'}
 
-TASK: produce storyboard.json with beats in time order + Hebrew summary for
-Nirit + English technical summary.
+=== ALLOWED visible_elements VALUES ===
+You MUST pick visible_elements ONLY from this list (and the bg loop file):
+{json.dumps(valid_ids, ensure_ascii=False)}
+
+Do NOT translate Hebrew filenames to English. Do NOT invent semantic
+nicknames. If a layer is in TODAY_STATE merge_to_bg, do NOT reference it
+as a separate scenery element — it's already baked into the background.
+
+TASK: produce storyboard.json with beats in time order + Hebrew summary
+for Nirit + English technical summary. Cross-check every visible_elements
+entry against the ALLOWED list above before emitting.
 """
     print(f"[{ctx.mission}] stage 8 storyboard — calling Claude…")
     raw = call_claude(system=SYSTEM, user=user, max_tokens=3500, temperature=0.4)
@@ -139,6 +206,7 @@ def main(argv: list[str]) -> int:
     arg = argv[1] if len(argv) > 1 else "all"
     missions = parse_missions_arg(arg)
     print(f"agent_08 storyboard — {len(missions)} mission(s)")
+    failures = 0
     for m in missions:
         try:
             ctx = load_project_context(m)
@@ -147,10 +215,11 @@ def main(argv: list[str]) -> int:
                 continue
             run_one(ctx)
         except Exception as e:
+            failures += 1
             print(f"  [{m}] FAIL: {type(e).__name__}: {e}")
             import traceback
             traceback.print_exc()
-    return 0
+    return 1 if failures else 0
 
 
 if __name__ == "__main__":

@@ -1,0 +1,79 @@
+{
+  "_review_type": "Style Test — Director + Production Designer assessment (agent roles)",
+  "_reviewed_at": "2026-04-20",
+  "_reviewed_by": "director + production_designer (Claude playing both roles)",
+  "_source_spec": "pipeline/camera_bible.json → tools",
+  "_images_reviewed": [
+    "assets/tools/מצנח_מ01_styletest_v1.png",
+    "assets/tools/פנס_עוצמתי_מ05_styletest_v1.png",
+    "assets/tools/סולם_חבלים_מ08_styletest_v1.png"
+  ],
+
+  "overall_verdict": "FAIL — 3/3 לא עוברים. DALL-E 3 פירש את הprompts בצורה יצירתית והוסיף רקעים, צללים, ומסגרות אומנותיות. צריך לחזור עם prompts מחמירים יותר או API אחר.",
+
+  "items": [
+    {
+      "asset": "מצנח_מ01",
+      "path": "assets/tools/מצנח_מ01_styletest_v1.png",
+      "verdict": "FAIL",
+      "pass_fail_per_directors_note": {
+        "exact_green_00B140_no_spill": "FAIL — רקע בצבע ירוק-חיוור עם gradient כתום-צהוב בתחתית (כמו sunset). לא #00B140 אחיד.",
+        "clean_edges_thin_ropes": "PARTIAL — החבלים ניתנים לזיהוי אבל לא חדים, החלק התחתון מתמזג עם gradient.",
+        "lighting_10_oclock": "PARTIAL — אור נראה מלמעלה באופן כללי, לא ממוקד 10 o'clock.",
+        "not_toy_not_product_shot": "FAIL — סגנון אילוסטרטיבי/קריקטורה, לא stylized realism."
+      },
+      "critical_violations": [
+        "הוסיפה דמות סקיידייבר קטנה תלויה מתחת למצנח — 'no hands' / 'no characters' / 'no background elements'",
+        "הפיקה מסגרת עגולה (circular composition) — הspec דורש square fill",
+        "רקע עם gradient כתום — לא solid chroma"
+      ],
+      "recommendation": "regenerate עם prompt negative חמור יותר: 'NO human figure, NO skydiver, NO person, solid uniform green color only, rectangular composition, flat vector-like silhouette'"
+    },
+    {
+      "asset": "פנס_עוצמתי_מ05",
+      "path": "assets/tools/פנס_עוצמתי_מ05_styletest_v1.png",
+      "verdict": "FAIL",
+      "pass_fail_per_directors_note": {
+        "exact_green_00B140_no_spill": "FAIL — רקע ירוק כהה עם gradient (בהיר למעלה כהה למטה), לא #00B140 אחיד.",
+        "glass_lens_realistic_not_plastic": "PASS — העדשה נראית זכוכית, עם אור כחול קר ולא ירוק ✓",
+        "consistent_lighting_10_oclock": "PARTIAL — אור משמאל-מעלה ✓, אבל יש גם אור מלפנים (מהעדשה) שיוצר double light.",
+        "no_hand_no_ground": "FAIL — הפנס שוכב על משטח, עם spill light לצדדים על הרצפה. יש drop shadow מובלע."
+      },
+      "critical_violations": [
+        "Drop shadow + light pool על הרצפה — 'no drop shadow baked in' / 'no background elements'",
+        "אור העדשה מאיר את הרקע — כל הסביבה מואר, הכלי לא detached מרקע"
+      ],
+      "recommendation": "regenerate: 'flashlight FLOATING in empty space, solid uniform green background, NO ground, NO floor, NO surface, NO shadow, lens OFF (not glowing)'. ייתכן שהדרישה ל'lens reflective' גרמה ל-generator לדמיין סביבה."
+    },
+    {
+      "asset": "סולם_חבלים_מ08",
+      "path": "assets/tools/סולם_חבלים_מ08_styletest_v1.png",
+      "verdict": "FAIL",
+      "pass_fail_per_directors_note": {
+        "exact_green_00B140_solid": "FAIL — רקע ירוק כהה עם gradient + drop shadow של הסולם על הרצפה.",
+        "3d_volume_not_flat": "PASS — לסולם יש נפח אמיתי, החבלים והשלבים 3D ✓",
+        "vertical_orientation_70_percent": "FAIL — הסולם נשען באלכסון (לא אנכי כנדרש), לא חלקי 70% אנכי של הפריים.",
+        "consistent_camera_10_oclock_15_right": "FAIL — הcamera angle לא נראה זהה ל-spec (נדמה יותר קרוב, עם perspective חזק).",
+        "no_anchors_no_hands": "PASS ✓"
+      },
+      "critical_violations": [
+        "Drop shadow ברור על הרצפה — violation של 'no drop shadows baked in'",
+        "הסולם לא אנכי, נשען על קיר בלתי-נראה",
+        "רקע לא flat — יש floor/wall implication"
+      ],
+      "recommendation": "regenerate: 'rope ladder floating vertically in space, perfectly straight up-and-down, NO wall, NO floor, NO shadow, NO environment, solid uniform flat green'"
+    }
+  ],
+
+  "root_cause_analysis": {
+    "finding": "DALL-E 3 בברירת מחדל מוסיף 'סצנה' לכל אובייקט — drop shadow, surface, ambient. הכתיבה 'solid flat chroma green background' לבדה לא מספיקה.",
+    "patterns": [
+      "DALL-E 3 מחליפה 'chroma key green' בגוון דקורטיבי + gradients",
+      "הוספת figure/environment כשהאובייקט דורש קונטקסט (למשל 'parachute' → skydiver)",
+      "Drop shadow מובלע כמעט תמיד — צריך negative prompt חזק"
+    ],
+    "recommendation_to_producer": "שלוש אופציות: (A) חזרה ל-DALL-E 3 עם prompts חמורים פי שתיים + post-processing chroma key ידני; (B) מעבר ל-Leonardo עם photoReal=false + negative prompt; (C) שימוש ב-SDXL / Flux מקומי עם ControlNet לבידוד אובייקט."
+  },
+
+  "next_step_proposed": "Producer (Nirit) מחליטה בין A/B/C. אם A — אפצר prompts, אפעיל שוב. אם B — ReGenerate עם Leonardo (צריך LEONARDO_API_KEY). אם C — דורש סביבה מקומית."
+}

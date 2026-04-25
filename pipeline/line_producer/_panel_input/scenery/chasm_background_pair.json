@@ -1,0 +1,13 @@
+{
+  "asset": "chasm_background.png",
+  "type": "scenery_png",
+  "before_kb": 1370,
+  "after_kb": 204,
+  "ratio": 6.72,
+  "in_budget": false,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\chasm_background.png",
+  "dst": "assets\\optimized\\scenery\\chasm_background.webp",
+  "status": "compressed_pending_panel"
+}

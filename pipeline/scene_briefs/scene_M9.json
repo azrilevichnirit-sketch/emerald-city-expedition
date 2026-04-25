@@ -1,0 +1,356 @@
+{
+  "_for_mission": "M9",
+  "_built_at": "2026-04-25T12:54:13Z",
+  "_source": "directing/{assembly,continuity,timing,interaction,storyboard}.json",
+  "scene_id": "M9",
+  "duration_ms": 12000,
+  "entry_transition": {
+    "type": "push_up",
+    "duration_ms": 450,
+    "notes": "Vertical climb completion → horizontal tunnel threshold. Push-up motion mirrors the upward journey ending, player 'arriving' at gate level. Rain overlay fades out during transition as we move from exterior cliff to sheltered gate entrance."
+  },
+  "exit_transition": null,
+  "background": {
+    "z": 0,
+    "role": "background",
+    "file": "bg_M9.mp4",
+    "slot": null,
+    "pos": {
+      "x_pct": 50,
+      "y_pct": 50
+    },
+    "scale": 1.0,
+    "rot_deg": 0,
+    "anchor": "center",
+    "fit": "cover",
+    "pose_candidates": []
+  },
+  "player": {
+    "pose_file": "pose_06.mp4",
+    "pose_semantic": "anim_reach_forward",
+    "loop_segment_sec": null,
+    "hold_frame_sec": 5.5,
+    "one_shot": true,
+    "catch_pose": true
+  },
+  "tracks": [
+    {
+      "role": "background",
+      "file": "bg_M9.mp4",
+      "slot": null,
+      "pose": null,
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": true,
+      "loop_segment_ms": null,
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "player",
+      "file": "pose_06.mp4",
+      "slot": null,
+      "pose": "pose_06.mp4",
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": [
+        5500,
+        5500
+      ],
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/שמן_לשימון_מ09.png",
+      "slot": "A",
+      "pose": null,
+      "in_ms": 800,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_left",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/רב_כלי_מ09.png",
+      "slot": "B",
+      "pose": null,
+      "in_ms": 1200,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_left",
+      "appear_ms": 350,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/מבער_ריתוך_מ09.png",
+      "slot": "C",
+      "pose": null,
+      "in_ms": 1600,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_left",
+      "appear_ms": 400,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "mission_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 500,
+      "out_ms": 4500,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 300
+    },
+    {
+      "role": "checkpoint_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 9500,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 400,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    }
+  ],
+  "interactive_elements": [
+    {
+      "slot": "A",
+      "label": "שמן לשימון צירים",
+      "points": 1,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.06,
+        "glow_color": "#FFD700"
+      },
+      "click": {
+        "feedback_animation": "pulse_out",
+        "feedback_ms": 450,
+        "points_popup": {
+          "text": "+1",
+          "color": "#FFD700",
+          "from_xy_pct": {
+            "x": 15,
+            "y": 25
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 800
+        }
+      },
+      "tooltip": {
+        "he": "שמן לשחרור צירים תקועים",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "B",
+      "label": "רב-כלי",
+      "points": 2,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.08,
+        "glow_color": "#FF8C00"
+      },
+      "click": {
+        "feedback_animation": "bounce",
+        "feedback_ms": 500,
+        "points_popup": {
+          "text": "+2",
+          "color": "#FF8C00",
+          "from_xy_pct": {
+            "x": 50,
+            "y": 18
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 850
+        }
+      },
+      "tooltip": {
+        "he": "כלי רב-תכליתי לתיקונים מהירים",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "C",
+      "label": "מבער ריתוך",
+      "points": 3,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.1,
+        "glow_color": "#FF4500"
+      },
+      "click": {
+        "feedback_animation": "flash",
+        "feedback_ms": 550,
+        "points_popup": {
+          "text": "+3",
+          "color": "#FF4500",
+          "from_xy_pct": {
+            "x": 85,
+            "y": 25
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 900
+        }
+      },
+      "tooltip": {
+        "he": "מבער לחיתוך וריתוך מתכת",
+        "show_after_ms": 600
+      }
+    }
+  ],
+  "global_ui": {
+    "score_display": {
+      "pos": {
+        "x_pct": 88,
+        "y_pct": 8
+      },
+      "font_size_px": 28
+    },
+    "mission_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 6
+      },
+      "width_pct": 60,
+      "font_size_px": 18
+    },
+    "checkpoint_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 92
+      },
+      "width_pct": 70,
+      "font_size_px": 16
+    }
+  },
+  "beats": [
+    {
+      "t_ms": 0,
+      "description": "Scene opens: dark tunnel gate entrance with red-flashing keypad panel visible in background. Player (Nirit) appears mid-reach, urgent posture, eyes locked on the panel. Push-up transition completes vertical arrival at gate threshold.",
+      "visible_elements": [
+        "background.bg_M9",
+        "player.pose_06"
+      ],
+      "audio_hint": "Low mechanical hum, urgent electronic beeping (60-second countdown implied), echo of dripping water in tunnel"
+    },
+    {
+      "t_ms": 500,
+      "description": "Mission text appears: 'לוח המקשים מהבהב באדום. אם לא אקיש את הקוד ב-60 השניות הקרובות, השער יינעל הרמטית וייחסם לכל היום. איך אני מפצחת את המעבר הזה תחת לחץ?' Overlays bottom-center, white text with subtle shadow for readability against dark tunnel.",
+      "visible_elements": [
+        "background.bg_M9",
+        "player.pose_06",
+        "text.mission"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 800,
+      "description": "Tool A (oil canister) materializes upper-left of player's eyeline. Metallic sheen catches faint red glow from keypad. First vertex of tool triangle established.",
+      "visible_elements": [
+        "background.bg_M9",
+        "player.pose_06",
+        "text.mission",
+        "tool.A"
+      ],
+      "audio_hint": "Soft inventory chime (tool available)"
+    },
+    {
+      "t_ms": 1200,
+      "description": "Tool B (multi-tool) appears center-top, most prominent position in composition. Silver-gray casing, multiple folded implements visible. Apex of visual triangle — correct solution positioned to draw eye naturally downward to player's gesture.",
+      "visible_elements": [
+        "background.bg_M9",
+        "player.pose_06",
+        "text.mission",
+        "tool.A",
+        "tool.B"
+      ],
+      "audio_hint": "Second inventory chime (slightly higher pitch)"
+    },
+    {
+      "t_ms": 1600,
+      "description": "Tool C (welding torch) enters upper-right, completing the arc. Blue-orange flame icon visible on handle. All three options now available — shallow arc formation guides player decision under time pressure.",
+      "visible_elements": [
+        "background.bg_M9",
+        "player.pose_06",
+        "text.mission",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": "Third inventory chime (completes chord progression)"
+    },
+    {
+      "t_ms": 4500,
+      "description": "Mission text fades out. Player remains in urgent reaching pose. Red keypad flashing continues (background element). Tool choices persist, awaiting interaction.",
+      "visible_elements": [
+        "background.bg_M9",
+        "player.pose_06",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 9500,
+      "description": "Checkpoint text appears: 'השער נפתח. הליכה במנהרה חשוכה עם הדים של מים.' Implies successful code entry (multi-tool used to bypass panel). Text overlays lower-third, signaling scene resolution imminent.",
+      "visible_elements": [
+        "background.bg_M9",
+        "player.pose_06",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": "Heavy metallic clunk (gate unlocking), low rumble of hydraulics, echo deepens as tunnel opens"
+    },
+    {
+      "t_ms": 12000,
+      "description": "Scene ends. All elements hold final frame: checkpoint text visible, tools remain on-screen, player's pose frozen mid-reach. Transition to M10 (dark tunnel walk) will begin from this state.",
+      "visible_elements": [
+        "background.bg_M9",
+        "player.pose_06",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": "Ambient tunnel echo sustains into next scene"
+    }
+  ],
+  "summary_he": "נירית מגיעה לשער המנהרה אחרי הטיפוס המפרך במעלה הצוק. לוח מקשים אדום מהבהב מולה — 60 שניות עד נעילה הרמטית. שלושה כלים צפים מעל קו המבט שלה: שמן לשימון משמאל, רב-כלי במרכז (הפתרון הנכון, בולט ביותר), ומבער ריתוך מימין. המשולש החזותי מוביל את העין למטה אל תנוחת הדחיפות שלה — יד קדימה, ממוקדת בלוח. כשהיא בוחרת נכון, השער נפתח עם חריקה מתכתית כבדה. טקסט המעבר מופיע: 'השער נפתח. הליכה במנהרה חשוכה עם הדים של מים.' הדרך פנויה פנימה, אל תוך ההד והחושך.",
+  "summary_en": "High-tension keypad puzzle at tunnel gate entrance. Player (pose_06 urgent reach) faces red-flashing panel with 60-second countdown. Three tools appear sequentially (800ms intervals) forming visual triangle: oil left, multi-tool center-top (correct answer), welding torch right. Mission text (500ms) establishes stakes; checkpoint text (9500ms) confirms gate unlock. Scene runs 12s total, tools persist throughout for interaction. Composition guides eye from tool arc down to player's forward gesture, emphasizing time pressure and focused problem-solving."
+}

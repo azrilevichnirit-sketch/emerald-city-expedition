@@ -1,0 +1,20 @@
+[
+  {
+    "asset": "מצנח_מ01",
+    "status": "saved",
+    "path": "assets/tools/מצנח_מ01_styletest_v1.png",
+    "revised_prompt": "Generate an image featuring a single parachute on an adventurous journey. The parachute canopy should be fully inflated, round and wide in shape, exhibiting a vivid mix of orange and white panel patterns. Viewed from a 3/4 angle with a camera elevation 25-30 degrees above the horizon, the parachute should be rotated 15 degrees to the right. Illuminate the scene with a single hard light source from the upper-left, positioned like it's 10 o'clock. The parachute should stand detached from its background with a clean, sharply defined outline. Maintain a style that mirrors cinematic game items with stylized realism—neither photorealistic nor cartoony. Put the parachute against a solid flat chroma-key green #00B140 background, letting it fill about 65% of the frame at the center. Ensure ample breathing room on all the sides and a sharp focus. Create a square composition with a 1024x1024 resolution. The image should not contain drop shadows, background elements, hands, text, labels, watermarks."
+  },
+  {
+    "asset": "פנס_עוצמתי_מ05",
+    "status": "saved",
+    "path": "assets/tools/פנס_עוצמתי_מ05_styletest_v1.png",
+    "revised_prompt": "Create a cinematic-style image in square composition (1024x1024). The main subject is a heavy-duty tactical flashlight, made from matte black aluminum and sporting a cylindrical body with a ridged grip. It has a thick glass lens on its front reflecting cool daylight, not green, and a rear push-button. The flashlight also has a MOLLE-style lanyard loop. The object is viewed in 3/4 angle, lens facing slightly toward the upper-right, and the camera is elevated 25-30 degrees above the horizon, rotated 15 degrees to the right. The scene is specifically lit by a single hard light source coming from the upper-left at 10 o'clock position. This image should depict the flashlight with a clean, sharp-defined outline and it should be detached from its background, a solid chroma-key green (#00B140). The flashlight should occupy around 65% of the frame and be centered with space left on all sides. Please exclude any background elements, hands holding the flashlight, text or labels, watermarks, and no drop shadow should be baked in. The image should be in sharp focus and not rendered as a photo-realistic product shot or cartoon-like depiction."
+  },
+  {
+    "asset": "סולם_חבלים_מ08",
+    "status": "saved",
+    "path": "assets/tools/סולם_חבלים_מ08_styletest_v1.png",
+    "revised_prompt": "Create an image of a practical rope ladder. The ladder is made of two long thick, hemp-colored ropes on the sides with about eight parallel wooden rungs evenly spaced between them. The ladder hangs vertically with a slight natural curve showing its weight. The viewing angle is a 3/4 view, with the camera elevation being 25-30 degrees above the horizon, and rotated 15 degrees to the right. There's a single hard light source from the upper-left at a 10 o'clock position, creating shadows between the rungs which are visible but don't cast a shadow on the background. The ropes and rungs have clean, sharp and defined outlines. This is supposed to look like a cinematic game item, with a stylized realistic appearance, rather than a photorealistic product shot or a cartoon. The background is a solid, flat chroma-key green color with the hex code #00B140. The rope ladder fills about 70% of the frame and is vertically centered, leaving room to the sides. There are no drop shadows baked in, no surrounding elements, no hands, anchoring hooks, text, labels, or watermark. The focus of the image is sharp, and it has a 1024x1024 square composition."
+  }
+]

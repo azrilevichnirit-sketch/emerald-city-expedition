@@ -1,0 +1,13 @@
+{
+  "asset": "escape_boat_distant.png",
+  "type": "scenery_png",
+  "before_kb": 261,
+  "after_kb": 54,
+  "ratio": 4.83,
+  "in_budget": true,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\escape_boat_distant.png",
+  "dst": "assets\\optimized\\scenery\\escape_boat_distant.webp",
+  "status": "compressed_pending_panel"
+}

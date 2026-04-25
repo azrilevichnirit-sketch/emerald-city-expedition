@@ -1,0 +1,13 @@
+{
+  "asset": "rain_effect.png",
+  "type": "scenery_png",
+  "before_kb": 6,
+  "after_kb": 2,
+  "ratio": 3.0,
+  "in_budget": true,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\rain_effect.png",
+  "dst": "assets\\optimized\\scenery\\rain_effect.webp",
+  "status": "compressed_pending_panel"
+}

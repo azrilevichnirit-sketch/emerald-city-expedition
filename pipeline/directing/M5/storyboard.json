@@ -1,0 +1,105 @@
+{
+  "_stage": "storyboard",
+  "_mission": "M5",
+  "_generated_at": "2026-04-25T12:33:02Z",
+  "_generated_by": "agent_08_storyboard",
+  "scene_id": "M5",
+  "beats": [
+    {
+      "t_ms": 0,
+      "description": "Scene opens with push-up transition (550ms) — dense jungle vegetation rises from bottom frame, creating claustrophobic enclosure. Background shows rustling bush on right side, heavy breathing audible. Player in alert scanning pose, slightly left-of-center, facing right toward threat.",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_01"
+      ],
+      "audio_hint": "Jungle ambience: rustling leaves, heavy breathing, branches snapping — tension building"
+    },
+    {
+      "t_ms": 600,
+      "description": "Mission text appears: 'השיח מימין רועד בטירוף. משהו גדול זז שם, נשימות כבדות נשמעות וענפים נשברים. זינוק עלול לקרות בכל שנייה – מה אני שולפת מהחגורה כדי להגיב ראשונה?' Player remains in scanning pose, threat imminent.",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_01",
+        "text.mission"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 800,
+      "description": "Powerful flashlight (tool A) enters lower-left position. Tooltip available after 600ms total: 'מאיר את החושך בג'ונגל'. Triangle layout begins to form with player at center.",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_01",
+        "text.mission",
+        "tool.A"
+      ],
+      "audio_hint": "Subtle equipment sound — flashlight ready"
+    },
+    {
+      "t_ms": 1200,
+      "description": "Defensive net (tool B) enters elevated center-top position. Tooltip available after 550ms total: 'מגן מפני יצורים מסוכנים'. Asymmetric tool placement mirrors directional threat from right.",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_01",
+        "text.mission",
+        "tool.A",
+        "tool.B"
+      ],
+      "audio_hint": "Net deployment sound — defensive option ready"
+    },
+    {
+      "t_ms": 1600,
+      "description": "Burning torch (tool C) enters lower-right position. Tooltip available after 500ms total: 'מרחיק חיות פרא ומאיר בעוצמה'. Complete triangle layout established — all three response options visible. Visual tension peaks with tools flanking player, threat still active on right.",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_01",
+        "text.mission",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": "Torch ignition — fire crackling, aggressive deterrent ready"
+    },
+    {
+      "t_ms": 5000,
+      "description": "Mission text fades out. Player and all three tools remain visible and interactive. Bush continues rustling, threat sustained. Player must choose response before creature lunges.",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_01",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": "Rustling intensifies — decision point"
+    },
+    {
+      "t_ms": 9500,
+      "description": "Checkpoint text appears: 'השטח נקי. יוצאים מהסבך אל דרך פתוחה יותר.' Threat resolved (choice made off-screen). Player and tools remain visible as scene prepares to close.",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_01",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": "Tension release — jungle ambience calms, footsteps on clearer path"
+    },
+    {
+      "t_ms": 12000,
+      "description": "Scene ends. All elements fade as player exits dense thicket toward open terrain. Transition to M6 imminent.",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_01",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": null
+    }
+  ],
+  "summary_he": "הצמחייה הצפופה עולה מתחתית המסך ונסגרת על נירית כמו מלכודת ירוקה. השיח מימין רועד בטירוף — משהו גדול מסתתר שם, נשימות כבדות וענפים נשברים מבשרים זינוק קרב. נירית עומדת במצב כוננות, מבטה נעוץ בשיח המאיים, ושלושה כלים מופיעים סביבה במשולש אסימטרי: פנס עוצמתי משמאל, רשת הגנה מרחפת מעל, ולפיד בוער מימין. כל כלי מציע אסטרטגיה שונה — אור שמגלה, הגנה שחוסמת, או אש שמרחיקה. המתח מגיע לשיא כשנירית חייבת לבחור תגובה לפני שהיצור זונק. ברגע האחרון, האיום נעלם — השטח נקי, והיא יוצאת מהסבך אל דרך פתוחה יותר, מוכנה למשימה הבאה.",
+  "summary_en": "Dense jungle vegetation pushes up from bottom frame, creating claustrophobic enclosure around player. Rustling bush on right threatens imminent creature attack — heavy breathing, breaking branches. Three tools appear in asymmetric triangle: flashlight lower-left, defensive net elevated center, burning torch lower-right. Each tool offers distinct strategy (illuminate, defend, deter). Player must choose response before creature lunges. Threat resolves; checkpoint confirms clear terrain as scene transitions to open path.",
+  "rationale": "Beats follow strict chronological order from t=0 (transition + scene open) through tool entries (800ms, 1200ms, 1600ms), text appearances (600ms mission, 9500ms checkpoint), to scene end (12000ms). Every visible_elements entry cross-checked against ALLOWED list — used slot form 'tool.A/B/C' and exact stems 'bg_M5', 'pose_01'. No invented names, no merge_to_bg scenery (already baked into bg_M5.mp4). Hebrew summary vivid and narrative for Nirit; English summary technical. Audio hints suggest tension arc (build → peak → release) but remain optional for later stages."
+}

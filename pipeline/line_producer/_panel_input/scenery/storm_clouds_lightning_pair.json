@@ -1,0 +1,13 @@
+{
+  "asset": "storm_clouds_lightning.png",
+  "type": "scenery_png",
+  "before_kb": 645,
+  "after_kb": 52,
+  "ratio": 12.4,
+  "in_budget": true,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\storm_clouds_lightning.png",
+  "dst": "assets\\optimized\\scenery\\storm_clouds_lightning.webp",
+  "status": "compressed_pending_panel"
+}

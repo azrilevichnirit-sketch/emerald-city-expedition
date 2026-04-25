@@ -1,0 +1,29 @@
+{
+  "asset": "סנפלינג_מ11",
+  "label_verbatim": "חבל סנפלינג עם רתמה",
+  "target_path": "assets/tools/סנפלינג_מ11.png",
+  "type": "tool_item",
+  "source_mission": "M11 slot A",
+  "consequence_type": "descend",
+  "points": 1,
+  "scene_context": "M11 — חבל סנפלינג עם רתמה",
+  "pipeline_version": "0E_rembg_v1",
+  "prompts": {
+    "leonardo": "a climbing rappel rope arranged as a neat CIRCULAR COIL of bright blue rope laid flat on the ground, about 40cm diameter coil with 8 or so loops, AND next to it a black nylon CLIMBING HARNESS with visible leg loops, waist belt, and a silver belay device carabiner attached, both items together as one composition in frame, 3/4 view angle, camera elevation 25-30 degrees, rotated 15 degrees right, hard directional key light from upper-left 10 oclock, isolated object on plain neutral studio background, product shot, clean sharp edges, stylized realism, cinematic game item, NOT cartoon, fills 65% of frame centered, square composition, prominent 3D subject",
+    "leonardo_negative": "person rappelling, cliff, single sling, rope alone without harness, human figure, person, hands, holding, gradient background, busy background, text, watermark, logo, cartoon style, anime, flat vector illustration"
+  },
+  "leonardo_params": {
+    "modelId": "aa77f04e-3eec-4034-9c07-d0f619684628",
+    "width": 1024,
+    "height": 1024,
+    "num_images": 1,
+    "alchemy": true,
+    "photoReal": false
+  },
+  "directors_note": "חבל סנפלינג עם רתמה — single isolated object per Camera Bible, sharp edges for rembg.",
+  "approved": true,
+  "_approved_at": "2026-04-20",
+  "_approved_by": "director + production_designer (Claude agent roles) per camera_bible.json + pipeline v0E_rembg_v1",
+  "_retry_attempt": 1,
+  "_rewrite_round": 2
+}

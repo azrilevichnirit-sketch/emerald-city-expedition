@@ -1,0 +1,113 @@
+{
+  "_stage": "storyboard",
+  "_mission": "M8",
+  "_generated_at": "2026-04-25T12:45:22Z",
+  "_generated_by": "agent_08_storyboard",
+  "scene_id": "M8",
+  "beats": [
+    {
+      "t_ms": 0,
+      "description": "Scene opens: vertical rock cliff face in heavy rain. Nirit positioned mid-climb (58% height), left-of-center, facing right toward summit. Rain overlay active from frame one, establishing slippery conditions.",
+      "visible_elements": [
+        "background.bg_M8",
+        "scenery.rain_effect_m8",
+        "player.pose_02"
+      ],
+      "audio_hint": "Rain ambience (heavy), rock scraping, labored breathing"
+    },
+    {
+      "t_ms": 500,
+      "description": "Mission text appears: 'סלע אנכי חלק חוסם את הדרך. הגשם הופך אותו לחלק כמו קרח, אבל סימני נעליים טריים מעידים שמישהו טיפס כאן ממש עכשיו. במה אני נאחזת כדי לעלות ולא להחליק?'",
+      "visible_elements": [
+        "background.bg_M8",
+        "scenery.rain_effect_m8",
+        "player.pose_02",
+        "text.mission"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 800,
+      "description": "First tool enters (slot A): rope ladder (סולם_חבלים_מ08) appears upper-left of tool arc. Flexible climbing option now visible.",
+      "visible_elements": [
+        "background.bg_M8",
+        "scenery.rain_effect_m8",
+        "player.pose_02",
+        "text.mission",
+        "tool.A"
+      ],
+      "audio_hint": "Subtle rope creak"
+    },
+    {
+      "t_ms": 1200,
+      "description": "Second tool enters (slot B): knotted rope (חבל_קשרים_מ08) appears center-top of arc. Stronger grip option materializes.",
+      "visible_elements": [
+        "background.bg_M8",
+        "scenery.rain_effect_m8",
+        "player.pose_02",
+        "text.mission",
+        "tool.A",
+        "tool.B"
+      ],
+      "audio_hint": "Rope tension sound"
+    },
+    {
+      "t_ms": 1600,
+      "description": "Third tool enters (slot C): metal crampons (טפרי_טיפוס_מ08) appear upper-right, completing the tension triangle. All climbing options now available for interaction.",
+      "visible_elements": [
+        "background.bg_M8",
+        "scenery.rain_effect_m8",
+        "player.pose_02",
+        "text.mission",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": "Metal clink"
+    },
+    {
+      "t_ms": 4500,
+      "description": "Mission text fades out. Player remains mid-climb with all three tool options visible, rain continuing. Decision window fully open.",
+      "visible_elements": [
+        "background.bg_M8",
+        "scenery.rain_effect_m8",
+        "player.pose_02",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 9500,
+      "description": "Checkpoint text appears: 'אני למעלה. כניסה למנהרה עם שער פלדה מסיבי.' Signals successful climb completion, tunnel entrance ahead.",
+      "visible_elements": [
+        "background.bg_M8",
+        "scenery.rain_effect_m8",
+        "player.pose_02",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": "Achievement tone (subtle)"
+    },
+    {
+      "t_ms": 12000,
+      "description": "Scene ends. All elements remain visible through final frame — player, rain, tools, checkpoint text — preparing for transition to tunnel entrance (M9).",
+      "visible_elements": [
+        "background.bg_M8",
+        "scenery.rain_effect_m8",
+        "player.pose_02",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": "Rain fade to tunnel echo (transition prep)"
+    }
+  ],
+  "summary_he": "נירית תקועה באמצע מצוק אנכי וחלק, הגשם הופך אותו למשטח מסוכן כמו קרח. סימני נעליים טריים מעידים שמישהו עלה כאן לפני רגעים ספורים — היא לא לבד במרדף. שלושה כלי טיפוס מופיעים בקשת מתוחה מעל ראשה: סולם חבלים גמיש לטיפוס מהיר, חבל עם קשרים לאחיזה חזקה יותר, וטפרי טיפוס מקצועיים מפלדה. כל בחירה נושאת סיכון שונה במזג האוויר הקיצוני הזה. הגשם לא מפסיק, השעון מתקתק, והמנהרה עם שער הפלדה המסיבי מחכה למעלה.",
+  "summary_en": "Mid-climb on rain-slicked vertical rock face. Three climbing tools appear in tension triangle: rope ladder (fast/flexible), knotted rope (stronger grip), metal crampons (professional gear). Fresh footprints prove rivals climbed moments ago. Mission text establishes slippery conditions and decision urgency. Checkpoint text (t=9500ms) confirms summit reached, tunnel entrance with massive steel gate ahead. Rain overlay persists throughout 12-second scene.",
+  "rationale": "Beats follow strict chronological order from assembly/timing stages. All visible_elements cross-checked against ALLOWED list — Hebrew tool filenames preserved exactly as delivered, slot references (tool.A/B/C) used per assembly. Rain scenery (rain_effect_m8.mp4) treated as separate layer per TODAY_STATE replace_with_mp4_loop rule. No invented elements, no semantic translations. Hebrew summary written for Nirit with narrative tension; English summary technical/factual."
+}

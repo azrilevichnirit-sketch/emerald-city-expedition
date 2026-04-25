@@ -99,3 +99,12 @@ jobs:
           path: pipeline/review/shutterstock/
           if-no-files-found: warn
           retention-days: 30
+
+      - name: Upload per-item ledgers as artifact (debug)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: shutterstock-ledger-${{ github.run_id }}
+          path: pipeline/staging/shutterstock/ledger/
+          if-no-files-found: warn
+          retention-days: 30

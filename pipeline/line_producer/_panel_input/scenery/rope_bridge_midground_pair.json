@@ -1,0 +1,13 @@
+{
+  "asset": "rope_bridge_midground.png",
+  "type": "scenery_png",
+  "before_kb": 515,
+  "after_kb": 106,
+  "ratio": 4.86,
+  "in_budget": true,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\rope_bridge_midground.png",
+  "dst": "assets\\optimized\\scenery\\rope_bridge_midground.webp",
+  "status": "compressed_pending_panel"
+}

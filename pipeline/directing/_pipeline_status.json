@@ -1,0 +1,118 @@
+{
+  "phase": "BUILDER_HTML_GENERATED",
+  "stage_results": {},
+  "chain_results": {
+    "M3": {
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0
+    },
+    "M5": {
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0
+    },
+    "M2": {
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0
+    },
+    "M4": {
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0
+    },
+    "M1": {
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0
+    },
+    "M7": {
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0
+    },
+    "M6": {
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0
+    },
+    "M8": {
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 1
+    },
+    "M12": {
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0
+    },
+    "M9": {
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0
+    }
+  },
+  "_updated_at": "2026-04-25 16:06:07",
+  "total_elapsed_sec": 162,
+  "harmony_pass": 15,
+  "harmony_fail": 0,
+  "per_mission_status": {
+    "M1": "PASS",
+    "M2": "PASS",
+    "M3": "PASS",
+    "M4": "PASS",
+    "M5": "PASS",
+    "M6": "PASS",
+    "M7": "PASS",
+    "M8": "PASS",
+    "M9": "PASS",
+    "M10": "PASS",
+    "M11": "PASS",
+    "M12": "PASS",
+    "M13": "PASS",
+    "M14": "PASS",
+    "M15": "PASS"
+  },
+  "poses_used": {
+    "M1": "pose_07.mp4",
+    "M2": "pose_06.mp4",
+    "M3": "pose_01.mp4",
+    "M4": "pose_06.mp4",
+    "M5": "pose_01.mp4",
+    "M6": "pose_03.mp4",
+    "M7": "pose_01.mp4",
+    "M8": "pose_02.mp4",
+    "M9": "pose_06.mp4",
+    "M10": null,
+    "M11": null,
+    "M12": "pose_01.mp4",
+    "M13": null,
+    "M14": null,
+    "M15": "assets/poses/pose_01.mp4"
+  },
+  "builder_integration": {
+    "materialized_inputs": "15/15",
+    "html_built": "15/15",
+    "qa_pass": "15/15 structural",
+    "remaining_blockers": [
+      "M6 scenery: assets/scenery/smoking_jeep.mp4 (Veo loop, deferred)",
+      "M8 scenery: assets/scenery/rain_effect_m8.mp4 (Veo loop, deferred)"
+    ],
+    "output_dir": "pipeline/builder_html/",
+    "browse_index": "pipeline/builder_html/index.html",
+    "qa_report": "pipeline/review/builder_html_qa.json",
+    "tool_assignment_method": "optimal-permutation by Hebrew label↔filename token+prefix scoring",
+    "all_45_tools_correctly_mapped": true
+  }
+}

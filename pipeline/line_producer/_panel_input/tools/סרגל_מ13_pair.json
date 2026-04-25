@@ -1,0 +1,13 @@
+{
+  "asset": "סרגל_מ13.png",
+  "type": "tool_png",
+  "before_kb": 223,
+  "after_kb": 33,
+  "ratio": 6.76,
+  "in_budget": true,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\סרגל_מ13.png",
+  "dst": "assets\\optimized\\tools\\סרגל_מ13.webp",
+  "status": "compressed_pending_panel"
+}

@@ -1,0 +1,27 @@
+{
+  "_for_mission": "M4",
+  "_status": "PLACEHOLDER (sound pass not yet run)",
+  "_source": "storyboard.beats[].audio_hint",
+  "audio_cues": [
+    {
+      "t_ms": 0,
+      "hint": "Wind gusts, creaking rope bridge, distant rushing water below chasm"
+    },
+    {
+      "t_ms": 800,
+      "hint": "Metallic clink as equipment appears"
+    },
+    {
+      "t_ms": 1200,
+      "hint": "Fabric/strap rustle"
+    },
+    {
+      "t_ms": 1600,
+      "hint": "Wood thunk"
+    },
+    {
+      "t_ms": 12000,
+      "hint": "Wind intensity increases, foreshadowing jungle density ahead"
+    }
+  ]
+}

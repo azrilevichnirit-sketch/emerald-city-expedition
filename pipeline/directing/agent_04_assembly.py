@@ -39,7 +39,8 @@ import sys
 
 from _lib import (Context, call_claude, extract_json, load_project_context,
                   parse_missions_arg, render_bg_brief_summary,
-                  render_content_lock_mission, write_output)
+                  render_content_lock_mission, render_pose_recommendations,
+                  render_today_state, write_output)
 
 SYSTEM = """You are scene_assembly_director — stage 4 of 9 in a sequential directing pipeline for a Hebrew children's financial-literacy game.
 
@@ -86,12 +87,13 @@ Output ONLY a JSON object matching this schema (no markdown, no prose):
 def run_one(ctx: Context) -> None:
     user = f"""CONTEXT — read as hard constraints, don't revisit:
 
+{render_today_state(ctx)}
+
 {render_content_lock_mission(ctx)}
 
 {render_bg_brief_summary(ctx)}
 
-Available player poses (pose_map.json keys):
-{sorted(ctx.pose_map.get('poses', {}).keys())}
+{render_pose_recommendations(ctx)}
 
 Asset manifest summary:
   backgrounds: {ctx.asset_manifest.get('summary', {}).get('backgrounds', '?')}

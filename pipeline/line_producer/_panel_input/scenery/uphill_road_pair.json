@@ -1,0 +1,13 @@
+{
+  "asset": "uphill_road.png",
+  "type": "scenery_png",
+  "before_kb": 1543,
+  "after_kb": 277,
+  "ratio": 5.57,
+  "in_budget": false,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\uphill_road.png",
+  "dst": "assets\\optimized\\scenery\\uphill_road.webp",
+  "status": "compressed_pending_panel"
+}

@@ -1,0 +1,13 @@
+{
+  "asset": "מצפן_מ13.png",
+  "type": "tool_png",
+  "before_kb": 1987,
+  "after_kb": 226,
+  "ratio": 8.79,
+  "in_budget": false,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\מצפן_מ13.png",
+  "dst": "assets\\optimized\\tools\\מצפן_מ13.webp",
+  "status": "compressed_pending_panel"
+}

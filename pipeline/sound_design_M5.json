@@ -1,0 +1,31 @@
+{
+  "_for_mission": "M5",
+  "_status": "PLACEHOLDER (sound pass not yet run)",
+  "_source": "storyboard.beats[].audio_hint",
+  "audio_cues": [
+    {
+      "t_ms": 0,
+      "hint": "Jungle ambience: rustling leaves, heavy breathing, branches snapping — tension building"
+    },
+    {
+      "t_ms": 800,
+      "hint": "Subtle equipment sound — flashlight ready"
+    },
+    {
+      "t_ms": 1200,
+      "hint": "Net deployment sound — defensive option ready"
+    },
+    {
+      "t_ms": 1600,
+      "hint": "Torch ignition — fire crackling, aggressive deterrent ready"
+    },
+    {
+      "t_ms": 5000,
+      "hint": "Rustling intensifies — decision point"
+    },
+    {
+      "t_ms": 9500,
+      "hint": "Tension release — jungle ambience calms, footsteps on clearer path"
+    }
+  ]
+}

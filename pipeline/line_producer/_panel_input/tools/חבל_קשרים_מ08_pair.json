@@ -1,0 +1,13 @@
+{
+  "asset": "חבל_קשרים_מ08.png",
+  "type": "tool_png",
+  "before_kb": 138,
+  "after_kb": 30,
+  "ratio": 4.6,
+  "in_budget": true,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\חבל_קשרים_מ08.png",
+  "dst": "assets\\optimized\\tools\\חבל_קשרים_מ08.webp",
+  "status": "compressed_pending_panel"
+}

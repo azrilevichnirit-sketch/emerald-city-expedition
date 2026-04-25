@@ -1,0 +1,13 @@
+{
+  "asset": "dust_clouds.png",
+  "type": "scenery_png",
+  "before_kb": 439,
+  "after_kb": 34,
+  "ratio": 12.91,
+  "in_budget": true,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\dust_clouds.png",
+  "dst": "assets\\optimized\\scenery\\dust_clouds.webp",
+  "status": "compressed_pending_panel"
+}

@@ -1,0 +1,13 @@
+{
+  "asset": "מצנח_מ01_styletest_v1.png",
+  "type": "tool_png",
+  "before_kb": 1461,
+  "after_kb": 193,
+  "ratio": 7.57,
+  "in_budget": false,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\מצנח_מ01_styletest_v1.png",
+  "dst": "assets\\optimized\\tools\\מצנח_מ01_styletest_v1.webp",
+  "status": "compressed_pending_panel"
+}

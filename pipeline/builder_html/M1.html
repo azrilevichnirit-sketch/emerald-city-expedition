@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>M1 — משלחת אל עיר האזמרגד</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:100vw; height:100vh; overflow:hidden; background:#000;
+  font-family:'Heebo','Assistant',sans-serif; color:#fff; }
+
+/* === ZONES (design_system.md) === */
+#zone-a { position:fixed; top:0; left:0; width:100%; height:6vh; min-height:28px;
+  z-index:100; background:#1a1a1a; }
+#zone-b { position:fixed; top:6vh; left:0; width:100%; height:54vh; z-index:1;
+  overflow:hidden; }
+#zone-c { position:fixed; top:60vh; left:0; width:100%; height:16vh; z-index:30;
+  display:flex; align-items:center; justify-content:center; padding:0 5%;
+  background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 30%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0) 100%); }
+#zone-d { position:fixed; bottom:0; left:0; width:100%; height:24vh; min-height:120px;
+  z-index:20; background:rgba(0,0,0,0.65);
+  border-top:1px solid rgba(255,255,255,0.15);
+  display:flex; align-items:center; justify-content:space-evenly; padding:0 5%; }
+
+/* === BACKGROUND VIDEOS (always in DOM, opacity-toggled) === */
+.bg-video { position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; z-index:0; transition:opacity 400ms ease-in-out; }
+#bg-phase-1 { opacity:1; }
+#bg-phase-2 { opacity:0; }
+
+/* === SCENERY CANVASES (chroma-keyed PNGs) === */
+.scenery-canvas { position:absolute; pointer-events:none;
+  transition:opacity 400ms ease-in-out; }
+#rivals-canvas  { top:8%; left:5%; width:90%; height:55%; opacity:0.45; z-index:3;
+  filter:blur(1px); animation:rivalsDriftA 18s linear infinite; }
+#trees-canvas   { bottom:0; left:-5%; width:35%; height:80%; opacity:0; z-index:4; }
+#dust-canvas    { bottom:8%; right:30%; width:18%; height:25%; opacity:0; z-index:15; }
+
+@keyframes rivalsDriftA {
+  0% { transform:translateX(0); }
+  50% { transform:translateX(2vw); }
+  100% { transform:translateX(0); }
+}
+
+/* === PLAYER WRAPPER (single position anchor before landing) === */
+#player-wrapper {
+  position:absolute;
+  bottom:6%; right:55%; height:54%;
+  z-index:10;
+  transform:scaleX(-1);  /* pose_04 facing left */
+  transition:none;
+  will-change:transform, bottom, right, height;
+  pointer-events:none;
+}
+#player-wrapper.facing-frontal { transform:scaleX(1); }
+#player-wrapper.jumping {
+  animation:player-jump 600ms cubic-bezier(0.16,1,0.3,1) forwards;
+}
+#player-wrapper.landing-anchor {
+  bottom:5%; right:30%; height:55%;
+  transition:bottom 2000ms cubic-bezier(0.4,0,0.2,1),
+             right 2000ms cubic-bezier(0.4,0,0.2,1),
+             height 2000ms cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes player-jump {
+  0%   { transform:scaleX(1) translateY(0)     scale(1)    rotate(0); }
+  50%  { transform:scaleX(1) translateY(-12vh) scale(1.04) rotate(-2deg); }
+  100% { transform:scaleX(1) translateY(-6vh)  scale(1.02) rotate(-1deg); }
+}
+
+#player-canvas {
+  width:100%; height:100%; object-fit:contain; opacity:0;
+  transition:opacity 200ms linear;
+}
+#player-canvas.visible { opacity:1; }
+
+/* === HIDDEN POSE VIDEOS === */
+.hidden-video { display:none; }
+
+/* === MISSION TEXT === */
+#mission-text {
+  color:#fff; direction:rtl; text-align:center;
+  font-size:clamp(1.05rem, 2.6vw, 1.35rem); font-weight:700; line-height:1.55;
+  text-shadow:0 1px 4px rgba(0,0,0,1), 0 2px 12px rgba(0,0,0,0.95), 0 0 18px rgba(0,0,0,0.8);
+  opacity:0; transition:opacity 400ms ease-in-out;
+  max-width:80%;
+}
+#mission-text.visible { opacity:1; }
+
+/* === TOOLS === */
+.tool-wrapper {
+  position:relative;
+  width:max(80px, min(28vw, 20vh, 140px));
+  height:max(80px, min(28vw, 20vh, 140px));
+  cursor:pointer;
+  opacity:0; transform:translateY(20px);
+  transition:opacity 350ms ease-out, transform 350ms ease-out;
+  pointer-events:none;
+}
+.tool-wrapper.visible { opacity:1; transform:translateY(0); pointer-events:auto; }
+.tool-wrapper.dimmed { opacity:0.3; pointer-events:none; }
+.tool-wrapper.flying { position:fixed; left:0; top:0; pointer-events:none;
+  transition:none; z-index:25; }
+.tool-wrapper.attached { position:absolute; left:0; top:0; pointer-events:none;
+  transition:none; z-index:20; }
+.tool-wrapper img { width:100%; height:100%; object-fit:contain; user-select:none;
+  -webkit-user-drag:none; }
+.tool-canvas { width:100%; height:100%; display:block; user-select:none; }
+.tool-info-icon {
+  position:absolute; top:6px; right:6px; width:22px; height:22px;
+  border-radius:50%; background:rgba(0,0,0,0.6); color:#fff;
+  font-size:0.75rem; font-weight:700; display:flex; align-items:center;
+  justify-content:center; border:1px solid rgba(255,255,255,0.4);
+  z-index:21; cursor:pointer;
+}
+.tool-tooltip {
+  position:absolute; bottom:calc(100% + 8px); right:0;
+  background:rgba(0,0,0,0.85); color:#fff; padding:5px 10px; border-radius:6px;
+  font-size:0.85rem; white-space:nowrap; direction:rtl;
+  opacity:0; transition:opacity 150ms; pointer-events:none; z-index:50;
+}
+.tool-tooltip.visible { opacity:1; }
+
+/* === CHECKPOINT TEXT === */
+#checkpoint-text {
+  position:fixed; bottom:26vh; left:0; width:100%; text-align:center;
+  color:#fff; direction:rtl; font-size:clamp(0.95rem, 2.2vw, 1.05rem);
+  font-weight:500;
+  text-shadow:0 1px 3px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.7);
+  opacity:0; transition:opacity 400ms ease-in-out;
+  z-index:30; padding:0 5%;
+}
+#checkpoint-text.visible { opacity:1; }
+
+/* === FADE-TO-BLACK OVERLAY === */
+#fade-overlay { position:fixed; inset:0; background:#000; opacity:0;
+  transition:opacity 600ms linear; z-index:200; pointer-events:none; }
+#fade-overlay.visible { opacity:1; }
+</style>
+</head>
+<body>
+
+<!-- ZONE A: progress bar -->
+<div id="zone-a"></div>
+
+<!-- ZONE B: scene -->
+<div id="zone-b">
+  <!-- BG videos: BOTH in DOM, opacity-toggled at jump_apex (NO src reassignment) -->
+  <video id="bg-phase-1" class="bg-video" src="../../backgrounds/bg_airplane.mp4"
+         autoplay loop muted playsinline></video>
+  <video id="bg-phase-2" class="bg-video" src="../../backgrounds/bg_jungle_clearing.mp4"
+         autoplay loop muted playsinline></video>
+
+  <!-- Hidden source images for chroma key (drawn into canvases) -->
+  <img id="rivals-img" src="../../assets/scenery/competitors_in_air.png" style="display:none" alt="">
+  <img id="trees-img"  src="../../scenery/two_jungle_trees.png"  style="display:none" alt="">
+  <img id="dust-img"   src="../../assets/scenery/dust_clouds.png"   style="display:none" alt="">
+
+  <!-- Chroma-keyed scenery canvases -->
+  <canvas id="rivals-canvas" class="scenery-canvas"></canvas>
+  <canvas id="trees-canvas"  class="scenery-canvas"></canvas>
+  <canvas id="dust-canvas"   class="scenery-canvas"></canvas>
+
+  <!-- Hidden pose videos (preloaded, never .src reassigned) -->
+  <div class="hidden-video">
+  <video id="pose-03" src="../../assets/player/pose_03.mp4" muted playsinline preload="auto" crossorigin="anonymous"></video>
+  <video id="pose-04" src="../../assets/player/pose_04.mp4" muted playsinline preload="auto" crossorigin="anonymous"></video>
+  <video id="pose-05" src="../../assets/player/pose_05.mp4" muted playsinline preload="auto" crossorigin="anonymous"></video>
+  <video id="pose-06" src="../../assets/player/pose_06.mp4" muted playsinline preload="auto" crossorigin="anonymous"></video>
+  </div>
+
+  <!-- Player wrapper (single position anchor) -->
+  <div id="player-wrapper">
+    <canvas id="player-canvas"></canvas>
+  </div>
+</div>
+
+<!-- ZONE C: mission text -->
+<div id="zone-c">
+  <p id="mission-text"></p>
+</div>
+
+<!-- ZONE D: tools -->
+<div id="zone-d"></div>
+
+<!-- Checkpoint text overlay -->
+<p id="checkpoint-text"></p>
+
+<!-- Fade overlay -->
+<div id="fade-overlay"></div>
+
+<script>
+"use strict";
+
+const PAYLOAD = {
+  "tracks": [
+    {"pose_file":"pose_04.mp4","phase":"running_entry","from_sec":2.0,"to_sec":3.5,"trigger":"scene_entry","loop_until_event":null,"one_shot":true,"is_pose_hold":false,"is_landing":false,"duration_ms":1500,"blend_in_ms":0,"blend_out_ms":200},
+    {"pose_file":"pose_05.mp4","phase":"standing_wait","from_sec":1.0,"to_sec":2.0,"trigger":"mission_text_shown","loop_until_event":"tool_clicked","one_shot":false,"is_pose_hold":false,"is_landing":false,"duration_ms":null,"blend_in_ms":200,"blend_out_ms":100},
+    {"pose_file":"pose_06.mp4","phase":"catch_one_shot","from_sec":3.0,"to_sec":5.5,"trigger":"tool_clicked","loop_until_event":null,"one_shot":true,"is_pose_hold":false,"is_landing":false,"duration_ms":2500,"blend_in_ms":200,"blend_out_ms":0},
+    {"pose_file":"pose_06.mp4","phase":"jump_css_overlay","from_sec":5.5,"to_sec":5.5,"trigger":"catch_complete","loop_until_event":null,"one_shot":false,"is_pose_hold":true,"is_landing":false,"duration_ms":600,"blend_in_ms":0,"blend_out_ms":0},
+    {"pose_file":"pose_03.mp4","phase":"landing","from_sec":3.0,"to_sec":5.0,"trigger":"jump_apex","loop_until_event":null,"one_shot":true,"is_pose_hold":false,"is_landing":true,"duration_ms":2000,"blend_in_ms":200,"blend_out_ms":0}
+  ],
+  "tools": [
+    {"slot":"A","label":"מצנח עגול רחב","file":"../../assets/tools/מצנח_מ01.png","type":"deploy","in_ms":2500,"stagger_offset_ms":0,
+     "attach_at_catch":{"point_on_player_pct":{"x":40,"y":32},"scale_factor":0.50,"behind_player":false},
+     "attach_at_landing":{"point_on_player_pct":{"x":50,"y":18},"scale_factor":1.6,"behind_player":false}},
+    {"slot":"B","label":"גלשן רחיפה","file":"../../assets/tools/גלשן_מ01.png","type":"wear","in_ms":2620,"stagger_offset_ms":120,
+     "attach_at_catch":{"point_on_player_pct":{"x":40,"y":32},"scale_factor":0.50,"behind_player":false},
+     "attach_at_landing":{"point_on_player_pct":{"x":50,"y":50},"scale_factor":1.4,"behind_player":true}},
+    {"slot":"C","label":"חליפת כנפיים","file":"../../assets/tools/כנפיים_מ01.png","type":"wear","in_ms":2740,"stagger_offset_ms":240,
+     "attach_at_catch":{"point_on_player_pct":{"x":40,"y":32},"scale_factor":0.50,"behind_player":false},
+     "attach_at_landing":{"point_on_player_pct":{"x":50,"y":50},"scale_factor":1.7,"behind_player":true}}
+  ],
+  "missionText": "דלת המטוס נפרצה והרוח שואבת הכל החוצה! המתחרים כבר באוויר וצוברים יתרון מטורף. אני חייבת לקפוץ עכשיו כדי לא לפספס את אזור הנחיתה – איך אני מזנקת מכאן?",
+  "checkpointText": "הנחיתה הושלמה. הג'ונגל סמיך משחשבתי, חייבים לזוז.",
+  "poseBaseFiles": ["pose_03.mp4","pose_04.mp4","pose_05.mp4","pose_06.mp4"],
+  "soundAmbients": {
+    "phase_1_sky":    {"audio_file":"placeholder:wind_rush_loop.mp3","volume":0.7,"loop":true,"active_from_event":"scene_entry","active_until_event":"jump_apex","fade_in_ms":0,"fade_out_ms":800},
+    "phase_2_jungle": {"audio_file":"placeholder:jungle_ambient_loop.mp3","volume":0.5,"loop":true,"active_from_event":"jump_apex","active_until_event":null,"fade_in_ms":800,"fade_out_ms":600}
+  },
+  "soundEvents": [
+    {"id":"evt_scene_entry_door_breach","trigger":"scene_entry","delay_after_trigger_ms":0,"audio_file":"placeholder:metallic_creak_hiss_subtle.mp3","volume":0.35,"duration_ms_estimate":700,"loop":false},
+    {"id":"evt_mission_text_appear","trigger":"mission_text_shown","delay_after_trigger_ms":0,"audio_file":"placeholder:ui_soft_bell.mp3","volume":0.4,"duration_ms_estimate":600,"loop":false},
+    {"id":"evt_tool_A_click","trigger":"tool_clicked","trigger_filter":{"slot":"A"},"delay_after_trigger_ms":0,"audio_file":"placeholder:fabric_whoosh_snap.mp3","volume":0.8,"duration_ms_estimate":800,"loop":false},
+    {"id":"evt_tool_B_click","trigger":"tool_clicked","trigger_filter":{"slot":"B"},"delay_after_trigger_ms":0,"audio_file":"placeholder:metallic_glider_snap.mp3","volume":0.8,"duration_ms_estimate":800,"loop":false},
+    {"id":"evt_tool_C_click","trigger":"tool_clicked","trigger_filter":{"slot":"C"},"delay_after_trigger_ms":0,"audio_file":"placeholder:whoosh_acceleration.mp3","volume":0.9,"duration_ms_estimate":800,"loop":false},
+    {"id":"evt_palm_contact","trigger":"tool_clicked","delay_after_trigger_ms":1500,"audio_file":"placeholder:palm_grab_thud_soft.mp3","volume":0.6,"duration_ms_estimate":250,"loop":false},
+    {"id":"evt_catch_complete_confirm","trigger":"catch_complete","delay_after_trigger_ms":0,"audio_file":"placeholder:catch_confirm_bell_small.mp3","volume":0.45,"duration_ms_estimate":400,"loop":false},
+    {"id":"evt_jump_whoosh_up","trigger":"catch_complete","delay_after_trigger_ms":0,"audio_file":"placeholder:whoosh_jump_up.mp3","volume":0.7,"duration_ms_estimate":600,"loop":false},
+    {"id":"evt_landing_impact","trigger":"landing_complete","delay_after_trigger_ms":0,"audio_file":"placeholder:ground_impact_thud_with_rustle.mp3","volume":0.75,"duration_ms_estimate":600,"loop":false},
+    {"id":"evt_checkpoint_confirm","trigger":"checkpoint_text_shown","delay_after_trigger_ms":0,"audio_file":"placeholder:checkpoint_confirm_tone.mp3","volume":0.5,"duration_ms_estimate":700,"loop":false}
+  ],
+  "timing": {
+    "missionTextAppearsMs": 1500,
+    "missionTextFadeInMs": 400,
+    "toolsFirstAppearMs": 2500,
+    "toolStaggerMs": 120,
+    "toolFlightMs": 1500,
+    "catchDurationMs": 2500,
+    "jumpDurationMs": 600,
+    "jumpApexOffsetFromCatchCompleteMs": 300,
+    "bgSwapDurationMs": 400,
+    "landingDurationMs": 2000,
+    "landingTranslateDurationMs": 2000,
+    "dustOffsetFromJumpApexMs": 1800,
+    "dustDurationMs": 900,
+    "checkpointOffsetAfterLandingMs": 200,
+    "checkpointHoldMs": 1500,
+    "fadeToBlackMs": 600
+  }
+};
+const POSE_BASE = "../../assets/player/";
+
+// ───────────────────────── Event bus ─────────────────────────
+const sceneBus = new EventTarget();
+const PLAYER = { awaitingEvent: null };
+function emit(name, detail) {
+  sceneBus.dispatchEvent(new CustomEvent(name, { detail }));
+  document.dispatchEvent(new CustomEvent(name, { detail }));
+}
+
+// ───────────────────────── Sound (silent fallback) ───────────
+const SOUND = { enabled: true, ambientNodes: {} };
+function tryPlayAudio(file, volume) {
+  if (!file || file.startsWith('placeholder:')) return null;
+  try {
+    const a = new Audio(file);
+    a.volume = volume != null ? volume : 0.6;
+    a.play().catch(() => {});
+    return a;
+  } catch (e) { return null; }
+}
+function bindSoundEvents() {
+  for (const ev of PAYLOAD.soundEvents || []) {
+    sceneBus.addEventListener(ev.trigger, (e) => {
+      if (ev.trigger_filter && ev.trigger_filter.slot
+          && (!e.detail || e.detail.slot !== ev.trigger_filter.slot)) return;
+      const delay = ev.delay_after_trigger_ms || 0;
+      setTimeout(() => tryPlayAudio(ev.audio_file, ev.volume), delay);
+    });
+  }
+  const a1 = (PAYLOAD.soundAmbients || {}).phase_1_sky;
+  const a2 = (PAYLOAD.soundAmbients || {}).phase_2_jungle;
+  if (a1) sceneBus.addEventListener('scene_entry', () =>
+    SOUND.ambientNodes.a1 = tryPlayAudio(a1.audio_file, a1.volume));
+  if (a2) sceneBus.addEventListener('jump_apex', () => {
+    if (SOUND.ambientNodes.a1) { try { SOUND.ambientNodes.a1.pause(); } catch (e) {} }
+    SOUND.ambientNodes.a2 = tryPlayAudio(a2.audio_file, a2.volume);
+  });
+}
+
+// ───────────────────────── Chroma key ─────────────────────────
+function chromaCanvasFromVideo(canvasEl, getActiveVideo) {
+  const ctx = canvasEl.getContext('2d');
+  function tick() {
+    const v = getActiveVideo();
+    if (v && v.readyState >= 2 && !v.paused) {
+      if (canvasEl.width !== v.videoWidth || canvasEl.height !== v.videoHeight) {
+        canvasEl.width = v.videoWidth;
+        canvasEl.height = v.videoHeight;
+      }
+      try {
+        ctx.drawImage(v, 0, 0, canvasEl.width, canvasEl.height);
+        const frame = ctx.getImageData(0, 0, canvasEl.width, canvasEl.height);
+        const d = frame.data;
+        for (let i = 0; i < d.length; i += 4) {
+          const r = d[i], g = d[i+1], b = d[i+2];
+          if (g > 100 && g > r * 1.4 && g > b * 1.4) d[i+3] = 0;
+        }
+        ctx.putImageData(frame, 0, 0);
+      } catch (e) { /* tainted fallback — still show the canvas with raw drawImage */ }
+      canvasEl.classList.add('visible');
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+function chromaCanvasFromImage(canvasEl, imgEl) {
+  function bake() {
+    if (!imgEl.complete || !imgEl.naturalWidth) return;
+    canvasEl.width = imgEl.naturalWidth;
+    canvasEl.height = imgEl.naturalHeight;
+    const ctx = canvasEl.getContext('2d');
+    try {
+      ctx.drawImage(imgEl, 0, 0);
+      const frame = ctx.getImageData(0, 0, canvasEl.width, canvasEl.height);
+      const d = frame.data;
+      for (let i = 0; i < d.length; i += 4) {
+        const r = d[i], g = d[i+1], b = d[i+2];
+        if (g > 100 && g > r * 1.4 && g > b * 1.4) d[i+3] = 0;
+      }
+      ctx.putImageData(frame, 0, 0);
+    } catch (e) { /* tainted fallback */ }
+  }
+  if (imgEl.complete) bake();
+  else imgEl.addEventListener('load', bake, { once: true });
+}
+
+// ───────────────────────── Pose manager (RAF-clamped) ─────────
+const POSES = {};
+let activePoseVideo = null;
+let currentTrack = null;
+
+function getPoseVideo(filename) {
+  const id = 'pose-' + filename.replace('pose_', '').replace('.mp4', '');
+  return document.getElementById(id);
+}
+
+function preloadAllPoses() {
+  const ids = (PAYLOAD.poseBaseFiles || []).map(f =>
+    'pose-' + f.replace('pose_', '').replace('.mp4', ''));
+  return Promise.all(ids.map(id => new Promise(resolve => {
+    const v = document.getElementById(id);
+    POSES[id] = v;
+    if (!v) return resolve();
+    v.loop = false;        // CRITICAL: never .loop=true
+    v.muted = true;
+    v.playsInline = true;
+    if (v.readyState >= 2) return resolve();
+    const onReady = () => { v.removeEventListener('loadedmetadata', onReady); resolve(); };
+    v.addEventListener('loadedmetadata', onReady);
+    v.addEventListener('canplay', onReady, { once: true });
+    setTimeout(resolve, 1500);
+  })));
+}
+
+function startTrack(track) {
+  if (activePoseVideo && activePoseVideo !== getPoseVideo(track.pose_file)) {
+    try { activePoseVideo.pause(); } catch (e) {}
+  }
+  currentTrack = track;
+  const v = getPoseVideo(track.pose_file);
+  activePoseVideo = v;
+  if (!v) return;
+  v.loop = false;
+  const startSeek = () => {
+    try { v.currentTime = track.from_sec; } catch (e) {}
+    if (track.is_pose_hold && track.from_sec === track.to_sec) {
+      v.pause();
+    } else {
+      v.play().catch(() => {});
+    }
+  };
+  if (v.readyState >= 1) startSeek();
+  else v.addEventListener('loadedmetadata', startSeek, { once: true });
+
+  const wrapper = document.getElementById('player-wrapper');
+  if (track.phase === 'running_entry') {
+    wrapper.classList.remove('facing-frontal');
+  } else {
+    wrapper.classList.add('facing-frontal');
+  }
+}
+
+// Single global pose RAF loop — clamps to_sec strictly.
+function poseRafTick() {
+  const v = activePoseVideo;
+  const t = currentTrack;
+  if (v && t && !v.paused && v.readyState >= 2) {
+    if (v.currentTime >= t.to_sec - 0.005) {
+      const isLoop = !!t.loop_until_event && PLAYER.awaitingEvent === t.loop_until_event;
+      if (isLoop) {
+        try { v.currentTime = t.from_sec; } catch (e) {}
+      } else if (t.is_pose_hold) {
+        try { v.currentTime = t.to_sec; } catch (e) {}
+        v.pause();
+      } else if (t.is_landing) {
+        try { v.currentTime = t.to_sec; } catch (e) {}
+        v.pause();
+        const justEnded = t;
+        currentTrack = null;
+        emit('landing_complete', { phase: justEnded.phase });
+      } else if (t.one_shot) {
+        try { v.currentTime = t.to_sec; } catch (e) {}
+        v.pause();
+        const justEnded = t;
+        currentTrack = null;
+        emitTrackComplete(justEnded);
+      }
+    }
+  }
+  requestAnimationFrame(poseRafTick);
+}
+
+function emitTrackComplete(track) {
+  if (track.phase === 'catch_one_shot') {
+    emit('catch_complete', {});
+  }
+}
+
+// ───────────────────────── Bg phase swap ─────────────────────
+function setupBgPhaseSwap() {
+  sceneBus.addEventListener('jump_apex', () => {
+    document.getElementById('bg-phase-1').style.opacity = '0';
+    document.getElementById('bg-phase-2').style.opacity = '1';
+  });
+}
+
+// ───────────────────────── Tool flight (bezier arc) ───────────
+function getRect(el) { return el.getBoundingClientRect(); }
+
+function flyToolToPalm(toolEl, slot) {
+  const wrapper = document.getElementById('player-wrapper');
+  const wRect = getRect(wrapper);
+  const palmX = wRect.left + wRect.width * 0.40;
+  const palmY = wRect.top + wRect.height * 0.32;
+
+  const startRect = getRect(toolEl);
+  const startX = startRect.left;
+  const startY = startRect.top;
+  const startW = startRect.width;
+  const startH = startRect.height;
+
+  toolEl.classList.add('flying');
+  toolEl.style.left = startX + 'px';
+  toolEl.style.top = startY + 'px';
+  toolEl.style.width = startW + 'px';
+  toolEl.style.height = startH + 'px';
+
+  const peakY = Math.min(startY, palmY) - 80;
+  const targetW = startW * 0.50;
+  const targetH = startH * 0.50;
+  const targetX = palmX - targetW / 2;
+  const targetY = palmY - targetH / 2;
+
+  const duration = PAYLOAD.timing.toolFlightMs;
+  const startTime = performance.now();
+
+  function tick(now) {
+    const linear = Math.min(1, (now - startTime) / duration);
+    const t = linear;
+    let eased = 1 - Math.pow(1 - t, 3);
+    if (t < 0.85) eased += Math.sin(t * Math.PI) * 0.08;
+    eased = Math.max(0, Math.min(1.05, eased));
+    const yArc = (1 - t) * (1 - t) * startY + 2 * (1 - t) * t * peakY + t * t * (palmY - targetH / 2);
+    const x = startX + (targetX - startX) * eased;
+    const w = startW + (targetW - startW) * eased;
+    const h = startH + (targetH - startH) * eased;
+    toolEl.style.left = x + 'px';
+    toolEl.style.top = yArc + 'px';
+    toolEl.style.width = w + 'px';
+    toolEl.style.height = h + 'px';
+    if (linear < 1) requestAnimationFrame(tick);
+    else attachToolToWrapper(toolEl, slot);
+  }
+  requestAnimationFrame(tick);
+}
+
+function attachToolToWrapper(toolEl, slot) {
+  const wrapper = document.getElementById('player-wrapper');
+  toolEl.classList.remove('flying');
+  toolEl.classList.add('attached');
+  wrapper.appendChild(toolEl);
+  const tool = PAYLOAD.tools.find(t => t.slot === slot);
+  const a = tool.attach_at_catch;
+  toolEl.style.left = `calc(${a.point_on_player_pct.x}% - ${(a.scale_factor * 100) / 2}%)`;
+  toolEl.style.top  = `calc(${a.point_on_player_pct.y}% - ${(a.scale_factor * 100) / 2}%)`;
+  toolEl.style.width  = `${a.scale_factor * 100}%`;
+  toolEl.style.height = `${a.scale_factor * 100}%`;
+  toolEl.style.zIndex = '20';
+}
+
+function applyToolUnfurl(slot) {
+  const tool = PAYLOAD.tools.find(t => t.slot === slot);
+  if (!tool) return;
+  const wrapper = document.getElementById('player-wrapper');
+  const toolEl = wrapper.querySelector('.tool-wrapper.attached');
+  if (!toolEl) return;
+  const a = tool.attach_at_catch;
+  const b = tool.attach_at_landing;
+  const dur = 400;
+  const start = performance.now();
+  if (tool.type === 'deploy' || tool.type === 'wear') {
+    toolEl.style.zIndex = '9';
+  }
+  function step(now) {
+    const t = Math.min(1, (now - start) / dur);
+    const e = 1 - Math.pow(1 - t, 2);
+    const x = a.point_on_player_pct.x + (b.point_on_player_pct.x - a.point_on_player_pct.x) * e;
+    const y = a.point_on_player_pct.y + (b.point_on_player_pct.y - a.point_on_player_pct.y) * e;
+    const s = a.scale_factor + (b.scale_factor - a.scale_factor) * e;
+    toolEl.style.left = `calc(${x}% - ${(s * 100) / 2}%)`;
+    toolEl.style.top  = `calc(${y}% - ${(s * 100) / 2}%)`;
+    toolEl.style.width  = `${s * 100}%`;
+    toolEl.style.height = `${s * 100}%`;
+    if (t < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+// ───────────────────────── Tool UI (zone D) ──────────────────
+function buildTools() {
+  const container = document.getElementById('zone-d');
+  for (const tool of PAYLOAD.tools) {
+    const wrap = document.createElement('div');
+    wrap.className = 'tool-wrapper';
+    wrap.dataset.slot = tool.slot;
+
+    // Use canvas + chroma-key so green chroma background is removed at runtime
+    const cvs = document.createElement('canvas');
+    cvs.className = 'tool-canvas';
+    wrap.appendChild(cvs);
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.alt = tool.label;
+    img.draggable = false;
+    img.onload = () => chromaCanvasFromImage(cvs, img);
+    img.src = tool.file;
+
+    const ic = document.createElement('div');
+    ic.className = 'tool-info-icon';
+    ic.textContent = 'i';
+    wrap.appendChild(ic);
+
+    const tip = document.createElement('div');
+    tip.className = 'tool-tooltip';
+    tip.textContent = tool.label;
+    wrap.appendChild(tip);
+
+    ic.addEventListener('mouseenter', () => tip.classList.add('visible'));
+    ic.addEventListener('mouseleave', () => tip.classList.remove('visible'));
+    ic.addEventListener('click', (e) => {
+      e.stopPropagation();
+      tip.classList.add('visible');
+      setTimeout(() => tip.classList.remove('visible'), 2000);
+    });
+
+    wrap.addEventListener('click', (e) => {
+      if (e.target === ic) return;
+      onToolClicked(tool.slot, wrap);
+    });
+
+    container.appendChild(wrap);
+  }
+
+  for (const tool of PAYLOAD.tools) {
+    setTimeout(() => {
+      const w = document.querySelector(`.tool-wrapper[data-slot="${tool.slot}"]`);
+      if (w) w.classList.add('visible');
+    }, tool.in_ms);
+  }
+}
+
+// ───────────────────────── Tool click handler ────────────────
+let toolHasBeenClicked = false;
+let currentClickedSlot = null;
+function onToolClicked(slot, wrapEl) {
+  if (toolHasBeenClicked) return;
+  toolHasBeenClicked = true;
+  PLAYER.awaitingEvent = null;
+  emit('tool_clicked', { slot });
+
+  document.querySelectorAll('.tool-wrapper').forEach(el => {
+    if (el !== wrapEl) el.classList.add('dimmed');
+  });
+  wrapEl.animate([
+    { transform: 'scale(1)' },
+    { transform: 'scale(1.1)' },
+    { transform: 'scale(1)' }
+  ], { duration: 200, easing: 'ease-out' });
+
+  document.getElementById('mission-text').classList.remove('visible');
+
+  flyToolToPalm(wrapEl, slot);
+
+  const catchTrack = PAYLOAD.tracks.find(t => t.phase === 'catch_one_shot');
+  startTrack(catchTrack);
+}
+
+const __busSlotListener = (e) => {
+  currentClickedSlot = e.detail && e.detail.slot;
+};
+// register after sceneBus exists; below
+
+// ───────────────────────── Catch -> Jump -> Apex -> Land ─────
+function setupSequence() {
+  const tracks = PAYLOAD.tracks;
+  const T = id => tracks.find(t => t.phase === id);
+
+  sceneBus.addEventListener('tool_clicked', __busSlotListener);
+
+  sceneBus.addEventListener('catch_complete', () => {
+    const wrapper = document.getElementById('player-wrapper');
+    const jumpHold = T('jump_css_overlay');
+    startTrack(jumpHold);
+    wrapper.classList.add('jumping');
+    if (currentClickedSlot) applyToolUnfurl(currentClickedSlot);
+    setTimeout(() => emit('jump_apex', {}),
+      PAYLOAD.timing.jumpApexOffsetFromCatchCompleteMs);
+  });
+
+  sceneBus.addEventListener('jump_apex', () => {
+    const wrapper = document.getElementById('player-wrapper');
+    wrapper.classList.add('landing-anchor');
+    const landTrack = T('landing');
+    startTrack(landTrack);
+
+    const rivals = document.getElementById('rivals-canvas');
+    const trees  = document.getElementById('trees-canvas');
+    if (rivals) rivals.style.opacity = '0';
+    if (trees)  trees.style.opacity  = '0.95';
+
+    setTimeout(() => {
+      const dust = document.getElementById('dust-canvas');
+      dust.style.opacity = '0.6';
+      dust.style.transform = 'scale(1.0)';
+      setTimeout(() => {
+        dust.style.opacity = '0';
+        dust.style.transform = 'scale(1.2)';
+      }, 270);
+    }, PAYLOAD.timing.dustOffsetFromJumpApexMs);
+  });
+
+  sceneBus.addEventListener('landing_complete', () => {
+    setTimeout(() => {
+      const cp = document.getElementById('checkpoint-text');
+      cp.textContent = PAYLOAD.checkpointText;
+      cp.classList.add('visible');
+      emit('checkpoint_text_shown', {});
+    }, PAYLOAD.timing.checkpointOffsetAfterLandingMs);
+    setTimeout(() => {
+      document.getElementById('fade-overlay').classList.add('visible');
+    }, PAYLOAD.timing.checkpointOffsetAfterLandingMs
+       + PAYLOAD.timing.checkpointHoldMs + 200);
+  });
+}
+
+// ───────────────────────── Mission text + pose timeline ──────
+function setupTimeline() {
+  const tracks = PAYLOAD.tracks;
+  const T = id => tracks.find(t => t.phase === id);
+
+  sceneBus.addEventListener('scene_entry', () => {
+    PLAYER.awaitingEvent = null;
+    startTrack(T('running_entry'));
+  });
+
+  setTimeout(() => {
+    const mt = document.getElementById('mission-text');
+    mt.textContent = PAYLOAD.missionText;
+    mt.classList.add('visible');
+    emit('mission_text_shown', {});
+  }, PAYLOAD.timing.missionTextAppearsMs);
+
+  sceneBus.addEventListener('mission_text_shown', () => {
+    PLAYER.awaitingEvent = 'tool_clicked';
+    startTrack(T('standing_wait'));
+  });
+}
+
+// ───────────────────────── Init ─────────────────────────────
+async function init() {
+  bindSoundEvents();
+  setupBgPhaseSwap();
+
+  chromaCanvasFromVideo(document.getElementById('player-canvas'),
+    () => activePoseVideo);
+
+  chromaCanvasFromImage(document.getElementById('rivals-canvas'),
+    document.getElementById('rivals-img'));
+  chromaCanvasFromImage(document.getElementById('trees-canvas'),
+    document.getElementById('trees-img'));
+  chromaCanvasFromImage(document.getElementById('dust-canvas'),
+    document.getElementById('dust-img'));
+
+  await preloadAllPoses();
+  buildTools();
+  setupSequence();
+  setupTimeline();
+
+  requestAnimationFrame(poseRafTick);
+
+  document.getElementById('bg-phase-1').play().catch(()=>{});
+  document.getElementById('bg-phase-2').play().catch(()=>{});
+
+  emit('scene_entry', {});
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>

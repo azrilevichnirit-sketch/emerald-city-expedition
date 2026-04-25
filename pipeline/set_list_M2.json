@@ -1,0 +1,89 @@
+{
+  "_for_mission": "M2",
+  "_source": "directing/assembly.json",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "bg_02.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": "pose_06.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 35,
+        "y_pct": 58
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_06.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "tools/ברזנט_מ02.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 72,
+        "y_pct": 30
+      },
+      "scale": 1.0,
+      "rot_deg": -8,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 33,
+      "role": "tool",
+      "file": "tools/פטיש_מ02.jpg",
+      "slot": "B",
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 55
+      },
+      "scale": 1.0,
+      "rot_deg": 5,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "tools/אוהל_מ02.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 78,
+        "y_pct": 78
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Player positioned left-of-center with reaching pose (pose_06) toward tools arranged in descending diagonal on right side. Tools form visual cascade from top-right (tarp) through mid-right (hammer) to lower-right (tent), creating urgency gradient matching storm threat. Player faces into frame toward solutions."
+}

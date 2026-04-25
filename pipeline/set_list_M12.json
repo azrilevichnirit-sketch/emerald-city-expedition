@@ -1,0 +1,89 @@
+{
+  "_for_mission": "M12",
+  "_source": "directing/assembly.json",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "bg_M12.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": "pose_01.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 30,
+        "y_pct": 65
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_01.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "tools/כרטיס_סירה_מ12.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 70,
+        "y_pct": 25
+      },
+      "scale": 0.85,
+      "rot_deg": -8,
+      "anchor": "center",
+      "fit": null,
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "tools/מצלמה_פלאש_מ12.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 50
+      },
+      "scale": 0.9,
+      "rot_deg": 5,
+      "anchor": "center",
+      "fit": null,
+      "pose_candidates": []
+    },
+    {
+      "z": 36,
+      "role": "tool",
+      "file": "tools/לפיד_מ12.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 78,
+        "y_pct": 75
+      },
+      "scale": 0.95,
+      "rot_deg": -3,
+      "anchor": "center",
+      "fit": null,
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Player positioned left-of-center in 'looking around' stance, facing right toward the cave entrance (implied in bg). Tools arranged in descending vertical cascade on right side, creating visual flow from boat ticket (top/escape option) through camera (middle/documentation) to torch (bottom/exploration). Clean left-right split: decision-maker vs. decision options."
+}

@@ -1,0 +1,27 @@
+{
+  "_for_mission": "M10",
+  "_status": "PLACEHOLDER (sound pass not yet run)",
+  "_source": "storyboard.beats[].audio_hint",
+  "audio_cues": [
+    {
+      "t_ms": 0,
+      "hint": "Rapid mechanical ticking (black box), low ambient tunnel hum"
+    },
+    {
+      "t_ms": 500,
+      "hint": "Ticking intensifies slightly as text appears"
+    },
+    {
+      "t_ms": 1600,
+      "hint": "Subtle UI ready tone"
+    },
+    {
+      "t_ms": 9500,
+      "hint": "Ticking stops abruptly; distant waterfall roar fades in"
+    },
+    {
+      "t_ms": 12000,
+      "hint": "Waterfall ambience sustains into transition"
+    }
+  ]
+}

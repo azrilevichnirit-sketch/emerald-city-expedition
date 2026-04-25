@@ -1,0 +1,13 @@
+{
+  "asset": "river_shore_bank.png",
+  "type": "scenery_png",
+  "before_kb": 6,
+  "after_kb": 2,
+  "ratio": 3.0,
+  "in_budget": true,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\river_shore_bank.png",
+  "dst": "assets\\optimized\\scenery\\river_shore_bank.webp",
+  "status": "compressed_pending_panel"
+}

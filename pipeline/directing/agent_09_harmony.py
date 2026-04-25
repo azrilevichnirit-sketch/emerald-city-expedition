@@ -33,7 +33,7 @@ from __future__ import annotations
 import sys
 
 from _lib import (Context, call_claude, extract_json, load_project_context,
-                  parse_missions_arg, write_output)
+                  parse_missions_arg, render_today_state, write_output)
 
 SYSTEM = """You are harmony_auditor — stage 9 of 9. FINAL gate before Builder.
 
@@ -98,6 +98,9 @@ def run_one(ctx: Context) -> None:
 
     user = f"""CONTEXT — mission {ctx.mission}. Five prior-stage JSON documents follow.
 
+{render_today_state(ctx)}
+
+
 === ASSEMBLY ===
 {dict_compact(ctx.prior_outputs['assembly'])}
 
@@ -137,6 +140,7 @@ def main(argv: list[str]) -> int:
     arg = argv[1] if len(argv) > 1 else "all"
     missions = parse_missions_arg(arg)
     print(f"agent_09 harmony — {len(missions)} mission(s)")
+    failures = 0
     for m in missions:
         try:
             ctx = load_project_context(m)
@@ -145,10 +149,11 @@ def main(argv: list[str]) -> int:
                 continue
             run_one(ctx)
         except Exception as e:
+            failures += 1
             print(f"  [{m}] FAIL: {type(e).__name__}: {e}")
             import traceback
             traceback.print_exc()
-    return 0
+    return 1 if failures else 0
 
 
 if __name__ == "__main__":

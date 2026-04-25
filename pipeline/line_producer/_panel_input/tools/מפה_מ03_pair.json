@@ -1,0 +1,13 @@
+{
+  "asset": "מפה_מ03.png",
+  "type": "tool_png",
+  "before_kb": 1039,
+  "after_kb": 141,
+  "ratio": 7.37,
+  "in_budget": true,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\מפה_מ03.png",
+  "dst": "assets\\optimized\\tools\\מפה_מ03.webp",
+  "status": "compressed_pending_panel"
+}

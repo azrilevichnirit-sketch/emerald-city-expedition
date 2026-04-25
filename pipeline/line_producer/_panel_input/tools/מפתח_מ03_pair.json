@@ -1,0 +1,13 @@
+{
+  "asset": "מפתח_מ03.png",
+  "type": "tool_png",
+  "before_kb": 817,
+  "after_kb": 83,
+  "ratio": 9.84,
+  "in_budget": true,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\מפתח_מ03.png",
+  "dst": "assets\\optimized\\tools\\מפתח_מ03.webp",
+  "status": "compressed_pending_panel"
+}

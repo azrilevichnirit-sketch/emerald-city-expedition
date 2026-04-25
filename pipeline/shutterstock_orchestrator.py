@@ -52,6 +52,7 @@ from shutterstock_searcher import search_with_fallbacks  # noqa: E402
 from shutterstock_result_checker import check_results  # noqa: E402
 from shutterstock_downloader import license_and_download  # noqa: E402
 from shutterstock_download_checker import check_download  # noqa: E402
+from vector_compositor import composite_one  # noqa: E402
 
 
 MAX_ROUNDS = 3
@@ -239,11 +240,62 @@ def run_one_item(item: dict, force: bool = False) -> dict:
         }
 
         if dc.get("verdict") == "PASS":
+            # 6. Vector compositor — deterministic PIL transforms per
+            # `compositor_spec` from master. Always runs (default safe-pass
+            # if spec is empty). Final asset overwrites the raw at .png.
+            spec = cmd.get("compositor_spec")
+            comp_target = target.with_suffix(".png")
+            try:
+                comp = composite_one(
+                    raw_path=target,
+                    target_path=comp_target,
+                    compositor_spec=spec,
+                )
+            except Exception as e:
+                comp = {"status": f"FAIL_exception_{type(e).__name__}",
+                        "ops_applied": [], "input_bytes": 0,
+                        "output_bytes": 0, "saved_path": str(comp_target),
+                        "notes": str(e)[:200]}
+            round_log["compositor"] = {
+                "status": comp.get("status"),
+                "ops_applied": comp.get("ops_applied"),
+                "input_bytes": comp.get("input_bytes"),
+                "output_bytes": comp.get("output_bytes"),
+                "notes": comp.get("notes"),
+                "spec": spec,
+            }
+            if comp.get("status") != "OK":
+                # Compositor failure: feed back to master so it can drop
+                # transforms or pick a different image_type.
+                feedback = (f"compositor failed: {comp.get('status')} — "
+                            f"{comp.get('notes', '')[:160]}. "
+                            f"Either simplify compositor_spec.transforms or "
+                            f"change image_type/license.format so the raw "
+                            f"asset arrives in a friendlier shape.")
+                entry["rounds"].append(round_log)
+                # Clean up partial output before retry.
+                try:
+                    if comp_target.exists() and comp_target != target:
+                        comp_target.unlink()
+                except Exception:
+                    pass
+                continue
+
             entry["rounds"].append(round_log)
             entry["final_status"] = "OK"
-            entry["final_path"] = str(target.relative_to(PROJECT))
+            entry["final_path"] = str(Path(comp.get("saved_path"))
+                                      .relative_to(PROJECT))
             entry["final_license_id"] = dl.get("license_id")
             entry["final_sha256"] = dl.get("sha256")
+            entry["final_compositor_ops"] = comp.get("ops_applied")
+            # Drop the raw download if it sits at a different extension
+            # next to the composed PNG (e.g. .jpg + .png in the same
+            # folder for the same slug).
+            if target.exists() and target.suffix.lower() != ".png":
+                try:
+                    target.unlink()
+                except Exception:
+                    pass
             break
 
         # Download checker said RETRY — delete the rejected file so we don't

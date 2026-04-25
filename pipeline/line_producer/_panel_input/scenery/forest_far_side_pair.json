@@ -1,0 +1,13 @@
+{
+  "asset": "forest_far_side.png",
+  "type": "scenery_png",
+  "before_kb": 931,
+  "after_kb": 216,
+  "ratio": 4.31,
+  "in_budget": false,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\forest_far_side.png",
+  "dst": "assets\\optimized\\scenery\\forest_far_side.webp",
+  "status": "compressed_pending_panel"
+}

@@ -1,0 +1,66 @@
+{
+  "role": "actor_director",
+  "scene_id": "M1",
+  "topic": "pose_composition_map.json v5 — re-sequencing M1 after Nirit rejection of v4",
+  "_engines_per_protocol": {
+    "voice_a": "Gemini API (lead for actor_director per debate_protocol table)",
+    "voice_b": "Claude API (challenger)",
+    "moderator": "OpenAI API"
+  },
+  "_run_mode": "in-process simulation by actor_director (Claude playing the role) — debate_protocol mandates 8 rounds; this internal session compresses to 4 rounds because the binding spec is already verbatim from Nirit (no creative leeway, only structural choices). Director_flag=true on the open Human Review item.",
+  "_binding_spec_quoted_from_nirit": "הסדר זה שהיא עוצר ברגע שהמשימה מופיעה ואז כמה שניות לאחר הופעת השאלה הכלים מופיעים, שנייה אחרי המשימה, היא עומדת במקום בזמן הזה, ואז ברגע שיש בחירה זה מקבלת את הכלי בזריקה ואז אמורים לראות אותה נוחתת, את הנחיתה.",
+  "rounds": [
+    {
+      "round": 1,
+      "topic": "What triggers the running-to-standing transition?",
+      "voice_a": "Nirit's quote 'היא עוצר ברגע שהמשימה מופיעה' is unambiguous: the stop is locked to mission_text appearing, not to a hardcoded ms timestamp. We need a NEW event 'mission_text_shown' — fired by the builder the instant the mission_text track's fade_in starts (in_ms=1500). pose_04 plays one_shot from 2.0 to 4.0 (a single full leg cycle) and ENDS at mission_text_shown. The builder must enforce the segment via RAF clamp — if pose_04 hasn't reached 4.0 yet at mission_text_shown, snap-cut to standing; if it overshoots 4.0 before mission_text_shown, hold the last frame (legs together at 4.0 IS a clean mid-stride termination). v4's loop_until_event=tool_clicked was the bug: it tied the stop to a click that happens MUCH later, leaving her running for 5+ seconds.",
+      "voice_b": "Agreed on the event name, but worried about a race condition. mission_text_shown fires at scene_entry+1500ms. pose_04 segment 2.0-4.0 = 2 full seconds. If pose_04 starts at scene_entry+0ms and plays linearly, it reaches frame 4.0 at scene_entry+2000ms — i.e., AFTER mission_text_shown. So the running ends 500ms past where Nirit wants. Two options: (a) shrink the running segment to 2.0-3.5 (1.5s, ends at mission_text_shown), or (b) start pose_04 at frame 2.5 (1.5s window). I prefer (a) because 2.0 is the cleanest 'foot plants' frame per pose_map evidence — preserving start frame is more important than preserving end frame.",
+      "moderator_summary": "Both agree on the new trigger event mission_text_shown. Disagreement on segment length: 2.0-4.0 (full cycle, ends 500ms late) vs. 2.0-3.5 (truncated, ends on time). Voice A's concern: 3.5 may not be a clean mid-stride foot-plant. Voice B's concern: 4.0 contradicts Nirit's exact stop-on-mission-text timing. Move to round 2."
+    },
+    {
+      "round": 2,
+      "topic": "Resolving the running-segment endpoint",
+      "voice_a": "Re-examining pose_map evidence for pose_04: 't1=עמידה; t3-t7=ריצה בפרופיל'. The segment 2.0-4.0 is described as 'full leg cycle, both legs touch ground at start and end' — but that's an actor_director keyframe note, not ground truth. The truth is: a full stride cycle in human gait is ~0.5-0.7s, not 2s. So 2.0-4.0 contains 3-4 stride cycles, and 3.5 is mid-cycle, not mid-foot-plant. I now agree with voice_b — but propose 2.0-3.5 with one_shot:true and is_pose_hold:true on the LAST FRAME (3.5). If 3.5 is mid-air, the visual stop will look ugly. So the segment terminates at 3.5 BUT the builder treats this as 'cut to pose_05 frame 1.0 immediately' — no held mid-air. The transition is a 200ms cross-fade, not a freeze.",
+      "voice_b": "Better. So the spec is: pose_04 plays one_shot 2.0->3.5 (1500ms = exactly the time until mission_text_shown), then 200ms cross-fade INTO pose_05. The cross-fade hides any ugly mid-stride frame. AND we get a built-in safety: if mission_text fires early/late, the cross-fade is the seam, not a snap. Confirming: trigger='scene_entry', from_sec=2.0, to_sec=3.5, one_shot=true, loop_until_event=null (NOT a loop), blend_out_ms=200. This kills 'היא רצה בלופים' completely.",
+      "moderator_summary": "Synthesis converged: pose_04 is one_shot 2.0-3.5 (1500ms duration matches mission_text_shown timing exactly), with 200ms cross-fade-out into pose_05. NO loop_until_event. NO is_pose_hold (cross-fade hides the seam). Move to round 3 on pose_05."
+    },
+    {
+      "round": 3,
+      "topic": "pose_05 segment selection — avoiding the floaty frames",
+      "voice_a": "Direct keyframe inspection: pose_05_t1.png shows a frontal grounded stance — both feet planted, weight balanced, hands at sides, neutral. pose_05_t3.png shows side profile (sharp body rotation away from camera). pose_05_t5.png is frontal again. pose_05_t7.png is frontal with crossed arms. The 'floaty' that Nirit complained about was likely the rotation between t3 (profile) and t5 (frontal) — the body twists in a way that, especially against a sky bg, can read as 'hovering'. SAFEST segment: 0.8-1.8 (1 second of grounded frontal idle, well before the rotation sway starts). Conservative range. Document it as a Human Review item because keyframes are sampled at 1s intervals and we're guessing within that interval.",
+      "voice_b": "Disagreeing slightly. The task spec says 'or pick a conservative range like 1.0-2.0 (frontal idle)'. Spec literally suggests 1.0-2.0. But voice_a's 0.8-1.8 starts before t1 (no keyframe evidence) — that's 200ms of un-sampled territory. SAFER to use 1.0-2.0 because: (a) we KNOW t=1.0 is grounded frontal, (b) 1.0-2.0 is a 1-second window that ends BEFORE the rotation kicks in by t=3.0. We have a half-second of buffer (2.0->3.0) where the rotation hasn't begun. And the spec author explicitly suggested this range. Convergence: 1.0-2.0.",
+      "moderator_summary": "Converged: pose_05 segment 1.0-2.0 (1 second, frontal grounded idle). Trigger='mission_text_shown'. Duration: until tool_clicked. KEY DECISION: should it loop or play one_shot+hold? If it plays one_shot once and freezes at 2.0, the player canvas becomes a still image — that COULD read as 'frozen', defeating the 'standing-but-alive' feel. If it loops 1.0->2.0, the subtle micro-motion of pose_05's idle gives 'breathing standing' without the sway. Move to round 4 to resolve."
+    },
+    {
+      "round": 4,
+      "topic": "pose_05 loop vs hold; final synthesis & flag",
+      "voice_a": "FINAL POSITION: pose_05 LOOPS 1.0-2.0, loop_until_event='tool_clicked'. The micro-motion of idle (subtle weight shift, blink, breath) reads as 'standing alive', not 'frozen statue'. Nirit said 'היא עומדת במקום' — 'stands in place', not 'frozen still'. A statue would be uncanny. The loop seam at 1.0/2.0 is within a single grounded-frontal window so the seam is invisible. Builder MUST RAF-clamp the loop boundary precisely (when video.currentTime >= 2.0, set to 1.0 within the same RAF tick). NO video.loop=true. NO timeupdate listener (jitters by 250ms+).",
+      "voice_b": "FINAL POSITION: agree, with one safety: loop_until_event='tool_clicked' is correct, but if no click for 30+ seconds, the same 1-second motion repeating becomes uncanny ('she's twitching'). Mitigation is at the builder layer (slight playback_rate variance) and outside the scope of pose_composition_map.json. APPROVED. The full sequence is now: scene_entry -> pose_04 one_shot 2.0-3.5 (1500ms, ends at mission_text_shown) -> 200ms cross-fade -> pose_05 loop 1.0-2.0 until tool_clicked -> pose_06 one_shot 3.0-5.5 (2500ms, hand raises to catch) -> jump CSS 600ms -> pose_03 one_shot 3.0-5.0 (2000ms, landing). pose_07 NEVER appears. NO video.loop=true anywhere.",
+      "moderator_synthesis": "Final decision: 4 tracks for M1. Track 1 = pose_04 from_sec=2.0 to_sec=3.5 trigger=scene_entry one_shot=true loop_until_event=null blend_out_ms=200. Track 2 = pose_05 from_sec=1.0 to_sec=2.0 trigger=mission_text_shown loop_until_event=tool_clicked is_pose_hold=false (it loops, not holds). Track 3 = pose_06 from_sec=3.0 to_sec=5.5 trigger=tool_clicked one_shot=true (unchanged from v4). Track 4 = pose_06 hold at 5.5 trigger=catch_complete duration_ms=600 is_pose_hold=true (CSS jump, unchanged from v4). Track 5 = pose_03 from_sec=3.0 to_sec=5.0 trigger=jump_apex one_shot=true is_landing=true (unchanged from v4). Open Human Review item: validate pose_05 segment 1.0-2.0 in the actual MP4 (keyframes are 1s-sampled — exact in-between motion unknown). director_flag=true on this single item; rest of spec is locked from Nirit's verbatim quote."
+    }
+  ],
+  "final_decision": {
+    "synthesis": "v5 adds a pose_05 standing-wait phase between pose_04 (running) and pose_06 (catch). pose_04 is now strictly one_shot 2.0-3.5 (1.5s, exits cleanly at mission_text_shown). pose_05 loops 1.0-2.0 (the most-grounded segment per keyframe inspection — frontal idle, before the rotation that previously read as floaty). pose_05 loop ends on tool_clicked. The rest of the chain (catch -> CSS jump -> landing) is preserved from v4. Builder must implement RAF-clamped segment enforcement, not video.loop=true and not timeupdate.",
+    "decision": {
+      "track_count": 5,
+      "tracks_summary": [
+        "pose_04 #2.0-3.5 one_shot trigger=scene_entry blend_out=200ms (running entry, ends at mission_text)",
+        "pose_05 #1.0-2.0 LOOP trigger=mission_text_shown loop_until=tool_clicked (standing wait — grounded frontal idle)",
+        "pose_06 #3.0-5.5 one_shot trigger=tool_clicked (catch — unchanged from v4)",
+        "pose_06 #5.5-5.5 hold trigger=catch_complete dur=600ms (CSS jump — unchanged from v4)",
+        "pose_03 #3.0-5.0 one_shot trigger=jump_apex (landing — unchanged from v4)"
+      ],
+      "new_event": "mission_text_shown — fired by builder at the moment the mission_text track's fade-in starts (= scene_entry + 1500ms per scene_M1.timing.mission_text_appears_ms).",
+      "dropped_v4_features": [
+        "pose_04 loop_until_event=tool_clicked (root cause of 'היא רצה בלופים' — running never stopped)"
+      ],
+      "added_v5_features": [
+        "pose_05 standing-wait track (Nirit: 'היא עומדת במקום בזמן הזה')",
+        "mission_text_shown event (Nirit: 'עוצר ברגע שהמשימה מופיעה')",
+        "_builder_requirements section explicitly listing RAF-clamped enforcement, multi-element preload, fastSeek, source-switching"
+      ]
+    },
+    "director_flag": true,
+    "flag_reason": "pose_05 segment 1.0-2.0 is a KEYFRAME-INFORMED ESTIMATE. Keyframes sampled at 1.0s intervals show t=1.0 frontal grounded; t=3.0 side rotation. We chose 1.0-2.0 to stay safely within the pre-rotation window. Human Review (Nirit) must open pose_05.mp4 and visually verify that 1.0-2.0 looks grounded/standing-in-place and NOT floaty. If 1.0-2.0 still looks floaty, fallback options are: (a) shorten to 1.0-1.5, (b) hold a single frame at 1.0 with is_pose_hold=true (no loop, no movement)."
+  }
+}

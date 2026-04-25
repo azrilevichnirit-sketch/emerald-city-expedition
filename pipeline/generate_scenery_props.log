@@ -1,0 +1,28 @@
+props to process: 51
+[1/51] broken_door (mission M1)
+  [broken_door] attempt 1: qa=fail dir=redo — rewriting
+  [broken_door] attempt 2: qa=fail dir=redo — rewriting
+  [broken_door] attempt 3: qa=fail dir=pass — exhausted
+[2/51] competitors_in_air (mission M1)
+  [competitors_in_air] attempt 1: qa=fail dir=redo — rewriting
+  [competitors_in_air] attempt 2: qa=fail dir=redo — rewriting
+  [competitors_in_air] attempt 3: qa=fail dir=pass — exhausted
+[3/51] dense_jungle (mission M1)
+  [dense_jungle] attempt 1: qa=fail dir=redo — rewriting
+  [dense_jungle] attempt 2: qa=fail dir=pass — rewriting
+  [dense_jungle] attempt 3: qa=fail dir=redo — exhausted
+[4/51] storm_clouds_lightning (mission M2)
+  [storm_clouds_lightning] attempt 1: qa=fail dir=pass — rewriting
+  [storm_clouds_lightning] attempt 2: qa=pass dir=redo — rewriting
+  [storm_clouds_lightning] attempt 3: qa=fail dir=redo — exhausted
+[5/51] jungle_trees (mission M2)
+  [jungle_trees] attempt 1: qa=fail dir=redo — rewriting
+  [jungle_trees] attempt 2: qa=fail dir=redo — rewriting
+  [jungle_trees] attempt 3: qa=fail dir=pass — exhausted
+[6/51] rain_effect (mission M2)
+  [rain_effect] attempt 1: qa=fail dir=redo — rewriting
+  [rain_effect] attempt 2: qa=fail dir=pass — rewriting
+  [rain_effect] pass (a3) → rain_effect.png
+[7/51] equipment_pile (mission M2)
+  [equipment_pile] pass (a1) → equipment_pile.png
+[8/51] path_straight (mission M3)

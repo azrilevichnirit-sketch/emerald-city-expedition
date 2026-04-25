@@ -1,0 +1,29 @@
+{
+  "asset": "חבל_קשרים_מ08",
+  "label_verbatim": "חבל עם קשרים",
+  "target_path": "assets/tools/חבל_קשרים_מ08.png",
+  "type": "tool_item",
+  "source_mission": "M8 slot B",
+  "consequence_type": "climb",
+  "points": 2,
+  "scene_context": "M8 — חבל עם קשרים",
+  "pipeline_version": "0E_rembg_v1",
+  "prompts": {
+    "leonardo": "a single thick hemp-colored climbing rope hanging vertically straight down from top of frame, with SIX very prominent LARGE OVERHAND KNOTS tied along its length at regular intervals, each knot is a clearly visible bulging bulb thicker than the rope itself, rope strictly straight vertical, knots like beads on a string, 3/4 view angle, camera elevation 25-30 degrees, rotated 15 degrees right, hard directional key light from upper-left 10 oclock, isolated object on plain neutral studio background, product shot, clean sharp edges, stylized realism, cinematic game item, NOT cartoon, fills 65% of frame centered, square composition, prominent 3D subject",
+    "leonardo_negative": "coiled rope, looped rope, tangled rope, smooth rope without knots, human figure, person, hands, holding, gradient background, busy background, text, watermark, logo, cartoon style, anime, flat vector illustration"
+  },
+  "leonardo_params": {
+    "modelId": "aa77f04e-3eec-4034-9c07-d0f619684628",
+    "width": 1024,
+    "height": 1024,
+    "num_images": 1,
+    "alchemy": true,
+    "photoReal": false
+  },
+  "directors_note": "חבל עם קשרים — single isolated object per Camera Bible, sharp edges for rembg.",
+  "approved": true,
+  "_approved_at": "2026-04-20",
+  "_approved_by": "director + production_designer (Claude agent roles) per camera_bible.json + pipeline v0E_rembg_v1",
+  "_retry_attempt": 1,
+  "_rewrite_round": 2
+}

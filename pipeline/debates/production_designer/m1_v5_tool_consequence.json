@@ -1,0 +1,43 @@
+{
+  "_topic": "M1 v5 tool_consequence_map — should the parachute (slot A, type=deploy) visibly DEPLOY during the 600ms CSS jump, or only appear deployed at landing?",
+  "_created_at": "2026-04-25",
+  "_created_by": "production_designer",
+  "_inputs": {
+    "nirit_v3_v4_verbatim_rejection": "כבר היה עדיף לוותר פה על החלק של הצניחה",
+    "v5_post_click_timeline_ms": "click -> +1500 palm contact -> +2500 catch_complete -> +600 CSS jump (apex at +300) -> +2000 landing (pose_03)",
+    "v5_total_post_click_to_landing_ms": 5100,
+    "css_jump_duration_ms": 600,
+    "landing_duration_ms": 2000
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "voice_a": "Pro-deploy-flourish: The parachute is type=deploy per content_lock. If it never opens visibly, the tool reads as a held bundle that magically becomes a canopy at landing — the player misses the cause-effect beat 'I picked the parachute, it deployed, that's why I landed soft'. Nirit's rejection was specifically against a long parachute-fall sequence ('פה על החלק של הצניחה' = 'this part with the parachuting'). A 600ms canopy snap during the CSS jump is not parachuting — it's the moment of deployment. We can show it for 300ms (the rise half of the jump) and let it stay open into the landing.",
+      "voice_b": "Pro-no-deploy-during-jump: Nirit's wording was unambiguous — she wants to skip the 'parachute fall' entirely. v5 already eliminates pose_07 falling. If we pop a canopy mid-jump at scale 1.6 above the player, even for 600ms, it WILL read as 'she's parachuting now'. The player's eye reads canopy = falling. The 600ms jump is a CSS lift, not gravity-defeated airtime — adding a canopy makes it incoherent ('why is she rising if she's parachuting?'). Safer: parachute stays bundled in palm during jump, then the canopy is ALREADY deployed when pose_03 starts (settled above shoulders by frame 3.0 of pose_03)."
+    },
+    {
+      "round": 2,
+      "voice_a": "Counter: 'Already deployed at landing with no transition' is a jump-cut — it's worse than no deploy at all because it breaks continuity. The deploy moment doesn't need to look like falling. Visually: tool stays compact-in-palm during catch (3.0-4.5 of pose_06). At catch_complete (start of CSS jump) the canopy unfurls UPWARD (z=9 behind player) over 400ms, reaching full size by jump_apex. The CSS jump is rising — a canopy popping open during a rising motion reads as 'snap deployment, lift effect' not 'falling'. The two motions actually reinforce each other (fabric catches air = upward pull). After apex, pose_03 starts and the canopy stays settled above her shoulders. This honors Nirit's 'no parachute fall' (no descent rendered) AND the deploy semantics.",
+      "voice_b": "Concession on continuity, but tighten the timing: deploy starts at catch_complete and FINISHES by jump_apex (400ms inside the 600ms jump rise+hover). It does NOT play 'open-then-fall'. After jump_apex, the canopy is locked at its landing-position (above shoulders) and pose_03 takes over. Crucially: scale_factor cap during the deploy unfurl peaks at 1.6 (matches landing scale) — no overshoot to 2.2 like design_system's applyDeploy default, because that overshoots in 700ms which would tip into 'floating canopy' territory. We're inside Nirit's tolerance only if (a) deploy timing is bounded to the 600ms jump window, (b) the canopy never appears alone without ground or rising motion under it, (c) post_pose remains pose_03 landing (no falling pose anywhere)."
+    },
+    {
+      "round": 3,
+      "voice_a": "Agreed. Final spec: scene_reaction.during_catch = 'compact bundle in palm at frame 4.5 contact'. during_jump = 'canopy unfurls UPWARD from her hand over 400ms (catch_complete -> jump_apex+100ms), z=9 behind player, scale 0.55 -> 1.6'. during_land = 'canopy settled above shoulders at scale 1.6, gentle bob only'. The unfurl happens entirely during the rising portion of the CSS jump, never during a descent (because there is no rendered descent — pose_03 jump_apex -> landing is a CSS translate, not a fall animation).",
+      "voice_b": "Locked. Slot B (glider, wear) and Slot C (wingsuit, wear) follow analogous rule: unfold/snap-open during 600ms jump, behind:true (z=11 per design_system rule for wear — actually z=11 means in front of player, but for wings/glider that wrap behind-shoulders silhouette we use behind_player:true so the wrapper renders at z<player which is 9). Settled silhouette during landing. NO post-landing motion beyond settling. open Human Review item: visual playtest — the 400ms canopy unfurl during a 600ms rising jump must read as 'lift-snap', not 'parachuting'. If on review it still reads as parachuting, fallback v5.1: canopy starts at scale 1.6 already-deployed at catch_complete (instantaneous pop, no unfurl), accept the discontinuity."
+    }
+  ],
+  "moderator_summary": "DECISION: Parachute unfurls during the 600ms CSS jump rise (catch_complete -> jump_apex+100ms = 400ms), reaching scale 1.6 above-and-behind the player (z=9). This honors content_lock 'deploy' semantics without rendering a falling sequence — Nirit's specific rejection was the parachute-fall, not the act of deployment. The canopy is locked at its landing position by jump_apex and pose_03 plays underneath. Slot B (glider) and Slot C (wingsuit) use parallel logic: unfold/snap-open during the same 600ms jump window, settle behind shoulders during pose_03. ALL three tools share post_pose=pose_03.mp4#3.0-5.0 (no pose_07). Open Human Review item carried into the map: playtest the 400ms parachute unfurl visually for 'lift-snap vs parachuting' read; fallback v5.1 plan is instantaneous deploy at catch_complete. Internal palm anchor x/y locked to director's v5 explicit numbers (0.40 X / 0.32 Y -> point_on_player_pct {x:40, y:32}) — replaces v4's {x:52, y:38} which did not match director's brief.",
+  "decisions_into_map": [
+    "attach_at_catch.point_on_player_pct = {x:40, y:32} for all 3 slots (replaces v4's {x:52, y:38}; matches scene_M1 v5 _builder_contract item 11 verbatim).",
+    "scale_factor at catch reduced slightly (0.50 from 0.55) to keep tool inside palm bounds at the new anchor.",
+    "scene_reaction.during_jump now describes 600ms-bounded deploy/unfold/snap; ends at jump_apex+100ms.",
+    "attach_at_landing.behind_player: parachute=false (canopy ABOVE shoulders, in front of background but behind player wouldn't make sense for a canopy floating above — keep behind:false, z=9 for 'above and slightly behind shoulders'). glider=true (silhouette behind shoulders). wingsuit=true (wings folded against back).",
+    "post_pose for ALL three slots = pose_03.mp4#3.0-5.0 (Nirit's verbatim, no pose_07).",
+    "ALL entry: from=zone_d, duration_ms=1500 (matches director's v5 tool_flight_duration_ms and pose_06 raise to frame 4.5)."
+  ],
+  "open_human_review_items": [
+    "Visual playtest of parachute 400ms unfurl during 600ms rising CSS jump — must read as 'snap deployment with lift effect', NOT 'she is parachuting'. If it reads as parachuting, fallback v5.1: instantaneous deploy at catch_complete (no unfurl animation, canopy appears full-scale 1.6 immediately). Both options leave post_pose=pose_03 unchanged.",
+    "Glider attach_at_landing scale_factor 1.4 — verify the silhouette is wide enough to read as 'wing behind shoulders' but does not extend past landing player bounds at right:30% bottom:5% height:55% (smaller wrapper at landing position). If clipping occurs, reduce to 1.25.",
+    "Wingsuit attach_at_landing scale_factor 1.7 — same clipping check at landing wrapper bounds. If wings clip the right edge, reduce to 1.5 or shift point_on_player_pct.x to 45."
+  ]
+}

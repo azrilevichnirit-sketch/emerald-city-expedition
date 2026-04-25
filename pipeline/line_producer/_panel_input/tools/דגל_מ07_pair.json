@@ -1,0 +1,13 @@
+{
+  "asset": "דגל_מ07.png",
+  "type": "tool_png",
+  "before_kb": 790,
+  "after_kb": 120,
+  "ratio": 6.58,
+  "in_budget": true,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\דגל_מ07.png",
+  "dst": "assets\\optimized\\tools\\דגל_מ07.webp",
+  "status": "compressed_pending_panel"
+}

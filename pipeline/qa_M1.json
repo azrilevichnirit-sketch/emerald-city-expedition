@@ -1,0 +1,106 @@
+{
+  "scene_id": "M1",
+  "_qa_version": "v5",
+  "_qa_at": "2026-04-25",
+  "_inputs": {
+    "html": "C:/emerald/pipeline/builder_html/M1.html",
+    "design_system": "C:/emerald/design_system.md",
+    "edit_notes": "C:/emerald/pipeline/edit_notes_M1.json (v5)"
+  },
+  "passed": false,
+
+  "visual_issues": [
+    {
+      "asset": "ZONE-C #mission-text (PAYLOAD.missionText, line 212)",
+      "issue": "Mission text contains the prohibited standalone particle 'את' — verbatim: 'כדי לא לפספס את אזור הנחיתה'. design_system.md section 11 explicitly forbids 'את' / 'אתה' in any player-facing text. The legal alternatives are first-person ('אני'), inclusive ('הצוות', 'נתקדם', 'נבחר') or imperative without pronoun.",
+      "exact_location": "M1.html line 212, character offset of '... לא לפספס את אזור ...'",
+      "suggested_fix": "Rewrite to drop the direct-object marker. Options: (a) 'כדי לא לפספס אזור הנחיתה' (drop את — grammatically valid since אזור is now indefinite-treated), (b) 'כדי לא לפספס את-אזור הנחיתה' is NOT acceptable, (c) restructure: 'כדי להגיע לאזור הנחיתה'. Builder must NOT silently rewrite — owner is script_supervisor; QA flags, builder fixes after re-confirmation.",
+      "severity": "high"
+    }
+  ],
+
+  "code_issues": [
+    {
+      "element": "<video id=\"bg-phase-1\"> (line 148) and <video id=\"bg-phase-2\"> (line 150)",
+      "issue": "Both background videos carry the bare `loop` attribute. The Builder rule from agents/qa.md is 'אין video.loop = true — תמיד segment loop'. While background ambients (bg_airplane.mp4, bg_jungle_clearing.mp4) are NOT segment-controlled and conventionally loop, the rule as written is absolute. Acceptable only if explicitly whitelisted for backgrounds; otherwise replace with a RAF/ended-listener re-seek to enforce 'no native HTML loop' uniformly.",
+      "exact_location": "M1.html lines 147-148 and 149-150 — `autoplay loop muted playsinline`",
+      "suggested_fix": "Either (a) document an exception for bg_phase_* videos in the role checklist (preferred — bg loops are different from pose segments), or (b) remove the `loop` attribute and add `bg.addEventListener('ended', () => { bg.currentTime = 0; bg.play(); })` for both bg phase videos.",
+      "severity": "low"
+    },
+    {
+      "element": ".tool-info-icon CSS (line 110)",
+      "issue": "font-size:0.75rem deviates from design_system.md spec (line 56 in design_system.md specifies font-size:0.7rem for the ⓘ glyph). Minor visual deviation; ⓘ may render slightly larger than canonical.",
+      "exact_location": "M1.html line 110: `font-size:0.75rem;`",
+      "suggested_fix": "Change to `font-size:0.7rem;` to match design_system.md.",
+      "severity": "low"
+    },
+    {
+      "element": "chromaCanvasFromVideo for #player-canvas (init line 690-691)",
+      "issue": "The chroma loop calls getImageData on a video sourced via file:// protocol. Even with crossorigin=\"anonymous\" set on the <video> tags (lines 164-167), file:// origin handling varies by browser; if the canvas becomes tainted, getImageData throws SecurityError. Code has try/catch silent fallback (line 310) which would leave the player invisible (canvas never gets `.visible` class because that line is INSIDE the try block, line 309). Risk: silent invisible-player on stricter browsers.",
+      "exact_location": "M1.html lines 291-315 (chromaCanvasFromVideo) and lines 300-310 (try block where canvas.classList.add('visible') sits inside the try).",
+      "suggested_fix": "Move `canvasEl.classList.add('visible')` to OUTSIDE the try block (or to a separate non-tainted code path) so that even if getImageData throws on a tainted canvas, the canvas is at least made visible (degraded — green will show, but player won't be invisible). Alternatively, when the catch fires, fall back to drawing the raw video frame (still tainted but visible) rather than skipping the visibility flag entirely.",
+      "severity": "medium"
+    },
+    {
+      "element": "#zone-d width minimum constraint (line 19)",
+      "issue": "Zone D height min is 120px (good) and 24vh (good). However at iPhone SE landscape (max-height:480px), 24vh = 115.2px which falls below the 120px min — so min:120px wins, which is fine. BUT the tool wrappers use `width:min(28vw, 20vh, 140px); height:min(28vw, 20vh, 140px)` (lines 92-93). At a 375x320 landscape viewport, 20vh=64px, which falls below the design_system.md spec minimum of 80px (section 1, Zone D rules: 'גובה: calc(20vh) מקסימום, 80px מינימום'). The spec says 80px MIN, but the implementation has no min — only max via min().",
+      "exact_location": "M1.html lines 92-93: `width:min(28vw, 20vh, 140px); height:min(28vw, 20vh, 140px);`",
+      "suggested_fix": "Change to `width:max(80px, min(28vw, 20vh, 140px)); height:max(80px, min(28vw, 20vh, 140px));` to enforce the design_system.md 80px minimum on small/landscape viewports.",
+      "severity": "medium"
+    },
+    {
+      "element": "Tool wrappers — pointerless during entry transition (line 98-99)",
+      "issue": "Tool wrappers start with `pointer-events:none` and only get `pointer-events:auto` once `.visible` class is added (line 99). The .visible class is added at tool.in_ms (2500/2620/2740ms after init). Between scene_entry and 2500ms, the tools exist in DOM but cannot be clicked. This is intentional staging behavior — NOT a bug. (Documented as non-issue.)",
+      "exact_location": "M1.html lines 98-99",
+      "suggested_fix": "(none — intentional)",
+      "severity": "low"
+    }
+  ],
+
+  "non_issues_verified": [
+    "ZONE structure: A=top progress (6vh), B=scene (54vh), C=mission text (16vh), D=tools (24vh) — totals 100vh, matches design_system.md section 1.",
+    "Pose videos all in `.hidden-video { display:none }` wrapper (lines 162-168, CSS line 77). No double video+canvas display.",
+    "All 3 scenery PNGs (rivals, trees, dust) routed through chromaCanvasFromImage (lines 153-160 + init lines 693-698). No raw <img> over scene.",
+    "RAF-based segment enforcement: poseRafTick() lines 395-422 with currentTime >= to_sec - 0.005 clamp. No timeupdate listeners (grep confirmed zero matches).",
+    "Pose videos preloaded as 4 separate <video id='pose-XX'> elements (lines 164-167). No src reassignment — startTrack() routes via getPoseVideo() → element lookup (lines 343-346, 366-392).",
+    "Both bg phase videos in DOM simultaneously (lines 147-150), opacity-toggled at jump_apex (setupBgPhaseSwap lines 431-436). No src-swap.",
+    "v.loop=false explicitly set on every pose video twice (line 355 in preloadAllPoses, line 374 in startTrack).",
+    "No gold/yellow/orange colors anywhere in CSS (grep confirmed zero matches for #ffd|gold|yellow|orange|#fc0|#fa0|#FFC|#c8860a|#e8a020).",
+    "No <button> elements; tools are <div> wrappers with images. No button bg-color rule violations to check.",
+    "Mission text (line 83) has text-shadow: 0 1px 3px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.7). Checkpoint text (line 127) same. WCAG AA compliant.",
+    "Tooltip CSS (line 116-117): background:rgba(0,0,0,0.85), color:#fff. Matches design_system.md spec exactly.",
+    "Hebrew RTL: <html dir='rtl' lang='he'> (line 2). Mission text direction:rtl (line 81). Tooltip direction:rtl (line 117). All Hebrew preserved.",
+    "Mobile viewport: width:100vw height:100vh; uses vh/vw + clamp() throughout. No fixed-pixel layout.",
+    "POSE_BASE constant defined line 250 'C:/emerald/assets/player/' — matches edit_notes_M1.json issue_01 fix instruction. Pose video src attributes (lines 164-167) all use full file:/// path with /assets/player/. Blocker resolved.",
+    "Tool stagger: in_ms = 2500/2620/2740ms (deltas 120ms each) — matches design_system + editor v5 rule.",
+    "tool_consequence types: A=deploy, B=wear, C=wear (lines 202-210) — matches design_system.md section 13 z-index handling (deploy/wear → z-index:9 behind player, line 513).",
+    "No metric names ('סיכון','יציבות','FOMO','אימפולסיביות') in any DOM-rendered text.",
+    "No mission-count strings ('1 מתוך 15', '1/15', etc.) in DOM.",
+    "tool-info-icon click handler (lines 556-560) calls e.stopPropagation() and shows tooltip for 2000ms — matches design_system.md mobile-tap spec exactly.",
+    "fade-overlay (lines 134-136) z-index:200, opacity-transition 600ms — matches design_system.md section 8 layer stack and section 10 transition spec.",
+    "Layer stack verified: bg=0, scenery=3-4, dust=15, player=10, tools-attached=20, tools-flying=25, mission text=30, tooltip=50, progress bar=100, fade=200. Aligns with design_system.md section 8."
+  ],
+
+  "carry_forward_from_editor": [
+    {
+      "id": "hr_01_pose_05_floaty",
+      "blocking_for_nirit_review": true,
+      "owner": "human_review agent (pre-screen) → Nirit",
+      "note": "Visual screenshot validation of pose_05 1.0-2.0 RAF loop overlaid on bg_airplane.mp4 NOT in QA scope (other agents handle visual screenshots). QA cannot validate floaty without rendering. Carries forward to human_review."
+    },
+    {
+      "id": "hr_02_pose_04_stride_seam",
+      "blocking_for_nirit_review": false,
+      "owner": "human_review agent",
+      "note": "pose_04→pose_05 200ms blend seam validation also NOT in QA scope. Carries forward."
+    }
+  ],
+
+  "summary": {
+    "high_count": 1,
+    "medium_count": 2,
+    "low_count": 3,
+    "blocking_for_human_review": true,
+    "next_action": "Visual Prompt Writer NOT needed (no asset-content issues). Builder must fix the 'את' particle in PAYLOAD.missionText (line 212) — this requires script_supervisor confirmation since it modifies content_lock-bound text. After 'את' removal, builder addresses medium code issues (chromaCanvas visibility flag scoping + tool-wrapper 80px floor). Low items optional but recommended."
+  }
+}

@@ -32,7 +32,7 @@ import sys
 from _lib import (Context, call_claude, extract_json, load_project_context,
                   load_prior_mission_output, parse_missions_arg, prev_mission,
                   render_bg_brief_summary, render_content_lock_mission,
-                  write_output)
+                  render_today_state, write_output)
 
 SYSTEM = """You are continuity_director — stage 5 of 9. Sequential pipeline, not a debate.
 
@@ -85,11 +85,13 @@ def run_one(ctx: Context) -> None:
         prev_summary = f"""Prior mission {prev}:
   checkpoint_text: {prev_cl.get('checkpoint_text', '')}
   checkpoint_label: {prev_cl.get('checkpoint_label', '')}
-  layers ending (from assembly): {len((prev_assembly or {{}}).get('layers', []))} layers
-  prior continuity hints exit_handoff: {(prev_continuity or {{}}).get('exit_handoff', 'n/a')}
+  layers ending (from assembly): {len((prev_assembly or {}).get('layers', []))} layers
+  prior continuity hints exit_handoff: {(prev_continuity or {}).get('exit_handoff', 'n/a')}
 """
 
     user = f"""CONTEXT — hard constraints:
+
+{render_today_state(ctx)}
 
 CURRENT MISSION:
 {render_content_lock_mission(ctx)}
@@ -118,6 +120,7 @@ def main(argv: list[str]) -> int:
     arg = argv[1] if len(argv) > 1 else "all"
     missions = parse_missions_arg(arg)
     print(f"agent_05 continuity — {len(missions)} mission(s)")
+    failures = 0
     for m in missions:
         try:
             ctx = load_project_context(m)
@@ -126,10 +129,11 @@ def main(argv: list[str]) -> int:
                 continue
             run_one(ctx)
         except Exception as e:
+            failures += 1
             print(f"  [{m}] FAIL: {type(e).__name__}: {e}")
             import traceback
             traceback.print_exc()
-    return 0
+    return 1 if failures else 0
 
 
 if __name__ == "__main__":

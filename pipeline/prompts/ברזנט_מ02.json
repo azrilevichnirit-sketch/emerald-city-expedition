@@ -1,0 +1,27 @@
+{
+  "asset": "ברזנט_מ02",
+  "label_verbatim": "יריעת ברזנט",
+  "target_path": "assets/tools/ברזנט_מ02.png",
+  "type": "tool_item",
+  "source_mission": "M2 slot A",
+  "consequence_type": "hold",
+  "points": 1,
+  "scene_context": "M2 — יריעת ברזנט",
+  "pipeline_version": "0E_rembg_v1",
+  "prompts": {
+    "leonardo": "a heavy-duty olive-green canvas tarpaulin tightly rolled into a cylindrical bundle, visible brass grommets along the edge, coarse canvas fabric texture, tie-down ropes wrapped around the bundle, complete single rolled tarp in isolation, strong 3D cylindrical form with clear shadows, 3/4 view angle, camera elevation 25-30 degrees, rotated 15 degrees right, hard directional key light from upper-left 10 oclock, isolated object on plain neutral studio background, product shot, clean sharp edges, stylized realism, cinematic game item, NOT cartoon, fills 65% of frame centered, square composition",
+    "leonardo_negative": "open flat tarp spread out, plastic sheet, clear plastic, human figure, person, hands, holding, gradient background, busy background, text, watermark, logo, cartoon style, anime, flat vector illustration, rusty, broken, damaged"
+  },
+  "leonardo_params": {
+    "modelId": "aa77f04e-3eec-4034-9c07-d0f619684628",
+    "width": 1024,
+    "height": 1024,
+    "num_images": 1,
+    "alchemy": true,
+    "photoReal": false
+  },
+  "directors_note": "יריעת ברזנט — single isolated object per Camera Bible, sharp edges for rembg.",
+  "approved": true,
+  "_approved_at": "2026-04-20",
+  "_approved_by": "director + production_designer (Claude agent roles) per camera_bible.json + pipeline v0E_rembg_v1"
+}

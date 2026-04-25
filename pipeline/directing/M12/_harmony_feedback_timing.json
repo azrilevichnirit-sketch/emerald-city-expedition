@@ -1,0 +1,9 @@
+{
+  "stage": "timing",
+  "feedback_round": 1,
+  "fixes": [
+    "- Player track specifies pose_07.mp4 with loop=true, but pose files are video clips that should not loop indefinitely — player should be static or have defined loop_segment_ms.\n  fix: Change player track loop to false or add loop_segment_ms for pose_07.mp4 video clip.",
+    "- Mission text visible 800-4500ms = 3700ms duration, which is within acceptable range but on the longer side for readability — verify Hebrew text length fits comfortably.\n  fix: Verify mission_text Hebrew content length can be read comfortably in 3.7 seconds, reduce out_ms to 4000ms if text is short."
+  ],
+  "_written_at": "2026-04-25 10:35:23"
+}

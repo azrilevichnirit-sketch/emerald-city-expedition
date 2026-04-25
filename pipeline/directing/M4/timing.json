@@ -1,0 +1,113 @@
+{
+  "_stage": "timing",
+  "_mission": "M4",
+  "_generated_at": "2026-04-25T12:32:15Z",
+  "_generated_by": "agent_06_timing",
+  "scene_id": "M4",
+  "total_duration_ms": 12000,
+  "entry_transition_ms": 550,
+  "tracks": [
+    {
+      "role": "background",
+      "file": "bg_M5.mp4",
+      "slot": null,
+      "pose": null,
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": true,
+      "loop_segment_ms": null,
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "player",
+      "file": "pose_06.mp4",
+      "slot": null,
+      "pose": "pose_06.mp4",
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": [
+        5500,
+        5500
+      ],
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/רובה_חבלים_מ04.png",
+      "slot": "C",
+      "pose": null,
+      "in_ms": 800,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_left",
+      "appear_ms": 350,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/רתמת_אבטחה_מ04.png",
+      "slot": "B",
+      "pose": null,
+      "in_ms": 1200,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_left",
+      "appear_ms": 350,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/לוחות_עץ_פטיש_מ04.png",
+      "slot": "A",
+      "pose": null,
+      "in_ms": 1600,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_left",
+      "appear_ms": 350,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "mission_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 600,
+      "out_ms": 4600,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 300
+    },
+    {
+      "role": "checkpoint_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 9500,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    }
+  ],
+  "rationale": "M4: chasm crossing. 12s total. Background loops full duration. Player uses pose_06 (anim_reach_forward, catchable=YES, hold=5.5s) — perfect for reaching toward rope gun or harness. One-shot animation holds at 5500ms. Tools stagger: rope gun (C) @800ms, harness (B) @1200ms, wood planks (A) @1600ms, each slide_left 350ms. Mission text 600-4600ms (4s visible). Checkpoint text 9500-12000ms (2.5s wrap-up). Entry transition 550ms push_up matches stage 5."
+}

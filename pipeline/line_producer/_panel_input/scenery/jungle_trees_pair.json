@@ -1,0 +1,13 @@
+{
+  "asset": "jungle_trees.png",
+  "type": "scenery_png",
+  "before_kb": 1089,
+  "after_kb": 291,
+  "ratio": 3.74,
+  "in_budget": false,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\jungle_trees.png",
+  "dst": "assets\\optimized\\scenery\\jungle_trees.webp",
+  "status": "compressed_pending_panel"
+}

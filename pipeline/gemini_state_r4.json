@@ -1,0 +1,19 @@
+{
+  "tools": {
+    "גלשן_מ01": {
+      "status": "ok",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\גלשן_מ01_r4_raw.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\גלשן_מ01_r4_final.png"
+    },
+    "חבל_קשרים_מ08": {
+      "status": "ok",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\חבל_קשרים_מ08_r4_raw.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\חבל_קשרים_מ08_r4_final.png"
+    },
+    "מפה_מ03": {
+      "status": "ok",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\מפה_מ03_r4_raw.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\מפה_מ03_r4_final.png"
+    }
+  }
+}

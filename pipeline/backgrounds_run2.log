@@ -1,0 +1,164 @@
+bg targets: 12
+  - bg_M1 (new / M1)
+  - bg_M5 (new / M5)
+  - bg_M6 (new / M6)
+  - bg_M7 (new / M7)
+  - bg_M8 (new / M8)
+  - bg_M10 (new / M10)
+  - bg_M13 (new / M13)
+  - bg_M14 (new / M14)
+  - bg_M15 (new / M15)
+  - bg_06 (fix / M4)
+  - bg_07 (fix / M9)
+  - bg_01 (redo / M3)
+[1/12] bg_M1 (new, mission M1)
+    [1] director design debate for bg_M1 (M1)
+    round 1/8 ok  (va=460c vb=6c mod=141c)
+    round 2/8 ok  (va=290c vb=6c mod=92c)
+    round 3/8 ok  (va=413c vb=6c mod=78c)
+    round 4/8 ok  (va=395c vb=6c mod=207c)
+    round 5/8 ok  (va=434c vb=6c mod=96c)
+    round 6/8 ok  (va=417c vb=6c mod=162c)
+    round 7/8 ok  (va=357c vb=6c mod=78c)
+    round 8/8 ok  (va=363c vb=6c mod=825c)
+    saved: C:\Users\azril\OneDrive\Desktop\fincail_game\new\pipeline\debates\backgrounds\director_bg_design_bg_M1.json
+  [bg_M1] attempt 1 — Veo submit
+  [bg_M1] attempt 1: qa=fail dir=redo — retry with feedback
+  [bg_M1] attempt 2 — Veo submit
+  [bg_M1] ERROR: 'charmap' codec can't encode character '\u2192' in position 20: character maps to <undefined>
+[2/12] bg_M5 (new, mission M5)
+    [1] director design debate for bg_M5 (M5)
+    round 1/8 ok  (va=908c vb=6c mod=186c)
+    round 2/8 ok  (va=184c vb=6c mod=170c)
+    round 3/8 ok  (va=424c vb=6c mod=149c)
+    round 4/8 ok  (va=346c vb=6c mod=158c)
+    round 5/8 ok  (va=510c vb=6c mod=205c)
+    round 6/8 ok  (va=434c vb=6c mod=146c)
+    round 7/8 ok  (va=433c vb=6c mod=224c)
+    round 8/8 ok  (va=434c vb=6c mod=546c)
+    saved: C:\Users\azril\OneDrive\Desktop\fincail_game\new\pipeline\debates\backgrounds\director_bg_design_bg_M5.json
+  [bg_M5] attempt 1 — Veo submit
+  [bg_M5] ERROR: 'charmap' codec can't encode character '\u2192' in position 20: character maps to <undefined>
+[3/12] bg_M6 (new, mission M6)
+    [1] director design debate for bg_M6 (M6)
+    round 1/8 ok  (va=503c vb=6c mod=203c)
+    round 2/8 ok  (va=558c vb=6c mod=183c)
+    round 3/8 ok  (va=551c vb=249c mod=202c)
+    round 4/8 ok  (va=517c vb=131c mod=164c)
+    round 5/8 ok  (va=173c vb=77c mod=164c)
+    round 6/8 ok  (va=261c vb=86c mod=166c)
+    round 7/8 ok  (va=275c vb=103c mod=178c)
+    round 8/8 ok  (va=279c vb=102c mod=543c)
+    saved: C:\Users\azril\OneDrive\Desktop\fincail_game\new\pipeline\debates\backgrounds\director_bg_design_bg_M6.json
+  [bg_M6] attempt 1 — Veo submit
+  [bg_M6] ERROR: 'charmap' codec can't encode character '\u2192' in position 20: character maps to <undefined>
+[4/12] bg_M7 (new, mission M7)
+    [1] director design debate for bg_M7 (M7)
+    round 1/8 ok  (va=603c vb=6c mod=162c)
+    round 2/8 ok  (va=347c vb=6c mod=84c)
+    round 3/8 ok  (va=315c vb=6c mod=76c)
+    round 4/8 ok  (va=319c vb=6c mod=169c)
+    round 5/8 ok  (va=349c vb=6c mod=124c)
+    round 6/8 ok  (va=293c vb=6c mod=102c)
+    round 7/8 ok  (va=346c vb=6c mod=169c)
+    round 8/8 ok  (va=331c vb=6c mod=883c)
+    saved: C:\Users\azril\OneDrive\Desktop\fincail_game\new\pipeline\debates\backgrounds\director_bg_design_bg_M7.json
+  [bg_M7] attempt 1 — Veo submit
+  [bg_M7] ERROR: 'charmap' codec can't encode character '\u2192' in position 20: character maps to <undefined>
+[5/12] bg_M8 (new, mission M8)
+    [1] director design debate for bg_M8 (M8)
+    round 1/8 ok  (va=378c vb=6c mod=139c)
+    round 2/8 ok  (va=327c vb=6c mod=148c)
+    round 3/8 ok  (va=338c vb=6c mod=127c)
+    round 4/8 ok  (va=318c vb=6c mod=135c)
+    round 5/8 ok  (va=325c vb=6c mod=127c)
+    round 6/8 ok  (va=346c vb=6c mod=151c)
+    round 7/8 ok  (va=346c vb=6c mod=154c)
+    round 8/8 ok  (va=346c vb=6c mod=274c)
+    saved: C:\Users\azril\OneDrive\Desktop\fincail_game\new\pipeline\debates\backgrounds\director_bg_design_bg_M8.json
+  [bg_M8] attempt 1 — Veo submit
+  [bg_M8] ERROR: 'charmap' codec can't encode character '\u2192' in position 20: character maps to <undefined>
+[6/12] bg_M10 (new, mission M10)
+    [1] director design debate for bg_M10 (M10)
+    round 1/8 ok  (va=364c vb=6c mod=150c)
+    round 2/8 ok  (va=421c vb=6c mod=205c)
+    round 3/8 ok  (va=210c vb=6c mod=107c)
+    round 4/8 ok  (va=197c vb=6c mod=112c)
+    round 5/8 ok  (va=300c vb=6c mod=106c)
+    round 6/8 ok  (va=320c vb=6c mod=181c)
+    round 7/8 ok  (va=333c vb=6c mod=153c)
+    round 8/8 ok  (va=311c vb=6c mod=607c)
+    saved: C:\Users\azril\OneDrive\Desktop\fincail_game\new\pipeline\debates\backgrounds\director_bg_design_bg_M10.json
+  [bg_M10] attempt 1 — Veo submit
+  [bg_M10] ERROR: 'charmap' codec can't encode character '\u2192' in position 21: character maps to <undefined>
+[7/12] bg_M13 (new, mission M13)
+    [1] director design debate for bg_M13 (M13)
+    round 1/8 ok  (va=832c vb=6c mod=143c)
+    round 2/8 ok  (va=368c vb=6c mod=159c)
+    round 3/8 ok  (va=789c vb=6c mod=83c)
+    round 4/8 ok  (va=291c vb=6c mod=141c)
+    round 5/8 ok  (va=313c vb=6c mod=140c)
+    round 6/8 ok  (va=159c vb=6c mod=98c)
+    round 7/8 ok  (va=294c vb=6c mod=155c)
+    round 8/8 ok  (va=352c vb=6c mod=794c)
+    saved: C:\Users\azril\OneDrive\Desktop\fincail_game\new\pipeline\debates\backgrounds\director_bg_design_bg_M13.json
+  [bg_M13] attempt 1 — Veo submit
+  [bg_M13] ERROR: 'charmap' codec can't encode character '\u2192' in position 21: character maps to <undefined>
+[8/12] bg_M14 (new, mission M14)
+    [1] director design debate for bg_M14 (M14)
+    round 1/8 ok  (va=629c vb=6c mod=146c)
+    round 2/8 ok  (va=653c vb=6c mod=171c)
+    round 3/8 ok  (va=312c vb=6c mod=136c)
+    round 4/8 ok  (va=299c vb=6c mod=91c)
+    round 5/8 ok  (va=235c vb=6c mod=60c)
+    round 6/8 ok  (va=288c vb=6c mod=109c)
+    round 7/8 ok  (va=288c vb=6c mod=135c)
+    round 8/8 ok  (va=251c vb=6c mod=622c)
+    saved: C:\Users\azril\OneDrive\Desktop\fincail_game\new\pipeline\debates\backgrounds\director_bg_design_bg_M14.json
+  [bg_M14] attempt 1 — Veo submit
+  [bg_M14] ERROR: 'charmap' codec can't encode character '\u2192' in position 21: character maps to <undefined>
+[9/12] bg_M15 (new, mission M15)
+    [1] director design debate for bg_M15 (M15)
+    round 1/8 ok  (va=622c vb=6c mod=150c)
+    round 2/8 ok  (va=602c vb=6c mod=142c)
+    round 3/8 ok  (va=318c vb=6c mod=189c)
+    round 4/8 ok  (va=367c vb=6c mod=182c)
+    round 5/8 ok  (va=325c vb=6c mod=127c)
+    round 6/8 ok  (va=363c vb=6c mod=136c)
+    round 7/8 ok  (va=394c vb=6c mod=194c)
+    round 8/8 ok  (va=466c vb=6c mod=477c)
+    saved: C:\Users\azril\OneDrive\Desktop\fincail_game\new\pipeline\debates\backgrounds\director_bg_design_bg_M15.json
+  [bg_M15] attempt 1 — Veo submit
+  [bg_M15] ERROR: 'charmap' codec can't encode character '\u2192' in position 21: character maps to <undefined>
+[10/12] bg_06 (fix, mission M4)
+  [bg_06] attempt 1 — Veo submit
+  [bg_06] ERROR: Veo submit HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+
+[11/12] bg_07 (fix, mission M9)
+  [bg_07] attempt 1 — Veo submit
+  [bg_07] ERROR: Veo submit HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+
+[12/12] bg_01 (redo, mission M3)
+  [bg_01] attempt 1 — Veo submit
+  [bg_01] ERROR: Veo submit HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+
+
+done in 1479s. delivered=0 flagged=0 errors=12

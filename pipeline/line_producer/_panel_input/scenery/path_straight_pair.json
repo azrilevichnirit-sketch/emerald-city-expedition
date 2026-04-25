@@ -1,0 +1,13 @@
+{
+  "asset": "path_straight.png",
+  "type": "scenery_png",
+  "before_kb": 949,
+  "after_kb": 144,
+  "ratio": 6.59,
+  "in_budget": true,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\path_straight.png",
+  "dst": "assets\\optimized\\scenery\\path_straight.webp",
+  "status": "compressed_pending_panel"
+}

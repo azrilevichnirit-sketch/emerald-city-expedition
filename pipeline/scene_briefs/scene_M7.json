@@ -1,0 +1,362 @@
+{
+  "_for_mission": "M7",
+  "_built_at": "2026-04-25T12:54:13Z",
+  "_source": "directing/{assembly,continuity,timing,interaction,storyboard}.json",
+  "scene_id": "M7",
+  "duration_ms": 12000,
+  "entry_transition": {
+    "type": "cross_dissolve",
+    "duration_ms": 500,
+    "notes": "Dissolve from M6's ancient structure (distant) to M7's hidden temple entrance (arrived) — visual continuity of the same destination now reached. Player's forward momentum from M6 resolves into grounded arrival stance at temple perimeter."
+  },
+  "exit_transition": null,
+  "background": {
+    "z": 0,
+    "role": "background",
+    "file": "bg_M7.mp4",
+    "slot": null,
+    "pos": {
+      "x_pct": 50,
+      "y_pct": 50
+    },
+    "scale": 1.0,
+    "rot_deg": 0,
+    "anchor": "center",
+    "fit": "cover",
+    "pose_candidates": []
+  },
+  "player": {
+    "pose_file": "pose_01.mp4",
+    "pose_semantic": "anim_look_around",
+    "loop_segment_sec": {
+      "start": 0.0,
+      "end": 8.0
+    },
+    "hold_frame_sec": null,
+    "one_shot": false,
+    "catch_pose": false
+  },
+  "tracks": [
+    {
+      "role": "background",
+      "file": "bg_M7.mp4",
+      "slot": null,
+      "pose": null,
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": true,
+      "loop_segment_ms": [
+        0,
+        12000
+      ],
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "player",
+      "file": "pose_01.mp4",
+      "slot": null,
+      "pose": "pose_01.mp4",
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": true,
+      "loop_segment_ms": [
+        0,
+        12000
+      ],
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/דגל_משימה_מ07.png",
+      "slot": "A",
+      "pose": null,
+      "in_ms": 800,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_left",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/פריסקופ_מ07.png",
+      "slot": "B",
+      "pose": null,
+      "in_ms": 1200,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_up",
+      "appear_ms": 350,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/לום_ברזל_מ07.png",
+      "slot": "C",
+      "pose": null,
+      "in_ms": 1600,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "pop",
+      "appear_ms": 400,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "mission_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 500,
+      "out_ms": 4500,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 300
+    },
+    {
+      "role": "checkpoint_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 9500,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 400,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    }
+  ],
+  "interactive_elements": [
+    {
+      "slot": "A",
+      "label": "דגל המשימה המקורי",
+      "points": 1,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.05,
+        "glow_color": "#4A90E2"
+      },
+      "click": {
+        "feedback_animation": "pulse_out",
+        "feedback_ms": 450,
+        "points_popup": {
+          "text": "+1",
+          "color": "#4A90E2",
+          "from_xy_pct": {
+            "x": 72,
+            "y": 25
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 800
+        }
+      },
+      "tooltip": {
+        "he": "הדגל שסימן את המשימה המקורית",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "B",
+      "label": "פריסקופ",
+      "points": 2,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.07,
+        "glow_color": "#F5A623"
+      },
+      "click": {
+        "feedback_animation": "bounce",
+        "feedback_ms": 500,
+        "points_popup": {
+          "text": "+2",
+          "color": "#F5A623",
+          "from_xy_pct": {
+            "x": 85,
+            "y": 50
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 850
+        }
+      },
+      "tooltip": {
+        "he": "לצפות מעל פני המים בבטחה",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "C",
+      "label": "לום ברזל",
+      "points": 3,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.1,
+        "glow_color": "#E94B3C"
+      },
+      "click": {
+        "feedback_animation": "flash",
+        "feedback_ms": 550,
+        "points_popup": {
+          "text": "+3",
+          "color": "#E94B3C",
+          "from_xy_pct": {
+            "x": 78,
+            "y": 75
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 900
+        }
+      },
+      "tooltip": {
+        "he": "כלי חיתוך חזק לדרך במים",
+        "show_after_ms": 600
+      }
+    }
+  ],
+  "global_ui": {
+    "score_display": {
+      "pos": {
+        "x_pct": 88,
+        "y_pct": 8
+      },
+      "font_size_px": 32
+    },
+    "mission_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 6
+      },
+      "width_pct": 60,
+      "font_size_px": 18
+    },
+    "checkpoint_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 92
+      },
+      "width_pct": 70,
+      "font_size_px": 16
+    }
+  },
+  "beats": [
+    {
+      "t_ms": 0,
+      "description": "Scene opens with 500ms cross-dissolve from M6. Hidden temple entrance revealed: wet ground, parked rival vehicles visible at gate, jungle mist creating atmospheric depth. Player (pose_01) stands left-of-center in alert 'look around' stance, scanning the perimeter.",
+      "visible_elements": [
+        "background.bg_M7",
+        "player.pose_01"
+      ],
+      "audio_hint": "Ambient jungle sounds, distant voices from rival teams inside temple (radio chatter), vehicle engine cooling ticks"
+    },
+    {
+      "t_ms": 500,
+      "description": "Mission text appears: 'כניסה למקדש חבוי. רכבי המתחרים כבר חונים כאן ומכשיר הקשר משמיע קולות התלהבות של הצוותים שבפנים. כולם כבר שם. האם אני עוצרת לבדוק מה הם מצאו?'",
+      "visible_elements": [
+        "background.bg_M7",
+        "player.pose_01",
+        "text.mission"
+      ],
+      "audio_hint": "Radio crackle with excited voices (muffled Hebrew), heightening urgency"
+    },
+    {
+      "t_ms": 800,
+      "description": "Mission flag (דגל_משימה_מ07) materializes top-right — marking the original expedition objective. Tooltip available after 600ms hover: 'הדגל שסימן את המשימה המקורית'.",
+      "visible_elements": [
+        "background.bg_M7",
+        "player.pose_01",
+        "text.mission",
+        "tool.A"
+      ],
+      "audio_hint": "Soft fabric rustle as flag appears"
+    },
+    {
+      "t_ms": 1200,
+      "description": "Periscope (פריסקופ_מ07) enters mid-right position — intelligence-gathering tool for safe observation. Tooltip after 600ms: 'לצפות מעל פני המים בבטחה'. Visual flow established from flag downward.",
+      "visible_elements": [
+        "background.bg_M7",
+        "player.pose_01",
+        "text.mission",
+        "tool.A",
+        "tool.B"
+      ],
+      "audio_hint": "Metallic slide/extend sound (periscope mechanism)"
+    },
+    {
+      "t_ms": 1600,
+      "description": "Crowbar (לום_ברזל_מ07) appears bottom-right, completing diagonal tool arrangement. Tooltip after 600ms: 'כלי חיתוך חזק לדרך במים'. All three tools now visible, creating decision matrix: investigate rivals vs. proceed with original mission.",
+      "visible_elements": [
+        "background.bg_M7",
+        "player.pose_01",
+        "text.mission",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": "Heavy metal clank as crowbar settles"
+    },
+    {
+      "t_ms": 4500,
+      "description": "Mission text fades out. Player remains in scanning pose; all three tools stay visible and interactive. Scene holds in contemplation state — rival vehicles in background serve as constant reminder of competition.",
+      "visible_elements": [
+        "background.bg_M7",
+        "player.pose_01",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 9500,
+      "description": "Checkpoint text appears: 'ההחלטה התקבלה. לפניי קיר סלע ענק שחוסם את המעבר.' Decision made — focus shifts to obstacle ahead (massive rock wall blocking passage).",
+      "visible_elements": [
+        "background.bg_M7",
+        "player.pose_01",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": "Subtle rumble/echo suggesting scale of rock wall obstacle"
+    },
+    {
+      "t_ms": 12000,
+      "description": "Scene ends. All elements remain visible through final frame. Player's alert stance and tool array freeze in tableau, awaiting Builder's transition to M8.",
+      "visible_elements": [
+        "background.bg_M7",
+        "player.pose_01",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": null
+    }
+  ],
+  "summary_he": "נירית מגיעה לכניסה החבויה של המקדש ומוצאת את רכבי הצוותים המתחרים חונים כבר במקום — קולות התלהבות נשמעים ברדיו מבפנים. היא עומדת בעמדת סריקה ערנית, שלושה כלים מתגלים בפניה באלכסון ויזואלי: דגל המשימה המקורית, פריסקופ לתצפית בטוחה, ולום ברזל לפריצת דרך. המתח עולה — האם לעצור ולחקור מה המתחרים מצאו, או להמשיך ישר ליעד? ההחלטה מתקבלת: לפניה קיר סלע ענק חוסם את המעבר. הסצנה קופאת ברגע של נחישות, כשהג'ונגל הערפילי והרכבים הנטושים יוצרים אווירה של דחיפות ותחרות.",
+  "summary_en": "M7 opens with player arriving at hidden temple entrance where rival vehicles are already parked. Three tools appear in descending diagonal (mission flag, periscope, crowbar), creating decision point: investigate competitors or proceed with original objective. Mission text presents dilemma; checkpoint text resolves it by revealing massive rock wall obstacle ahead. Scene holds 12s with player in alert scanning pose, jungle mist and parked vehicles maintaining competitive tension throughout."
+}

@@ -1,0 +1,128 @@
+{
+  "_stage": "interaction",
+  "_mission": "M7",
+  "_generated_at": "2026-04-25T12:33:41Z",
+  "_generated_by": "agent_07_interaction",
+  "scene_id": "M7",
+  "interactive_elements": [
+    {
+      "slot": "A",
+      "label": "דגל המשימה המקורי",
+      "points": 1,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.05,
+        "glow_color": "#4A90E2"
+      },
+      "click": {
+        "feedback_animation": "pulse_out",
+        "feedback_ms": 450,
+        "points_popup": {
+          "text": "+1",
+          "color": "#4A90E2",
+          "from_xy_pct": {
+            "x": 72,
+            "y": 25
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 800
+        }
+      },
+      "tooltip": {
+        "he": "הדגל שסימן את המשימה המקורית",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "B",
+      "label": "פריסקופ",
+      "points": 2,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.07,
+        "glow_color": "#F5A623"
+      },
+      "click": {
+        "feedback_animation": "bounce",
+        "feedback_ms": 500,
+        "points_popup": {
+          "text": "+2",
+          "color": "#F5A623",
+          "from_xy_pct": {
+            "x": 85,
+            "y": 50
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 850
+        }
+      },
+      "tooltip": {
+        "he": "לצפות מעל פני המים בבטחה",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "C",
+      "label": "לום ברזל",
+      "points": 3,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.1,
+        "glow_color": "#E94B3C"
+      },
+      "click": {
+        "feedback_animation": "flash",
+        "feedback_ms": 550,
+        "points_popup": {
+          "text": "+3",
+          "color": "#E94B3C",
+          "from_xy_pct": {
+            "x": 78,
+            "y": 75
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 900
+        }
+      },
+      "tooltip": {
+        "he": "כלי חיתוך חזק לדרך במים",
+        "show_after_ms": 600
+      }
+    }
+  ],
+  "global_ui": {
+    "score_display": {
+      "pos": {
+        "x_pct": 88,
+        "y_pct": 8
+      },
+      "font_size_px": 32
+    },
+    "mission_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 6
+      },
+      "width_pct": 60,
+      "font_size_px": 18
+    },
+    "checkpoint_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 92
+      },
+      "width_pct": 70,
+      "font_size_px": 16
+    }
+  },
+  "rationale": "M7 water crossing scene: A (flag, 1pt) gets cool blue hover/pulse for low-value memorial item. B (periscope, 2pt) gets warm orange bounce for mid-value observation tool. C (iron blade, 3pt) gets hot red flash with strongest glow (1.10 scale) for highest-value cutting implement. All tooltips <40 chars Hebrew, explain practical use. Points animate from tool positions to top-right score (88,8). Mission text top-center, checkpoint bottom-center for narrative flow. Feedback <600ms maintains snappy feel for 8yo attention span."
+}

@@ -1,0 +1,89 @@
+{
+  "_for_mission": "M5",
+  "_source": "directing/assembly.json",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "bg_M5.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": "pose_01.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 48,
+        "y_pct": 58
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_01.mp4"
+      ]
+    },
+    {
+      "z": 35,
+      "role": "tool",
+      "file": "tools/פנס_עוצמתי_מ05.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 15,
+        "y_pct": 72
+      },
+      "scale": 0.18,
+      "rot_deg": -8,
+      "anchor": "center",
+      "fit": null,
+      "pose_candidates": []
+    },
+    {
+      "z": 36,
+      "role": "tool",
+      "file": "tools/רשת_הגנה_מ05.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 25
+      },
+      "scale": 0.22,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": null,
+      "pose_candidates": []
+    },
+    {
+      "z": 37,
+      "role": "tool",
+      "file": "tools/לפיד_בוער_מ05.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 68
+      },
+      "scale": 0.2,
+      "rot_deg": 12,
+      "anchor": "center",
+      "fit": null,
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Triangle layout with tools flanking player at lower-left (flashlight) and lower-right (torch), defensive net elevated center-top. Player slightly left-of-center in alert scanning pose, facing right toward the rustling bush threat. Asymmetric tool placement mirrors the directional threat ('השיח מימין') and creates visual tension."
+}

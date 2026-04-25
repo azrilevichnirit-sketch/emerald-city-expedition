@@ -1,0 +1,223 @@
+{
+  "_built_at": "2026-04-25 16:05:09",
+  "results": [
+    {
+      "mission": "M1",
+      "out": "pipeline/builder_html/M1.html",
+      "bg": "../../assets/backgrounds/bg_M1.mp4",
+      "pose": "../../assets/player/pose_07.mp4",
+      "tools": [
+        "A:מצנח עגול רחב",
+        "B:גלשן רחיפה",
+        "C:חליפת כנפיים"
+      ],
+      "scenery_count": 0,
+      "skipped_scenery_loops": [],
+      "duration_ms": 12000
+    },
+    {
+      "mission": "M2",
+      "out": "pipeline/builder_html/M2.html",
+      "bg": "../../assets/backgrounds/bg_02.mp4",
+      "pose": "../../assets/player/pose_06.mp4",
+      "tools": [
+        "A:יריעת ברזנט",
+        "B:פטיש ומסמרים",
+        "C:אוהל סיירים"
+      ],
+      "scenery_count": 0,
+      "skipped_scenery_loops": [],
+      "duration_ms": 12000
+    },
+    {
+      "mission": "M3",
+      "out": "pipeline/builder_html/M3.html",
+      "bg": "../../assets/backgrounds/bg_03.mp4",
+      "pose": "../../assets/player/pose_01.mp4",
+      "tools": [
+        "A:המפה המקומטת",
+        "B:משקפת שדה",
+        "C:מפתח לטרקטורון מונע"
+      ],
+      "scenery_count": 0,
+      "skipped_scenery_loops": [],
+      "duration_ms": 12000
+    },
+    {
+      "mission": "M4",
+      "out": "pipeline/builder_html/M4.html",
+      "bg": "../../assets/backgrounds/bg_M5.mp4",
+      "pose": "../../assets/player/pose_06.mp4",
+      "tools": [
+        "A:לוחות עץ ופטיש",
+        "B:רתמת אבטחה",
+        "C:רובה חבלים"
+      ],
+      "scenery_count": 0,
+      "skipped_scenery_loops": [],
+      "duration_ms": 12000
+    },
+    {
+      "mission": "M5",
+      "out": "pipeline/builder_html/M5.html",
+      "bg": "../../assets/backgrounds/bg_M5.mp4",
+      "pose": "../../assets/player/pose_01.mp4",
+      "tools": [
+        "A:פנס עוצמתי",
+        "B:רשת הגנה",
+        "C:לפיד בוער"
+      ],
+      "scenery_count": 0,
+      "skipped_scenery_loops": [],
+      "duration_ms": 12000
+    },
+    {
+      "mission": "M6",
+      "out": "pipeline/builder_html/M6.html",
+      "bg": "../../assets/backgrounds/bg_M6.mp4",
+      "pose": "../../assets/player/pose_03.mp4",
+      "tools": [
+        "A:ג'ריקן שמן",
+        "B:ערכת כלי עבודה",
+        "C:אופני הרים"
+      ],
+      "scenery_count": 0,
+      "skipped_scenery_loops": [
+        "assets/scenery/smoking_jeep.mp4"
+      ],
+      "duration_ms": 12000
+    },
+    {
+      "mission": "M7",
+      "out": "pipeline/builder_html/M7.html",
+      "bg": "../../assets/backgrounds/bg_M7.mp4",
+      "pose": "../../assets/player/pose_01.mp4",
+      "tools": [
+        "A:דגל המשימה המקורי",
+        "B:פריסקופ",
+        "C:לום ברזל"
+      ],
+      "scenery_count": 0,
+      "skipped_scenery_loops": [],
+      "duration_ms": 12000
+    },
+    {
+      "mission": "M8",
+      "out": "pipeline/builder_html/M8.html",
+      "bg": "../../assets/backgrounds/bg_M8.mp4",
+      "pose": "../../assets/player/pose_02.mp4",
+      "tools": [
+        "A:סולם חבלים",
+        "B:חבל עם קשרים",
+        "C:טפרי טיפוס ממתכת"
+      ],
+      "scenery_count": 0,
+      "skipped_scenery_loops": [
+        "assets/scenery/rain_effect_m8.mp4"
+      ],
+      "duration_ms": 12000
+    },
+    {
+      "mission": "M9",
+      "out": "pipeline/builder_html/M9.html",
+      "bg": "../../assets/backgrounds/bg_M9.mp4",
+      "pose": "../../assets/player/pose_06.mp4",
+      "tools": [
+        "A:שמן לשימון צירים",
+        "B:רב-כלי",
+        "C:מבער ריתוך"
+      ],
+      "scenery_count": 0,
+      "skipped_scenery_loops": [],
+      "duration_ms": 12000
+    },
+    {
+      "mission": "M10",
+      "out": "pipeline/builder_html/M10.html",
+      "bg": "../../assets/backgrounds/bg_M10.mp4",
+      "pose": "../../assets/player/pose_06.mp4",
+      "tools": [
+        "A:מצלמה זעירה",
+        "B:שמיכת מיגון",
+        "C:קאטר לחיתוך חוטים"
+      ],
+      "scenery_count": 0,
+      "skipped_scenery_loops": [],
+      "duration_ms": 12000
+    },
+    {
+      "mission": "M11",
+      "out": "pipeline/builder_html/M11.html",
+      "bg": "../../assets/backgrounds/bg_M11.mp4",
+      "pose": "../../assets/player/pose_07.mp4",
+      "tools": [
+        "A:חבל סנפלינג עם רתמה",
+        "B:חבל בנג'י",
+        "C:מצנח בסיס"
+      ],
+      "scenery_count": 0,
+      "skipped_scenery_loops": [],
+      "duration_ms": 12000
+    },
+    {
+      "mission": "M12",
+      "out": "pipeline/builder_html/M12.html",
+      "bg": "../../assets/backgrounds/bg_M12.mp4",
+      "pose": "../../assets/player/pose_01.mp4",
+      "tools": [
+        "A:כרטיס עלייה לסירה",
+        "B:מצלמה עם פלאש",
+        "C:לפיד יד בוער"
+      ],
+      "scenery_count": 0,
+      "skipped_scenery_loops": [],
+      "duration_ms": 12000
+    },
+    {
+      "mission": "M13",
+      "out": "pipeline/builder_html/M13.html",
+      "bg": "../../assets/backgrounds/bg_M13.mp4",
+      "pose": "../../assets/player/pose_02.mp4",
+      "tools": [
+        "A:סרגל ומחק",
+        "B:מצפן כיס",
+        "C:רחפן ניווט"
+      ],
+      "scenery_count": 0,
+      "skipped_scenery_loops": [],
+      "duration_ms": 13000
+    },
+    {
+      "mission": "M14",
+      "out": "pipeline/builder_html/M14.html",
+      "bg": "../../assets/backgrounds/bg_M14.mp4",
+      "pose": "../../assets/player/pose_02.mp4",
+      "tools": [
+        "A:שקית מטבעות קטנה",
+        "B:תיבת עץ נעולה",
+        "C:כדור בדולח כהה"
+      ],
+      "scenery_count": 0,
+      "skipped_scenery_loops": [],
+      "duration_ms": 13000
+    },
+    {
+      "mission": "M15",
+      "out": "pipeline/builder_html/M15.html",
+      "bg": "../../assets/backgrounds/bg_M15.mp4",
+      "pose": "../../assets/player/pose_01.mp4",
+      "tools": [
+        "A:דגל סיום לבן",
+        "B:מגאפון",
+        "C:זיקוק צבעוני"
+      ],
+      "scenery_count": 0,
+      "skipped_scenery_loops": [],
+      "duration_ms": 13000
+    }
+  ],
+  "summary": {
+    "ok": 15,
+    "fail": 0
+  }
+}

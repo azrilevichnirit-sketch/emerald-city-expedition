@@ -1,0 +1,174 @@
+{
+  "_built_at": "2026-04-25 15:54:13",
+  "results": [
+    {
+      "mission": "M1",
+      "status": "materialized",
+      "files": [
+        "pipeline/scene_scripts/script_M1.json",
+        "pipeline/scene_briefs/scene_M1.json",
+        "pipeline/set_list_M1.json",
+        "pipeline/sound_design_M1.json"
+      ],
+      "pose_chosen": "pose_07.mp4"
+    },
+    {
+      "mission": "M2",
+      "status": "materialized",
+      "files": [
+        "pipeline/scene_scripts/script_M2.json",
+        "pipeline/scene_briefs/scene_M2.json",
+        "pipeline/set_list_M2.json",
+        "pipeline/sound_design_M2.json"
+      ],
+      "pose_chosen": "pose_06.mp4"
+    },
+    {
+      "mission": "M3",
+      "status": "materialized",
+      "files": [
+        "pipeline/scene_scripts/script_M3.json",
+        "pipeline/scene_briefs/scene_M3.json",
+        "pipeline/set_list_M3.json",
+        "pipeline/sound_design_M3.json"
+      ],
+      "pose_chosen": "pose_01.mp4"
+    },
+    {
+      "mission": "M4",
+      "status": "materialized",
+      "files": [
+        "pipeline/scene_scripts/script_M4.json",
+        "pipeline/scene_briefs/scene_M4.json",
+        "pipeline/set_list_M4.json",
+        "pipeline/sound_design_M4.json"
+      ],
+      "pose_chosen": "pose_06.mp4"
+    },
+    {
+      "mission": "M5",
+      "status": "materialized",
+      "files": [
+        "pipeline/scene_scripts/script_M5.json",
+        "pipeline/scene_briefs/scene_M5.json",
+        "pipeline/set_list_M5.json",
+        "pipeline/sound_design_M5.json"
+      ],
+      "pose_chosen": "pose_01.mp4"
+    },
+    {
+      "mission": "M6",
+      "status": "materialized",
+      "files": [
+        "pipeline/scene_scripts/script_M6.json",
+        "pipeline/scene_briefs/scene_M6.json",
+        "pipeline/set_list_M6.json",
+        "pipeline/sound_design_M6.json"
+      ],
+      "pose_chosen": "pose_03.mp4"
+    },
+    {
+      "mission": "M7",
+      "status": "materialized",
+      "files": [
+        "pipeline/scene_scripts/script_M7.json",
+        "pipeline/scene_briefs/scene_M7.json",
+        "pipeline/set_list_M7.json",
+        "pipeline/sound_design_M7.json"
+      ],
+      "pose_chosen": "pose_01.mp4"
+    },
+    {
+      "mission": "M8",
+      "status": "materialized",
+      "files": [
+        "pipeline/scene_scripts/script_M8.json",
+        "pipeline/scene_briefs/scene_M8.json",
+        "pipeline/set_list_M8.json",
+        "pipeline/sound_design_M8.json"
+      ],
+      "pose_chosen": "pose_02.mp4"
+    },
+    {
+      "mission": "M9",
+      "status": "materialized",
+      "files": [
+        "pipeline/scene_scripts/script_M9.json",
+        "pipeline/scene_briefs/scene_M9.json",
+        "pipeline/set_list_M9.json",
+        "pipeline/sound_design_M9.json"
+      ],
+      "pose_chosen": "pose_06.mp4"
+    },
+    {
+      "mission": "M10",
+      "status": "materialized",
+      "files": [
+        "pipeline/scene_scripts/script_M10.json",
+        "pipeline/scene_briefs/scene_M10.json",
+        "pipeline/set_list_M10.json",
+        "pipeline/sound_design_M10.json"
+      ],
+      "pose_chosen": "pose_06.mp4"
+    },
+    {
+      "mission": "M11",
+      "status": "materialized",
+      "files": [
+        "pipeline/scene_scripts/script_M11.json",
+        "pipeline/scene_briefs/scene_M11.json",
+        "pipeline/set_list_M11.json",
+        "pipeline/sound_design_M11.json"
+      ],
+      "pose_chosen": "pose_07.mp4"
+    },
+    {
+      "mission": "M12",
+      "status": "materialized",
+      "files": [
+        "pipeline/scene_scripts/script_M12.json",
+        "pipeline/scene_briefs/scene_M12.json",
+        "pipeline/set_list_M12.json",
+        "pipeline/sound_design_M12.json"
+      ],
+      "pose_chosen": "pose_01.mp4"
+    },
+    {
+      "mission": "M13",
+      "status": "materialized",
+      "files": [
+        "pipeline/scene_scripts/script_M13.json",
+        "pipeline/scene_briefs/scene_M13.json",
+        "pipeline/set_list_M13.json",
+        "pipeline/sound_design_M13.json"
+      ],
+      "pose_chosen": "pose_02.mp4"
+    },
+    {
+      "mission": "M14",
+      "status": "materialized",
+      "files": [
+        "pipeline/scene_scripts/script_M14.json",
+        "pipeline/scene_briefs/scene_M14.json",
+        "pipeline/set_list_M14.json",
+        "pipeline/sound_design_M14.json"
+      ],
+      "pose_chosen": "pose_02.mp4"
+    },
+    {
+      "mission": "M15",
+      "status": "materialized",
+      "files": [
+        "pipeline/scene_scripts/script_M15.json",
+        "pipeline/scene_briefs/scene_M15.json",
+        "pipeline/set_list_M15.json",
+        "pipeline/sound_design_M15.json"
+      ],
+      "pose_chosen": "pose_01.mp4"
+    }
+  ],
+  "summary": {
+    "materialized": 15,
+    "skipped": 0
+  }
+}

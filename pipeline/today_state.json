@@ -1,0 +1,281 @@
+{
+  "_built_at": "2026-04-25 09:56:57",
+  "_purpose": "Single source of truth for directing agents 4-9 and line_producer. Reflects ALL decisions through 2026-04-25 morning: rescue QA, re-routing 9 rescue-failed props, Veo deliveries, recovery map cleanup.",
+  "delivered": {
+    "backgrounds": [
+      "bg_01.mp4",
+      "bg_02.mp4",
+      "bg_03.mp4",
+      "bg_04.mp4",
+      "bg_05.mp4",
+      "bg_06.mp4",
+      "bg_07.mp4",
+      "bg_08.mp4",
+      "bg_09.mp4",
+      "bg_M1.mp4",
+      "bg_M10.mp4",
+      "bg_M11.mp4",
+      "bg_M12.mp4",
+      "bg_M13.mp4",
+      "bg_M14.mp4",
+      "bg_M15.mp4",
+      "bg_M5.mp4",
+      "bg_M6.mp4",
+      "bg_M7.mp4",
+      "bg_M8.mp4",
+      "bg_M9.mp4"
+    ],
+    "transitions": [
+      "T_M1.mp4",
+      "T_M10.mp4",
+      "T_M12.mp4",
+      "T_M13.mp4",
+      "T_M3.mp4",
+      "T_M4.mp4",
+      "T_M6.mp4",
+      "T_M7.mp4",
+      "T_M9.mp4"
+    ],
+    "tools": [
+      "אוהל_מ02.png",
+      "אופניים_מ06.png",
+      "בנגי_מ11.png",
+      "ברזנט_מ02.png",
+      "גלשן_מ01.png",
+      "גריקן_מ06.png",
+      "דגל_מ07.png",
+      "דגל_סיום_מ15.png",
+      "זיקוק_מ15.png",
+      "חבל_קשרים_מ08.png",
+      "טפרי_טיפוס_מ08.png",
+      "כדור_בדולח_מ14.png",
+      "כנפיים_מ01.png",
+      "כרטיס_מ12.png",
+      "לום_מ07.png",
+      "לפיד_יד_מ12.png",
+      "לפיד_מ05.png",
+      "מבער_מ09.png",
+      "מגאפון_מ15.png",
+      "מטבעות_מ14.png",
+      "מפה_מ03.png",
+      "מפתח_מ03.png",
+      "מצלמה_זעירה_מ10.png",
+      "מצלמה_פלאש_מ12.png",
+      "מצנח_בסיס_מ11.png",
+      "מצנח_מ01.png",
+      "מצנח_מ01_styletest_v1.png",
+      "מצפן_מ13.png",
+      "משקפת_מ03.png",
+      "סולם_חבלים_מ08.png",
+      "סולם_חבלים_מ08_styletest_v1.png",
+      "סנפלינג_מ11.png",
+      "סרגל_מ13.png",
+      "ערכה_מ06.png",
+      "פטיש_מ02.png",
+      "פנס_עוצמתי_מ05.png",
+      "פנס_עוצמתי_מ05_styletest_v1.png",
+      "פריסקופ_מ07.png",
+      "קאטר_מ10.png",
+      "קרשים_מ04.png",
+      "רב_כלי_מ09.png",
+      "רובה_חבלים_מ04.png",
+      "רחפן_מ13.png",
+      "רשת_מ05.png",
+      "רתמה_מ04.png",
+      "שמיכה_מ10.png",
+      "שמן_מ09.png",
+      "תיבה_מ14.png"
+    ],
+    "scenery_active": [
+      "_test_finish_line_nano.png",
+      "altar_stone.png",
+      "broken_door.png",
+      "chasm_background.png",
+      "churning_water_pool.png",
+      "cliff_waterfall.png",
+      "competitor_boat_at_cave.png",
+      "competitors_in_air.png",
+      "dark_cave_entrance.png",
+      "dark_tunnel_entrance.png",
+      "darkening_sky.png",
+      "dense_jungle.png",
+      "dense_jungle_thicket.png",
+      "distant_celebration_lights.png",
+      "dust_clouds.png",
+      "encroaching_darkness.png",
+      "equipment_pile.png",
+      "escape_boat_distant.png",
+      "fake_map_torn.png",
+      "finish_line.png",
+      "fireworks.png",
+      "flashing_keypad.png",
+      "forest_far_side.png",
+      "fresh_footprints_m8.png",
+      "guard_shadows.png",
+      "jungle_background.png",
+      "jungle_edge.png",
+      "jungle_trees.png",
+      "main_boat_at_shore(1).png",
+      "main_boat_at_shore.png",
+      "overgrown_path.png",
+      "parked_vehicles.png",
+      "path_straight.png",
+      "rain_effect.png",
+      "rain_effect_m8.png",
+      "rival_team_disappearing.png",
+      "river_shore_bank.png",
+      "rock_cliff_m8.png",
+      "rope_bridge_midground.png",
+      "scenery_black_box.png",
+      "scenery_broken_branches.png",
+      "scenery_bush_right.png",
+      "scenery_tunnel_floor.png",
+      "scenery_tunnel_walls.png",
+      "smoking_jeep.png",
+      "steel_gate.png",
+      "storm_clouds_lightning.png",
+      "temple_entrance_m14.png",
+      "temple_entrance_m7.png",
+      "tire_tracks.png",
+      "uphill_road.png",
+      "walkie_talkie.png",
+      "wet_footprints_trail.png"
+    ],
+    "rivals": [],
+    "player_poses": [
+      "pose_01.mp4",
+      "pose_02.mp4",
+      "pose_03.mp4",
+      "pose_04.mp4",
+      "pose_05.mp4",
+      "pose_06.mp4",
+      "pose_07.mp4"
+    ]
+  },
+  "still_pending_veo": {
+    "transitions": [
+      "T_M14"
+    ],
+    "backgrounds": []
+  },
+  "scenery_disposition": {
+    "ship_as_is": [
+      "broken_door",
+      "cliff_waterfall",
+      "competitor_boat_at_cave",
+      "competitors_in_air",
+      "dark_cave_entrance",
+      "dark_tunnel_entrance",
+      "distant_celebration_lights",
+      "equipment_pile",
+      "fake_map_torn",
+      "finish_line",
+      "fireworks",
+      "flashing_keypad",
+      "main_boat_at_shore",
+      "main_boat_at_shore(1)",
+      "overgrown_path",
+      "parked_vehicles",
+      "path_straight",
+      "rope_bridge_midground",
+      "scenery_black_box",
+      "scenery_broken_branches",
+      "steel_gate",
+      "storm_clouds_lightning",
+      "temple_entrance_m7",
+      "tire_tracks",
+      "walkie_talkie"
+    ],
+    "merge_to_bg": {
+      "_note": "These are NOT separate scenery layers. They are baked INTO the mission bg video. Directors must NOT place them as independent layers in assembly.json.",
+      "items": [
+        "altar_stone",
+        "chasm_background",
+        "churning_water_pool",
+        "darkening_sky",
+        "dense_jungle",
+        "dense_jungle_thicket",
+        "escape_boat_distant",
+        "forest_far_side",
+        "jungle_background",
+        "jungle_edge",
+        "jungle_trees",
+        "rival_team_disappearing",
+        "river_shore_bank",
+        "rock_cliff_m8",
+        "scenery_tunnel_floor",
+        "scenery_tunnel_walls",
+        "uphill_road"
+      ]
+    },
+    "replace_with_mp4_loop": {
+      "_note": "Replace static PNG with looping MP4. Place as scenery layer but reference the .mp4 file.",
+      "items": [
+        "rain_effect",
+        "rain_effect_m8",
+        "scenery_bush_right",
+        "smoking_jeep"
+      ]
+    },
+    "builder_css": {
+      "_note": "Animated by Builder via CSS in player layer. NO asset file. Directors should reference these as CSS-driven elements in interaction.json, not as scenery in assembly.json.",
+      "items": [
+        "fresh_footprints_m8",
+        "wet_footprints_trail"
+      ]
+    },
+    "drop_use_other": {
+      "_note": "Skip entirely. Don't reference anywhere.",
+      "items": [
+        "encroaching_darkness",
+        "temple_entrance_m14"
+      ]
+    },
+    "needs_review": {
+      "_note": "Hold — Nirit reviews these later.",
+      "items": [
+        "guard_shadows",
+        "tire_tracks"
+      ]
+    }
+  },
+  "summary_counts": {
+    "ship_as_is": 25,
+    "merge_to_bg": 17,
+    "replace_with_mp4_loop": 4,
+    "needs_shutterstock": 0,
+    "drop_use_other": 2,
+    "needs_review": 2,
+    "needs_veo": 0,
+    "builder_css": 2
+  },
+  "decisions_today": [
+    {
+      "decision": "Strict 2nd-pass QA caught 9 false-positive rescues",
+      "detail": "Original rescue auto-QA had false positives. Added 3-test strict gate: subject_area_pct + open-ended naming + slug-match. 9 props reverted from active staging.",
+      "outcome": "9 props moved out of needs_veo into either merge_to_bg (7 environmental: darkening_sky, forest_far_side, jungle_trees, river_shore_bank, churning_water_pool, escape_boat_distant, rival_team_disappearing) or builder_css (2 footprints: fresh_footprints_m8, wet_footprints_trail)."
+    },
+    {
+      "decision": "Veo scope clarified: bg + transitions only",
+      "detail": "Per Nirit: Veo is for SHORT VIDEOS (backgrounds + transitions) ONLY. Not for individual scenery props.",
+      "outcome": "needs_veo bucket emptied; props re-routed."
+    },
+    {
+      "decision": "Veo quota mystery solved",
+      "detail": "`veo-3.0-fast-generate-001` and `veo-3.0-generate-001` have INDEPENDENT quota buckets. Switched to non-fast model — works on both keys with KEY_A->KEY_B failover.",
+      "outcome": "All 6 backgrounds delivered (bg_M9, bg_M11, bg_M12, bg_06, bg_07, bg_01). 2 of 3 transitions delivered (T_M7, T_M13). T_M14 still pending — autonomous drain is retrying."
+    },
+    {
+      "decision": "overgrown_path rescue passed strict QA",
+      "detail": "rescue passed subject_area=66%, slug_match=PASS — moved from merge_to_bg to ship_as_is.",
+      "outcome": "ship_as_is += overgrown_path."
+    }
+  ],
+  "rules_for_directors": [
+    "Reference ONLY files in delivered.* — never reference props in merge_to_bg.items, drop_use_other.items, or builder_css.items as independent layers.",
+    "For builder_css items (footprints) — reference them in interaction.json as CSS-animated overlays in player layer, not as separate assets.",
+    "For replace_with_mp4_loop items (rain, bush, jeep) — reference the .mp4 path in assembly.json scenery layer.",
+    "Backgrounds: each mission has bg_M<n>.mp4 OR bg_<NN>.mp4. Use the mission-specific one if it exists; fall back to generic bg_<NN>.mp4 only when no mission-specific bg exists.",
+    "Transitions: T_M14 is not yet delivered — if your mission depends on T_M14, mark it tentatively and the harmony auditor will flag it."
+  ]
+}

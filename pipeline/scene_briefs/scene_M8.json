@@ -1,0 +1,378 @@
+{
+  "_for_mission": "M8",
+  "_built_at": "2026-04-25T12:54:13Z",
+  "_source": "directing/{assembly,continuity,timing,interaction,storyboard}.json",
+  "scene_id": "M8",
+  "duration_ms": 12000,
+  "entry_transition": {
+    "type": "wipe_right",
+    "duration_ms": 500,
+    "notes": "Horizontal wipe simulates player's lateral movement from temple gate reconnaissance (M7) to the cliff face obstacle (M8). Rain intensifies during wipe, establishing the wet/slippery conditions immediately."
+  },
+  "exit_transition": null,
+  "background": {
+    "z": 0,
+    "role": "background",
+    "file": "bg_M8.mp4",
+    "slot": null,
+    "pos": {
+      "x_pct": 50,
+      "y_pct": 50
+    },
+    "scale": 1.0,
+    "rot_deg": 0,
+    "anchor": "center",
+    "fit": "cover",
+    "pose_candidates": []
+  },
+  "player": {
+    "pose_file": "pose_02.mp4",
+    "pose_semantic": "anim_climbing",
+    "loop_segment_sec": {
+      "start": 0.0,
+      "end": 8.0
+    },
+    "hold_frame_sec": null,
+    "one_shot": false,
+    "catch_pose": false
+  },
+  "tracks": [
+    {
+      "role": "background",
+      "file": "bg_M8.mp4",
+      "slot": null,
+      "pose": null,
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": true,
+      "loop_segment_ms": null,
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "scenery",
+      "file": "assets/scenery/rain_effect_m8.mp4",
+      "slot": null,
+      "pose": null,
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": true,
+      "loop_segment_ms": null,
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "player",
+      "file": "pose_02.mp4",
+      "slot": null,
+      "pose": "pose_02.mp4",
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": true,
+      "loop_segment_ms": null,
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/סולם_חבלים_מ08.png",
+      "slot": "A",
+      "pose": null,
+      "in_ms": 800,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_up",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/חבל_קשרים_מ08.png",
+      "slot": "B",
+      "pose": null,
+      "in_ms": 1200,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_up",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/טפרי_טיפוס_מ08.png",
+      "slot": "C",
+      "pose": null,
+      "in_ms": 1600,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_up",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "mission_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 500,
+      "out_ms": 4500,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 300
+    },
+    {
+      "role": "checkpoint_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 9500,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    }
+  ],
+  "interactive_elements": [
+    {
+      "slot": "A",
+      "label": "סולם חבלים",
+      "points": 1,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.06,
+        "glow_color": "#FFD700"
+      },
+      "click": {
+        "feedback_animation": "bounce",
+        "feedback_ms": 450,
+        "points_popup": {
+          "text": "+1",
+          "color": "#FFD700",
+          "from_xy_pct": {
+            "x": 15,
+            "y": 25
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 800
+        }
+      },
+      "tooltip": {
+        "he": "סולם גמיש לטיפוס מהיר",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "B",
+      "label": "חבל עם קשרים",
+      "points": 2,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.08,
+        "glow_color": "#FF8C00"
+      },
+      "click": {
+        "feedback_animation": "pulse_out",
+        "feedback_ms": 500,
+        "points_popup": {
+          "text": "+2",
+          "color": "#FF8C00",
+          "from_xy_pct": {
+            "x": 50,
+            "y": 18
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 850
+        }
+      },
+      "tooltip": {
+        "he": "אחיזה חזקה יותר בקשרים",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "C",
+      "label": "טפרי טיפוס ממתכת",
+      "points": 3,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.1,
+        "glow_color": "#FF4500"
+      },
+      "click": {
+        "feedback_animation": "flash",
+        "feedback_ms": 550,
+        "points_popup": {
+          "text": "+3",
+          "color": "#FF4500",
+          "from_xy_pct": {
+            "x": 85,
+            "y": 22
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 900
+        }
+      },
+      "tooltip": {
+        "he": "ציוד מקצועי לטיפוס מצוקים",
+        "show_after_ms": 600
+      }
+    }
+  ],
+  "global_ui": {
+    "score_display": {
+      "pos": {
+        "x_pct": 88,
+        "y_pct": 8
+      },
+      "font_size_px": 28
+    },
+    "mission_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 6
+      },
+      "width_pct": 60,
+      "font_size_px": 18
+    },
+    "checkpoint_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 92
+      },
+      "width_pct": 70,
+      "font_size_px": 16
+    }
+  },
+  "beats": [
+    {
+      "t_ms": 0,
+      "description": "Scene opens: vertical rock cliff face in heavy rain. Nirit positioned mid-climb (58% height), left-of-center, facing right toward summit. Rain overlay active from frame one, establishing slippery conditions.",
+      "visible_elements": [
+        "background.bg_M8",
+        "scenery.rain_effect_m8",
+        "player.pose_02"
+      ],
+      "audio_hint": "Rain ambience (heavy), rock scraping, labored breathing"
+    },
+    {
+      "t_ms": 500,
+      "description": "Mission text appears: 'סלע אנכי חלק חוסם את הדרך. הגשם הופך אותו לחלק כמו קרח, אבל סימני נעליים טריים מעידים שמישהו טיפס כאן ממש עכשיו. במה אני נאחזת כדי לעלות ולא להחליק?'",
+      "visible_elements": [
+        "background.bg_M8",
+        "scenery.rain_effect_m8",
+        "player.pose_02",
+        "text.mission"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 800,
+      "description": "First tool enters (slot A): rope ladder (סולם_חבלים_מ08) appears upper-left of tool arc. Flexible climbing option now visible.",
+      "visible_elements": [
+        "background.bg_M8",
+        "scenery.rain_effect_m8",
+        "player.pose_02",
+        "text.mission",
+        "tool.A"
+      ],
+      "audio_hint": "Subtle rope creak"
+    },
+    {
+      "t_ms": 1200,
+      "description": "Second tool enters (slot B): knotted rope (חבל_קשרים_מ08) appears center-top of arc. Stronger grip option materializes.",
+      "visible_elements": [
+        "background.bg_M8",
+        "scenery.rain_effect_m8",
+        "player.pose_02",
+        "text.mission",
+        "tool.A",
+        "tool.B"
+      ],
+      "audio_hint": "Rope tension sound"
+    },
+    {
+      "t_ms": 1600,
+      "description": "Third tool enters (slot C): metal crampons (טפרי_טיפוס_מ08) appear upper-right, completing the tension triangle. All climbing options now available for interaction.",
+      "visible_elements": [
+        "background.bg_M8",
+        "scenery.rain_effect_m8",
+        "player.pose_02",
+        "text.mission",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": "Metal clink"
+    },
+    {
+      "t_ms": 4500,
+      "description": "Mission text fades out. Player remains mid-climb with all three tool options visible, rain continuing. Decision window fully open.",
+      "visible_elements": [
+        "background.bg_M8",
+        "scenery.rain_effect_m8",
+        "player.pose_02",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 9500,
+      "description": "Checkpoint text appears: 'אני למעלה. כניסה למנהרה עם שער פלדה מסיבי.' Signals successful climb completion, tunnel entrance ahead.",
+      "visible_elements": [
+        "background.bg_M8",
+        "scenery.rain_effect_m8",
+        "player.pose_02",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": "Achievement tone (subtle)"
+    },
+    {
+      "t_ms": 12000,
+      "description": "Scene ends. All elements remain visible through final frame — player, rain, tools, checkpoint text — preparing for transition to tunnel entrance (M9).",
+      "visible_elements": [
+        "background.bg_M8",
+        "scenery.rain_effect_m8",
+        "player.pose_02",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": "Rain fade to tunnel echo (transition prep)"
+    }
+  ],
+  "summary_he": "נירית תקועה באמצע מצוק אנכי וחלק, הגשם הופך אותו למשטח מסוכן כמו קרח. סימני נעליים טריים מעידים שמישהו עלה כאן לפני רגעים ספורים — היא לא לבד במרדף. שלושה כלי טיפוס מופיעים בקשת מתוחה מעל ראשה: סולם חבלים גמיש לטיפוס מהיר, חבל עם קשרים לאחיזה חזקה יותר, וטפרי טיפוס מקצועיים מפלדה. כל בחירה נושאת סיכון שונה במזג האוויר הקיצוני הזה. הגשם לא מפסיק, השעון מתקתק, והמנהרה עם שער הפלדה המסיבי מחכה למעלה.",
+  "summary_en": "Mid-climb on rain-slicked vertical rock face. Three climbing tools appear in tension triangle: rope ladder (fast/flexible), knotted rope (stronger grip), metal crampons (professional gear). Fresh footprints prove rivals climbed moments ago. Mission text establishes slippery conditions and decision urgency. Checkpoint text (t=9500ms) confirms summit reached, tunnel entrance with massive steel gate ahead. Rain overlay persists throughout 12-second scene."
+}

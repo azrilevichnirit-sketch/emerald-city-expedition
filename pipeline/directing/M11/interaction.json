@@ -1,0 +1,128 @@
+{
+  "_stage": "interaction",
+  "_mission": "M11",
+  "_generated_at": "2026-04-25T07:29:19Z",
+  "_generated_by": "agent_07_interaction",
+  "scene_id": "M11",
+  "interactive_elements": [
+    {
+      "slot": "A",
+      "label": "חבל סנפלינג עם רתמה",
+      "points": 1,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.06,
+        "glow_color": "#FFD700"
+      },
+      "click": {
+        "feedback_animation": "pulse_out",
+        "feedback_ms": 450,
+        "points_popup": {
+          "text": "+1",
+          "color": "#FFD700",
+          "from_xy_pct": {
+            "x": 72,
+            "y": 25
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 800
+        }
+      },
+      "tooltip": {
+        "he": "ירידה בטוחה עם רתמה מלאה",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "B",
+      "label": "חבל בנג'י",
+      "points": 2,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.08,
+        "glow_color": "#FF8C00"
+      },
+      "click": {
+        "feedback_animation": "bounce",
+        "feedback_ms": 500,
+        "points_popup": {
+          "text": "+2",
+          "color": "#FF8C00",
+          "from_xy_pct": {
+            "x": 85,
+            "y": 50
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 850
+        }
+      },
+      "tooltip": {
+        "he": "קפיצה אלסטית - סיכון בינוני",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "C",
+      "label": "מצנח בסיס",
+      "points": 3,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.1,
+        "glow_color": "#FF4500"
+      },
+      "click": {
+        "feedback_animation": "flash",
+        "feedback_ms": 550,
+        "points_popup": {
+          "text": "+3",
+          "color": "#FF4500",
+          "from_xy_pct": {
+            "x": 78,
+            "y": 75
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 900
+        }
+      },
+      "tooltip": {
+        "he": "צניחה חופשית - הכי מסוכן!",
+        "show_after_ms": 600
+      }
+    }
+  ],
+  "global_ui": {
+    "score_display": {
+      "pos": {
+        "x_pct": 88,
+        "y_pct": 8
+      },
+      "font_size_px": 32
+    },
+    "mission_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 6
+      },
+      "width_pct": 60,
+      "font_size_px": 20
+    },
+    "checkpoint_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 92
+      },
+      "width_pct": 70,
+      "font_size_px": 18
+    }
+  },
+  "rationale": "M11 cliff descent: A (rappel harness) = safe baseline (gold glow, +1), B (bungee) = medium risk (orange, bounce feedback, +2), C (BASE parachute) = highest thrill (red-orange, flash, +3). Points fly from tool positions to top-right score. Tooltips explain risk level in Hebrew <40 chars. Global UI: score top-right, mission top-center, checkpoint bottom-center for vertical scene composition."
+}

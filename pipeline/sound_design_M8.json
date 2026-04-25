@@ -1,0 +1,31 @@
+{
+  "_for_mission": "M8",
+  "_status": "PLACEHOLDER (sound pass not yet run)",
+  "_source": "storyboard.beats[].audio_hint",
+  "audio_cues": [
+    {
+      "t_ms": 0,
+      "hint": "Rain ambience (heavy), rock scraping, labored breathing"
+    },
+    {
+      "t_ms": 800,
+      "hint": "Subtle rope creak"
+    },
+    {
+      "t_ms": 1200,
+      "hint": "Rope tension sound"
+    },
+    {
+      "t_ms": 1600,
+      "hint": "Metal clink"
+    },
+    {
+      "t_ms": 9500,
+      "hint": "Achievement tone (subtle)"
+    },
+    {
+      "t_ms": 12000,
+      "hint": "Rain fade to tunnel echo (transition prep)"
+    }
+  ]
+}

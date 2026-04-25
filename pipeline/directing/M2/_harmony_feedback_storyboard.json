@@ -1,0 +1,9 @@
+{
+  "stage": "storyboard",
+  "feedback_round": 1,
+  "fixes": [
+    "- storyboard beats reference 'background.bg_M1' but assembly specifies 'bg_02.mp4' as the background file\n  fix: Update all storyboard beat visible_elements from 'background.bg_M1' to 'background.bg_02' or generic 'background' reference",
+    "- storyboard beats reference 'player.player_m2' but timing specifies 'pose_07.mp4' as the actual player file\n  fix: Update storyboard visible_elements from 'player.player_m2' to 'player.pose_07' or generic 'player' reference"
+  ],
+  "_written_at": "2026-04-25 14:35:44"
+}

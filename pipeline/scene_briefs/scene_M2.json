@@ -1,0 +1,353 @@
+{
+  "_for_mission": "M2",
+  "_built_at": "2026-04-25T12:54:13Z",
+  "_source": "directing/{assembly,continuity,timing,interaction,storyboard}.json",
+  "scene_id": "M2",
+  "duration_ms": 12000,
+  "entry_transition": {
+    "type": "cross_dissolve",
+    "duration_ms": 500,
+    "notes": "Dissolve from jungle assessment to storm urgency — player shifts from grounded crouch (M1 exit) to reaching pose (M2), maintaining rightward orientation but now facing tools instead of jungle depth. Weather escalates visually."
+  },
+  "exit_transition": null,
+  "background": {
+    "z": 0,
+    "role": "background",
+    "file": "bg_02.mp4",
+    "slot": null,
+    "pos": {
+      "x_pct": 50,
+      "y_pct": 50
+    },
+    "scale": 1.0,
+    "rot_deg": 0,
+    "anchor": "center",
+    "fit": "cover",
+    "pose_candidates": []
+  },
+  "player": {
+    "pose_file": "pose_06.mp4",
+    "pose_semantic": "anim_reach_forward",
+    "loop_segment_sec": null,
+    "hold_frame_sec": 5.5,
+    "one_shot": true,
+    "catch_pose": true
+  },
+  "tracks": [
+    {
+      "role": "background",
+      "file": "bg_02.mp4",
+      "slot": null,
+      "pose": null,
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": true,
+      "loop_segment_ms": null,
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "player",
+      "file": "pose_06.mp4",
+      "slot": null,
+      "pose": "pose_06.mp4",
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/ברזנט_מ02.png",
+      "slot": "A",
+      "pose": null,
+      "in_ms": 2000,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_left",
+      "appear_ms": 350,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/פטיש_מ02.jpg",
+      "slot": "B",
+      "pose": null,
+      "in_ms": 2400,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_left",
+      "appear_ms": 350,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/אוהל_מ02.png",
+      "slot": "C",
+      "pose": null,
+      "in_ms": 2800,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_left",
+      "appear_ms": 350,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "mission_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 500,
+      "out_ms": 4500,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 300
+    },
+    {
+      "role": "checkpoint_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 9500,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 200
+    }
+  ],
+  "interactive_elements": [
+    {
+      "slot": "A",
+      "label": "יריעת ברזנט",
+      "points": 1,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.06,
+        "glow_color": "#FFD700"
+      },
+      "click": {
+        "feedback_animation": "pulse_out",
+        "feedback_ms": 450,
+        "points_popup": {
+          "text": "+1",
+          "color": "#FFD700",
+          "from_xy_pct": {
+            "x": 72,
+            "y": 30
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 800
+        }
+      },
+      "tooltip": {
+        "he": "כיסוי מהיר מגשם",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "B",
+      "label": "פטיש ומסמרים",
+      "points": 2,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.08,
+        "glow_color": "#FF8C00"
+      },
+      "click": {
+        "feedback_animation": "bounce",
+        "feedback_ms": 500,
+        "points_popup": {
+          "text": "+2",
+          "color": "#FF8C00",
+          "from_xy_pct": {
+            "x": 85,
+            "y": 55
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 850
+        }
+      },
+      "tooltip": {
+        "he": "לחיזוק המבנה",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "C",
+      "label": "אוהל סיירים",
+      "points": 3,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.1,
+        "glow_color": "#FF4500"
+      },
+      "click": {
+        "feedback_animation": "flash",
+        "feedback_ms": 550,
+        "points_popup": {
+          "text": "+3",
+          "color": "#FF4500",
+          "from_xy_pct": {
+            "x": 78,
+            "y": 78
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 900
+        }
+      },
+      "tooltip": {
+        "he": "מקלט מושלם מפני הסערה",
+        "show_after_ms": 600
+      }
+    }
+  ],
+  "global_ui": {
+    "score_display": {
+      "pos": {
+        "x_pct": 88,
+        "y_pct": 8
+      },
+      "font_size_px": 28
+    },
+    "mission_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 6
+      },
+      "width_pct": 60,
+      "font_size_px": 18
+    },
+    "checkpoint_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 92
+      },
+      "width_pct": 70,
+      "font_size_px": 16
+    }
+  },
+  "beats": [
+    {
+      "t_ms": 0,
+      "description": "Scene opens: storm-threatened jungle clearing visible, Nirit in reaching pose toward right side of frame where tools will appear. Cross-dissolve transition from M1 completes.",
+      "visible_elements": [
+        "background.bg_02",
+        "player.pose_06"
+      ],
+      "audio_hint": "Thunder rumble building, wind gusts, jungle ambience with urgency"
+    },
+    {
+      "t_ms": 500,
+      "description": "Mission text appears: 'הברקים כבר מעליי וסערה טרופית עומדת להתפרץ. אם לא אמצא מחסה יבש לציוד עכשיו, כל היתרון שלי ייהרס. מה הדרך הטובה ביותר לאלתר פתרון ללילה?'",
+      "visible_elements": [
+        "background.bg_02",
+        "player.pose_06",
+        "text.mission"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 2000,
+      "description": "Tool A (tarp/ברזנט) materializes top-right position, first in diagonal cascade. Player's reaching gesture now has visible target.",
+      "visible_elements": [
+        "background.bg_02",
+        "player.pose_06",
+        "text.mission",
+        "tool.A"
+      ],
+      "audio_hint": "Subtle material sound — fabric rustle"
+    },
+    {
+      "t_ms": 2400,
+      "description": "Tool B (hammer/פטיש) appears mid-right, second in cascade. Urgency gradient forming visually.",
+      "visible_elements": [
+        "background.bg_02",
+        "player.pose_06",
+        "text.mission",
+        "tool.A",
+        "tool.B"
+      ],
+      "audio_hint": "Metal clink — tool placement"
+    },
+    {
+      "t_ms": 2800,
+      "description": "Tool C (tent/אוהל) completes the diagonal at lower-right. All three shelter solutions now visible, tooltips become available after 600ms (t=3400ms effective).",
+      "visible_elements": [
+        "background.bg_02",
+        "player.pose_06",
+        "text.mission",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": "Soft thud — final tool arrival"
+    },
+    {
+      "t_ms": 4500,
+      "description": "Mission text fades out. Player and three tools remain in tableau, interaction window fully open.",
+      "visible_elements": [
+        "background.bg_02",
+        "player.pose_06",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 9500,
+      "description": "Checkpoint text appears: 'הציוד מוגן. שרדנו את הלילה, המסע האמיתי מתחיל.' — signals resolution phase beginning.",
+      "visible_elements": [
+        "background.bg_02",
+        "player.pose_06",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": "Rain intensity shifts — storm passing or shelter secured implication"
+    },
+    {
+      "t_ms": 12000,
+      "description": "Scene ends. All elements hold through final frame, ready for transition to M3.",
+      "visible_elements": [
+        "background.bg_02",
+        "player.pose_06",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": null
+    }
+  ],
+  "summary_he": "ברקים מבזיקים מעל ראשה של נירית והסערה הטרופית מתקרבת במהירות. היא עומדת בתנוחת הושטה, פניה אל הפתרונות האפשריים שמתגלים בזה אחר זה: ברזנט למחסה מהיר, פטיש לחיזוק מבנה, ואוהל למקלט מושלם. שלושת הכלים מסודרים באלכסון יורד בצד ימין של המסך, יוצרים מדרג חזותי של דחיפות. הטקסט מזהיר: אם לא תמצא מחסה יבש לציוד עכשיו, כל היתרון שלה ייהרס. כשהסערה מגיעה לשיא, הטקסט משתנה: 'הציוד מוגן. שרדנו את הלילה, המסע האמיתי מתחיל.' רגע של הישרדות שהופך לנקודת זינוק.",
+  "summary_en": "Storm urgency scene: Nirit in reaching pose faces three shelter solutions appearing in timed diagonal cascade (tarp 2s, hammer 2.4s, tent 2.8s). Mission text establishes threat to equipment, checkpoint text at 9.5s confirms survival and transition to true journey. Visual composition creates urgency gradient from top-right to lower-right, player oriented into frame toward solutions. 12-second duration allows interaction window between tool reveal completion and resolution phase."
+}

@@ -1,0 +1,8 @@
+{
+  "stage": "interaction",
+  "feedback_round": 1,
+  "fixes": [
+    "- Interaction tooltip for slot C is 'חתוך את חוטי המעקב בזהירות' (34 chars including spaces) but rationale claims '<40 chars' — while technically passing, slot A tooltip 'צלם את השומרים בלי להתגלות' is 31 chars and slot B 'הסתר מתחת לשמיכה חסינת חום' is 30 chars, all within limit but not optimally concise for urgent scenario.\n  fix: Shorten tooltips to <25 chars for split-second decision context (e.g., 'צלם בחשאי', 'הסתר בשמיכה', 'חתוך חוטים')."
+  ],
+  "_written_at": "2026-04-25 10:34:18"
+}

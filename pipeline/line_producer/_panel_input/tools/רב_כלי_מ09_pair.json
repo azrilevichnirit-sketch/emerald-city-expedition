@@ -1,0 +1,13 @@
+{
+  "asset": "רב_כלי_מ09.png",
+  "type": "tool_png",
+  "before_kb": 1829,
+  "after_kb": 181,
+  "ratio": 10.1,
+  "in_budget": false,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\רב_כלי_מ09.png",
+  "dst": "assets\\optimized\\tools\\רב_כלי_מ09.webp",
+  "status": "compressed_pending_panel"
+}

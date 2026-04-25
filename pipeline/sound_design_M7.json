@@ -1,0 +1,31 @@
+{
+  "_for_mission": "M7",
+  "_status": "PLACEHOLDER (sound pass not yet run)",
+  "_source": "storyboard.beats[].audio_hint",
+  "audio_cues": [
+    {
+      "t_ms": 0,
+      "hint": "Ambient jungle sounds, distant voices from rival teams inside temple (radio chatter), vehicle engine cooling ticks"
+    },
+    {
+      "t_ms": 500,
+      "hint": "Radio crackle with excited voices (muffled Hebrew), heightening urgency"
+    },
+    {
+      "t_ms": 800,
+      "hint": "Soft fabric rustle as flag appears"
+    },
+    {
+      "t_ms": 1200,
+      "hint": "Metallic slide/extend sound (periscope mechanism)"
+    },
+    {
+      "t_ms": 1600,
+      "hint": "Heavy metal clank as crowbar settles"
+    },
+    {
+      "t_ms": 9500,
+      "hint": "Subtle rumble/echo suggesting scale of rock wall obstacle"
+    }
+  ]
+}

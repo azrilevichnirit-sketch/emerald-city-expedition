@@ -1,0 +1,69 @@
+{
+  "attempt": 1776746298,
+  "tools": {
+    "גלשן_מ01": {
+      "status": "error_no_preds",
+      "resp": "{}"
+    },
+    "חבל_קשרים_מ08": {
+      "status": "ok",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\חבל_קשרים_מ08_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\חבל_קשרים_מ08_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\חבל_קשרים_מ08_final.png"
+    },
+    "לום_מ07": {
+      "status": "ok",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\לום_מ07_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\לום_מ07_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\לום_מ07_final.png"
+    },
+    "לפיד_יד_מ12": {
+      "status": "ok",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\לפיד_יד_מ12_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\לפיד_יד_מ12_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\לפיד_יד_מ12_final.png"
+    },
+    "לפיד_מ05": {
+      "status": "ok",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\לפיד_מ05_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\לפיד_מ05_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\לפיד_מ05_final.png"
+    },
+    "מפה_מ03": {
+      "status": "ok",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\מפה_מ03_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\מפה_מ03_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\מפה_מ03_final.png"
+    },
+    "מצנח_בסיס_מ11": {
+      "status": "ok",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\מצנח_בסיס_מ11_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\מצנח_בסיס_מ11_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\מצנח_בסיס_מ11_final.png"
+    },
+    "סנפלינג_מ11": {
+      "status": "ok",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\סנפלינג_מ11_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\סנפלינג_מ11_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\סנפלינג_מ11_final.png"
+    },
+    "סרגל_מ13": {
+      "status": "ok",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\סרגל_מ13_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\סרגל_מ13_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\סרגל_מ13_final.png"
+    },
+    "פריסקופ_מ07": {
+      "status": "ok",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\פריסקופ_מ07_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\פריסקופ_מ07_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\פריסקופ_מ07_final.png"
+    },
+    "רשת_מ05": {
+      "status": "ok",
+      "raw": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\רשת_מ05_raw.png",
+      "rembg": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\רשת_מ05_rembg.png",
+      "final": "C:\\Users\\azril\\OneDrive\\Desktop\\fincail_game\\new\\pipeline\\review\\tools_qa_gemini\\רשת_מ05_final.png"
+    }
+  }
+}

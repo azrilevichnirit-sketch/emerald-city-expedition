@@ -1,0 +1,29 @@
+{
+  "asset": "שמן_מ09",
+  "label_verbatim": "שמן לשימון צירים",
+  "target_path": "assets/tools/שמן_מ09.png",
+  "type": "tool_item",
+  "source_mission": "M9 slot A",
+  "consequence_type": "lubricate",
+  "points": 1,
+  "scene_context": "M9 — שמן לשימון צירים",
+  "pipeline_version": "0E_rembg_v1",
+  "prompts": {
+    "leonardo": "a small TEAR-DROP shaped LUBRICATING OIL can, narrow curved body with a LONG THIN CURVED METAL SPOUT NOZZLE projecting upward at the top for precision lubrication application, blue enamel body with simple label area, like a classic 3-in-1 oil sewing machine oil can, the long thin spout is the MOST PROMINENT visual feature, 3/4 view angle, camera elevation 25-30 degrees, rotated 15 degrees right, hard directional key light from upper-left 10 oclock, isolated object on plain neutral studio background, product shot, clean sharp edges, stylized realism, cinematic game item, NOT cartoon, fills 65% of frame centered, square composition, prominent 3D subject",
+    "leonardo_negative": "paint can, paint bucket, cylindrical can, spray can, bottle, no spout, human figure, person, hands, holding, gradient background, busy background, text, watermark, logo, cartoon style, anime, flat vector illustration"
+  },
+  "leonardo_params": {
+    "modelId": "aa77f04e-3eec-4034-9c07-d0f619684628",
+    "width": 1024,
+    "height": 1024,
+    "num_images": 1,
+    "alchemy": true,
+    "photoReal": false
+  },
+  "directors_note": "שמן לשימון צירים — single isolated object per Camera Bible, sharp edges for rembg.",
+  "approved": true,
+  "_approved_at": "2026-04-20",
+  "_approved_by": "director + production_designer (Claude agent roles) per camera_bible.json + pipeline v0E_rembg_v1",
+  "_retry_attempt": 1,
+  "_rewrite_round": 2
+}

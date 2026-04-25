@@ -1,0 +1,12 @@
+    round 1/8 ok  (va=648c vb=764c mod=254c)
+    round 2/8 ok  (va=654c vb=750c mod=245c)
+    round 3/8 ok  (va=648c vb=6c mod=160c)
+    round 4/8 ok  (va=699c vb=6c mod=168c)
+    round 5/8 ok  (va=569c vb=87c mod=161c)
+    round 6/8 ok  (va=320c vb=127c mod=152c)
+    round 7/8 ok  (va=340c vb=133c mod=103c)
+    round 8/8 ok  (va=396c vb=136c mod=378c)
+    saved: C:\Users\azril\OneDrive\Desktop\fincail_game\new\pipeline\debates\backgrounds\director_bg_bg_01_v2.json
+[bg_01_v2] decision=redo flag=True (116s)
+  synthesis: bg_01.mp4 הוגדר כרקע המשתמש בתצוגת POV קרקעית, עם שלוש שכבות עומק ברורות המפצלות בין עקבות רכב לעומת שטח נקי, ומייצג את הבוקר המוקדם. ההגדרה היא לצורך יצירת shot פתיחה ולא לשימוש פעיל במשימה.
+  fix_notes: בריף חדש נדרש ל-M3 כדי לשפר את התאמת הרקע למשימה.

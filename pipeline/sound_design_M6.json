@@ -1,0 +1,27 @@
+{
+  "_for_mission": "M6",
+  "_status": "PLACEHOLDER (sound pass not yet run)",
+  "_source": "storyboard.beats[].audio_hint",
+  "audio_cues": [
+    {
+      "t_ms": 0,
+      "hint": "Engine sputtering, hissing steam, distant vehicle sounds fading"
+    },
+    {
+      "t_ms": 800,
+      "hint": "Subtle metallic clink"
+    },
+    {
+      "t_ms": 1200,
+      "hint": "Tool case settling sound"
+    },
+    {
+      "t_ms": 1600,
+      "hint": "Bike frame resonance"
+    },
+    {
+      "t_ms": 12000,
+      "hint": "Ambient wind, engine struggling"
+    }
+  ]
+}

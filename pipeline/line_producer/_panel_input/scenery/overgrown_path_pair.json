@@ -1,0 +1,13 @@
+{
+  "asset": "overgrown_path.png",
+  "type": "scenery_png",
+  "before_kb": 1314,
+  "after_kb": 243,
+  "ratio": 5.41,
+  "in_budget": false,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\overgrown_path.png",
+  "dst": "assets\\optimized\\scenery\\overgrown_path.webp",
+  "status": "compressed_pending_panel"
+}

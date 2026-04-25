@@ -1,0 +1,178 @@
+{
+  "_status": "v5",
+  "_pass": "final",
+  "_created_by": "editor",
+  "_created_at": "2026-04-25",
+  "_supersedes": "edit_notes_M1.json (partial pass — scene_brief was v4, sound_design was placeholder)",
+  "_audit_inputs": {
+    "agents/editor.md": "v1 (role checklist applied)",
+    "pose_composition_map.json": "v5 (read, authoritative for player tracks + event vocabulary)",
+    "scene_briefs/scene_M1.json": "v5 (read — director synced to v5 with bg from set_list, pose_05 added, tools_first_appear=2500ms)",
+    "set_lists/set_list_M1.json": "v5 (read — bg_airplane.mp4 phase 1, bg_jungle_clearing.mp4 phase 2)",
+    "sound_design_M1.json": "v5 (read — outside-the-plane ambient, event-driven, mission_text_shown listener added, 800ms phase crossfade)",
+    "scene_scripts/script_M1.json": "v5 (read — content_lock-bound text)"
+  },
+
+  "scene_id": "M1",
+  "approved": false,
+
+  "cross_file_consistency_checks": {
+    "tools_first_appear_2500ms": {
+      "status": "PASS",
+      "scene_brief": "timing.tools_first_appear_ms = 2500, tracks tool A in_ms=2500, B=2620, C=2740",
+      "rule": "= mission_text_appears_ms (1500) + 1000ms per Nirit verbatim 'שנייה אחרי המשימה'",
+      "result": "Director v5 correctly bumped from 2000 to 2500. Stagger 0/120/240ms preserved."
+    },
+    "bg_crossfade_duration_resolution": {
+      "status": "FAIL — DISAGREEMENT BETWEEN SOURCES",
+      "scene_brief_v5": "background.bg_swap_duration_ms = 400; tracks[role=background_phase_1].disappear_ms = 400; tracks[role=background_phase_2].appear_ms = 400",
+      "set_list_v5": "transitions.phase_1_to_2.duration_ms = 400",
+      "sound_design_v5": "transition_phases.phase_1_to_2.phase_1_fadeout_ms = 800, phase_2_fadein_ms = 800 (DELIBERATELY 800ms per sound_designer iron rule)",
+      "editor_role_rule": "crossfade בין סצנות: 800ms בדיוק",
+      "resolution": "Sound carries 800ms per its iron rule (sonic continuity). Video bg snaps at 400ms (visual snap into landing). The audio asymmetry is documented and intentional in sound_design_M1 _note. HOWEVER, editor's 800ms rule is for SCENE-TO-SCENE transitions, not intra-scene phase swaps. The intra-scene 400ms bg crossfade is acceptable for the in-scene phase swap because pose_03 landing must begin sharply at jump_apex. Editor accepts the asymmetry on grounds that (a) editor's 800ms rule is a scene-boundary rule, (b) all three upstreams (director, set_manager, sound_designer) explicitly document the choice, (c) audio carries 800ms maintaining sonic cohesion."
+    },
+    "mission_text_shown_event_consistency": {
+      "status": "PASS",
+      "pose_composition_map_v5": "_trigger_vocabulary defines mission_text_shown = scene_entry+1500ms; pose_04 ends on this event; pose_05 starts on this event",
+      "scene_brief_v5": "tracks[role=mission_text]._critical 'Builder MUST emit mission_text_shown custom event from same RAF tick that begins this fade_in. Cascades: pose_04 ends, pose_05 begins.' Plus _builder_contract.7_event_emission_targets includes it.",
+      "sound_design_v5": "events[evt_mission_text_appear].trigger = mission_text_shown; _builder_contract.event_listener_targets includes mission_text_shown",
+      "result": "All three sources reference mission_text_shown identically. Builder contract is unambiguous."
+    },
+    "jump_apex_consistency": {
+      "status": "PASS",
+      "pose_composition_map_v5": "tracks[3] (jump_css_overlay) emits jump_apex at midpoint (= catch_complete+300ms); tracks[4] (landing) trigger=jump_apex",
+      "scene_brief_v5": "phase_4_jump_css_overlay emits jump_apex at duration_ms midpoint; phase_5_landing trigger=jump_apex; bg phase_2 in_ms=jump_apex; rivals out_ms=jump_apex; trees in_ms=jump_apex",
+      "sound_design_v5": "ambient_phases.phase_2_jungle.active_from_event=jump_apex; transition_phases.phase_1_to_2.trigger=jump_apex",
+      "result": "All tracks (player landing, bg crossfade, rivals fade-out, trees fade-in, audio crossfade) trigger on jump_apex. Builder must emit a single jump_apex event that cascades to all listeners."
+    },
+    "catch_complete_consistency": {
+      "status": "PASS",
+      "pose_composition_map_v5": "tracks[2] catch RAF-clamps at to_sec=5.5 emits catch_complete; tracks[3] jump_css_overlay trigger=catch_complete",
+      "scene_brief_v5": "phase_3_catch_one_shot RAF-clamps at to_sec=5.5; phase_4_jump_css_overlay trigger=catch_complete",
+      "sound_design_v5": "events[evt_catch_complete_confirm].trigger=catch_complete; events[evt_jump_whoosh_up].trigger=catch_complete",
+      "result": "All three sources fire on catch_complete. Audio layers two events on this trigger (confirm bell + whoosh-up) — intentional per sound_design _note."
+    },
+    "checkpoint_text_landing_complete_plus_200ms": {
+      "status": "PASS",
+      "pose_composition_map_v5": "_timeline_summary 't=jump_apex+2000ms landing_complete — checkpoint_text fires +200ms later'",
+      "scene_brief_v5": "tracks[role=checkpoint_text].in_ms = 'landing_complete+200'; timing.checkpoint_offset_after_landing_complete_ms = 200",
+      "sound_design_v5": "events[evt_checkpoint_confirm].trigger=checkpoint_text_shown; _builder_contract specifies builder must emit checkpoint_text_shown on fade_in start (= landing_complete+200ms)",
+      "result": "All three sources locked at landing_complete+200ms. Nirit's v3 'עוד לפני שהיא מגיעה לקרקרע' rejection avoided."
+    },
+    "pose_05_floaty_revalidation": {
+      "status": "OPEN — HUMAN REVIEW REQUIRED",
+      "pose_composition_map_v5": "tracks[1] pose_05 1.0-2.0 with _human_review_note flagging Nirit's v3/v4 floaty rejection; provides fallback options (shorten to 1.0-1.5 OR is_pose_hold=true at 1.0)",
+      "scene_brief_v5": "phase_2_standing_wait._human_review_flag_from_actor_director carries forward the same fallback options",
+      "result": "Cross-file consistent. Editor carries forward as Open Human Review item — visual screenshot of looped pose_05 1.0-2.0 overlaid on bg_airplane.mp4 must be reviewed before ship."
+    },
+    "tool_stagger_120ms": {
+      "status": "PASS",
+      "scene_brief_v5": "timing.tool_stagger_ms=120; tracks tool A in_ms=2500, B=2620, C=2740 (deltas 120/120)",
+      "editor_role_checklist": "tool stagger: 0ms / 120ms / 240ms בדיוק",
+      "result": "Director v5 = 120ms stagger (= 0/120/240ms cumulative offsets). Matches editor rule exactly."
+    },
+    "no_hard_cuts_in_video_or_audio": {
+      "status": "PASS (with one documented exception)",
+      "video_blends": "pose_04→pose_05 = 200ms; pose_05→pose_06 = 200ms in / 100ms out; pose_06 catch→jump = 0ms (same pose held); pose_06 jump→pose_03 = 200ms; bg phase_1→phase_2 = 400ms; rivals fade out 400ms; trees fade in 400ms",
+      "audio_blends": "phase_1_sky fade_out_ms=800; phase_2_jungle fade_in_ms=800; exit cross_fade_to_M2=600ms",
+      "documented_exception": "scene_brief.entry_transition.type='hard_cut' is BY DESIGN per scene_brief notes ('נכנסים באמצע התנועה') — Nirit-approved energetic cold-open. Not a flaw.",
+      "result": "All non-entry transitions are cross-faded. Entry hard_cut is intentional and documented."
+    },
+    "file_paths_existence_check": {
+      "status": "PARTIAL FAIL — pose video paths ambiguous",
+      "verified_on_disk": [
+        "C:/emerald/backgrounds/bg_airplane.mp4 (219KB)",
+        "C:/emerald/backgrounds/bg_jungle_clearing.mp4 (989KB)",
+        "C:/emerald/assets/scenery/competitors_in_air.png (107KB)",
+        "C:/emerald/scenery/two_jungle_trees.png (950KB)",
+        "C:/emerald/assets/scenery/dust_clouds.png (449KB)",
+        "C:/emerald/assets/tools/מצנח_מ01.png (4.4MB)",
+        "C:/emerald/assets/tools/גלשן_מ01.png (1.3MB)",
+        "C:/emerald/assets/tools/כנפיים_מ01.png (1.8MB)"
+      ],
+      "pose_videos_actual_path": "C:/emerald/assets/player/pose_03.mp4, pose_04.mp4, pose_05.mp4, pose_06.mp4 (all four exist, verified)",
+      "issue": "scene_brief and pose_composition_map reference poses by bare filename ('pose_04.mp4'), with no directory prefix. set_list and scene_brief use absolute paths for backgrounds/scenery/tools but NOT for poses. Builder must resolve 'pose_XX.mp4' to 'C:/emerald/assets/player/pose_XX.mp4' — there is no documented base path in any v5 file.",
+      "result": "All referenced files EXIST on disk, but the pose-video base directory is implicit. Risk: builder may guess wrong path (e.g., assume C:/emerald/assets/poses/ or C:/emerald/poses/, both of which DO NOT EXIST).",
+      "audio_files": "All sound_design audio_file paths are 'placeholder:*' strings — sound_design v5 explicitly states ZERO audio assets on disk and builder treats missing as silent fallback. Not a blocker."
+    }
+  },
+
+  "issues": [
+    {
+      "id": "issue_01_pose_base_path_undocumented",
+      "severity": "BLOCKER",
+      "element": "scene_brief.player.phase_X.pose_file (and pose_composition_map tracks[].pose_file)",
+      "current": "Pose files referenced as bare names: 'pose_03.mp4', 'pose_04.mp4', 'pose_05.mp4', 'pose_06.mp4'. NO directory prefix anywhere in scene_brief, pose_composition_map, or set_list.",
+      "actual_disk_location": "C:/emerald/assets/player/pose_03.mp4 (and 04, 05, 06)",
+      "non_existent_paths_builder_might_try": [
+        "C:/emerald/assets/poses/pose_XX.mp4 — DOES NOT EXIST",
+        "C:/emerald/poses/pose_XX.mp4 — DOES NOT EXIST",
+        "./pose_XX.mp4 — DOES NOT EXIST"
+      ],
+      "fix": "Builder MUST resolve every pose_file reference (in scene_M1.json player.phase_*.pose_file, in tracks[].file where role starts with 'player_', and in pose_composition_map.json tracks[].pose_file) to the absolute path C:/emerald/assets/player/<filename>. Add a single constant POSE_BASE_DIR='C:/emerald/assets/player/' at the top of the player loader module and prefix every pose filename with it. DO NOT silently substitute or invoke any generator if the file is missing — fail loudly per scene_brief _builder_contract.12_no_nano_banana_no_new_assets."
+    },
+    {
+      "id": "issue_02_pose_05_floaty_revalidation",
+      "severity": "OPEN HUMAN REVIEW (carries forward from actor_director and director)",
+      "element": "pose_composition_map.tracks[1] / scene_brief.player.phase_2_standing_wait — pose_05 segment 1.0-2.0",
+      "current": "pose_05 was Nirit-rejected in v3/v4 as floaty ('למה היא מרחפת ליציאה של המטוס'). v5 reintroduces it clamped to segment 1.0-2.0 (informed guess from bracketing keyframes pose_05_t1.png and pose_05_t5.png). The in-between motion within 1.0-2.0 is NOT directly verified against keyframes.",
+      "fix": "Builder MUST run a Human Review screenshot pass: render the pose_05 1.0-2.0 RAF-clamped loop for at least 3 full loop cycles overlaid on bg_airplane.mp4 at the player's anchor position (bottom:6% right:55% height:54%). Reviewer must confirm visually that the loop reads as grounded standing, not floaty. If floaty, fall back per actor_director's documented options: (a) shorten segment to 1.0-1.5, (b) replace loop with is_pose_hold=true at single frame 1.0 (no in-segment motion). Do NOT ship to Nirit until this Human Review passes."
+    }
+  ],
+
+  "non_issues_verified": [
+    "tool stagger 0/120/240ms — director v5 = 120ms cumulative; matches editor rule exactly.",
+    "tools_first_appear_ms = 2500 — director v5 fixed from v4's 2000; matches Nirit '1s after mission' rule.",
+    "mission_text_shown event referenced identically across pose_composition_map, scene_brief, sound_design.",
+    "jump_apex event cascades correctly: triggers bg crossfade, rivals fade-out, trees fade-in, pose_03 landing start, audio phase crossfade.",
+    "catch_complete event cascades correctly: triggers jump CSS animation start, audio confirm-bell + whoosh-up.",
+    "landing_complete + 200ms = checkpoint_text appearance — Nirit-correct (no premature reveal).",
+    "pose_06 catch frame 4.5 = palm contact = tool_clicked + 1500ms — geometry consistent (tool flight 1500ms, pose_06 plays 3.0→4.5 in 1500ms at 1.0x).",
+    "pose_03 landing 3.0-5.0 = upright→hands-on-ground crouch — matches director's 'hands-on-ground' intent and content_lock pose_map.",
+    "post-catch jump duration 600ms (300ms up + 300ms down/hover-apex) — matches pose_composition_map jump_css_overlay.",
+    "exit_transition fade_to_black 600ms — matches scene-to-scene rule and is mirrored in sound_design exit_audio.duration_ms.",
+    "blend specs across all transitions are non-zero: 200ms (pose_04→05), 200ms in / 100ms out (pose_05), 200ms in (pose_06 catch), 0ms (catch→jump same-pose hold), 200ms in (pose_03 landing). No hard cuts mid-scene.",
+    "No new asset generation: scene_brief _builder_contract.12 + set_list _no_nano_banana=true + sound_design audio is silent-fallback. Compliant with Nirit's v4 'למה ננו בננה' rejection.",
+    "Single-anchor player position (bottom:6% right:55% height:54%) until jump_apex; single CSS-translate to landing target (bottom:5% right:30% height:55%) over 2000ms. Eliminates v4's 'double position shift' Nirit rejected.",
+    "scaleX flip pose_04(-1) → pose_05/06/03(+1) hidden inside the 200ms blend at mission_text_shown. Single flip, well-hidden.",
+    "All non-pose asset paths verified on disk: 2 backgrounds, 3 scenery overlays, 3 tools (8 files, 9.9MB total).",
+    "Audio files all 'placeholder:*' — sound_design v5 explicitly documents ZERO assets on disk; builder silent-fallback contract is unambiguous; no blocker.",
+    "audio crossfade 800ms vs video bg crossfade 400ms — DELIBERATE asymmetry, documented in sound_design _note. Sonic continuity carries longer than visual snap. Editor accepts."
+  ],
+
+  "open_human_review_items": [
+    {
+      "id": "hr_01_pose_05_floaty",
+      "owner": "human_review (Claude pre-screen) → Nirit (final)",
+      "blocking_for_nirit_review": true,
+      "description": "Validate pose_05 segment 1.0-2.0 RAF-clamped loop reads as grounded standing, not floaty. Nirit explicitly rejected pose_05 in v3 and v4 with verbatim 'למה היא מרחפת ליציאה של המטוס'. v5 keyframe analysis is an informed guess from bracketing samples, not direct in-between verification.",
+      "validation_method": "Render full M1 timeline through end of pose_05 standing-wait window (e.g., scene_entry through scene_entry+5000ms with simulated 'no click yet'), capture screenshots at 200ms intervals through at least 3 loop cycles. Pre-screen via human_review agent. ONLY if human_review agent passes does the asset reach Nirit.",
+      "fallback_if_floaty": "(a) Shorten segment to 1.0-1.5 (single half-cycle). (b) Replace loop with is_pose_hold=true at frame 1.0 (no motion at all). Both are pre-approved by actor_director in pose_composition_map.tracks[1]._human_review_note."
+    },
+    {
+      "id": "hr_02_pose_04_stride_seam",
+      "owner": "human_review (Claude pre-screen)",
+      "blocking_for_nirit_review": false,
+      "description": "Editor checklist requires loop seam validation; pose_04 is one_shot 1500ms (~2.5 stride cycles) so end frame is mid-stride. The 200ms blend_out into pose_05 must hide the truncated stride.",
+      "validation_method": "Frame-by-frame screenshot of the pose_04→pose_05 transition (last 100ms of pose_04 + first 200ms of pose_05) overlaid on bg_airplane.mp4. Confirm no leg jitter, no T-pose flash, no ghosted limbs.",
+      "fallback_if_seam_visible": "Increase blend_out_ms from 200 to 300 (within builder discretion; not requiring upstream re-spec)."
+    }
+  ],
+
+  "concrete_fix_instructions_for_builder": [
+    {
+      "issue": "issue_01_pose_base_path_undocumented",
+      "file_to_change": "builder source (player loader / asset module)",
+      "field": "POSE_BASE_DIR constant",
+      "value": "'C:/emerald/assets/player/' (NOTE: not /poses/, not /pose/, not the backgrounds dir)",
+      "additional": "When loading any pose_file from scene_M1.json or pose_composition_map.json, prefix POSE_BASE_DIR. Verify file exists before play; fail loudly if missing (do NOT auto-substitute; do NOT call Nano Banana / Veo / Leonardo)."
+    }
+  ],
+
+  "blocker_summary": [
+    "issue_01: Pose video base directory (C:/emerald/assets/player/) is NOT documented in any v5 spec file. Builder must hardcode POSE_BASE_DIR or risk silent failure. This is the ONLY hard blocker — once builder resolves the path, every other v5 spec is internally consistent.",
+    "hr_01: pose_05 floaty re-validation must pass human_review pre-screen before Nirit sees the build."
+  ],
+
+  "approval_conditions": "Editor will mark approved=true once: (1) builder confirms POSE_BASE_DIR='C:/emerald/assets/player/' is wired into the asset loader, and (2) human_review agent pre-screens the pose_05 standing-wait loop and the pose_04→pose_05 stride seam, both PASS. No upstream agent (director / actor_director / set_manager / sound_designer / script_supervisor) needs to re-spin — their v5 outputs are internally and cross-file consistent."
+}

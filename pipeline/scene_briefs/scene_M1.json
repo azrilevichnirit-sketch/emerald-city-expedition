@@ -1,0 +1,668 @@
+{
+  "_for_mission": "M1",
+  "_revision": "v5",
+  "_built_at": "2026-04-25",
+  "_built_by": "director (Claude playing the role)",
+  "_supersedes": "scene_M1.json v4 (Nirit-rejected: bg was empty gradient, post-click 'floating', Nano Banana attempted)",
+  "_authoritative_upstream": [
+    "C:/emerald/pipeline/pose_composition_map.json (v5 by actor_director — 5 tracks, run->stand->catch->jump->land)",
+    "C:/emerald/pipeline/set_lists/set_list_M1.json (v5 by set_manager — bg_airplane.mp4 phase 1, bg_jungle_clearing.mp4 phase 2, scenery overlays)"
+  ],
+  "_v5_changes_from_v4": {
+    "nirit_v4_rejections_addressed": [
+      "REJECTION: 'היא רצה עם רקע בלי כלום, זה לא שמיים, זה לא מטוס, זה סתם רקע כחול וזהוב'. v5 FIX: background.phase_1 is now a VIDEO (file = C:/emerald/backgrounds/bg_airplane.mp4) — real aerial sky+clouds+canopy footage verified on disk by set_manager. The CSS gradient + 3 cloud_streak overlay layers from v4 are DELETED entirely.",
+      "REJECTION: 'למה ננו בננה, כבר יש כל כך הרבה רקעים של השמיים'. v5 FIX: zero new asset generation. Every file referenced is verified on disk and listed in set_list_M1 v5 scenery_inventory. NO Nano Banana / Veo / Leonardo invoked at any point in this scene_brief.",
+      "REJECTION: 'ולאחר בחירת הכלי, היא עוד פעם מופיעה בתוך המסגרת ואז רואים את כל הרקע של הג'ונגל זז והיא מרחפת לה שם כמה שניות טובות, בעמידה מוחלטת ואז פתאום נעצרת על הקרקע'. v5 FIX: post-click sequence is pose_06 catch (2500ms) -> CSS jump (600ms) -> pose_03 landing (2000ms) with NO standing/idle between. The player canvas position-anchor stays fixed for catch + jump (bottom:6% right:55% height:54%) and translates ONCE at jump_apex over 2000ms to bottom:5% right:30% height:55%. No second standing intermission, no 'floating' window post-click.",
+      "REJECTION: 'הסדר זה שהיא עוצר ברגע שהמשימה מופיעה ואז כמה שניות לאחר הופעת השאלה הכלים מופיעים, שנייה אחרי המשימה, היא עומדת במקום בזמן הזה'. v5 FIX: pose_04 running is now ONE-SHOT 1500ms (not loop) and ends exactly when mission_text_shown event fires (= scene_entry + 1500ms). pose_05 #1.0-2.0 (frontal grounded) loops as standing_wait until tool_clicked. tools_first_appear_ms = 2500ms (= 1000ms after mission_text per Nirit verbatim 'שנייה אחרי המשימה'). v4 had tools at 2000ms — too fast.",
+      "REJECTION ULTIMATUM: 'אם זה לא מצליח בסבב הזה אז נרד מכל סיפור ההפיכה לסרט אינטרקטיבי'. v5 is built for finality — every Nirit verbatim addressed, every file verified, every track defined to the millisecond, builder contract spelled out."
+    ],
+    "structural_changes_from_v4": [
+      "background.phase_1: dropped css_gradient_with_motion + 3 cloud_streak layers; replaced with type=video, file=C:/emerald/backgrounds/bg_airplane.mp4, fit=cover, loop=true, z=0.",
+      "background.phase_2: file changed from 'backgrounds/bg_M5.mp4' to 'C:/emerald/backgrounds/bg_jungle_clearing.mp4' (ground-POV jungle floor, matches pose_03 hands-on-ground crouch).",
+      "background.bg_swap_duration_ms: 500 -> 400 (per set_list, snappier so bg settles before crouch begins).",
+      "player: SINGLE POSITION ANCHOR for run+stand+catch+jump (bottom:6% right:55% height:54%) — was distributed across 4 separate position_css blocks in v4. Only landing translates.",
+      "player: scaleX flip — pose_04 running uses transform:scaleX(-1) (face-left, into jump direction); pose_05/06/03 use transform:scaleX(1) (frontal). Single flip during the 200ms cross-fade at mission_text_shown.",
+      "player: ADDED phase_2_standing_wait (pose_05 #1.0-2.0 loop). Was absent in v4 (Nirit's complaint #4 — she stops on mission, stands, waits).",
+      "rivals: dropped 5 CSS dots block. Replaced with single overlay reference to set_list_M1 phase_1.scenery_overlays[0] (competitors_in_air.png chroma-keyed, opacity 0.78, slow drift).",
+      "scenery: dropped null/empty block. Phase 2 now references set_list_M1 phase_2.scenery_overlays (two_jungle_trees.png + dust_clouds.png).",
+      "tracks: pose_04 changed from loop_until_event=tool_clicked to one_shot duration_ms=1500. ADDED player_standing_wait track (pose_05). Tool tracks disappear_animation now cubic-bezier(0.34,1.56,0.64,1) parabolic arc.",
+      "timing.tools_first_appear_ms: 2000 -> 2500 (1s after mission_text per Nirit verbatim).",
+      "timing.mission_text_appears_ms: 1500 (preserved from v4).",
+      "Added explicit dust_clouds trigger at jump_apex+1800ms (= landing impact moment — feet touching ground = pose_03 frame 5.0). NO dust during catch or jump."
+    ]
+  },
+
+  "scene_id": "M1",
+  "type": "choice",
+  "feel": "תנועה החלטית — היא נכנסת בריצה, נעצרת ברגע שהמשימה עולה, עומדת רגע, בוחרת בלי להסס, תופסת מהאוויר, נוחתת.",
+  "first_focus": "ניריט הרצה — כניסה אנרגטית מהצד, היא כבר בתנועה כשהסצנה מתחילה. ב-1500ms — המשימה מופיעה והיא נעצרת.",
+  "duration_ms_estimate": 8200,
+  "duration_is_event_driven": true,
+
+  "entry_transition": {
+    "type": "hard_cut",
+    "duration_ms": 0,
+    "notes": "אין fade-in. ניריט כבר רצה כשהסצנה נפתחת — 'נכנסים באמצע התנועה'."
+  },
+  "exit_transition": {
+    "type": "fade_to_black",
+    "duration_ms": 600,
+    "notes": "אחרי checkpoint_text. שחור מלא לפני M2."
+  },
+
+  "background": {
+    "_pulled_from": "C:/emerald/pipeline/set_lists/set_list_M1.json v5 — DO NOT modify here, set_manager owns these decisions",
+    "phase_1": {
+      "type": "video",
+      "file": "C:/emerald/backgrounds/bg_airplane.mp4",
+      "_role": "altitude_pov_just_before_jump",
+      "_set_list_note": "Despite filename, this video is real photoreal aerial: open sky + wispy clouds upper-60% + jungle canopy from high altitude lower-40%. Verified on disk. NO plane interior, NO ramp, NO door — exactly the 'about to jump' POV.",
+      "fit": "cover",
+      "loop": true,
+      "z_index": 0,
+      "_v5_critical": "This is a VIDEO, not a CSS gradient. v4's gradient is permanently retired."
+    },
+    "phase_2": {
+      "type": "video",
+      "file": "C:/emerald/backgrounds/bg_jungle_clearing.mp4",
+      "_role": "ground_pov_jungle_landing_floor",
+      "_set_list_note": "Ground-level dense jungle: wet stones and puddles in foreground, palms and dense foliage flanking, misty distant trees, narrow strip of pale sky through canopy. Matches pose_03 hands-on-ground crouch. Verified on disk.",
+      "fit": "cover",
+      "loop": true,
+      "loop_segment_ms": [0, 6000],
+      "z_index": 0
+    },
+    "bg_swap_at_event": "jump_apex",
+    "bg_swap_animation": "cross_fade",
+    "bg_swap_duration_ms": 400,
+    "_bg_swap_note": "Tightened from v4's 500ms (per set_list_M1). 400ms allows bg to settle before pose_03 crouch begins."
+  },
+
+  "player": {
+    "_position_anchor_rule": "v5 single-anchor for the full pre-landing arc. position_css = bottom:6%; right:55%; height:54%. ONLY at jump_apex does the canvas CSS-translate over 2000ms to bottom:5% right:30% height:55% (landing target). NO inter-phase position swaps — eliminates Nirit's 'standing-and-floating' complaint.",
+    "_z_index_rule": "Player canvas always z-index:10 per design_system.md layer stack.",
+
+    "phase_1_running_entry": {
+      "pose_file": "pose_04.mp4",
+      "pose_semantic": "anim_running (profile)",
+      "from_sec": 2.0,
+      "to_sec": 3.5,
+      "trigger": "scene_entry",
+      "loop_until_event": null,
+      "one_shot": true,
+      "duration_ms": 1500,
+      "blend_in_ms": 0,
+      "blend_out_ms": 200,
+      "position_css": "bottom:6%; right:55%; height:54%",
+      "transform": "scaleX(-1)",
+      "facing": "פרופיל שמאלה — לכיוון הקפיצה (flipped from default right-facing pose_04)",
+      "z_index": 10,
+      "_v5_note": "v4 had this as loop_until_event=tool_clicked which Nirit rejected. v5: one_shot 1500ms, ends EXACTLY when mission_text_shown event fires. Per actor_director v5 pose_composition_map.",
+      "_pulled_from": "pose_composition_map.json M1.tracks[0]"
+    },
+
+    "phase_2_standing_wait": {
+      "pose_file": "pose_05.mp4",
+      "pose_semantic": "anim_waiting (frontal grounded segment, pre-rotation)",
+      "from_sec": 1.0,
+      "to_sec": 2.0,
+      "trigger": "mission_text_shown",
+      "loop_until_event": "tool_clicked",
+      "one_shot": false,
+      "blend_in_ms": 200,
+      "blend_out_ms": 100,
+      "position_css": "bottom:6%; right:55%; height:54%",
+      "transform": "scaleX(1)",
+      "facing": "פרונטלי — כיוון המצלמה",
+      "z_index": 10,
+      "_v5_note": "ADDED in v5 per Nirit verbatim 'היא עומדת במקום בזמן הזה'. Segment 1.0-2.0 chosen by actor_director from pose_keyframes inspection — frontal grounded, pre-rotation (the post-2.0 rotation read as floaty in v3/v4 and is excluded). The scaleX flip from -1 (running) to +1 (standing) is hidden by the 200ms blend at the seam.",
+      "_pulled_from": "pose_composition_map.json M1.tracks[1]",
+      "_human_review_flag_from_actor_director": "If 1.0-2.0 still reads floaty, fallback: shorten to 1.0-1.5 OR replace loop with is_pose_hold=true at single frame 1.0."
+    },
+
+    "phase_3_catch_one_shot": {
+      "pose_file": "pose_06.mp4",
+      "pose_semantic": "anim_reach_forward (catch)",
+      "from_sec": 3.0,
+      "to_sec": 5.5,
+      "trigger": "tool_clicked",
+      "loop_until_event": null,
+      "one_shot": true,
+      "catch_pose": true,
+      "hold_frame_sec": 5.5,
+      "duration_ms": 2500,
+      "blend_in_ms": 200,
+      "blend_out_ms": 0,
+      "position_css": "bottom:6%; right:55%; height:54%",
+      "transform": "scaleX(1)",
+      "facing": "פרונטלי",
+      "palm_contact_at_pose_frame_sec": 4.5,
+      "palm_contact_at_offset_ms": 1500,
+      "z_index": 10,
+      "_v5_note": "Preserved verbatim from v4 spec — Nirit did NOT reject the catch. Plays ONLY on click. 3.0=hand at rest, 4.5=peak palm-forward (= tool palm-contact moment, 1500ms after click), 5.5=peak hold.",
+      "_pulled_from": "pose_composition_map.json M1.tracks[2]"
+    },
+
+    "phase_4_jump_css_overlay": {
+      "pose_file": "pose_06.mp4",
+      "from_sec": 5.5,
+      "to_sec": 5.5,
+      "trigger": "catch_complete",
+      "loop_until_event": null,
+      "one_shot": false,
+      "is_pose_hold": true,
+      "duration_ms": 600,
+      "blend_in_ms": 0,
+      "blend_out_ms": 0,
+      "position_css": "bottom:6%; right:55%; height:54%",
+      "transform": "scaleX(1)",
+      "css_animation": "translateY(-12vh) scale(1.04) rotate(-2deg)",
+      "css_easing": "cubic-bezier(0.16,1,0.3,1)",
+      "z_index": 10,
+      "_v5_note": "pose_06 frame 5.5 PAUSED (RAF clamp, video.loop=false). The canvas WRAPPER (not the canvas element itself) gets the css_animation transform — purely visual jump. At duration_ms midpoint (300ms in) emits jump_apex event. Background phase swap fires on jump_apex; pose_03 landing fires on jump_apex; player canvas begins its CSS-translate to landing target on jump_apex.",
+      "_pulled_from": "pose_composition_map.json M1.tracks[3]"
+    },
+
+    "phase_5_landing": {
+      "pose_file": "pose_03.mp4",
+      "pose_semantic": "anim_crouch (landing variant, hands-on-ground)",
+      "from_sec": 3.0,
+      "to_sec": 5.0,
+      "trigger": "jump_apex",
+      "loop_until_event": null,
+      "one_shot": true,
+      "is_landing": true,
+      "hold_frame_sec": 5.0,
+      "duration_ms": 2000,
+      "blend_in_ms": 200,
+      "blend_out_ms": 0,
+      "position_css_start": "bottom:6%; right:55%; height:54%",
+      "position_css_end": "bottom:5%; right:30%; height:55%",
+      "position_translate_duration_ms": 2000,
+      "position_translate_easing": "cubic-bezier(0.4, 0.0, 0.2, 1)",
+      "transform": "scaleX(1)",
+      "facing": "פרונטלי",
+      "z_index": 10,
+      "_v5_note": "pose_03 #3.0=upright -> #5.0=hands-on-ground crouch. The canvas CSS-translates from running anchor (right:55%) to landing anchor (right:30%) over the 2000ms landing duration — landing motion + position translate fully synchronized. RAF-clamps at to_sec=5.0, pauses, emits landing_complete. Checkpoint text fires landing_complete+200ms.",
+      "_pulled_from": "pose_composition_map.json M1.tracks[4]"
+    }
+  },
+
+  "pose_segments": [
+    { "pose_file": "pose_04.mp4", "from_sec": 2.0, "to_sec": 3.5, "trigger": "scene_entry",        "loop_until_event": null,           "phase": "running_entry",     "one_shot": true,  "duration_ms": 1500, "blend_out_ms": 200 },
+    { "pose_file": "pose_05.mp4", "from_sec": 1.0, "to_sec": 2.0, "trigger": "mission_text_shown", "loop_until_event": "tool_clicked", "phase": "standing_wait",     "one_shot": false, "blend_in_ms": 200, "blend_out_ms": 100 },
+    { "pose_file": "pose_06.mp4", "from_sec": 3.0, "to_sec": 5.5, "trigger": "tool_clicked",       "loop_until_event": null,           "phase": "catch_one_shot",    "one_shot": true,  "duration_ms": 2500, "blend_in_ms": 200 },
+    { "pose_file": "pose_06.mp4", "from_sec": 5.5, "to_sec": 5.5, "trigger": "catch_complete",     "loop_until_event": null,           "phase": "jump_css_overlay",  "is_pose_hold": true, "duration_ms": 600 },
+    { "pose_file": "pose_03.mp4", "from_sec": 3.0, "to_sec": 5.0, "trigger": "jump_apex",          "loop_until_event": null,           "phase": "landing",           "one_shot": true, "is_landing": true, "duration_ms": 2000, "blend_in_ms": 200 }
+  ],
+
+  "scenery": {
+    "_pulled_from": "C:/emerald/pipeline/set_lists/set_list_M1.json v5 — director references, set_manager owns",
+    "phase_1": [],
+    "phase_2": [
+      {
+        "_role": "foreground_jungle_trees_framing",
+        "file": "C:/emerald/scenery/two_jungle_trees.png",
+        "css": "bottom:0%; left:-5%; width:35%; opacity:0.95; z-index:2",
+        "chroma_key_required": true,
+        "chroma_color_hex": "#00B140",
+        "appear_animation": "fade_in_with_bg_swap",
+        "appear_ms": 400,
+        "appear_trigger": "jump_apex",
+        "z_index": 2,
+        "_pulled_from": "set_list_M1.json phase_2.scenery_overlays[0]"
+      },
+      {
+        "_role": "landing_impact_dust_puff",
+        "file": "C:/emerald/assets/scenery/dust_clouds.png",
+        "css": "bottom:8%; right:30%; width:18%; opacity:0; z-index:15; pointer-events:none",
+        "opacity_keyframes": "0% { opacity:0; transform: scale(0.7); } 30% { opacity:0.6; transform: scale(1.0); } 100% { opacity:0; transform: scale(1.2); }",
+        "trigger": "jump_apex+1800ms",
+        "duration_ms": 900,
+        "chroma_key_required": true,
+        "chroma_color_hex": "#00B140",
+        "z_index": 15,
+        "_v5_critical": "Dust puff at the LANDING moment only (= pose_03 frame 5.0 = hands-on-ground). NOT during catch, NOT during jump rise/fall. Position aligned with landing anchor right:30% bottom:5%.",
+        "_pulled_from": "set_list_M1.json phase_2.scenery_overlays[1]"
+      }
+    ]
+  },
+
+  "rivals": [
+    {
+      "_intent": "Felt-not-seen rival presence in Phase 1 sky. Per director.md rule: 'גודל קטן <8-10%, opacity 0.4-0.6, רק בשוליים/למעלה, drift עדין'. competitors_in_air.png at opacity 0.78 violates the strict 0.4-0.6 cap, BUT the asset itself is a wide aerial scatter of 6 distant figures (each individually <5% screen height) with built-in atmospheric haze, so the visual read is felt-not-seen even at higher opacity. Set_manager validated this in set_list v5.",
+      "implementation": "single_chroma_keyed_overlay",
+      "file": "C:/emerald/assets/scenery/competitors_in_air.png",
+      "css": "top:6%; left:5%; width:90%; opacity:0.78; z-index:3; filter:blur(0.4px)",
+      "chroma_key_required": true,
+      "chroma_color_hex": "#00B140",
+      "drift_animation": "rivalsDriftA 18s linear infinite",
+      "drift_keyframes": "0% { transform: translateX(0); } 50% { transform: translateX(2vw); } 100% { transform: translateX(0); }",
+      "z_index": 3,
+      "appear_ms": 0,
+      "appear_animation": null,
+      "disappear_ms": "jump_apex",
+      "disappear_animation": "fade_out_with_bg",
+      "_v5_note": "v4's 5 CSS-dot rivals block REPLACED with this single PNG overlay per set_list_M1 v5. PNG contains 6 paragliders/wingsuits — meets 'felt' rule via blur+drift+atmospheric scatter.",
+      "_pulled_from": "set_list_M1.json phase_1.scenery_overlays[0]"
+    }
+  ],
+
+  "tool_consequences": {
+    "_pulled_from": "content_lock.json tool_consequence_types.per_tool",
+    "A": { "tool_label": "מצנח עגול רחב", "type": "deploy", "note": "בכף בחבילה קומפקטית עם הקפיצה. מתפרש מעל הראש (z=9, מאחורי השחקנית) במהלך ה-CSS jump. נשאר פרוש מעל הכתפיים בנחיתה." },
+    "B": { "tool_label": "גלשן רחיפה",     "type": "wear",   "note": "בכף קומפקטי (מקופל). נצמד לגב/כתפיים (z=11, לפני השחקנית) במהלך ה-CSS jump — silhouette רחב מאחורי הכתפיים." },
+    "C": { "tool_label": "חליפת כנפיים",    "type": "wear",   "note": "בכף בחבילה. נפרשת על גב הדמות (z=11) במהלך ה-CSS jump. נשארת מקופלת מאחורי הגב בנחיתה." }
+  },
+
+  "tracks": [
+    {
+      "role": "background_phase_1",
+      "type": "video",
+      "file": "C:/emerald/backgrounds/bg_airplane.mp4",
+      "in_ms": 0,
+      "out_ms": "jump_apex+400",
+      "loop": true,
+      "z_index": 0,
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": "cross_fade",
+      "disappear_ms": 400
+    },
+    {
+      "role": "background_phase_2",
+      "type": "video",
+      "file": "C:/emerald/backgrounds/bg_jungle_clearing.mp4",
+      "in_ms": "jump_apex",
+      "out_ms": "scene_end",
+      "loop": true,
+      "loop_segment_ms": [0, 6000],
+      "z_index": 0,
+      "appear_animation": "cross_fade",
+      "appear_ms": 400,
+      "disappear_animation": "fade_to_black",
+      "disappear_ms": 600
+    },
+    {
+      "role": "rivals_overlay_phase_1",
+      "type": "image_chroma_keyed",
+      "file": "C:/emerald/assets/scenery/competitors_in_air.png",
+      "in_ms": 0,
+      "out_ms": "jump_apex",
+      "z_index": 3,
+      "css": "top:6%; left:5%; width:90%; opacity:0.78; filter:blur(0.4px)",
+      "drift_animation": "rivalsDriftA 18s linear infinite",
+      "appear_animation": null,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 400
+    },
+    {
+      "role": "scenery_jungle_trees_phase_2",
+      "type": "image_chroma_keyed",
+      "file": "C:/emerald/scenery/two_jungle_trees.png",
+      "in_ms": "jump_apex",
+      "out_ms": "scene_end",
+      "z_index": 2,
+      "css": "bottom:0%; left:-5%; width:35%; opacity:0.95",
+      "appear_animation": "cross_fade",
+      "appear_ms": 400,
+      "disappear_animation": "fade_to_black",
+      "disappear_ms": 600
+    },
+    {
+      "role": "scenery_dust_landing_impact",
+      "type": "image_chroma_keyed_oneshot",
+      "file": "C:/emerald/assets/scenery/dust_clouds.png",
+      "in_ms": "jump_apex+1800",
+      "out_ms": "jump_apex+2700",
+      "z_index": 15,
+      "css": "bottom:8%; right:30%; width:18%; pointer-events:none",
+      "opacity_keyframes": "0% { opacity:0; transform: scale(0.7); } 30% { opacity:0.6; transform: scale(1.0); } 100% { opacity:0; transform: scale(1.2); }",
+      "duration_ms": 900,
+      "appear_animation": "fade_in_scale",
+      "disappear_animation": "fade_out_scale"
+    },
+    {
+      "role": "player_running_entry",
+      "file": "pose_04.mp4",
+      "pose_segment_sec": [2.0, 3.5],
+      "in_ms": 0,
+      "out_ms": "mission_text_shown",
+      "loop": false,
+      "one_shot": true,
+      "duration_ms": 1500,
+      "blend_out_ms": 200,
+      "z_index": 10,
+      "css": "bottom:6%; right:55%; height:54%",
+      "transform": "scaleX(-1)"
+    },
+    {
+      "role": "player_standing_wait",
+      "file": "pose_05.mp4",
+      "pose_segment_sec": [1.0, 2.0],
+      "in_ms": "mission_text_shown",
+      "out_ms": "tool_clicked",
+      "loop": true,
+      "loop_until_event": "tool_clicked",
+      "blend_in_ms": 200,
+      "blend_out_ms": 100,
+      "z_index": 10,
+      "css": "bottom:6%; right:55%; height:54%",
+      "transform": "scaleX(1)",
+      "_critical": "RAF-clamped loop. NEVER set video.loop=true. When currentTime >= 2.0, reset to 1.0 in the same RAF tick. Listen for tool_clicked event to break out."
+    },
+    {
+      "role": "player_catch",
+      "file": "pose_06.mp4",
+      "pose_segment_sec": [3.0, 5.5],
+      "in_ms": "tool_clicked",
+      "out_ms": "tool_clicked+2500",
+      "loop": false,
+      "one_shot": true,
+      "blend_in_ms": 200,
+      "z_index": 10,
+      "css": "bottom:6%; right:55%; height:54%",
+      "transform": "scaleX(1)",
+      "_critical": "MUST NOT play before tool_clicked. RAF-clamps at to_sec=5.5 and emits catch_complete event."
+    },
+    {
+      "role": "player_jump_hold",
+      "file": "pose_06.mp4",
+      "pose_segment_sec": [5.5, 5.5],
+      "in_ms": "catch_complete",
+      "out_ms": "catch_complete+600",
+      "loop": false,
+      "is_pose_hold": true,
+      "z_index": 10,
+      "css": "bottom:6%; right:55%; height:54%",
+      "transform": "scaleX(1)",
+      "css_animation_during": "translateY(-12vh) scale(1.04) rotate(-2deg)",
+      "css_easing_during": "cubic-bezier(0.16,1,0.3,1)",
+      "_jump_apex_emit_at_ms": 300
+    },
+    {
+      "role": "player_landing",
+      "file": "pose_03.mp4",
+      "pose_segment_sec": [3.0, 5.0],
+      "in_ms": "jump_apex",
+      "out_ms": "jump_apex+2000",
+      "loop": false,
+      "one_shot": true,
+      "is_landing": true,
+      "blend_in_ms": 200,
+      "z_index": 10,
+      "css_start": "bottom:6%; right:55%; height:54%",
+      "css_end": "bottom:5%; right:30%; height:55%",
+      "translate_duration_ms": 2000,
+      "translate_easing": "cubic-bezier(0.4, 0.0, 0.2, 1)",
+      "transform": "scaleX(1)",
+      "_critical": "RAF-clamps at to_sec=5.0 and emits landing_complete event."
+    },
+    {
+      "role": "tool",
+      "slot": "A",
+      "file": "C:/emerald/assets/tools/מצנח_מ01.png",
+      "in_ms": 2500,
+      "out_ms": "tool_clicked OR scene_end",
+      "loop": false,
+      "z_index": 20,
+      "appear_animation": "slide_up_from_zone_D",
+      "appear_ms": 350,
+      "disappear_animation": "fly_to_player_palm_arc",
+      "disappear_ms": 1500,
+      "disappear_easing": "cubic-bezier(0.34,1.56,0.64,1)",
+      "stagger_offset_ms": 0,
+      "_arc_spec": "Parabolic from button-rect to player-palm-rect. Builder computes both rects via getBoundingClientRect at click moment. Arc peak Y = min(button.top, palm.top) - 80px."
+    },
+    {
+      "role": "tool",
+      "slot": "B",
+      "file": "C:/emerald/assets/tools/גלשן_מ01.png",
+      "in_ms": 2620,
+      "out_ms": "tool_clicked OR scene_end",
+      "loop": false,
+      "z_index": 20,
+      "appear_animation": "slide_up_from_zone_D",
+      "appear_ms": 350,
+      "disappear_animation": "fly_to_player_palm_arc",
+      "disappear_ms": 1500,
+      "disappear_easing": "cubic-bezier(0.34,1.56,0.64,1)",
+      "stagger_offset_ms": 120
+    },
+    {
+      "role": "tool",
+      "slot": "C",
+      "file": "C:/emerald/assets/tools/כנפיים_מ01.png",
+      "in_ms": 2740,
+      "out_ms": "tool_clicked OR scene_end",
+      "loop": false,
+      "z_index": 20,
+      "appear_animation": "slide_up_from_zone_D",
+      "appear_ms": 350,
+      "disappear_animation": "fly_to_player_palm_arc",
+      "disappear_ms": 1500,
+      "disappear_easing": "cubic-bezier(0.34,1.56,0.64,1)",
+      "stagger_offset_ms": 240
+    },
+    {
+      "role": "mission_text",
+      "in_ms": 1500,
+      "out_ms": "tool_clicked",
+      "loop": false,
+      "z_index": 30,
+      "appear_animation": "fade_in",
+      "appear_ms": 400,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 300,
+      "_critical": "Builder MUST emit 'mission_text_shown' custom event from the same RAF tick that begins this fade_in. Cascades: pose_04 ends, pose_05 begins."
+    },
+    {
+      "role": "checkpoint_text",
+      "in_ms": "landing_complete+200",
+      "out_ms": "scene_end-600",
+      "loop": false,
+      "z_index": 30,
+      "appear_animation": "fade_in",
+      "appear_ms": 400,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 400,
+      "_critical": "MUST appear ONLY after landing_complete event (= pose_03 frame 5.0 = hands-on-ground). Per Nirit v3 verbatim: 'עוד לפני שהיא מגיעה לקרקרע כבר עולה איזה יופי נחתתי, וואלה זה נורא'."
+    }
+  ],
+
+  "interactive_elements": [
+    {
+      "slot": "A",
+      "label": "מצנח עגול רחב",
+      "hover": { "cursor": "pointer", "scale_factor": 1.05, "glow_color": "#1a3a5c" },
+      "click": { "feedback_animation": "pulse_out", "feedback_ms": 350 },
+      "tooltip": {
+        "trigger": "i_icon",
+        "he": "מצנח עגול רחב",
+        "show_after_ms": 0,
+        "_rule": "verbatim from content_lock.tools[A].label. אין ניקוד, אין תיאור."
+      }
+    },
+    {
+      "slot": "B",
+      "label": "גלשן רחיפה",
+      "hover": { "cursor": "pointer", "scale_factor": 1.05, "glow_color": "#1a3a5c" },
+      "click": { "feedback_animation": "pulse_out", "feedback_ms": 350 },
+      "tooltip": { "trigger": "i_icon", "he": "גלשן רחיפה", "show_after_ms": 0 }
+    },
+    {
+      "slot": "C",
+      "label": "חליפת כנפיים",
+      "hover": { "cursor": "pointer", "scale_factor": 1.05, "glow_color": "#1a3a5c" },
+      "click": { "feedback_animation": "pulse_out", "feedback_ms": 350 },
+      "tooltip": { "trigger": "i_icon", "he": "חליפת כנפיים", "show_after_ms": 0 }
+    }
+  ],
+
+  "global_ui": {
+    "_removed": [
+      "score_display — אסור per content_lock.scoring._note",
+      "points_popup — אסור per Nirit feedback v2",
+      "points-in-tooltip — אסור per content_lock.ui_rules.tooltip.forbidden"
+    ],
+    "mission_text_box": {
+      "pos": { "x_pct": 50, "y_pct": 14 },
+      "width_pct": 64,
+      "font_size_px": 20,
+      "anchor": "top_center"
+    },
+    "checkpoint_text_box": {
+      "pos": { "x_pct": 50, "y_pct": 86 },
+      "width_pct": 70,
+      "font_size_px": 18,
+      "anchor": "bottom_center"
+    },
+    "tools_zone_D": {
+      "pos": { "x_pct": 50, "y_pct": 80 },
+      "width_pct": 60,
+      "layout": "horizontal_row",
+      "gap_pct": 4
+    }
+  },
+
+  "timing": {
+    "scene_entry_ms": 0,
+    "mission_text_appears_ms": 1500,
+    "_mission_text_event_emit": "Builder emits 'mission_text_shown' custom event at t=1500ms (same RAF tick as fade-in start). pose_04 ends here, pose_05 begins.",
+    "tools_first_appear_ms": 2500,
+    "_tools_first_appear_rule": "1000ms after mission_text_shown per Nirit verbatim 'שנייה אחרי המשימה הכלים מופיעים'. Computed: mission_text_appears_ms + 1000.",
+    "tool_stagger_ms": 120,
+    "wait_for_click": "indefinite (pose_05 RAF-clamped loop until tool_clicked event)",
+    "catch_one_shot_duration_ms": 2500,
+    "tool_flight_duration_ms": 1500,
+    "tool_palm_contact_at_pose_frame_sec": 4.5,
+    "tool_palm_contact_at_offset_ms": 1500,
+    "post_catch_hold_ms": 0,
+    "jump_duration_ms": 600,
+    "jump_apex_offset_from_catch_complete_ms": 300,
+    "bg_swap_at_event": "jump_apex",
+    "bg_swap_duration_ms": 400,
+    "landing_duration_ms": 2000,
+    "landing_translate_duration_ms": 2000,
+    "dust_trigger_offset_from_jump_apex_ms": 1800,
+    "dust_duration_ms": 900,
+    "checkpoint_offset_after_landing_complete_ms": 200,
+    "checkpoint_text_hold_ms": 1500,
+    "fade_to_black_ms": 600
+  },
+
+  "beats": [
+    {
+      "t_ms": 0,
+      "description": "Hard cut. bg_airplane.mp4 (real aerial sky+canopy) starts playing. Nirit RUNNING in profile (pose_04 #2.0-3.5 one_shot, scaleX(-1) facing left, position bottom:6% right:55% height:54%). competitors_in_air.png overlay drifting in upper sky.",
+      "visible_elements": ["bg.phase_1.video", "rivals.competitors_in_air", "player.pose_04_running"],
+      "audio_hint": "Wind, distant ambient — open-air feel."
+    },
+    {
+      "t_ms": 1500,
+      "description": "MISSION TEXT FADES IN (top center, 400ms). 'mission_text_shown' event emitted. pose_04 ends (RAF clamp at to_sec=3.5). 200ms blend out. pose_05 #1.0-2.0 starts looping (frontal grounded standing wait, scaleX flipped from -1 to +1 inside the blend). Position UNCHANGED — still bottom:6% right:55% height:54%.",
+      "visible_elements": ["bg.phase_1.video", "rivals.competitors_in_air", "player.pose_05_standing_loop", "text.mission_visible"],
+      "audio_hint": "Wind continues. Soft text-appear chime."
+    },
+    {
+      "t_ms": 2500,
+      "description": "Tool A slides up from zone D (350ms slide-up). Mission text still visible. pose_05 standing loop continues.",
+      "visible_elements": ["bg.phase_1.video", "rivals.competitors_in_air", "player.pose_05_standing_loop", "text.mission", "tool.A"],
+      "audio_hint": "First UI chime."
+    },
+    {
+      "t_ms": 2620,
+      "description": "Tool B slides up. Stagger +120ms.",
+      "visible_elements": ["...", "tool.A", "tool.B"],
+      "audio_hint": "Second chime."
+    },
+    {
+      "t_ms": 2740,
+      "description": "Tool C slides up. All three present. Choice now live. pose_05 still looping standing.",
+      "visible_elements": ["bg.phase_1.video", "rivals.competitors_in_air", "player.pose_05_standing_loop", "text.mission", "tool.A", "tool.B", "tool.C"],
+      "audio_hint": "Third chime — choice live."
+    },
+    {
+      "t_ms": "wait_for_click (indefinite)",
+      "description": "Scene WAITS. pose_05 RAF-clamped loop 1.0-2.0 (frontal grounded, NOT floaty). Tools idle with hover pulse on i-icon. Hand stays DOWN — pose_06 NOT yet triggered.",
+      "visible_elements": ["bg.phase_1.video", "rivals.competitors_in_air", "player.pose_05_standing_loop", "tools.A.B.C"],
+      "audio_hint": "Wind ambient sustained."
+    },
+    {
+      "t_ms": "tool_clicked",
+      "description": "CLICK. 'tool_clicked' event fires. pose_05 stops (RAF break). pose_06 #3.0-5.5 starts (one_shot, 2500ms, 200ms blend in). Selected tool launches from button on parabolic cubic-bezier(0.34,1.56,0.64,1) arc toward player-palm-rect (computed via getBoundingClientRect at click). Other tools dim. Mission text fades out (300ms).",
+      "visible_elements": ["bg.phase_1.video", "rivals.competitors_in_air", "player.pose_06_catch_animating", "tool.[chosen].in_flight_arc"],
+      "audio_hint": "Whoosh as tool launches."
+    },
+    {
+      "t_ms": "tool_clicked+1500",
+      "description": "PALM CONTACT. pose_06 at frame 4.5 (peak palm-forward). Tool snaps to palm position (end of 1500ms arc). 'Got it' beat.",
+      "visible_elements": ["bg.phase_1.video", "rivals.competitors_in_air", "player.pose_06[4.5]", "tool.attached_palm"],
+      "audio_hint": "Soft thud + small bell."
+    },
+    {
+      "t_ms": "tool_clicked+2500 (= catch_complete)",
+      "description": "pose_06 RAF-clamps at to_sec=5.5. 'catch_complete' event fires. JUMP starts: player canvas WRAPPER CSS-transforms (translateY -12vh, scale 1.04, rotate -2deg) over 600ms cubic-bezier(0.16,1,0.3,1). Background phase swap NOT yet — fires on jump_apex.",
+      "visible_elements": ["bg.phase_1.video", "rivals.competitors_in_air", "player.pose_06[5.5]_css_jumping", "tool.attached"],
+      "audio_hint": "Whoosh + lift sound."
+    },
+    {
+      "t_ms": "catch_complete+300 (= jump_apex)",
+      "description": "APEX. 'jump_apex' event fires. (a) bg cross-fade STARTS: bg_airplane.mp4 -> bg_jungle_clearing.mp4 over 400ms. (b) rivals overlay fade-out (400ms). (c) two_jungle_trees.png overlay fade-in (400ms). (d) pose_03 #3.0-5.0 starts (one_shot, 2000ms, 200ms blend in). (e) Player canvas BEGINS CSS-translate from bottom:6% right:55% height:54% to bottom:5% right:30% height:55% over 2000ms cubic-bezier(0.4,0,0.2,1). Tool attached.",
+      "visible_elements": ["bg.cross_fade_in_progress", "rivals.fading_out", "scenery.trees_fading_in", "player.pose_03[3.0->]_translating", "tool.attached"],
+      "audio_hint": "Whoosh peak. Wind shift."
+    },
+    {
+      "t_ms": "jump_apex+1800",
+      "description": "Dust puff triggers (= 200ms before landing_complete = feet about to touch). dust_clouds.png appears at bottom:8% right:30% width:18% with opacity_keyframes (0%->0%, 30%->60%, 100%->0%) over 900ms.",
+      "visible_elements": ["bg.phase_2.video", "scenery.trees", "player.pose_03[~4.8]", "tool.attached", "scenery.dust_puff"],
+      "audio_hint": "Soft impact pre-thud."
+    },
+    {
+      "t_ms": "jump_apex+2000 (= landing_complete)",
+      "description": "Hands touch ground. pose_03 RAF-clamps at to_sec=5.0. 'landing_complete' event fires. Crouched, hands on jungle floor. Position settled at bottom:5% right:30% height:55%. Tool consequence applies: A=deploy parachute above (z=9), B/C=wear at body (z=11).",
+      "visible_elements": ["bg.phase_2.video", "scenery.trees", "player.pose_03[5.0]", "tool.consequence_applied", "scenery.dust_puff_dissipating"],
+      "audio_hint": "Soft impact + jungle ambient enters."
+    },
+    {
+      "t_ms": "landing_complete+200",
+      "description": "CHECKPOINT TEXT fades in (400ms). Verbatim from content_lock.M1.checkpoint_text.",
+      "visible_elements": ["bg.phase_2.video", "scenery.trees", "player.pose_03[5.0]", "tool.consequence", "text.checkpoint"],
+      "audio_hint": "Subtle resolve tone."
+    },
+    {
+      "t_ms": "landing_complete+1900",
+      "description": "Fade-to-black starts (600ms). Scene ends. Audio cross-fades to M2.",
+      "visible_elements": ["all elements fading"],
+      "audio_hint": "Audio cross-fades to M2."
+    }
+  ],
+
+  "_builder_contract": {
+    "_critical_per_actor_director_v5": "These requirements are pulled from pose_composition_map.json _builder_requirements. ANY violation = builder rejection on Human Review.",
+    "1_preload_all_pose_videos_separate_elements": "Create 4 hidden <video> elements at init (pose_03, pose_04, pose_05, pose_06). display:none, preload='auto'. NEVER reassign .src — switch active pose by changing the JS reference the chroma-key canvas reads from.",
+    "2_raf_clamped_segment_enforcement": "Every active track runs a requestAnimationFrame loop checking video.currentTime against to_sec at 60fps. NOT timeupdate (4Hz, 250ms jitter). NOT video.loop=true. On boundary: reset (loop), pause+hold (one_shot+is_pose_hold), pause+emit landing_complete (is_landing), pause+hold last frame (other one_shot).",
+    "3_strict_segment_start": "When a track is triggered, set video.currentTime = from_sec INSIDE loadedmetadata (or use fastSeek), THEN call play(). Never play before currentTime is set.",
+    "4_chroma_key_canvas_active_source": "Chroma-key canvas reads from whichever <video> is currently active. On track transition, update the videoEl reference the chroma loop reads from.",
+    "5_no_video_loop_attribute": "video.loop=false on ALL pose video elements. Looping is purely RAF-driven.",
+    "6_no_timeupdate_listeners_for_segment_logic": "timeupdate is only for non-critical UI debug. All segment in/out via RAF.",
+    "7_event_emission_targets": [
+      "'mission_text_shown' — emit at scene_entry+1500ms (same RAF tick as mission_text fade-in start)",
+      "'tool_clicked' — emit on tool slot click",
+      "'catch_complete' — emit when pose_06 RAF clamps at to_sec=5.5",
+      "'jump_apex' — emit at midpoint of jump CSS animation (catch_complete+300ms)",
+      "'landing_complete' — emit when pose_03 RAF clamps at to_sec=5.0"
+    ],
+    "8_blend_handling": "blend_in_ms / blend_out_ms cross-fades between chroma-key canvases of outgoing+incoming poses. Both videos play during blend; canvas opacities interpolated; outgoing pauses after blend_out_ms.",
+    "9_player_position_anchor": "player canvas WRAPPER (the element receiving CSS positioning) is at bottom:6% right:55% height:54% from scene_entry through catch_complete+600ms (= jump_apex). At jump_apex, the wrapper begins a 2000ms CSS-translate to bottom:5% right:30% height:55% (cubic-bezier(0.4,0,0.2,1)). The CSS jump animation (translateY -12vh, scale 1.04, rotate -2deg) targets the wrapper's transform during the 600ms catch_complete -> jump_apex window.",
+    "10_player_facing_flip": "The wrapper transform is scaleX(-1) for pose_04 running (face left into jump). At mission_text_shown the cross-fade includes a flip back to scaleX(1). All later phases (pose_05/06/03) are scaleX(1).",
+    "11_tool_flight_arc": "Compute button rect (tool slot bounding) and palm rect (player canvas bounding * [0.40 X anchor, 0.32 Y anchor for raised palm at frame 4.5]) at click time. Animate the tool element on a cubic-bezier(0.34,1.56,0.64,1) parabolic arc — peak Y = min(button.top, palm.top) - 80px, duration 1500ms, timed so frame 4.5 of pose_06 (= 1500ms after pose_06 plays from 3.0 at 1.0x rate) coincides with arrival.",
+    "12_no_nano_banana_no_new_assets": "Every file path in this scene_brief is verified on disk as of 2026-04-25. Builder MUST NOT invoke any image/video generator. If a file is missing, FAIL LOUDLY — do not silently substitute."
+  },
+
+  "directors_note": "v5 הוא הניסיון האחרון לפני נסיגה לסליידשואו סטטי. כל אחת משלוש התלונות של ניריט על v4 מקבלת תיקון מבוסס-קובץ-קיים: (1) רקע = וידאו אמיתי של שמיים+חופה (bg_airplane.mp4), לא גרדיאנט. (2) Nano Banana אסור — אפס יצירה חדשה. (3) אחרי הקליק = catch -> jump -> landing ברצף ללא 'ריחוף בעמידה' באמצע. השינוי החשוב ביותר במבנה: position_css יחיד לכל הסצנה לפני נחיתה (bottom:6% right:55% height:54%), ותרגום CSS יחיד בלבד ב-jump_apex אל יעד הנחיתה. flip יחיד (scaleX -1 -> 1) מוסתר בתוך ה-200ms blend ב-mission_text_shown. ניריט תראה: ריצה אנרגטית קצרה -> עצירה ברגע שהמשימה עולה -> עומדת רגע במקום -> כלים נכנסים שנייה אחר-כך -> בחירה -> תפיסה אנימטיבית -> קפיצה קצרה -> נחיתה. בלי לופ של idle. בלי שני pose-ים עומדים. בלי מטוס. בלי גרדיאנט.",
+
+  "summary_he": "ניריט נכנסת בריצה (pose_04 #2.0-3.5, one_shot 1500ms, scaleX(-1) פרופיל-שמאלה, bottom:6% right:55%) על רקע bg_airplane.mp4 (וידאו אמיתי של שמיים+חופה). ב-1500ms טקסט המשימה fade in (400ms), event 'mission_text_shown' נשלח, pose_04 נעצר, blend 200ms ל-pose_05 #1.0-2.0 (לופ עמידה פרונטלית, אותו position_css). ב-2500ms (1s אחרי המשימה) הכלי הראשון נכנס, +120ms השני, +120ms השלישי. ניריט עומדת ב-pose_05 לופ עד הקליק. בקליק — pose_06 #3.0-5.5 (one_shot 2500ms, blend in 200ms), הכלי עף בקשת cubic-bezier(0.34,1.56,0.64,1) במשך 1500ms ומגיע לכף-יד בדיוק ב-frame 4.5. ב-click+2500ms catch_complete, ה-wrapper מקבל CSS jump (translateY -12vh, scale 1.04, rotate -2deg) למשך 600ms. ב-catch_complete+300ms jump_apex: bg crossfade ל-bg_jungle_clearing.mp4 (400ms), competitors fade out, two_jungle_trees fade in, pose_03 #3.0-5.0 מתחיל (one_shot 2000ms), והwrapper מתחיל translate 2000ms ל-bottom:5% right:30% height:55%. ב-jump_apex+1800ms dust_clouds מופיע (900ms keyframes). ב-jump_apex+2000ms landing_complete (ידיים נוגעות בקרקע, pose_03 frame 5.0). +200ms checkpoint text fade in. +1500ms hold. fade to black 600ms. אין pose_07. אין מטוס. אין גרדיאנט. אין Nano Banana. אין double-position-shift אחרי קליק.",
+
+  "summary_en": "Nirit enters running (pose_04 #2.0-3.5, one_shot 1500ms, scaleX(-1) facing-left profile, bottom:6% right:55% height:54%) over bg_airplane.mp4 (real aerial sky+canopy video, set_list-verified). At t=1500ms mission text fades in (400ms), 'mission_text_shown' event fires, pose_04 ends, 200ms blend to pose_05 #1.0-2.0 (frontal grounded standing loop, same position_css, scaleX flips to +1 inside the blend). At t=2500ms (1s after mission per Nirit verbatim) tool A appears, +120ms B, +120ms C. Nirit stands looping in pose_05 until click. On click: pose_06 #3.0-5.5 plays (one_shot 2500ms, 200ms blend in); tool flies on parabolic cubic-bezier(0.34,1.56,0.64,1) arc 1500ms, palm contact at frame 4.5. At click+2500ms catch_complete fires; player wrapper gets CSS jump (translateY-12vh + scale 1.04 + rotate -2deg, 600ms cubic-bezier(0.16,1,0.3,1)). At catch_complete+300ms jump_apex fires: bg cross-fades sky->bg_jungle_clearing.mp4 (400ms), rivals overlay fades out, two_jungle_trees fades in, pose_03 #3.0-5.0 starts (one_shot 2000ms), wrapper begins 2000ms CSS-translate from bottom:6% right:55% height:54% to bottom:5% right:30% height:55%. At jump_apex+1800ms dust_clouds.png triggers (900ms keyframed puff). At jump_apex+2000ms landing_complete fires (hands touch ground, pose_03 frame 5.0). +200ms checkpoint text fades in (400ms). +1500ms hold. 600ms fade-to-black. NO pose_07. NO plane. NO gradient. NO Nano Banana. NO post-click position-double-shift."
+}

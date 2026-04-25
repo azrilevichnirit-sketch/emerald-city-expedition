@@ -1,0 +1,13 @@
+{
+  "asset": "קאטר_מ10.png",
+  "type": "tool_png",
+  "before_kb": 1410,
+  "after_kb": 158,
+  "ratio": 8.92,
+  "in_budget": false,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\קאטר_מ10.png",
+  "dst": "assets\\optimized\\tools\\קאטר_מ10.webp",
+  "status": "compressed_pending_panel"
+}

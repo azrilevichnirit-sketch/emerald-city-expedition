@@ -32,3 +32,26 @@ Thumbs.db
 # Shutterstock pipeline disabled (rembg destroyed scenery shots).
 # Re-enable only after post-processing logic is fixed.
 pipeline/staging/shutterstock/
+
+# Large media not committed to git (kept locally — tracked via asset_catalog.json)
+assets/
+master_player/
+pipeline/review/
+pipeline/staging/
+pipeline/bg_keyframes/
+pipeline/pose_keyframes/
+pipeline/pose_keyframes_dense/
+pipeline/_chroma_sample.png
+pipeline/style_reference.png
+pipeline/test_rope_bridge.png
+*.mp4
+*.mov
+*.avi
+
+# But DO commit small structural images (under 500KB)
+!pipeline/builder_html/**/*.png
+!agents/**/*.png
+
+# Backup branches
+backup/
+

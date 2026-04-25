@@ -1,0 +1,9 @@
+{
+  "stage": "timing",
+  "feedback_round": 1,
+  "fixes": [
+    "- Tool A appears at 1200ms, which is 300ms after entry_transition_ms (900ms), but tools B and C appear at 1600ms and 2000ms which are correctly after entry transition — inconsistent stagger creates visual confusion during fade-in.\n  fix: Adjust tool A in_ms to at least 900ms (preferably 1000ms or later) to ensure all tools appear after entry transition completes, maintaining clean sequential reveal.",
+    "- Player track specifies pose='anim_reach_forward' but assembly layer for player has pose_candidates=['pose_02.mp4', 'pose_05.mp4', 'pose_07.mp4'] with no 'anim_reach_forward' listed.\n  fix: Either change timing player pose to one of the three assembly candidates (pose_02/05/07) or add 'anim_reach_forward.mp4' to assembly pose_candidates list."
+  ],
+  "_written_at": "2026-04-25 14:39:19"
+}

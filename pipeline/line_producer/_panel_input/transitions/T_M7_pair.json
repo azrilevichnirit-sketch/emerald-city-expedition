@@ -1,0 +1,13 @@
+{
+  "asset": "T_M7.mp4",
+  "type": "transition_mp4",
+  "before_kb": 2615,
+  "after_kb": 1298,
+  "ratio": 2.01,
+  "in_budget": false,
+  "budget_kb": 600,
+  "codec": "H.264 CRF 24, max_w 1280, preset slow",
+  "src": "assets\\transitions\\T_M7.mp4",
+  "dst": "assets\\optimized\\transitions\\T_M7.mp4",
+  "status": "compressed_pending_panel"
+}

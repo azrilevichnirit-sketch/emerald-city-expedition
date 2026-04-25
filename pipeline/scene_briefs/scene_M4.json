@@ -1,0 +1,356 @@
+{
+  "_for_mission": "M4",
+  "_built_at": "2026-04-25T12:54:13Z",
+  "_source": "directing/{assembly,continuity,timing,interaction,storyboard}.json",
+  "scene_id": "M4",
+  "duration_ms": 12000,
+  "entry_transition": {
+    "type": "push_up",
+    "duration_ms": 550,
+    "notes": "Player's forward momentum from M3 crossroads abruptly halts as chasm reveals itself — upward push simulates sudden stop/realization of obstacle, wind buffeting the rope bridge creates vertical instability"
+  },
+  "exit_transition": null,
+  "background": {
+    "z": 0,
+    "role": "background",
+    "file": "bg_M5.mp4",
+    "slot": null,
+    "pos": {
+      "x_pct": 50,
+      "y_pct": 50
+    },
+    "scale": 1.0,
+    "rot_deg": 0,
+    "anchor": "center",
+    "fit": "cover",
+    "pose_candidates": []
+  },
+  "player": {
+    "pose_file": "pose_06.mp4",
+    "pose_semantic": "anim_reach_forward",
+    "loop_segment_sec": null,
+    "hold_frame_sec": 5.5,
+    "one_shot": true,
+    "catch_pose": true
+  },
+  "tracks": [
+    {
+      "role": "background",
+      "file": "bg_M5.mp4",
+      "slot": null,
+      "pose": null,
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": true,
+      "loop_segment_ms": null,
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "player",
+      "file": "pose_06.mp4",
+      "slot": null,
+      "pose": "pose_06.mp4",
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": [
+        5500,
+        5500
+      ],
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/רובה_חבלים_מ04.png",
+      "slot": "C",
+      "pose": null,
+      "in_ms": 800,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_left",
+      "appear_ms": 350,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/רתמת_אבטחה_מ04.png",
+      "slot": "B",
+      "pose": null,
+      "in_ms": 1200,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_left",
+      "appear_ms": 350,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/לוחות_עץ_פטיש_מ04.png",
+      "slot": "A",
+      "pose": null,
+      "in_ms": 1600,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_left",
+      "appear_ms": 350,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "mission_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 600,
+      "out_ms": 4600,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 300
+    },
+    {
+      "role": "checkpoint_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 9500,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    }
+  ],
+  "interactive_elements": [
+    {
+      "slot": "A",
+      "label": "לוחות עץ ופטיש",
+      "points": 1,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.06,
+        "glow_color": "#FFD700"
+      },
+      "click": {
+        "feedback_animation": "pulse_out",
+        "feedback_ms": 450,
+        "points_popup": {
+          "text": "+1",
+          "color": "#FFD700",
+          "from_xy_pct": {
+            "x": 72,
+            "y": 25
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 800
+        }
+      },
+      "tooltip": {
+        "he": "בנה גשר עץ מאולתר",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "B",
+      "label": "רתמת אבטחה",
+      "points": 2,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.08,
+        "glow_color": "#FF8C00"
+      },
+      "click": {
+        "feedback_animation": "bounce",
+        "feedback_ms": 500,
+        "points_popup": {
+          "text": "+2",
+          "color": "#FF8C00",
+          "from_xy_pct": {
+            "x": 85,
+            "y": 50
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 850
+        }
+      },
+      "tooltip": {
+        "he": "חגור רתמה ועבור בבטחה",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "C",
+      "label": "רובה חבלים",
+      "points": 3,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.1,
+        "glow_color": "#FF4500"
+      },
+      "click": {
+        "feedback_animation": "flash",
+        "feedback_ms": 550,
+        "points_popup": {
+          "text": "+3",
+          "color": "#FF4500",
+          "from_xy_pct": {
+            "x": 78,
+            "y": 75
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 900
+        }
+      },
+      "tooltip": {
+        "he": "ירה חבל וצלח את התהום",
+        "show_after_ms": 600
+      }
+    }
+  ],
+  "global_ui": {
+    "score_display": {
+      "pos": {
+        "x_pct": 88,
+        "y_pct": 8
+      },
+      "font_size_px": 32
+    },
+    "mission_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 6
+      },
+      "width_pct": 60,
+      "font_size_px": 20
+    },
+    "checkpoint_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 92
+      },
+      "width_pct": 70,
+      "font_size_px": 18
+    }
+  },
+  "beats": [
+    {
+      "t_ms": 0,
+      "description": "Scene opens mid-push_up transition (550ms total). Swaying rope bridge over chasm visible in background loop. Player in reaching pose, left-of-center, facing right toward empty tool area. Wind and vertical instability implied by background motion.",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_06"
+      ],
+      "audio_hint": "Wind gusts, creaking rope bridge, distant rushing water below chasm"
+    },
+    {
+      "t_ms": 600,
+      "description": "Mission text appears: 'השביל נקטע בתהום! גשר החבלים רעוע והרוח מטלטלת אותו בחוזקה, בזמן שהצוות המוביל כבר בצד השני וממשיך להיעלם בתוך היער. איך אני צולחת את התהום הזו עכשיו?' Tooltips become available for all three tools (though tools not yet visible).",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_06",
+        "text.mission"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 800,
+      "description": "Rope gun (tool.C) enters top-right position. First tool in descending diagonal arrangement. Professional crossing solution now visible.",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_06",
+        "text.mission",
+        "tool.C"
+      ],
+      "audio_hint": "Metallic clink as equipment appears"
+    },
+    {
+      "t_ms": 1200,
+      "description": "Safety harness (tool.B) enters middle-right position. Second tool in diagonal, creating visual gradient from professional to makeshift solutions.",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_06",
+        "text.mission",
+        "tool.C",
+        "tool.B"
+      ],
+      "audio_hint": "Fabric/strap rustle"
+    },
+    {
+      "t_ms": 1600,
+      "description": "Wood planks with hammer (tool.A) enters bottom-right position. All three crossing options now visible in descending diagonal. Player's reaching pose creates tension line toward tools across metaphorical chasm space.",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_06",
+        "text.mission",
+        "tool.C",
+        "tool.B",
+        "tool.A"
+      ],
+      "audio_hint": "Wood thunk"
+    },
+    {
+      "t_ms": 4600,
+      "description": "Mission text fades out. Visual focus shifts entirely to player-tool relationship and background chasm environment. All three tools remain interactive.",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_06",
+        "tool.C",
+        "tool.B",
+        "tool.A"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 9500,
+      "description": "Checkpoint text appears: 'אני בצד השני. הצמחייה סוגרת עליי, האווירה משתנה.' Signals imminent scene conclusion and transition to denser jungle environment (M5).",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_06",
+        "tool.C",
+        "tool.B",
+        "tool.A",
+        "text.checkpoint"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 12000,
+      "description": "Scene ends. All elements remain visible through final frame. Transition to M5 will follow.",
+      "visible_elements": [
+        "background.bg_M5",
+        "player.pose_06",
+        "tool.C",
+        "tool.B",
+        "tool.A",
+        "text.checkpoint"
+      ],
+      "audio_hint": "Wind intensity increases, foreshadowing jungle density ahead"
+    }
+  ],
+  "summary_he": "נירית עומדת מול תהום שחוסמת את דרכה, גשר החבלים הישן מתנדנד באלימות ברוח והצוות המוביל כבר נעלם ביער שמעבר לצד השני. היא מושיטה יד קדימה, גופה מתוח לעבר שלושת הפתרונות שמופיעים בזה אחר זה: רובה חבלים מקצועי, רתמת בטיחות, ולוחות עץ עם פטיש לגשר מאולתר. הרוח שואגת, המים רועשים בעומק התהום, והזמן דוחק. כל בחירה נושאת סיכון שונה - מהירות מול בטיחות, אלתור מול ציוד מקצועי. ברגע שהיא מחליטה וצולחת, הצמחייה הצפופה סוגרת עליה מהצד השני, והאווירה משתנה לחשוכה ומאיימת יותר.",
+  "summary_en": "Player faces chasm with unstable rope bridge, rival team already disappeared into far jungle. Three crossing tools appear in descending diagonal: rope gun (professional), safety harness (cautious), wood planks (improvised). Composition creates visual tension across empty space between player's reaching pose and tools. Wind and vertical instability dominate atmosphere. Checkpoint text signals successful crossing into denser, darker jungle ahead (M5 transition)."
+}

@@ -1,0 +1,13 @@
+{
+  "asset": "wet_footprints_trail.png",
+  "type": "scenery_png",
+  "before_kb": 439,
+  "after_kb": 101,
+  "ratio": 4.35,
+  "in_budget": true,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\wet_footprints_trail.png",
+  "dst": "assets\\optimized\\scenery\\wet_footprints_trail.webp",
+  "status": "compressed_pending_panel"
+}

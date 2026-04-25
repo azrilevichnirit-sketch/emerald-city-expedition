@@ -1,0 +1,27 @@
+{
+  "_for_mission": "M12",
+  "_status": "PLACEHOLDER (sound pass not yet run)",
+  "_source": "storyboard.beats[].audio_hint",
+  "audio_cues": [
+    {
+      "t_ms": 0,
+      "hint": "River ambient, distant dripping water from cave, boat creaking"
+    },
+    {
+      "t_ms": 800,
+      "hint": "Soft paper rustle"
+    },
+    {
+      "t_ms": 1200,
+      "hint": "Camera mechanism click"
+    },
+    {
+      "t_ms": 1600,
+      "hint": "Torch flame ignition whoosh"
+    },
+    {
+      "t_ms": 12000,
+      "hint": "Ambient sustain, boat departure horn in distance (foreshadowing urgency)"
+    }
+  ]
+}

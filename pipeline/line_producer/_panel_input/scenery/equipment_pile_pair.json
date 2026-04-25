@@ -1,0 +1,13 @@
+{
+  "asset": "equipment_pile.png",
+  "type": "scenery_png",
+  "before_kb": 741,
+  "after_kb": 78,
+  "ratio": 9.5,
+  "in_budget": true,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\equipment_pile.png",
+  "dst": "assets\\optimized\\scenery\\equipment_pile.webp",
+  "status": "compressed_pending_panel"
+}

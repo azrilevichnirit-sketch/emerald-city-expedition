@@ -1,0 +1,39 @@
+{
+  "_for_mission": "M14",
+  "_status": "PLACEHOLDER (sound pass not yet run)",
+  "_source": "storyboard.beats[].audio_hint",
+  "audio_cues": [
+    {
+      "t_ms": 0,
+      "hint": "Deep temple ambience, distant guard footsteps echoing"
+    },
+    {
+      "t_ms": 1200,
+      "hint": "Soft mystical hum, object A"
+    },
+    {
+      "t_ms": 1400,
+      "hint": "Guard voices grow louder (background layer)"
+    },
+    {
+      "t_ms": 1550,
+      "hint": "Soft mystical hum, object B"
+    },
+    {
+      "t_ms": 1900,
+      "hint": "Soft mystical hum, object C; guard footsteps intensify"
+    },
+    {
+      "t_ms": 5900,
+      "hint": "Metallic clink or stone scrape (pickup confirmation)"
+    },
+    {
+      "t_ms": 10500,
+      "hint": "Urgent string swell, guard alarm shouts"
+    },
+    {
+      "t_ms": 13000,
+      "hint": "Footsteps running, echo fading into transition"
+    }
+  ]
+}

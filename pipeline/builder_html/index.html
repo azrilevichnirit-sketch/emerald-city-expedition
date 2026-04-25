@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>משלחת אל עיר האזמרגד — תצוגת בילדר</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Heebo',sans-serif;background:#0c0f14;color:#fff;padding:32px;direction:rtl}
+h1{font-size:1.5rem;margin-bottom:16px}
+.sub{color:#8aa4c2;margin-bottom:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+a.tile{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:#1a3a5c;color:#fff;text-decoration:none;border-radius:8px;
+  padding:18px 12px;font-weight:600;transition:transform 150ms,background 150ms}
+a.tile:hover{background:#234e7a;transform:translateY(-2px)}
+a.tile small{display:block;color:#a8c4e2;font-weight:400;margin-top:4px;font-size:0.78rem}
+.note{margin-top:24px;padding:14px;background:#102030;border-right:3px solid #4A90E2;border-radius:4px;font-size:0.9rem;line-height:1.5}
+</style>
+</head>
+<body>
+<h1>משלחת אל עיר האזמרגד — 15 משימות</h1>
+<p class="sub">לחיצה על משימה תפתח את הסצנה ב-HTML מלא (chroma key, RTL, 3 כלים).</p>
+<div class="grid" id="grid"></div>
+<div class="note">
+  <strong>הערה:</strong> M6 ו-M8 חסרים לופי scenery (smoking_jeep / rain_effect_m8) —
+  הסצנות נטענות בלעדיהם עד שהווידאו יושלם ב-Veo. כל הכלים, פוזות, רקעים ותפאורה
+  הסטטית — תקינים.
+</div>
+<script>
+const missions = Array.from({length:15}, (_,i)=>`M${i+1}`);
+const titles = {
+  M1:"דריסת רגל",M2:"הגנה על נכסים",M3:"בתוך המירוץ",
+  M4:"חציית הגבול",M5:"ערנות מקסימלית",M6:"תנועה מהירה",
+  M7:"איסוף מודיעין",M8:"כיבוש הפסגה",M9:"חדירה למתחם",
+  M10:"נטרול איומים",M11:"זינוק למים",M12:"המרדף האחרון",
+  M13:"ניווט מדויק",M14:"שלל המשלחת",M15:"סיום המשחק"
+};
+const g = document.getElementById('grid');
+missions.forEach(m=>{
+  const a = document.createElement('a');
+  a.className='tile';a.href=`${m}.html`;a.textContent=m;
+  const s = document.createElement('small');s.textContent = titles[m]||'';
+  a.appendChild(s);g.appendChild(a);
+});
+</script>
+</body>
+</html>

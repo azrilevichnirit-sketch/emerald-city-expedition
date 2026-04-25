@@ -1,0 +1,12 @@
+{
+  "tools": {
+    "גלשן_מ01": {
+      "method": "imagen4_fresh",
+      "prompt": "A single paragliding wing shown ALONE as a product shot, displayed as a large horizontally wide double-layer ram-air fabric airfoil. The wing is VERY WIDE and relatively SHORT in height, a long horizontally elongated shape stretching from the far left edge to the far right edge of the frame — width-to-height ratio approximately 5:1 — with a subtle crescent curve. It is built from two parallel fabric skins (top surface and bottom surface) separated by internal ribs forming a row of open rectangular air cells along the entire leading edge. Bright rainbow stripes in red orange yellow green and blue ripstop nylon. Dozens of thin suspension lines hang straight down from the bottom skin. Floating centered on a plain pure white studio background. NO person, NO pilot, NO harness seat, NO ground, just the wing itself. Stock catalog photography of a paraglider canopy as isolated product."
+    },
+    "מצנח_בסיס_מ11": {
+      "method": "nano_inpaint",
+      "instruction": "Edit this photograph: remove the person/skydiver hanging in the harness below the parachute canopy. Keep the orange and white rectangular ram-air parachute canopy exactly as it is, keep the suspension lines exactly as they are, and keep the empty harness itself visible but with NO person in it. Fill in the area where the person was with matching blue sky and clouds continuing naturally. The result should look like the exact same parachute scene but with an empty harness and no human figure anywhere in the image."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "asset": "שמיכה_מ10.png",
+  "type": "tool_png",
+  "before_kb": 2121,
+  "after_kb": 250,
+  "ratio": 8.48,
+  "in_budget": false,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\שמיכה_מ10.png",
+  "dst": "assets\\optimized\\tools\\שמיכה_מ10.webp",
+  "status": "compressed_pending_panel"
+}

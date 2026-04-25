@@ -1,0 +1,13 @@
+{
+  "asset": "טפרי_טיפוס_מ08.png",
+  "type": "tool_png",
+  "before_kb": 1762,
+  "after_kb": 211,
+  "ratio": 8.35,
+  "in_budget": false,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\טפרי_טיפוס_מ08.png",
+  "dst": "assets\\optimized\\tools\\טפרי_טיפוס_מ08.webp",
+  "status": "compressed_pending_panel"
+}

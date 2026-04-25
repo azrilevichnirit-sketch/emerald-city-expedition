@@ -1,0 +1,13 @@
+{
+  "asset": "bg_M14.mp4",
+  "type": "background_mp4",
+  "before_kb": 2967,
+  "after_kb": 1528,
+  "ratio": 1.94,
+  "in_budget": true,
+  "budget_kb": 2500,
+  "codec": "H.264 CRF 24, max_w 1280, preset slow",
+  "src": "assets\\backgrounds\\bg_M14.mp4",
+  "dst": "assets\\optimized\\backgrounds\\bg_M14.mp4",
+  "status": "compressed_pending_panel"
+}

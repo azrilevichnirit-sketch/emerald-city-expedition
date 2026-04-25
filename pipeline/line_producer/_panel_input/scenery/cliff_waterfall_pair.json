@@ -1,0 +1,13 @@
+{
+  "asset": "cliff_waterfall.png",
+  "type": "scenery_png",
+  "before_kb": 1559,
+  "after_kb": 243,
+  "ratio": 6.42,
+  "in_budget": false,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\cliff_waterfall.png",
+  "dst": "assets\\optimized\\scenery\\cliff_waterfall.webp",
+  "status": "compressed_pending_panel"
+}

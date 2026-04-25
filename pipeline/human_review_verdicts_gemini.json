@@ -1,0 +1,28 @@
+{
+  "_reviewed_at": "2026-04-21",
+  "_reviewed_by": "human_review agent (Claude agent role) per agents/human_review.md",
+  "_engine": "Google Imagen 4.0 (imagen-4.0-generate-001) via AI Studio REST",
+  "_note": "Fallback rounds 3 & 4 for the 11 tools that failed 2 Leonardo rounds. Per user's rule: max 2 Imagen attempts per tool.",
+  "round_3": {
+    "attempt": "1st Imagen attempt",
+    "passes": ["לום_מ07", "לפיד_יד_מ12", "לפיד_מ05", "מצנח_בסיס_מ11", "סנפלינג_מ11", "סרגל_מ13", "פריסקופ_מ07", "רשת_מ05"],
+    "fails": {
+      "גלשן_מ01": "empty response from API, likely safety filter on paraglider content",
+      "חבל_קשרים_מ08": "rembg stripped the rope; raw image fine but U2Net failed",
+      "מפה_מ03": "API generated a dog instead of a map — severe prompt misinterpretation"
+    }
+  },
+  "round_4": {
+    "attempt": "2nd Imagen attempt (rewritten prompts)",
+    "passes": {
+      "גלשן_מ01": "dropped personGeneration restriction; rainbow paraglider canopy, suspension lines visible from above",
+      "חבל_קשרים_מ08": "manual luminance-threshold chroma-key instead of rembg (rope was perfect in raw); 5 bulky figure-eight knots on vertical beige rope",
+      "מפה_מ03": "rewrote with explicit 'NO animals, NO people, just the map document'; perfect parchment scroll with palm trees, compass, red X"
+    },
+    "fails": {}
+  },
+  "final": {
+    "imagen_approved_total": 11,
+    "needs_manual_review_final": []
+  }
+}

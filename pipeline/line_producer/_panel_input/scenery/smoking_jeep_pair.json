@@ -1,0 +1,13 @@
+{
+  "asset": "smoking_jeep.png",
+  "type": "scenery_png",
+  "before_kb": 811,
+  "after_kb": 105,
+  "ratio": 7.72,
+  "in_budget": true,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\smoking_jeep.png",
+  "dst": "assets\\optimized\\scenery\\smoking_jeep.webp",
+  "status": "compressed_pending_panel"
+}

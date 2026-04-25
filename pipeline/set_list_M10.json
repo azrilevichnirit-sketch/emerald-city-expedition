@@ -1,0 +1,91 @@
+{
+  "_for_mission": "M10",
+  "_source": "directing/assembly.json",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "bg_M10.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 35,
+        "y_pct": 58
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_06.mp4",
+        "pose_03.mp4",
+        "pose_07.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "tools/מצלמה_זעירה_מ10.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 75,
+        "y_pct": 25
+      },
+      "scale": 1.0,
+      "rot_deg": -8,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "tools/שמיכת_מיגון_מ10.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 85,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 5,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    },
+    {
+      "z": 36,
+      "role": "tool",
+      "file": "tools/קאטר_מ10.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 78,
+        "y_pct": 75
+      },
+      "scale": 1.0,
+      "rot_deg": 12,
+      "anchor": "center",
+      "fit": "contain",
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Asymmetric tension layout: player left-of-center facing right toward danger zone (where black box sits in bg), tools clustered right in descending diagonal to create visual urgency triangle. Camera high (recon), blanket mid (shield), cutter low (direct action) mirrors escalating risk hierarchy."
+}

@@ -1,0 +1,13 @@
+{
+  "asset": "פטיש_מ02.png",
+  "type": "tool_png",
+  "before_kb": 932,
+  "after_kb": 110,
+  "ratio": 8.47,
+  "in_budget": true,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\פטיש_מ02.png",
+  "dst": "assets\\optimized\\tools\\פטיש_מ02.webp",
+  "status": "compressed_pending_panel"
+}

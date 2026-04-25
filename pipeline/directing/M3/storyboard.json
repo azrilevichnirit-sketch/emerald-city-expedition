@@ -1,0 +1,105 @@
+{
+  "_stage": "storyboard",
+  "_mission": "M3",
+  "_generated_at": "2026-04-25T12:33:04Z",
+  "_generated_by": "agent_08_storyboard",
+  "scene_id": "M3",
+  "beats": [
+    {
+      "t_ms": 0,
+      "description": "Scene opens: fade from black (650ms) reveals morning jungle crossroads. Background shows dirt path with fresh tire tracks veering left. Nirit stands left-of-center in scanning pose, surveying the decision point.",
+      "visible_elements": [
+        "background.bg_03",
+        "player.pose_01"
+      ],
+      "audio_hint": "Morning jungle ambience (birds, distant engine rumble fading), subtle tension underscore"
+    },
+    {
+      "t_ms": 650,
+      "description": "Mission text appears: 'הבוקר עלה. המפה מראה שביל ישר, אבל משמאל יש עקבות צמיגים טריות ורעש מנועים של הקבוצות האחרות שבורחות קדימה. האם אני נצמדת למפה או דוהרת אחריהם?' overlays scene, establishing the strategic dilemma.",
+      "visible_elements": [
+        "background.bg_03",
+        "player.pose_01",
+        "text.mission"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 1000,
+      "description": "Crumpled map (tool A) enters top-right of frame — the conservative choice, showing the official straight path through the jungle.",
+      "visible_elements": [
+        "background.bg_03",
+        "player.pose_01",
+        "text.mission",
+        "tool.A"
+      ],
+      "audio_hint": "Soft paper rustle"
+    },
+    {
+      "t_ms": 1400,
+      "description": "Field binoculars (tool B) appear mid-right, slightly below map — reconnaissance option to scout ahead before committing.",
+      "visible_elements": [
+        "background.bg_03",
+        "player.pose_01",
+        "text.mission",
+        "tool.A",
+        "tool.B"
+      ],
+      "audio_hint": "Metallic clink (binoculars settling)"
+    },
+    {
+      "t_ms": 1800,
+      "description": "Tractor key (tool C) materializes lower-right, completing diagonal cascade — the aggressive pursuit option to chase rival teams.",
+      "visible_elements": [
+        "background.bg_03",
+        "player.pose_01",
+        "text.mission",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": "Key jingle"
+    },
+    {
+      "t_ms": 5150,
+      "description": "Mission text fades out. All three tools remain visible and interactive, forming clear visual hierarchy: passive study → active recon → full commitment.",
+      "visible_elements": [
+        "background.bg_03",
+        "player.pose_01",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 9500,
+      "description": "Checkpoint text appears: 'הנתיב נבחר. אני מרגישה את המתחרים נושפת בעורפי.' — confirms player has made decision, adds urgency with rivals closing in.",
+      "visible_elements": [
+        "background.bg_03",
+        "player.pose_01",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": "Tension swell (competitors approaching)"
+    },
+    {
+      "t_ms": 12000,
+      "description": "Scene ends. All elements remain visible through final frame, maintaining decision weight as scene transitions to consequence.",
+      "visible_elements": [
+        "background.bg_03",
+        "player.pose_01",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": null
+    }
+  ],
+  "summary_he": "הבוקר מתחיל בצומת דרכים מכריע. נירית עומדת בשביל מפוצל, מסתכלת על עקבות הצמיגים הטריות של הקבוצות המתחרות שדוהרות שמאלה — מחוץ למסלול הרשמי. שלושה כלים מופיעים בזה אחר זה: מפה מקומטת שמראה את הדרך הבטוחה והישרה, משקפת שדה לסריקת השטח מרחוק, ומפתח טרקטורון להתחלת מרדף אחרי המתחרים. כל כלי מייצג רמת סיכון שונה — האם לשחק בטוח, לאסוף מידע, או לקחת סיכון גדול? הטקסט מדגיש את הלחץ: הזמן עובר, המתחרים מתרחקים, וההחלטה הזאת תקבע את כל המשך המסע. הסצנה נסגרת עם תחושת דחיפות — נירית מרגישה את היריבים נושמים לה בעורף.",
+  "summary_en": "Morning crossroads decision point. Nirit surveys jungle path split: official straight route vs. fresh tire tracks of rival teams veering left. Three tools cascade in (map → binoculars → tractor key), representing escalating commitment levels from passive study to active pursuit. Visual hierarchy guides player through risk spectrum. Scene builds urgency through text overlay and tool timing, closing with checkpoint confirmation that rivals are closing in. No scenery layers (environmental elements baked into bg_03). Player maintains scanning pose throughout, creating tension with static decision tools.",
+  "rationale": "Beats follow strict chronological order from t=0 (scene open + fade) through tool entries (1000/1400/1800ms per timing tracks) to text transitions (650ms mission in, 5150ms out, 9500ms checkpoint in) and scene end (12000ms). All visible_elements cross-checked against ALLOWED list: background.bg_03, player.pose_01, tool.A/B/C (slot form, always safe per instructions). No Hebrew filename translation, no invented nicknames, no merge_to_bg scenery (tire tracks/environmental elements already in background per TODAY_STATE). Audio hints suggestive only, not prescriptive. Hebrew summary narrative for Nirit (producer review), English summary technical for pipeline handoff."
+}

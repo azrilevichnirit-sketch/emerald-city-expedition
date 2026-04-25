@@ -1,0 +1,145 @@
+props to process: 51
+[1/51] broken_door (mission M1)
+  [broken_door] already delivered — skip
+[2/51] competitors_in_air (mission M1)
+  [competitors_in_air] already delivered — skip
+[3/51] dense_jungle (mission M1)
+  [dense_jungle] attempt 1: qa=pass dir=redo - rewriting
+  [dense_jungle] attempt 2: qa=pass dir=fix - rewriting
+  [dense_jungle] attempt 3: qa=fail dir=pass - exhausted
+[4/51] storm_clouds_lightning (mission M2)
+  [storm_clouds_lightning] already delivered — skip
+[5/51] jungle_trees (mission M2)
+  [jungle_trees] already delivered — skip
+[6/51] rain_effect (mission M2)
+  [rain_effect] already delivered — skip
+[7/51] equipment_pile (mission M2)
+  [equipment_pile] already delivered — skip
+[8/51] path_straight (mission M3)
+  [path_straight] attempt 1: qa=pass dir=redo - rewriting
+  [path_straight] attempt 2: qa=fail dir=pass - rewriting
+  [path_straight] pass (a3) -> path_straight.png
+[9/51] tire_tracks (mission M3)
+  [tire_tracks] already delivered — skip
+[10/51] jungle_edge (mission M3)
+  [jungle_edge] already delivered — skip
+[11/51] chasm_background (mission M4)
+  [chasm_background] already delivered — skip
+[12/51] rope_bridge_midground (mission M4)
+  [rope_bridge_midground] already delivered — skip
+[13/51] forest_far_side (mission M4)
+  [forest_far_side] attempt 1: qa=pass dir=fix - rewriting
+  [forest_far_side] pass (a2) -> forest_far_side.png
+[14/51] rival_team_disappearing (mission M4)
+  [rival_team_disappearing] attempt 1: qa=fail dir=redo - rewriting
+  [rival_team_disappearing] attempt 2: qa=fail dir=redo - rewriting
+  [rival_team_disappearing] attempt 3: qa=pass dir=redo - exhausted
+[15/51] scenery_bush_right (mission M5)
+  [scenery_bush_right] already delivered — skip
+[16/51] scenery_broken_branches (mission M5)
+  [scenery_broken_branches] already delivered — skip
+[17/51] smoking_jeep (mission M6)
+  [smoking_jeep] already delivered — skip
+[18/51] dust_clouds (mission M6)
+  [dust_clouds] already delivered — skip
+[19/51] uphill_road (mission M6)
+  [uphill_road] already delivered — skip
+[20/51] jungle_background (mission M6)
+  [jungle_background] pass (a1) -> jungle_background.png
+[21/51] temple_entrance (mission M7)
+  [temple_entrance] already delivered — skip
+[22/51] parked_vehicles (mission M7)
+  [parked_vehicles] attempt 1: qa=pass dir=redo - rewriting
+  [parked_vehicles] pass (a2) -> parked_vehicles.png
+[23/51] walkie_talkie (mission M7)
+  [walkie_talkie] attempt 1: qa=fail dir=redo - rewriting
+  [walkie_talkie] pass (a2) -> walkie_talkie.png
+[24/51] rock_cliff_m8 (mission M8)
+  [rock_cliff_m8] pass (a1) -> rock_cliff_m8.png
+[25/51] rain_effect_m8 (mission M8)
+  [rain_effect_m8] pass (a1) -> rain_effect_m8.png
+[26/51] fresh_footprints_m8 (mission M8)
+  [fresh_footprints_m8] pass (a1) -> fresh_footprints_m8.png
+[27/51] flashing_keypad (mission M9)
+  [flashing_keypad] attempt 1: qa=pass dir=fix - rewriting
+  [flashing_keypad] pass (a2) -> flashing_keypad.png
+[28/51] steel_gate (mission M9)
+  [steel_gate] pass (a1) -> steel_gate.png
+[29/51] dark_tunnel_entrance (mission M9)
+  [dark_tunnel_entrance] pass (a1) -> dark_tunnel_entrance.png
+[30/51] scenery_black_box (mission M10)
+  [scenery_black_box] attempt 1: qa=pass dir=redo - rewriting
+  [scenery_black_box] attempt 2: qa=fail dir=redo - rewriting
+  [scenery_black_box] attempt 3: qa=fail dir=redo - exhausted
+[31/51] scenery_tunnel_floor (mission M10)
+  [scenery_tunnel_floor] pass (a1) -> scenery_tunnel_floor.png
+[32/51] scenery_tunnel_walls (mission M10)
+  [scenery_tunnel_walls] attempt 1: qa=pass dir=redo - rewriting
+  [scenery_tunnel_walls] attempt 2: qa=pass dir=redo - rewriting
+  [scenery_tunnel_walls] pass (a3) -> scenery_tunnel_walls.png
+[33/51] cliff_waterfall (mission M11)
+  [cliff_waterfall] attempt 1: qa=pass dir=redo - rewriting
+  [cliff_waterfall] attempt 2: qa=fail dir=redo - rewriting
+  [cliff_waterfall] pass (a3) -> cliff_waterfall.png
+[34/51] escape_boat_distant (mission M11)
+  [escape_boat_distant] attempt 1: qa=pass dir=redo - rewriting
+  [escape_boat_distant] attempt 2: qa=pass dir=redo - rewriting
+  [escape_boat_distant] attempt 3: qa=fail dir=fix - exhausted
+[35/51] churning_water_pool (mission M11)
+  [churning_water_pool] attempt 1: qa=pass dir=redo - rewriting
+  [churning_water_pool] pass (a2) -> churning_water_pool.png
+[36/51] competitor_boat_at_cave (mission M12)
+  [competitor_boat_at_cave] attempt 1: qa=pass dir=redo - rewriting
+  [competitor_boat_at_cave] attempt 2: qa=fail dir=pass - rewriting
+  [competitor_boat_at_cave] attempt 3: qa=fail dir=fix - exhausted
+[37/51] dark_cave_entrance (mission M12)
+  [dark_cave_entrance] pass (a1) -> dark_cave_entrance.png
+[38/51] wet_footprints_trail (mission M12)
+  [wet_footprints_trail] pass (a1) -> wet_footprints_trail.png
+[39/51] main_boat_at_shore (mission M12)
+  [main_boat_at_shore] attempt 1: qa=pass dir=redo - rewriting
+  [main_boat_at_shore] attempt 2: qa=fail dir=pass - rewriting
+  [main_boat_at_shore] attempt 3: qa=fail dir=pass - exhausted
+[40/51] river_shore_bank (mission M12)
+  [river_shore_bank] attempt 1: qa=pass dir=fix - rewriting
+  [river_shore_bank] attempt 2: qa=pass dir=redo - rewriting
+  [river_shore_bank] attempt 3: qa=fail dir=fix - exhausted
+[41/51] dense_jungle_thicket (mission M13)
+  [dense_jungle_thicket] pass (a1) -> dense_jungle_thicket.png
+[42/51] darkening_sky (mission M13)
+  [darkening_sky] pass (a1) -> darkening_sky.png
+[43/51] overgrown_path (mission M13)
+  [overgrown_path] attempt 1: qa=pass dir=redo - rewriting
+  [overgrown_path] pass (a2) -> overgrown_path.png
+[44/51] fake_map_torn (mission M13)
+  [fake_map_torn] attempt 1: qa=pass dir=fix - rewriting
+  [fake_map_torn] attempt 2: qa=fail dir=fix - rewriting
+  [fake_map_torn] pass (a3) -> fake_map_torn.png
+[45/51] encroaching_darkness (mission M13)
+  [encroaching_darkness] attempt 1: qa=pass dir=redo - rewriting
+  [encroaching_darkness] attempt 2: qa=fail dir=redo - rewriting
+  [encroaching_darkness] attempt 3: qa=fail dir=redo - exhausted
+[46/51] altar_stone (mission M14)
+  [altar_stone] pass (a1) -> altar_stone.png
+[47/51] temple_entrance (mission M14)
+  [temple_entrance] already delivered — skip
+[48/51] guard_shadows (mission M14)
+  [guard_shadows] attempt 1: qa=fail dir=redo - rewriting
+  [guard_shadows] pass (a2) -> guard_shadows.png
+[49/51] finish_line (mission M15)
+  [finish_line] attempt 1: qa=pass dir=redo - rewriting
+  [finish_line] attempt 2: qa=fail dir=pass - rewriting
+  [finish_line] attempt 3: qa=fail dir=redo - exhausted
+[50/51] fireworks (mission M15)
+  [fireworks] attempt 1: qa=pass dir=redo - rewriting
+  [fireworks] attempt 2: qa=fail dir=redo - rewriting
+  [fireworks] attempt 3: qa=pass dir=fix - exhausted
+[51/51] distant_celebration_lights (mission M15)
+  [distant_celebration_lights] attempt 1: qa=pass dir=redo - rewriting
+  [distant_celebration_lights] attempt 2: qa=fail dir=pass - rewriting
+  [distant_celebration_lights] ERROR: Imagen HTTP 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/predict_requests_per_model_per_day_paid_tier_1,
+
+done in 1567s. delivered=39 flagged=10 errors=1

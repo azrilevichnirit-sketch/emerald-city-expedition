@@ -1,0 +1,27 @@
+{
+  "_for_mission": "M13",
+  "_status": "PLACEHOLDER (sound pass not yet run)",
+  "_source": "storyboard.beats[].audio_hint",
+  "audio_cues": [
+    {
+      "t_ms": 0,
+      "hint": "ambient jungle sounds, tension undertone"
+    },
+    {
+      "t_ms": 800,
+      "hint": "subtle UI appearance sound"
+    },
+    {
+      "t_ms": 1200,
+      "hint": "subtle UI appearance sound"
+    },
+    {
+      "t_ms": 1600,
+      "hint": "subtle UI appearance sound"
+    },
+    {
+      "t_ms": 10500,
+      "hint": "resolution tone, quiet triumph"
+    }
+  ]
+}

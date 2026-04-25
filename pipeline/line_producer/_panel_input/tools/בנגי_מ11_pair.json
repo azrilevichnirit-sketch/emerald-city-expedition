@@ -1,0 +1,13 @@
+{
+  "asset": "בנגי_מ11.png",
+  "type": "tool_png",
+  "before_kb": 1356,
+  "after_kb": 187,
+  "ratio": 7.25,
+  "in_budget": false,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\בנגי_מ11.png",
+  "dst": "assets\\optimized\\tools\\בנגי_מ11.webp",
+  "status": "compressed_pending_panel"
+}

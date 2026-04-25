@@ -1,0 +1,8 @@
+{
+  "stage": "assembly",
+  "feedback_round": 1,
+  "fixes": [
+    "- Assembly layer z=15 references 'assets/scenery/dust_cloud_m6.png' but TODAY_STATE does not list this file in scenery_active (53 items) — file existence unverified.\n  fix: Verify dust_cloud_m6.png exists in assets/scenery/ or replace with confirmed asset from scenery_active list."
+  ],
+  "_written_at": "2026-04-25 10:39:28"
+}

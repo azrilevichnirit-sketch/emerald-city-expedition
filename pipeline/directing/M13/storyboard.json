@@ -1,0 +1,105 @@
+{
+  "_stage": "storyboard",
+  "_mission": "M13",
+  "_generated_at": "2026-04-25T07:29:52Z",
+  "_generated_by": "agent_08_storyboard",
+  "scene_id": "M13",
+  "beats": [
+    {
+      "t_ms": 0,
+      "description": "Scene opens: dense jungle background visible, player character positioned left-of-center in scanning/searching pose, darkness encroaching from edges",
+      "visible_elements": [
+        "background.bg_M13",
+        "player.main"
+      ],
+      "audio_hint": "ambient jungle sounds, tension undertone"
+    },
+    {
+      "t_ms": 600,
+      "description": "Mission text appears: 'המפה הייתה זיוף! קו הסיום קרוב, אבל הכיוון אבד לגמרי בתוך הסבך והחושך מתקרב. אם לא אמצא נתיב עכשיו, הכל אבוד. איך אני מוצאת את הדרך החוצה?'",
+      "visible_elements": [
+        "background.bg_M13",
+        "player.main",
+        "text.mission"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 800,
+      "description": "Tool A enters frame, positioned in descending diagonal on right third",
+      "visible_elements": [
+        "background.bg_M13",
+        "player.main",
+        "text.mission",
+        "tool.A"
+      ],
+      "audio_hint": "subtle UI appearance sound"
+    },
+    {
+      "t_ms": 1200,
+      "description": "Tool B enters frame, continuing diagonal arrangement below Tool A",
+      "visible_elements": [
+        "background.bg_M13",
+        "player.main",
+        "text.mission",
+        "tool.A",
+        "tool.B"
+      ],
+      "audio_hint": "subtle UI appearance sound"
+    },
+    {
+      "t_ms": 1600,
+      "description": "Tool C enters frame, completing descending diagonal on right third; all navigation options now visible and interactive",
+      "visible_elements": [
+        "background.bg_M13",
+        "player.main",
+        "text.mission",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": "subtle UI appearance sound"
+    },
+    {
+      "t_ms": 5100,
+      "description": "Mission text fades out; player and three tools remain visible, creating visual tension between lost player and navigation options",
+      "visible_elements": [
+        "background.bg_M13",
+        "player.main",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 10500,
+      "description": "Checkpoint text appears: 'הדרך נמצאה. כניסה להיכל המזבח המרכזי. דממה.'",
+      "visible_elements": [
+        "background.bg_M13",
+        "player.main",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": "resolution tone, quiet triumph"
+    },
+    {
+      "t_ms": 13000,
+      "description": "Scene ends; all elements remain visible until transition to next mission",
+      "visible_elements": [
+        "background.bg_M13",
+        "player.main",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": null
+    }
+  ],
+  "summary_he": "הסצנה נפתחת ברגע של אובדן מוחלט: המפה הייתה זיוף, והשחקנית תקועה בסבך צפוף כשהחושך מתקרב מכל עבר. היא עומדת משמאל למרכז, גופה מבטא חיפוש נואש, סורקת את הסביבה. אחת אחת, שלושה כלי ניווט מופיעים באלכסון יורד מימין – כל אחד מייצג אסטרטגיה שונה למצוא את הדרך החוצה. המתח הוויזואלי בין השחקנית האבודה לבין האופציות הטכנולוגיות יוצר תחושה של דחיפות וספק. כשהיא בוחרת נכון, הטקסט המסכם מופיע: 'הדרך נמצאה. כניסה להיכל המזבח המרכזי. דממה' – רגע של הקלה שקטה לפני הקונפליקט הסופי.",
+  "summary_en": "Scene opens with player disoriented in dense jungle, darkness encroaching. Three navigation tools appear sequentially in descending diagonal (right third), creating visual tension against the lost player (left-of-center). Mission text reveals the map was fake; checkpoint text confirms path found, leading to central altar temple. Clean separation maintains readability in high-tension environment.",
+  "rationale": "Beats synthesize stage 4 composition (5-layer diagonal tension), stage 5 transition (600ms dissolve from M12 wrong turn), stage 6 timing (staggered tool entries 800/1200/1600ms, text windows 600-5100ms and 10500-13000ms), and stage 7 interaction (3 tools). No new elements introduced; audio_hint suggestions align with narrative beats. Hebrew summary written for Nirit captures emotional arc; English summary is technical and concise."
+}

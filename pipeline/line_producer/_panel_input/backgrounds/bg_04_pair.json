@@ -1,0 +1,13 @@
+{
+  "asset": "bg_04.mp4",
+  "type": "background_mp4",
+  "before_kb": 188,
+  "after_kb": 627,
+  "ratio": 0.3,
+  "in_budget": true,
+  "budget_kb": 2500,
+  "codec": "H.264 CRF 24, max_w 1280, preset slow",
+  "src": "assets\\backgrounds\\bg_04.mp4",
+  "dst": "assets\\optimized\\backgrounds\\bg_04.mp4",
+  "status": "compressed_pending_panel"
+}

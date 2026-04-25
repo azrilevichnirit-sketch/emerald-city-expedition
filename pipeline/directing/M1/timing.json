@@ -1,0 +1,116 @@
+{
+  "_stage": "timing",
+  "_mission": "M1",
+  "_generated_at": "2026-04-25T12:32:18Z",
+  "_generated_by": "agent_06_timing",
+  "scene_id": "M1",
+  "total_duration_ms": 12000,
+  "entry_transition_ms": 1200,
+  "tracks": [
+    {
+      "role": "background",
+      "file": "bg_M1.mp4",
+      "slot": null,
+      "pose": null,
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": true,
+      "loop_segment_ms": [
+        0,
+        12000
+      ],
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "player",
+      "file": "pose_07.mp4",
+      "slot": null,
+      "pose": "pose_07.mp4",
+      "in_ms": 1200,
+      "out_ms": 12000,
+      "loop": true,
+      "loop_segment_ms": [
+        500,
+        12000
+      ],
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/מצנח_מ01.png",
+      "slot": "A",
+      "pose": null,
+      "in_ms": 2000,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_up",
+      "appear_ms": 350,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 200
+    },
+    {
+      "role": "tool",
+      "file": "tools/גלשן_מ01.png",
+      "slot": "B",
+      "pose": null,
+      "in_ms": 2400,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_up",
+      "appear_ms": 350,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 200
+    },
+    {
+      "role": "tool",
+      "file": "tools/כנפיים_מ01.png",
+      "slot": "C",
+      "pose": null,
+      "in_ms": 2800,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_up",
+      "appear_ms": 350,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 200
+    },
+    {
+      "role": "mission_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 1700,
+      "out_ms": 6200,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 400,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 400
+    },
+    {
+      "role": "checkpoint_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 9500,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    }
+  ],
+  "rationale": "M1 skydive emergency: 12s total. Entry transition 1200ms. Background loops full duration. Player uses pose_07.mp4 (anim_falling, RECOMMENDED for M1) starting at 1200ms with 500ms startup before loop. Tools stagger in at 2000/2400/2800ms with slide_up animations (350ms each). Mission_text visible 1700-6200ms (4.5s, starts 500ms after entry). Checkpoint_text appears 9500ms (2.5s before end) for narrator wrap-up. All timings absolute, respecting pose_map loop_segment guidance."
+}

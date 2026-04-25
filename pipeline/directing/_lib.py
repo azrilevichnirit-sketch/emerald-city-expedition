@@ -145,6 +145,7 @@ class Context:
     pose_map: dict                    # pose_map.json
     bg_brief: dict | None             # bg director brief for this mission
     bg_mission_map: dict              # bg_mission_map.json
+    today_state: dict = field(default_factory=dict)  # pipeline/today_state.json — current truth as of today
     prior_outputs: dict = field(default_factory=dict)
     # prior_outputs keys: "assembly","continuity","timing","interaction","storyboard","harmony"
 
@@ -157,6 +158,8 @@ def load_project_context(mission: str) -> Context:
     pm = json.loads(pm_path.read_text("utf-8")) if pm_path.exists() else {}
     bgmm_path = PROJECT / "pipeline" / "bg_mission_map.json"
     bgmm = json.loads(bgmm_path.read_text("utf-8")) if bgmm_path.exists() else {}
+    ts_path = PROJECT / "pipeline" / "today_state.json"
+    ts = json.loads(ts_path.read_text("utf-8")) if ts_path.exists() else {}
 
     bg_brief_path = (PROJECT / "pipeline" / "debates" / "backgrounds"
                      / f"director_bg_design_bg_{mission}.json")
@@ -183,6 +186,7 @@ def load_project_context(mission: str) -> Context:
         pose_map=pm,
         bg_brief=bg_brief,
         bg_mission_map=bgmm,
+        today_state=ts,
         prior_outputs=prior,
     )
 
@@ -266,6 +270,122 @@ def render_content_lock_mission(ctx: Context) -> str:
             f"  [{t['slot']}] {t['label']} (file={t['file']}, points={t['points']})"
         )
     return "\n".join(lines)
+
+
+def render_today_state(ctx: Context) -> str:
+    """Render today's state — what's delivered, what's been re-categorized,
+    what is in builder_css/merge_to_bg/drop. EVERY agent must respect this
+    as hard truth (it overrides anything stale in asset_manifest.json).
+
+    Per Nirit (2026-04-25 morning): the directors must reflect every decision
+    made today before producing their outputs.
+    """
+    ts = ctx.today_state or {}
+    if not ts:
+        return "(today_state.json not found — running on stale data)"
+    delivered = ts.get("delivered", {})
+    sd = ts.get("scenery_disposition", {})
+    pending = ts.get("still_pending_veo", {})
+
+    # Filter scenery items to those relevant to this mission, but show all for safety.
+    mtb_items = (sd.get("merge_to_bg", {}) or {}).get("items", [])
+    css_items = (sd.get("builder_css", {}) or {}).get("items", [])
+    drop_items = (sd.get("drop_use_other", {}) or {}).get("items", [])
+    loop_items = (sd.get("replace_with_mp4_loop", {}) or {}).get("items", [])
+    review_items = (sd.get("needs_review", {}) or {}).get("items", [])
+
+    return (
+        "=== TODAY_STATE (single source of truth, as of "
+        f"{ts.get('_built_at', '?')}) ===\n"
+        f"DELIVERED ASSETS (use these):\n"
+        f"  backgrounds ({len(delivered.get('backgrounds', []))}): "
+        f"{delivered.get('backgrounds', [])}\n"
+        f"  transitions ({len(delivered.get('transitions', []))}): "
+        f"{delivered.get('transitions', [])}\n"
+        f"  tools ({len(delivered.get('tools', []))}) — see assets/tools/\n"
+        f"  scenery_active ({len(delivered.get('scenery_active', []))}) — see assets/scenery/\n"
+        f"  rivals ({len(delivered.get('rivals', []))}) — see assets/rivals/\n"
+        f"\nSTILL PENDING VEO (do NOT reference yet):\n"
+        f"  transitions: {pending.get('transitions', [])}\n"
+        f"  backgrounds: {pending.get('backgrounds', [])}\n"
+        f"\nSCENERY DISPOSITION RULES:\n"
+        f"  - merge_to_bg ({len(mtb_items)} items, BAKED INTO BG — DO NOT use as separate layers): {mtb_items}\n"
+        f"  - builder_css ({len(css_items)} items, NO ASSET — referenced as CSS overlays in interaction): {css_items}\n"
+        f"  - replace_with_mp4_loop ({len(loop_items)} items, use the .mp4 path): {loop_items}\n"
+        f"  - drop_use_other ({len(drop_items)} items, SKIP entirely): {drop_items}\n"
+        f"  - needs_review ({len(review_items)} items, hold): {review_items}\n"
+        f"\nKEY DECISIONS TODAY (read these — they override anything stale):\n"
+        + "\n".join(
+            f"  • {d.get('decision')}: {d.get('outcome', '')[:200]}"
+            for d in ts.get("decisions_today", [])
+        )
+        + "\n=== END TODAY_STATE ===\n"
+    )
+
+
+def render_pose_recommendations(ctx: Context) -> str:
+    """Render the pose_map subset relevant to this mission.
+
+    Per pose_map_handoff_audit (2026-04-25): assembly + timing agents were
+    picking poses by description, ignoring the project-wide pose_map.use_in
+    list. This renders the EXPLICIT recommended poses for this mission so
+    the agent must justify any deviation.
+    """
+    pm = ctx.pose_map or {}
+    poses = pm.get("poses", {}) or {}
+    if not poses:
+        return "(pose_map.json not found — risky)"
+
+    recommended = []
+    other = []
+    for fname, info in poses.items():
+        sem = info.get("semantic_name") or info.get("semantic") or "?"
+        use_in = info.get("use_in", [])
+        catch = info.get("catch_pose", False)
+        hold = info.get("hold_frame")
+        oneshot = info.get("one_shot", False)
+        catch_note = info.get("catch_note", "")
+        catchable = catch or hold is not None
+        line = (
+            f"  {fname:<14} semantic={sem:<22} catchable={'YES' if catchable else 'no'}"
+            f"{' one_shot' if oneshot else ''}"
+            f"{' hold='+str(hold) if hold is not None else ''}"
+        )
+        if catch_note:
+            line += f"  note: {catch_note[:100]}"
+        if ctx.mission in use_in:
+            recommended.append(line)
+        else:
+            other.append(line)
+
+    out = ["=== POSE_MAP (player animation registry) ===",
+           f"RECOMMENDED for {ctx.mission} (pose_map.use_in includes this mission):"]
+    if recommended:
+        out.extend(recommended)
+    else:
+        out.append("  (none — pick the closest semantic match below and "
+                   "note the deviation in rationale)")
+    out.append("")
+    out.append("OTHER available poses (use ONLY if no recommended pose fits "
+               "the mission action):")
+    out.extend(other)
+    out.append("")
+    out.append("RULES:")
+    out.append(
+        "  - Pick from RECOMMENDED first. If you must use OTHER, explain why "
+        "in rationale."
+    )
+    out.append(
+        "  - For missions with interactive tools (slot A/B/C), prefer a pose "
+        "with catchable=YES so the player can 'catch' the tool at hold_frame."
+    )
+    out.append(
+        "  - Use the .mp4 filename exactly (e.g., 'pose_07.mp4'). Do NOT "
+        "write semantic strings like 'anim_falling' — those are descriptions, "
+        "not file references."
+    )
+    out.append("=== END POSE_MAP ===\n")
+    return "\n".join(out)
 
 
 def render_bg_brief_summary(ctx: Context) -> str:

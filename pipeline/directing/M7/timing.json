@@ -1,0 +1,116 @@
+{
+  "_stage": "timing",
+  "_mission": "M7",
+  "_generated_at": "2026-04-25T12:33:26Z",
+  "_generated_by": "agent_06_timing",
+  "scene_id": "M7",
+  "total_duration_ms": 12000,
+  "entry_transition_ms": 500,
+  "tracks": [
+    {
+      "role": "background",
+      "file": "bg_M7.mp4",
+      "slot": null,
+      "pose": null,
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": true,
+      "loop_segment_ms": [
+        0,
+        12000
+      ],
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "player",
+      "file": "pose_01.mp4",
+      "slot": null,
+      "pose": "pose_01.mp4",
+      "in_ms": 0,
+      "out_ms": 12000,
+      "loop": true,
+      "loop_segment_ms": [
+        0,
+        12000
+      ],
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/דגל_משימה_מ07.png",
+      "slot": "A",
+      "pose": null,
+      "in_ms": 800,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_left",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/פריסקופ_מ07.png",
+      "slot": "B",
+      "pose": null,
+      "in_ms": 1200,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_up",
+      "appear_ms": 350,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "tools/לום_ברזל_מ07.png",
+      "slot": "C",
+      "pose": null,
+      "in_ms": 1600,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "pop",
+      "appear_ms": 400,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "mission_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 500,
+      "out_ms": 4500,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 300
+    },
+    {
+      "role": "checkpoint_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 9500,
+      "out_ms": 12000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 400,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    }
+  ],
+  "rationale": "M7: Temple entrance with rival vehicles already present. Total 12s. Background (bg_M7.mp4) loops full duration. Player uses recommended pose_01.mp4 (anim_look_around) — perfect for surveying the scene and rival activity. Tools stagger: mission flag at 800ms (slide_left, 300ms), periscope at 1200ms (slide_up, 350ms), iron crowbar at 1600ms (pop, 400ms). Mission text visible 500-4500ms (4s window for reading the dilemma about rivals already inside). Checkpoint text 9500-12000ms (2.5s for narrator wrap: 'Decision made. Giant rock wall blocks passage ahead'). Entry transition 500ms cross-dissolve matches continuity lock."
+}

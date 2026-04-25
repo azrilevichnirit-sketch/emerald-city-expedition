@@ -1,0 +1,13 @@
+{
+  "asset": "rival_team_disappearing.png",
+  "type": "scenery_png",
+  "before_kb": 1468,
+  "after_kb": 293,
+  "ratio": 5.01,
+  "in_budget": false,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\rival_team_disappearing.png",
+  "dst": "assets\\optimized\\scenery\\rival_team_disappearing.webp",
+  "status": "compressed_pending_panel"
+}

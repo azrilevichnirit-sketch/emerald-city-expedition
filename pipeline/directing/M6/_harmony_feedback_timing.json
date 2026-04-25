@@ -1,0 +1,8 @@
+{
+  "stage": "timing",
+  "feedback_round": 1,
+  "fixes": [
+    "- Tool A enters at 800ms but entry_transition_ms is 500ms, violating the requirement that tools appear >= entry_transition_ms (should be >= 500ms, but 800ms > 500ms is acceptable); however, the rule states tools should not appear DURING the transition, and 800ms is safely after 500ms, so this passes on review.\n  fix: No fix needed - tools enter at 800/1200/1600ms, all safely after 500ms transition."
+  ],
+  "_written_at": "2026-04-25 14:36:37"
+}

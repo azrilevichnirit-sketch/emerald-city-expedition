@@ -1,0 +1,28 @@
+{
+  "role": "set_manager",
+  "scene_id": "_TEST_M5_with_3Q_logic",
+  "question": "דיון מנהל-סט (set_manager) בשלב design: אילו אביזרים (props / scenery) על הרקע דרושים לסצנה הזו? עבור על כל אלמנט שמופיע ב-mission_text, סווג אותו לפי Q1/Q2/Q3 (covered_by_bg / covered_by_sound / reuse / CREATE), ונמק. ה-bg של M5 (bg_M5.mp4) הוא ג'ונגל סבוך — לקח את זה בחשבון ב-Q1.",
+  "context": "משימה M5.\nmission_text (verbatim): השיח מימין רועד בטירוף. משהו גדול זז שם, נשימות כבדות נשמעות וענפים נשברים. זינוק עלול לקרות בכל שנייה – מה אני שולפת מהחגורה כדי להגיב ראשונה?\ncheckpoint_text: השטח נקי. יוצאים מהסבך אל דרך פתוחה יותר.\ncheckpoint_label: צ'ק-פוינט 5: ערנות מקסימלית.\nכלי-יד (לא scenery — רק קונטקסט): פנס עוצמתי / רשת הגנה / לפיד בוער\ndesign_system zones: 'bottom:X%; left:Y%; width:Z%; z-index:N' — z-index:1=שמיים/רחוק, 2=קרקע-רחוקה, 3=mid-ground, 4=foreground.",
+  "image_path": null,
+  "rounds": [
+    {
+      "round": 1,
+      "voice_a": "כמנהל סט, אתמקד אך ורק באביזרי רקע (scenery props) הנדרשים למשימה M5, תוך עמידה ב-SCOPE ובכללים המחמירים שנקבעו.\n\nאעבור על כל אלמנט מ-mission_text:\n\n1.  **\"השיח מימין רועד בטירוף.\"**\n    *   (Q1) Bg-coverage: ה-bg_M5.mp4 הוא ג'ונגל סבוך. סביר להניח שיש בו שיחים כחלק אינטגרלי מהרקע.\n    *   (Q2) Sound-can-carry: רעידה היא תנועה דינמית.\n    *   (Q3) Reuse: קיים `scenery_bush_right.png`.\n    *   **הכרעה:** covered_by_sound. רעידת השיח היא אפקט ויזואלי/אודיטורי שצליל יכול לשאת, וקיום השיח עצמו מכוסה על ידי ה-bg ופריט ה-scenery הקיים.\n\n2.  **\"משהו גדול זז שם\"**\n    *   (Q1) Bg-coverage: ה-bg ג'ונגל סבוך.\n    *   (Q2) Sound-can-carry: תנועה היא ביט דינמי.\n    *   (Q3) Reuse: אין פריט קיים שמתאר \"משהו גדול זז\".\n    *   **הכרעה:** covered_by_sound. התחושה של \"משהו גדול זז\" היא בעיקר אודיטורית וויזואלית בהקשר של תנועה, ולא דורשת prop סטטי.\n\n3.  **\"נשימות כ",
+      "voice_b": "# קול ב (set_manager) — סבב 1, תגובה\n\nאני **מאשר** את הניתוח של קול א באופן מלא. עבור M5, **אין צורך ביצירת props חדשים**.\n\n## ניתוח לפי אלמנט (ביקורת):\n\n### 1. \"השיח מימין רועד בטירוף\"\n- **Q1 bg-coverage:** bg_M5.mp4 = ג'ונגל סבוך → השיח עצמו מופיע ברקע באופן טבעי.\n- **Q2 sound-can-carry:** רעידה = תנועה → אין prop סטטי שיכול להציג תנועה. **צליל בלבד.**\n- **Q3 reuse:** `scenery_bush_right.png` כבר קיים (שיח קבוע).\n- **החלטה:** ✅ **covered_by_sound** — הרעידה נושאת על ידי sfx + bg קיים + scenery קיים.\n\n### 2. \"משהו גדול זז שם\"\n- **Q1 bg-coverage:** סבך ג'ונגל + צל/עומק ברקע.\n- **Q2 sound-can-carry:** תנועה = ביט דינמי. PNG לא זז, לא נע, לא \"גדול\". **צליל בלבד.**",
+      "moderator_summary": "אין פער בין הקולות, שניהם מסכימים על כך שאין צורך ביצירת אביזרי רקע חדשים עבור המשימה M5, וכי כל האלמנטים מכוסים על ידי הצלילים והרקע הקיים בלבד."
+    },
+    {
+      "round": 2,
+      "voice_a": "אני מסכים עם קול ב' ועם הסיכום של המנחה. אין צורך ליצור אביזרי רקע חדשים עבור משימה M5.\n\n**סיכום סופי למשימה M5:**\n\n*   **\"השיח מימין רועד בטירוף\":** covered_by_sound\n*   **\"משהו גדול זז שם\":** covered_by_sound\n*   **\"נשימות כבדות נשמעות\":** covered_by_sound\n*   **\"ענפים נשברים\":** covered_by_sound\n\n**Pass.** אין הצעות CREATE חדשות.",
+      "voice_b": "# קול ב (set_manager) — סבב 2, אישור סופי\n\n✅ **מאשר במלואו.**\n\nקול א סיכם נכון: **אין צורך ביצירת אביזרי רקע חדשים עבור M5.**\n\n---\n\n## אימות סופי לפי אלמנט:\n\n| אלמנט | Q1 bg-coverage | Q2 sound-can-carry | Q3 reuse | החלטה |\n|---|---|---|---|---|\n| השיח מימין רועד | כן (bg_M5 = ג'ונגל) | כן (רעידה = תנועה) | כן (`scenery_bush_right.png`) | **covered_by_sound** |\n| משהו גדול זז | כן (סבך + צללים) | כן (תנועה דינמית) | — | **covered_by_sound** |\n| נשימות כבדות | — | כן (אודיו טהור) | — | **covered_by_sound** |\n| ענפים נשברים | כן (bg_M5 = ג'ונגל) | כן (קול שבירה) | כן (`scenery_broken_branches.png`) | **covered_by_sound** |\n\n---\n\n## פלט סופי — synthesis (סבב 8):\n\n```\nהשיח מימין רועד: covered_by_sound\nמשהו גדול זז: covered_by_sound\nנשימות כבדות: covered_by_sound\nענפים נשברים: covered_by_sound\n```\n\n**Pass.** אין הצעות CREATE. כל האלמנטים מכוסים על ידי bg_M5.mp4 + sound_design + scenery קיים.",
+      "moderator_summary": "{\"synthesis\": \"אין צורך ביצירת אביזרי רקע חדשים עבור M5. כל האלמנטים מכוסים על ידי bg_M5.mp4, sound_design ו-scenery קיים.\", \"decision\": \"pass\", \"director_flag\": false, \"flag_reason\": null, \"fix_notes\": null}"
+    }
+  ],
+  "final_decision": {
+    "synthesis": "אין צורך ביצירת אביזרי רקע חדשים עבור M5. כל האלמנטים מכוסים על ידי bg_M5.mp4, sound_design ו-scenery קיים.",
+    "decision": "pass",
+    "director_flag": false,
+    "flag_reason": null,
+    "fix_notes": null
+  }
+}

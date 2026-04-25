@@ -1,0 +1,8 @@
+{
+  "stage": "assembly",
+  "feedback_round": 1,
+  "fixes": [
+    "- assembly references bg_M2.mp4 but TODAY_STATE shows only bg_01 through bg_15 delivered (no bg_M2.mp4 exists in asset list)\n  fix: Replace bg_M2.mp4 with an actual delivered background file from the 21 available backgrounds"
+  ],
+  "_written_at": "2026-04-25 15:37:40"
+}

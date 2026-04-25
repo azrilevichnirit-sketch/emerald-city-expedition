@@ -1,0 +1,20 @@
+{
+  "scene_id": "M1",
+  "validated_at": "2026-04-25T00:00:00Z",
+  "passed": true,
+  "failures": [],
+  "checks_performed": {
+    "mission_text_verbatim": "PASS — character-for-character match with content_lock.M1.mission_text",
+    "checkpoint_text_verbatim": "PASS — character-for-character match with content_lock.M1.checkpoint_text",
+    "tool_order_in_dom": "PASS — PAYLOAD.tools array iterated A->B->C in buildTools(); appended to #zone-d in that order",
+    "tool_A_label": "PASS — 'מצנח עגול רחב' matches",
+    "tool_B_label": "PASS — 'גלשן רחיפה' matches",
+    "tool_C_label": "PASS — 'חליפת כנפיים' matches",
+    "tool_A_file": "PASS — references tools/מצנח_מ01.png (file:///C:/emerald/assets/tools/מצנח_מ01.png)",
+    "tool_B_file": "PASS — references tools/גלשן_מ01.png (file:///C:/emerald/assets/tools/גלשן_מ01.png)",
+    "tool_C_file": "PASS — references tools/כנפיים_מ01.png (file:///C:/emerald/assets/tools/כנפיים_מ01.png)",
+    "no_gendered_second_person": "PASS — no 'אתה' found; the 'את' occurrences are direct-object-marker (ungendered), present in the locked mission_text itself",
+    "no_metric_names": "PASS — no 'סיכון' / 'יציבות' / 'FOMO' / 'אימפולסיביות' anywhere",
+    "no_mission_counter": "PASS — no '1/15' / 'משימה 1 מתוך' / 'מתוך 15' anywhere"
+  }
+}

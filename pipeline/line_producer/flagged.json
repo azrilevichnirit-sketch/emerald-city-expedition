@@ -1,0 +1,585 @@
+{
+  "_run_at": "2026-04-25 14:57:37",
+  "items": [
+    {
+      "asset": "T_M1.mp4",
+      "type": "transition_mp4",
+      "reason": "over budget 2080KB > 600KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "T_M10.mp4",
+      "type": "transition_mp4",
+      "reason": "over budget 686KB > 600KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "T_M12.mp4",
+      "type": "transition_mp4",
+      "reason": "over budget 1356KB > 600KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "T_M13.mp4",
+      "type": "transition_mp4",
+      "reason": "over budget 616KB > 600KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "T_M3.mp4",
+      "type": "transition_mp4",
+      "reason": "over budget 1501KB > 600KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "T_M4.mp4",
+      "type": "transition_mp4",
+      "reason": "over budget 2094KB > 600KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "T_M6.mp4",
+      "type": "transition_mp4",
+      "reason": "over budget 1625KB > 600KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "T_M7.mp4",
+      "type": "transition_mp4",
+      "reason": "over budget 1298KB > 600KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "T_M9.mp4",
+      "type": "transition_mp4",
+      "reason": "over budget 1214KB > 600KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "bg_01.mp4",
+      "type": "background_mp4",
+      "reason": "over budget 5437KB > 2500KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "bg_06.mp4",
+      "type": "background_mp4",
+      "reason": "over budget 2530KB > 2500KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "bg_M1.mp4",
+      "type": "background_mp4",
+      "reason": "over budget 2855KB > 2500KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "bg_M12.mp4",
+      "type": "background_mp4",
+      "reason": "over budget 3491KB > 2500KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "bg_M13.mp4",
+      "type": "background_mp4",
+      "reason": "over budget 4502KB > 2500KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "bg_M15.mp4",
+      "type": "background_mp4",
+      "reason": "over budget 2811KB > 2500KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "bg_M5.mp4",
+      "type": "background_mp4",
+      "reason": "over budget 5439KB > 2500KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "bg_M6.mp4",
+      "type": "background_mp4",
+      "reason": "over budget 2703KB > 2500KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "bg_M7.mp4",
+      "type": "background_mp4",
+      "reason": "over budget 4257KB > 2500KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "bg_M8.mp4",
+      "type": "background_mp4",
+      "reason": "over budget 3704KB > 2500KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "pose_04.mp4",
+      "type": "pose_mp4",
+      "reason": "over budget 1861KB > 1200KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "אופניים_מ06.png",
+      "type": "tool_png",
+      "reason": "over budget 226KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "בנגי_מ11.png",
+      "type": "tool_png",
+      "reason": "over budget 187KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "ברזנט_מ02.png",
+      "type": "tool_png",
+      "reason": "over budget 321KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "גלשן_מ01.png",
+      "type": "tool_png",
+      "reason": "over budget 156KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "טפרי_טיפוס_מ08.png",
+      "type": "tool_png",
+      "reason": "over budget 211KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "כנפיים_מ01.png",
+      "type": "tool_png",
+      "reason": "over budget 176KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "כרטיס_מ12.png",
+      "type": "tool_png",
+      "reason": "over budget 156KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "מבער_מ09.png",
+      "type": "tool_png",
+      "reason": "over budget 160KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "מטבעות_מ14.png",
+      "type": "tool_png",
+      "reason": "over budget 213KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "מצלמה_פלאש_מ12.png",
+      "type": "tool_png",
+      "reason": "over budget 198KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "מצנח_מ01.png",
+      "type": "tool_png",
+      "reason": "over budget 503KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "מצנח_מ01_styletest_v1.png",
+      "type": "tool_png",
+      "reason": "over budget 193KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "מצפן_מ13.png",
+      "type": "tool_png",
+      "reason": "over budget 226KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "משקפת_מ03.png",
+      "type": "tool_png",
+      "reason": "over budget 217KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "סולם_חבלים_מ08.png",
+      "type": "tool_png",
+      "reason": "over budget 227KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "סנפלינג_מ11.png",
+      "type": "tool_png",
+      "reason": "over budget 170KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "ערכה_מ06.png",
+      "type": "tool_png",
+      "reason": "over budget 324KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "פנס_עוצמתי_מ05.png",
+      "type": "tool_png",
+      "reason": "over budget 175KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "קאטר_מ10.png",
+      "type": "tool_png",
+      "reason": "over budget 158KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "קרשים_מ04.png",
+      "type": "tool_png",
+      "reason": "over budget 153KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "רב_כלי_מ09.png",
+      "type": "tool_png",
+      "reason": "over budget 181KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "רתמה_מ04.png",
+      "type": "tool_png",
+      "reason": "over budget 262KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "שמיכה_מ10.png",
+      "type": "tool_png",
+      "reason": "over budget 250KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "תיבה_מ14.png",
+      "type": "tool_png",
+      "reason": "over budget 184KB > 150KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "chasm_background.png",
+      "type": "scenery_png",
+      "reason": "over budget 204KB > 200KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "churning_water_pool.png",
+      "type": "scenery_png",
+      "reason": "over budget 266KB > 200KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "cliff_waterfall.png",
+      "type": "scenery_png",
+      "reason": "over budget 243KB > 200KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "dense_jungle.png",
+      "type": "scenery_png",
+      "reason": "over budget 434KB > 200KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "dense_jungle_thicket.png",
+      "type": "scenery_png",
+      "reason": "over budget 445KB > 200KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "forest_far_side.png",
+      "type": "scenery_png",
+      "reason": "over budget 216KB > 200KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "jungle_background.png",
+      "type": "scenery_png",
+      "reason": "over budget 250KB > 200KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "jungle_edge.png",
+      "type": "scenery_png",
+      "reason": "over budget 297KB > 200KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "jungle_trees.png",
+      "type": "scenery_png",
+      "reason": "over budget 291KB > 200KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "overgrown_path.png",
+      "type": "scenery_png",
+      "reason": "over budget 243KB > 200KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "rival_team_disappearing.png",
+      "type": "scenery_png",
+      "reason": "over budget 293KB > 200KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "rock_cliff_m8.png",
+      "type": "scenery_png",
+      "reason": "over budget 210KB > 200KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "scenery_tunnel_floor.png",
+      "type": "scenery_png",
+      "reason": "over budget 293KB > 200KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    },
+    {
+      "asset": "uphill_road.png",
+      "type": "scenery_png",
+      "reason": "over budget 277KB > 200KB at conservative q; choose: accept overage / lower display / regenerate",
+      "options": [
+        "accept overage and ship",
+        "lower display dimension and re-encode",
+        "regenerate from source (Veo/Imagen quota cost)"
+      ]
+    }
+  ]
+}

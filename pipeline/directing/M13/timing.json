@@ -1,0 +1,113 @@
+{
+  "_stage": "timing",
+  "_mission": "M13",
+  "_generated_at": "2026-04-25T07:29:10Z",
+  "_generated_by": "agent_06_timing",
+  "scene_id": "M13",
+  "total_duration_ms": 13000,
+  "entry_transition_ms": 600,
+  "tracks": [
+    {
+      "role": "background",
+      "file": "assets/backgrounds/bg_M13.mp4",
+      "slot": null,
+      "pose": null,
+      "in_ms": 0,
+      "out_ms": 13000,
+      "loop": true,
+      "loop_segment_ms": null,
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "player",
+      "file": null,
+      "slot": null,
+      "pose": "anim_look_around",
+      "in_ms": 0,
+      "out_ms": 13000,
+      "loop": true,
+      "loop_segment_ms": [
+        0,
+        8000
+      ],
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "assets/tools/סרגל_מ13.png",
+      "slot": "A",
+      "pose": null,
+      "in_ms": 800,
+      "out_ms": 13000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_up",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "assets/tools/מצפן_מ13.png",
+      "slot": "B",
+      "pose": null,
+      "in_ms": 1200,
+      "out_ms": 13000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_up",
+      "appear_ms": 350,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "assets/tools/רחפן_מ13.png",
+      "slot": "C",
+      "pose": null,
+      "in_ms": 1600,
+      "out_ms": 13000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_up",
+      "appear_ms": 400,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "mission_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 600,
+      "out_ms": 5100,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 400,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 400
+    },
+    {
+      "role": "checkpoint_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 10500,
+      "out_ms": 13000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 500,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    }
+  ],
+  "rationale": "M13: Lost in darkness, finding the way. 13s duration. Background loops full duration. Player uses anim_look_around (8s loop) showing confusion/searching. Tools stagger in 800/1200/1600ms with slide_up (300-400ms). Mission text visible 600-5100ms (4.5s, post entry transition). Checkpoint text 10500-13000ms (2.5s before end) for narrator wrap. Entry transition 600ms matches stage 5."
+}

@@ -1,0 +1,13 @@
+{
+  "asset": "גלשן_מ01.png",
+  "type": "tool_png",
+  "before_kb": 1081,
+  "after_kb": 156,
+  "ratio": 6.93,
+  "in_budget": false,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\גלשן_מ01.png",
+  "dst": "assets\\optimized\\tools\\גלשן_מ01.webp",
+  "status": "compressed_pending_panel"
+}

@@ -1,0 +1,113 @@
+{
+  "_stage": "timing",
+  "_mission": "M15",
+  "_generated_at": "2026-04-25T07:29:41Z",
+  "_generated_by": "agent_06_timing",
+  "scene_id": "M15",
+  "total_duration_ms": 13000,
+  "entry_transition_ms": 0,
+  "tracks": [
+    {
+      "role": "background",
+      "file": "assets/backgrounds/bg_M15.mp4",
+      "slot": null,
+      "pose": null,
+      "in_ms": 0,
+      "out_ms": 13000,
+      "loop": true,
+      "loop_segment_ms": null,
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "player",
+      "file": "assets/poses/pose_01.mp4",
+      "slot": null,
+      "pose": "anim_look_around",
+      "in_ms": 0,
+      "out_ms": 13000,
+      "loop": true,
+      "loop_segment_ms": [
+        0,
+        8000
+      ],
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "assets/tools/דגל_סיום_מ15.png",
+      "slot": "A",
+      "pose": null,
+      "in_ms": 800,
+      "out_ms": 13000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "assets/tools/מגאפון_מ15.png",
+      "slot": "B",
+      "pose": null,
+      "in_ms": 1200,
+      "out_ms": 13000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_left",
+      "appear_ms": 350,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "assets/tools/זיקוק_מ15.png",
+      "slot": "C",
+      "pose": null,
+      "in_ms": 1600,
+      "out_ms": 13000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "pop",
+      "appear_ms": 400,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "mission_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 500,
+      "out_ms": 5000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 400
+    },
+    {
+      "role": "checkpoint_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 10500,
+      "out_ms": 13000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    }
+  ],
+  "rationale": "M15 finale: 13s total. Background loops full duration. Player uses anim_look_around (8s loop) reflecting confusion/searching. Tools stagger in 800/1200/1600ms with varied animations (fade/slide/pop) over 300-400ms. Mission text visible 500-5000ms (4.5s readable window). Checkpoint 'סיום המשחק' appears 10500ms (2.5s before end) for narrator wrap. Cut transition (0ms) maintains flow from previous scene."
+}

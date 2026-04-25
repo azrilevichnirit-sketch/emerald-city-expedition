@@ -1,0 +1,13 @@
+{
+  "asset": "distant_celebration_lights.png",
+  "type": "scenery_png",
+  "before_kb": 816,
+  "after_kb": 137,
+  "ratio": 5.96,
+  "in_budget": true,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\distant_celebration_lights.png",
+  "dst": "assets\\optimized\\scenery\\distant_celebration_lights.webp",
+  "status": "compressed_pending_panel"
+}

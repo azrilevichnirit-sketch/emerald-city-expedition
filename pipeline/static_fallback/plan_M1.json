@@ -1,0 +1,230 @@
+{
+  "_status": "BACKUP plan v3 — activate only if interactive-movie v5 fails human_review",
+  "_v3_correction": "Nirit clarified the demo can be MINIMAL: 'רוב המשימות לא צריך להראות שינוי כמו במשימה 1 שיש כזה שינוי, ויכול להיות שבשביל הדמו, רק צריך לראות אותה תופסת ואז עוברים לרקע הבא. יכול להיות שזה מה שצריך, למרות שזה יראה ממש גרוע'. Translation: most missions don't need a 'consequence change' like M1's sky→jungle. For the demo, the minimal flow is: setup → click → tool flies + catches → crossfade to next mission's bg. M1 is the special case (environment change). Even if minimal looks 'really bad', it's what we may need.",
+  "_two_modes_now_supported": {
+    "demo_minimal": "setup → catch → crossfade to next mission. NO consequence visual phase. NO checkpoint text overlay. ONE animation per mission (the catch). Use this for M2-M15 in demo. ~150 lines JS per mission, builds in 30-45 min per mission.",
+    "demo_full_M1": "M1 only — keeps the 4-phase flow (setup → catch → checkpoint → consequence) because M1 has a real environment change and Nirit explicitly described needing it. Other missions can be upgraded to full 4-phase later if time permits."
+  },
+  "_existing_assets_confirmed": {
+    "per_mission_bg": "All 15 missions have bg_M1.mp4 through bg_M15.mp4 in C:/emerald/assets/backgrounds/. ✓",
+    "scenery_for_consequence_visuals": {
+      "M2_tarp_on_structure": "scenery/מבנה_רעועה_מלפנים_02.png + tools/ברזנט_מ02.png ✓",
+      "M6_jeep_repaired": "scenery/smoking_jeep.png + jeep_hood_open.png ✓",
+      "M8_gate_climbed": "scenery/steel_gate_asset.png + climbing_rope.png + rappel_rope.png ✓",
+      "M10_keypad_unlocked": "scenery/security_keypad.png ✓",
+      "M14_chest_opened": "scenery/open_wooden_chest.png ✓",
+      "M15_finish": "scenery/finish_banner.png + effects/parachute_loop.mp4 ✓"
+    },
+    "effects_for_consequence": {
+      "rain": "effects/rain_effect_loop.mp4 ✓",
+      "smoke": "effects/engine_smoke_loop.mp4, flare_smoke_loop.mp4 ✓",
+      "shaking": "effects/atv_vibration_loop.mp4, box_vibrating_loop.mp4, bridge_sway_loop.mp4, bush_shaking_loop.mp4 ✓",
+      "drone": "effects/drone_hover_loop.mp4 ✓",
+      "water": "effects/water_curtain_loop.mp4 ✓",
+      "parachute_deployed": "effects/parachute_loop.mp4 ✓"
+    },
+    "no_new_generation_needed_for_demo_minimal_mode": true
+  },
+  "_created_at": "2026-04-25",
+  "_updated_at": "2026-04-25",
+  "_created_by": "Producer (per Nirit's directive)",
+  "_v2_correction": "v1 underestimated the work. Nirit corrected: 'גם סטטי הוא מסובך כי צריך להראות למשל את הרקע של הטיסה מלמעלה, השחקנים עומדת כמו שצריך, מיקום מדויק, מביטה קדימה ואז יש את המשימה והכלים, במלחיצה כן יש אנימציה של קבלת הכלי ולאחר מכן יש מעבר לרקע הבא של היער רק שיש את הרקע של היעד אז יש את הטקסט של נחתנו ואז מתחלף לטקסט של המשימה עם הכלים. בבחירה של הכלי יש אנימציה שהכלי עף אליה היא תופסת ואז אמורים לראות מה קורה לאחר הכלי, זה אומר שאם בחרה ברזנט אז רואים את המבנה הרעועה עם הברזנט'. The 'static' is NOT a JS-light slideshow; it's a 4-bg-per-mission flow with tool flight, catch reaction, and consequence visual. The work that's reusable: positioning, tool flight bezier, catch pose, scene-to-scene crossfade. The work that's dropped: only the run-stop-stand-catch-land POSE SEQUENCE (replaced with single standing pose + brief catch reaction).",
+
+  "_what_static_actually_means": {
+    "kept_from_interactive_path": [
+      "Real bg videos (no CSS gradients) — bg_airplane.mp4 sky etc.",
+      "Tool flight bezier animation (zone-D button → palm)",
+      "Catch reaction (brief pose change at moment tool reaches palm)",
+      "Scene-to-scene crossfade (800ms)",
+      "Felt-not-seen rivals composition rule",
+      "All upstream agent v5 outputs (script, sound, set_list, etc.) ARE REUSED",
+      "Positioning logic — actress placement, scenery placement, tool button placement"
+    ],
+    "dropped_from_interactive_path": [
+      "Multi-pose timeline (run → stop → stand → catch → land) — replaced with single standing pose throughout the mission setup phase",
+      "RAF-clamped pose segment manager — replaced with browser-native loop on a single pose video",
+      "CSS jump transform mid-scene",
+      "Bg phase 1→2 crossfade timed to jump_apex — replaced with discrete scene-to-scene crossfades",
+      "mission_text_shown / catch_complete / jump_apex / landing_complete event chain — replaced with simpler scene_loaded / tool_clicked / consequence_loaded / next_scene_load events"
+    ]
+  },
+
+  "scene_M1_static_v2": {
+    "_total_phases": 4,
+    "_total_bg_videos_per_mission": 4,
+    "_phase_flow": "phase_1_question → click → phase_2_landing_text → phase_3_consequence_visual → phase_4_next_mission_setup",
+
+    "phase_1_question": {
+      "_purpose": "Player sees the situation (sky from altitude), reads the mission, picks a tool",
+      "duration": "until tool clicked (no time limit)",
+      "bg_video": {
+        "file": "C:/emerald/backgrounds/bg_airplane.mp4",
+        "_content": "Aerial sky + jungle canopy POV (per set_manager v5 keyframe verification)",
+        "css": "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;",
+        "html_attrs": "autoplay loop muted playsinline",
+        "_note": "Browser-native loop. Zero JS for bg playback."
+      },
+      "actress": {
+        "pose_file": "C:/emerald/assets/player/pose_05.mp4",
+        "_segment": "browser-native full loop OR single PNG extract — TBD by human_review",
+        "css_position": "bottom:8%; left:50%; transform:translateX(-50%); height:55%; z-index:10;",
+        "_facing": "frontal — looking at camera/player (not profile, since she's NOT running in static path)",
+        "chroma_key": true
+      },
+      "scenery_overlays": [
+        {"file": "C:/emerald/rivals/rival_female_run_1.png", "css": "top:8%;right:6%;width:7%;opacity:0.5;z-index:5;"},
+        {"file": "C:/emerald/rivals/rival_male_run_2.png", "css": "top:14%;left:8%;width:6%;opacity:0.45;z-index:5;"}
+      ],
+      "ui_overlays": {
+        "mission_text": {
+          "source": "content_lock.M1.mission_text (verbatim)",
+          "fade_in_delay_ms": 600,
+          "fade_in_duration_ms": 400,
+          "css": "color:#fff;direction:rtl;text-align:center;font-size:clamp(0.9rem,2.5vw,1.1rem);text-shadow:0 1px 3px rgba(0,0,0,0.9);"
+        },
+        "tools_zone_d": {
+          "source": "content_lock.M1.tools (3 tools, verbatim)",
+          "fade_in_delay_ms": 1000,
+          "fade_in_duration_ms": 300,
+          "stagger_ms": 0,
+          "_note": "All 3 appear together — no choreography stagger in static."
+        }
+      }
+    },
+
+    "phase_1_to_2_click_animation": {
+      "_purpose": "Tool flies to actress, she catches it. SHORT but visible — 1500-2000ms total.",
+      "duration_ms": 1800,
+      "_steps": [
+        {
+          "t_ms": 0,
+          "action": "click registered. Selected tool button: scale 1.0→1.1 (200ms). Other 2 tools fade to opacity 0.3 (200ms)."
+        },
+        {
+          "t_ms": 200,
+          "action": "Tool image clones from button position, starts bezier flight to actress palm anchor (40% X, 32% Y of player canvas at frame 4.5 — same as interactive path). Duration 1300ms."
+        },
+        {
+          "t_ms": 1500,
+          "action": "Tool reaches palm. ACTRESS POSE SWITCHES from pose_05 (waiting) to pose_06 frame 5.5 (catch peak hold) — accomplished by setting active pose video to pose_06.mp4 with currentTime=5.5 and pausing. Brief impact effect (small scale pulse on tool, 200ms)."
+        },
+        {
+          "t_ms": 1800,
+          "action": "Hold the catch peak frame for 300ms. Then trigger phase 2 transition."
+        }
+      ],
+      "_chroma_key_continues": true
+    },
+
+    "phase_2_landing_text": {
+      "_purpose": "Show landing bg + 'we landed' text. Brief — 1.8 seconds.",
+      "duration_ms": 1800,
+      "transition_from_phase_1": {
+        "type": "crossfade",
+        "duration_ms": 800,
+        "_note": "Whole zone B crossfades. Tool overlay + actress + bg phase 1 fade out together; phase 2 fades in."
+      },
+      "bg_video": {
+        "file": "C:/emerald/backgrounds/bg_jungle_clearing.mp4",
+        "html_attrs": "autoplay loop muted playsinline"
+      },
+      "actress": {
+        "pose_file": "C:/emerald/assets/player/pose_03.mp4",
+        "currentTime_pause_at": 5.0,
+        "_note": "Frozen at hands-to-ground frame. Single PNG-equivalent. No animation needed.",
+        "css_position": "bottom:5%;left:50%;transform:translateX(-50%);height:55%;z-index:10;"
+      },
+      "scenery_overlays": [
+        {"file": "C:/emerald/scenery/two_jungle_trees.png", "css": "bottom:0;right:0;width:35%;opacity:0.85;z-index:5;"}
+      ],
+      "ui_overlays": {
+        "checkpoint_text": {
+          "source": "content_lock.M1.checkpoint_text (verbatim)",
+          "fade_in_delay_ms": 200,
+          "fade_in_duration_ms": 400,
+          "css": "color:#fff;text-align:center;text-shadow:0 2px 6px rgba(0,0,0,0.95);font-size:clamp(1.1rem,3vw,1.4rem);font-weight:600;"
+        }
+      }
+    },
+
+    "phase_3_consequence_visual": {
+      "_purpose": "Show what happened with the chosen tool — the 'after' state. Per Nirit: 'אם בחרה ברזנט אז רואים את המבנה הרעועה עם הברזנט'. For M1, the consequence is the actress LANDED with the chosen tool attached.",
+      "duration_ms": 2000,
+      "transition_from_phase_2": {"type": "fade_text", "duration_ms": 400, "_note": "Just the text fades; bg stays jungle"},
+      "bg_video": {"_same_as_phase_2": true},
+      "actress": {"_same_as_phase_2": true},
+      "tool_attached": {
+        "_note": "Per tool_consequence_map.json v5 — same attach_at_landing geometry (relative to player wrapper).",
+        "slot_A_parachute": "tools/מצנח_מ01.png at top:18% center, scale 1.6, behind:false (canopy above shoulders)",
+        "slot_B_glider": "tools/גלשן_מ01.png at center, scale 1.4, behind:true (silhouette behind shoulders)",
+        "slot_C_wingsuit": "tools/כנפיים_מ01.png at center, scale 1.7, behind:true (wings against back)"
+      },
+      "narrative_beat_overlay": {
+        "source": "script_M1.narrative_beats[<chosen_slot>] (per script_supervisor v5: A='המצנח נפתח מעלינו ואנחנו צונחים לאט אל קצה הג'ונגל', B='אנחנו גולשים מעל צמרות העצים ונוחתים בעומק היער', C='אנחנו חותכים את האוויר במהירות ונוגעים בקרקע בלב הג'ונגל')",
+        "fade_in_delay_ms": 600,
+        "fade_in_duration_ms": 400,
+        "css": "color:#fff;text-align:center;text-shadow:0 2px 6px rgba(0,0,0,0.95);font-size:clamp(1rem,2.6vw,1.2rem);"
+      }
+    },
+
+    "phase_4_transition_to_M2": {
+      "_purpose": "Smooth crossfade to M2's setup phase. Phase 4 of M1 = Phase 1 of M2.",
+      "duration_ms": 800,
+      "type": "fade_to_black_then_load_M2",
+      "_note": "Each mission ends with fade-to-black 800ms; next mission starts fade-from-black 800ms. M2's bg loads behind the black overlay during that 800ms."
+    }
+  },
+
+  "_total_assets_per_mission_static_v2": {
+    "bg_videos": "2 (phase 1 = mission setup bg, phase 2/3 = checkpoint+consequence bg shared)",
+    "actress_pose_files": "2 (waiting pose for phase 1, crouch pose held at frame 5.0 for phase 2/3)",
+    "scenery_pngs": "2-3 (felt rivals + foreground tree)",
+    "tool_pngs": "3 (already in content_lock)",
+    "_all_existing": true,
+    "_no_new_generation_needed": true
+  },
+
+  "builder_implementation_complexity_v2": {
+    "lines_of_javascript_estimate": 350,
+    "_revised_from_v1": "v1 said 180 lines. v2 = ~350 lines. Still half of v4's 708. Tool flight bezier + catch pose switch + 4-phase transition manager + chroma key are the bulk.",
+    "core_complexity_areas": [
+      "Tool flight bezier (reuse from v4 — ~80 lines)",
+      "Pose switch on catch (set src+currentTime+pause, ~30 lines)",
+      "4-phase transition state machine (~100 lines)",
+      "Chroma key on active pose canvas (~60 lines)",
+      "Scenery overlay manager with chroma (~40 lines)",
+      "UI overlays (mission text, checkpoint text, narrative beat — ~40 lines)"
+    ],
+    "_what_we_avoid": [
+      "RAF-clamped pose segment manager (the v4 bug surface)",
+      "Mid-scene bg crossfade timed to jump_apex",
+      "5-track pose timeline (run/stand/catch/jump/land)",
+      "Custom event chain across listeners"
+    ]
+  },
+
+  "_open_questions_for_static_path": [
+    "Phase 3 consequence visual — for M1 it's 'actress with tool attached'. For M2 it should be 'rickety structure with tarp' per Nirit. Is the consequence visual mission-specific or always 'actress with tool'? The Nirit quote suggests mission-specific (rickety+tarp = mission-themed scene). May need a `consequence_visual_M{N}.png` asset PER tool per mission = 45 new assets. THIS WOULD REQUIRE NEW GENERATION.",
+    "If consequence visuals don't exist as pre-rendered scenes, fallback: actress + tool attached, same as phase 2 but with the chosen tool overlay. M1 works for this fallback (M1 tools are wearable). M2's tarp-on-structure does NOT work this way — would need scenery/structure overlay.",
+    "Decision needed BEFORE static path activates: do we have/need consequence visuals?"
+  ],
+
+  "_what_carries_over_from_v5_interactive_outputs": {
+    "scene_briefs/scene_M1.json": "Player position, scenery placement, color/style decisions all carry over.",
+    "set_lists/set_list_M1.json": "Bg files (bg_airplane, bg_jungle_clearing) — same as static.",
+    "scene_scripts/script_M1.json": "All text verbatim — used identically.",
+    "sound_design_M1.json": "Ambient + click sounds — used identically. Drop the catch_complete/jump_apex/landing_complete cascade.",
+    "pose_composition_map.json": "Phase 1 = pose_05 looped natively. Phase 2/3 = pose_03 frozen at 5.0. Drop tracks 1, 3, 4 (running, jump, multi-track landing). Keep tracks 2 (catch one_shot) for the click reaction and 5 (landing) — but as static frame, not animation.",
+    "tool_consequence_map.json": "attach_at_catch (palm anchor) + attach_at_landing geometries — used identically."
+  },
+
+  "activation_protocol_v2": {
+    "trigger": "human_review of M1 v5 interactive-movie returns FAIL",
+    "decision_point": "Producer signals fallback to Nirit for approval. Nirit must confirm before static build.",
+    "if_approved": "builder discards M1 v5 HTML, builds M1_static.html from this plan",
+    "estimated_build_time_after_approval": {
+      "M1_only": "2-3 hours (was 60-90 min in v1 — corrected for the catch animation + 4-phase transitions + chroma overlays)",
+      "all_15_missions": "Without consequence visuals: ~12-15 hours of builder work. With per-mission consequence visuals: ADD 45 image generations = 1-2 days at current quota rates."
+    }
+  }
+}

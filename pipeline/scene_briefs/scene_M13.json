@@ -1,0 +1,359 @@
+{
+  "_for_mission": "M13",
+  "_built_at": "2026-04-25T12:54:13Z",
+  "_source": "directing/{assembly,continuity,timing,interaction,storyboard}.json",
+  "scene_id": "M13",
+  "duration_ms": 13000,
+  "entry_transition": {
+    "type": "cross_dissolve",
+    "duration_ms": 600,
+    "notes": "Dissolve from M12's cave/boat decision point into M13's dense jungle disorientation. The transition carries the weight of a wrong turn — the map was fake, the path chosen led deeper into confusion rather than clarity."
+  },
+  "exit_transition": null,
+  "background": {
+    "z": 0,
+    "role": "background",
+    "file": "assets/backgrounds/bg_M13.mp4",
+    "slot": null,
+    "pos": {
+      "x_pct": 50,
+      "y_pct": 50
+    },
+    "scale": 1.0,
+    "rot_deg": 0,
+    "anchor": "center",
+    "fit": "cover",
+    "pose_candidates": []
+  },
+  "player": {
+    "pose_file": "pose_02.mp4",
+    "pose_semantic": "anim_climbing",
+    "loop_segment_sec": {
+      "start": 0.0,
+      "end": 8.0
+    },
+    "hold_frame_sec": null,
+    "one_shot": false,
+    "catch_pose": false
+  },
+  "tracks": [
+    {
+      "role": "background",
+      "file": "assets/backgrounds/bg_M13.mp4",
+      "slot": null,
+      "pose": null,
+      "in_ms": 0,
+      "out_ms": 13000,
+      "loop": true,
+      "loop_segment_ms": null,
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "player",
+      "file": null,
+      "slot": null,
+      "pose": "anim_look_around",
+      "in_ms": 0,
+      "out_ms": 13000,
+      "loop": true,
+      "loop_segment_ms": [
+        0,
+        8000
+      ],
+      "appear_animation": null,
+      "appear_ms": 0,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "assets/tools/סרגל_מ13.png",
+      "slot": "A",
+      "pose": null,
+      "in_ms": 800,
+      "out_ms": 13000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_up",
+      "appear_ms": 300,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "assets/tools/מצפן_מ13.png",
+      "slot": "B",
+      "pose": null,
+      "in_ms": 1200,
+      "out_ms": 13000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_up",
+      "appear_ms": 350,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "tool",
+      "file": "assets/tools/רחפן_מ13.png",
+      "slot": "C",
+      "pose": null,
+      "in_ms": 1600,
+      "out_ms": 13000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "slide_up",
+      "appear_ms": 400,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    },
+    {
+      "role": "mission_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 600,
+      "out_ms": 5100,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 400,
+      "disappear_animation": "fade_out",
+      "disappear_ms": 400
+    },
+    {
+      "role": "checkpoint_text",
+      "file": null,
+      "slot": null,
+      "pose": null,
+      "in_ms": 10500,
+      "out_ms": 13000,
+      "loop": false,
+      "loop_segment_ms": null,
+      "appear_animation": "fade_in",
+      "appear_ms": 500,
+      "disappear_animation": null,
+      "disappear_ms": 0
+    }
+  ],
+  "interactive_elements": [
+    {
+      "slot": "A",
+      "label": "סרגל ומחק",
+      "points": 1,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.05,
+        "glow_color": "#A8D5BA"
+      },
+      "click": {
+        "feedback_animation": "pulse_out",
+        "feedback_ms": 450,
+        "points_popup": {
+          "text": "+1",
+          "color": "#4A9D6F",
+          "from_xy_pct": {
+            "x": 72,
+            "y": 25
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 800
+        }
+      },
+      "tooltip": {
+        "he": "מדוד מרחקים במפה",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "B",
+      "label": "מצפן כיס",
+      "points": 2,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.07,
+        "glow_color": "#FFB84D"
+      },
+      "click": {
+        "feedback_animation": "bounce",
+        "feedback_ms": 500,
+        "points_popup": {
+          "text": "+2",
+          "color": "#E89A2E",
+          "from_xy_pct": {
+            "x": 85,
+            "y": 50
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 850
+        }
+      },
+      "tooltip": {
+        "he": "מצא כיוון צפון במפה",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "C",
+      "label": "רחפן ניווט",
+      "points": 3,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.1,
+        "glow_color": "#FF6B35"
+      },
+      "click": {
+        "feedback_animation": "flash",
+        "feedback_ms": 550,
+        "points_popup": {
+          "text": "+3",
+          "color": "#D94E1F",
+          "from_xy_pct": {
+            "x": 78,
+            "y": 75
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 900
+        }
+      },
+      "tooltip": {
+        "he": "סרוק את השטח מהאוויר",
+        "show_after_ms": 600
+      }
+    }
+  ],
+  "global_ui": {
+    "score_display": {
+      "pos": {
+        "x_pct": 88,
+        "y_pct": 8
+      },
+      "font_size_px": 28
+    },
+    "mission_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 6
+      },
+      "width_pct": 60,
+      "font_size_px": 18
+    },
+    "checkpoint_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 92
+      },
+      "width_pct": 70,
+      "font_size_px": 16
+    }
+  },
+  "beats": [
+    {
+      "t_ms": 0,
+      "description": "Scene opens: dense jungle background visible, player character positioned left-of-center in scanning/searching pose, darkness encroaching from edges",
+      "visible_elements": [
+        "background.bg_M13",
+        "player.main"
+      ],
+      "audio_hint": "ambient jungle sounds, tension undertone"
+    },
+    {
+      "t_ms": 600,
+      "description": "Mission text appears: 'המפה הייתה זיוף! קו הסיום קרוב, אבל הכיוון אבד לגמרי בתוך הסבך והחושך מתקרב. אם לא אמצא נתיב עכשיו, הכל אבוד. איך אני מוצאת את הדרך החוצה?'",
+      "visible_elements": [
+        "background.bg_M13",
+        "player.main",
+        "text.mission"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 800,
+      "description": "Tool A enters frame, positioned in descending diagonal on right third",
+      "visible_elements": [
+        "background.bg_M13",
+        "player.main",
+        "text.mission",
+        "tool.A"
+      ],
+      "audio_hint": "subtle UI appearance sound"
+    },
+    {
+      "t_ms": 1200,
+      "description": "Tool B enters frame, continuing diagonal arrangement below Tool A",
+      "visible_elements": [
+        "background.bg_M13",
+        "player.main",
+        "text.mission",
+        "tool.A",
+        "tool.B"
+      ],
+      "audio_hint": "subtle UI appearance sound"
+    },
+    {
+      "t_ms": 1600,
+      "description": "Tool C enters frame, completing descending diagonal on right third; all navigation options now visible and interactive",
+      "visible_elements": [
+        "background.bg_M13",
+        "player.main",
+        "text.mission",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": "subtle UI appearance sound"
+    },
+    {
+      "t_ms": 5100,
+      "description": "Mission text fades out; player and three tools remain visible, creating visual tension between lost player and navigation options",
+      "visible_elements": [
+        "background.bg_M13",
+        "player.main",
+        "tool.A",
+        "tool.B",
+        "tool.C"
+      ],
+      "audio_hint": null
+    },
+    {
+      "t_ms": 10500,
+      "description": "Checkpoint text appears: 'הדרך נמצאה. כניסה להיכל המזבח המרכזי. דממה.'",
+      "visible_elements": [
+        "background.bg_M13",
+        "player.main",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": "resolution tone, quiet triumph"
+    },
+    {
+      "t_ms": 13000,
+      "description": "Scene ends; all elements remain visible until transition to next mission",
+      "visible_elements": [
+        "background.bg_M13",
+        "player.main",
+        "tool.A",
+        "tool.B",
+        "tool.C",
+        "text.checkpoint"
+      ],
+      "audio_hint": null
+    }
+  ],
+  "summary_he": "הסצנה נפתחת ברגע של אובדן מוחלט: המפה הייתה זיוף, והשחקנית תקועה בסבך צפוף כשהחושך מתקרב מכל עבר. היא עומדת משמאל למרכז, גופה מבטא חיפוש נואש, סורקת את הסביבה. אחת אחת, שלושה כלי ניווט מופיעים באלכסון יורד מימין – כל אחד מייצג אסטרטגיה שונה למצוא את הדרך החוצה. המתח הוויזואלי בין השחקנית האבודה לבין האופציות הטכנולוגיות יוצר תחושה של דחיפות וספק. כשהיא בוחרת נכון, הטקסט המסכם מופיע: 'הדרך נמצאה. כניסה להיכל המזבח המרכזי. דממה' – רגע של הקלה שקטה לפני הקונפליקט הסופי.",
+  "summary_en": "Scene opens with player disoriented in dense jungle, darkness encroaching. Three navigation tools appear sequentially in descending diagonal (right third), creating visual tension against the lost player (left-of-center). Mission text reveals the map was fake; checkpoint text confirms path found, leading to central altar temple. Clean separation maintains readability in high-tension environment."
+}

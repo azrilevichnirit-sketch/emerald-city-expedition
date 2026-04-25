@@ -1,0 +1,91 @@
+{
+  "_for_mission": "M14",
+  "_source": "directing/assembly.json",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "aspect": "16:9"
+  },
+  "layers": [
+    {
+      "z": 0,
+      "role": "background",
+      "file": "assets/backgrounds/bg_M14.mp4",
+      "slot": null,
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 50
+      },
+      "scale": 1.0,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": "cover",
+      "pose_candidates": []
+    },
+    {
+      "z": 20,
+      "role": "player",
+      "file": null,
+      "slot": null,
+      "pos": {
+        "x_pct": 35,
+        "y_pct": 58
+      },
+      "scale": 0.85,
+      "rot_deg": 0,
+      "anchor": "bottom-center",
+      "fit": null,
+      "pose_candidates": [
+        "pose_02.mp4",
+        "pose_05.mp4",
+        "pose_07.mp4"
+      ]
+    },
+    {
+      "z": 32,
+      "role": "tool",
+      "file": "assets/tools/שקית_מטבעות_מ14.png",
+      "slot": "A",
+      "pos": {
+        "x_pct": 68,
+        "y_pct": 35
+      },
+      "scale": 0.18,
+      "rot_deg": -8,
+      "anchor": "center",
+      "fit": null,
+      "pose_candidates": []
+    },
+    {
+      "z": 33,
+      "role": "tool",
+      "file": "assets/tools/תיבת_עץ_מ14.png",
+      "slot": "B",
+      "pos": {
+        "x_pct": 82,
+        "y_pct": 52
+      },
+      "scale": 0.22,
+      "rot_deg": 3,
+      "anchor": "center",
+      "fit": null,
+      "pose_candidates": []
+    },
+    {
+      "z": 34,
+      "role": "tool",
+      "file": "assets/tools/כדור_בדולח_מ14.png",
+      "slot": "C",
+      "pos": {
+        "x_pct": 75,
+        "y_pct": 70
+      },
+      "scale": 0.2,
+      "rot_deg": 0,
+      "anchor": "center",
+      "fit": null,
+      "pose_candidates": []
+    }
+  ],
+  "composition_notes": "Tools arranged in descending diagonal (top-right to bottom-right) mimicking items on altar; player left-of-center reaching toward tools creates directional tension. Asymmetric layout emphasizes urgency and imminent escape."
+}

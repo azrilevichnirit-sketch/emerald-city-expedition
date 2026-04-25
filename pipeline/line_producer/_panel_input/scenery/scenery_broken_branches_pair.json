@@ -1,0 +1,13 @@
+{
+  "asset": "scenery_broken_branches.png",
+  "type": "scenery_png",
+  "before_kb": 351,
+  "after_kb": 68,
+  "ratio": 5.16,
+  "in_budget": true,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\scenery_broken_branches.png",
+  "dst": "assets\\optimized\\scenery\\scenery_broken_branches.webp",
+  "status": "compressed_pending_panel"
+}

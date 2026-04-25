@@ -1,0 +1,13 @@
+{
+  "asset": "כדור_בדולח_מ14.png",
+  "type": "tool_png",
+  "before_kb": 1278,
+  "after_kb": 102,
+  "ratio": 12.53,
+  "in_budget": true,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\כדור_בדולח_מ14.png",
+  "dst": "assets\\optimized\\tools\\כדור_בדולח_מ14.webp",
+  "status": "compressed_pending_panel"
+}

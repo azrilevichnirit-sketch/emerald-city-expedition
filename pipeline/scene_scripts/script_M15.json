@@ -1,0 +1,27 @@
+{
+  "_for_mission": "M15",
+  "_source": "content_lock.json",
+  "mission_text": "קו הסיום מולי, ריק ושקט. פתאום זיקוקים ומוזיקה נשמעים מכיוון אחר – נראה שכל המתחרים מצאו נקודה אחרת וכולם חוגגים שם. כולם שם, ורק כאן ריק. מה אני עושה?",
+  "checkpoint_text": "סיום המשחק.",
+  "checkpoint_label": "",
+  "tools": [
+    {
+      "slot": "A",
+      "label": "דגל סיום לבן",
+      "file": "tools/דגל_סיום_מ15.png",
+      "points": 1
+    },
+    {
+      "slot": "B",
+      "label": "מגאפון",
+      "file": "tools/מגאפון_מ15.png",
+      "points": 2
+    },
+    {
+      "slot": "C",
+      "label": "זיקוק צבעוני",
+      "file": "tools/זיקוק_מ15.png",
+      "points": 3
+    }
+  ]
+}

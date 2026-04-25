@@ -1,0 +1,128 @@
+{
+  "_stage": "interaction",
+  "_mission": "M13",
+  "_generated_at": "2026-04-25T07:29:27Z",
+  "_generated_by": "agent_07_interaction",
+  "scene_id": "M13",
+  "interactive_elements": [
+    {
+      "slot": "A",
+      "label": "סרגל ומחק",
+      "points": 1,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.05,
+        "glow_color": "#A8D5BA"
+      },
+      "click": {
+        "feedback_animation": "pulse_out",
+        "feedback_ms": 450,
+        "points_popup": {
+          "text": "+1",
+          "color": "#4A9D6F",
+          "from_xy_pct": {
+            "x": 72,
+            "y": 25
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 800
+        }
+      },
+      "tooltip": {
+        "he": "מדוד מרחקים במפה",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "B",
+      "label": "מצפן כיס",
+      "points": 2,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.07,
+        "glow_color": "#FFB84D"
+      },
+      "click": {
+        "feedback_animation": "bounce",
+        "feedback_ms": 500,
+        "points_popup": {
+          "text": "+2",
+          "color": "#E89A2E",
+          "from_xy_pct": {
+            "x": 85,
+            "y": 50
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 850
+        }
+      },
+      "tooltip": {
+        "he": "מצא כיוון צפון במפה",
+        "show_after_ms": 600
+      }
+    },
+    {
+      "slot": "C",
+      "label": "רחפן ניווט",
+      "points": 3,
+      "hover": {
+        "cursor": "pointer",
+        "scale_factor": 1.1,
+        "glow_color": "#FF6B35"
+      },
+      "click": {
+        "feedback_animation": "flash",
+        "feedback_ms": 550,
+        "points_popup": {
+          "text": "+3",
+          "color": "#D94E1F",
+          "from_xy_pct": {
+            "x": 78,
+            "y": 75
+          },
+          "to_xy_pct": {
+            "x": 88,
+            "y": 8
+          },
+          "duration_ms": 900
+        }
+      },
+      "tooltip": {
+        "he": "סרוק את השטח מהאוויר",
+        "show_after_ms": 600
+      }
+    }
+  ],
+  "global_ui": {
+    "score_display": {
+      "pos": {
+        "x_pct": 88,
+        "y_pct": 8
+      },
+      "font_size_px": 28
+    },
+    "mission_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 6
+      },
+      "width_pct": 60,
+      "font_size_px": 18
+    },
+    "checkpoint_text_box": {
+      "pos": {
+        "x_pct": 50,
+        "y_pct": 92
+      },
+      "width_pct": 70,
+      "font_size_px": 16
+    }
+  },
+  "rationale": "M13 navigation/mapping theme: A (ruler+eraser) = basic measurement (green, subtle), B (pocket compass) = directional aid (amber, moderate), C (navigation drone) = advanced aerial recon (orange-red, bold). Hover scales increase with value (1.05→1.07→1.10). Click feedback varies (pulse_out→bounce→flash) for tactile differentiation. Points popups fly from tool positions to top-right score display with staggered durations (800→850→900ms) matching point value. Tooltips explain practical use in Hebrew <40 chars. Global UI: score top-right (88,8), mission text top-center (50,6), checkpoint bottom-center (50,92) — standard placement for readability without obscuring right-side tool cluster."
+}

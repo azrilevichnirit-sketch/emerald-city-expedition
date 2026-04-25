@@ -1,0 +1,13 @@
+{
+  "asset": "פריסקופ_מ07.png",
+  "type": "tool_png",
+  "before_kb": 236,
+  "after_kb": 23,
+  "ratio": 10.26,
+  "in_budget": true,
+  "budget_kb": 150,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\tools\\פריסקופ_מ07.png",
+  "dst": "assets\\optimized\\tools\\פריסקופ_מ07.webp",
+  "status": "compressed_pending_panel"
+}

@@ -1,0 +1,13 @@
+{
+  "asset": "walkie_talkie.png",
+  "type": "scenery_png",
+  "before_kb": 285,
+  "after_kb": 33,
+  "ratio": 8.64,
+  "in_budget": true,
+  "budget_kb": 200,
+  "codec": "WebP q92 alpha_q100",
+  "src": "assets\\scenery\\walkie_talkie.png",
+  "dst": "assets\\optimized\\scenery\\walkie_talkie.webp",
+  "status": "compressed_pending_panel"
+}

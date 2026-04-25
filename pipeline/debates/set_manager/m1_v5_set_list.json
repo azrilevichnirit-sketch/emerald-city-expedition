@@ -1,0 +1,51 @@
+{
+  "role": "set_manager",
+  "scene_id": "M1",
+  "version": "v5",
+  "question": "After Nirit rejected v4 ('היא רצה עם רקע בלי כלום, זה לא שמיים, זה לא מטוס, זה סתם רקע כחול וזהוב' + 'למה ננו בננה, כבר יש כל כך הרבה רקעים של השמיים'), choose Phase 1 (pre-jump) and Phase 2 (landing) bg using EXISTING assets ONLY. NO Nano Banana. NO new generation. Verify each candidate file actually exists on disk and visually inspect each via keyframe. Decide.",
+  "context": {
+    "nirit_v4_rejection_quotes": [
+      "היא רצה עם רקע בלי כלום, זה לא שמיים, זה לא מטוס, זה סתם רקע כחול וזהוב",
+      "למה ננוו בננה, כבר יש כל כך הרבה רקעים של השמיים, ושם המטוס, אז למה עוד פעם ננו בננה, למה לייצר עוד משהו שבכל מקרה לא עוזר"
+    ],
+    "v3_v4_history": "v3 used bg_M1.mp4 directly — Nirit rejected: 'זה עדיין מתוך המטוס ולא מבחוץ'. v4 swapped to a CSS linear-gradient — Nirit rejected: 'just blue and gold, not sky, not plane'. So both extremes failed: real video that LOOKS like plane interior, AND a synthetic gradient with no real sky cues.",
+    "constraint": "Use ONLY files physically on disk. NO Nano Banana, NO Veo, NO Leonardo."
+  },
+  "files_audited": {
+    "C:/emerald/backgrounds/bg_M1.mp4_NOT_PRESENT": "bg_M1.mp4 does NOT live in /backgrounds/ — it lives in /assets/backgrounds/. Confirmed: keyframe = inside cargo bay looking out ramp. Nirit was correct to reject — this IS plane interior.",
+    "C:/emerald/backgrounds/bg_airplane.mp4": "EXISTS. Filename is misleading. Actual content (verified via ffmpeg frame extract @ 1.5s): aerial view OF the jungle canopy from high altitude with OPEN BLUE SKY and wispy white clouds filling the upper half. NO plane interior. NO door. NO ramp. This is the 'just before parachute jump, looking out at the landing zone' frame.",
+    "C:/emerald/backgrounds/bg_jungle_clearing.mp4": "EXISTS. Verified frame: ground-level dense jungle floor with palms, wet stones, puddles, and a strip of pale sky visible through the canopy. Perfect ground-POV for crouched landing.",
+    "C:/emerald/assets/backgrounds/bg_M5.mp4": "EXISTS. Was v4's Phase-2 pick. Verified frame: jungle interior with sun-rays through dense canopy. Beautiful but the perspective is between-the-leaves, more 'walking through' than 'just landed on the floor'.",
+    "C:/emerald/assets/scenery/competitors_in_air.png": "EXISTS. Six rival figures (paragliders, hang glider, wingsuits) silhouetted on green chroma — chroma-keyable. EXACTLY visualizes mission_text 'המתחרים כבר באוויר וצוברים יתרון מטורף'.",
+    "C:/emerald/assets/scenery/darkening_sky.png": "EXISTS but content is dramatic dark/purple stormy clouds — not the bright early-morning mood the M1 brief calls for.",
+    "C:/emerald/assets/scenery/storm_clouds_lightning.png": "EXISTS but storm/lightning conflicts with M1 brief (storm belongs to M2).",
+    "C:/emerald/assets/scenery/dust_clouds.png": "EXISTS — usable as landing dust puff at touchdown.",
+    "C:/emerald/scenery/two_jungle_trees.png": "EXISTS — usable as Phase-2 foreground framing trees.",
+    "C:/emerald/scenery/plane_fuselage.png": "EXISTS but should NOT be used — Nirit explicitly killed any plane visual in v3."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "voice_a": "Phase 1 must be bg_airplane.mp4 (C:/emerald/backgrounds/bg_airplane.mp4). I extracted the keyframe and confirmed: this is NOT plane interior despite its name. It is an aerial photoreal shot — open blue sky with wispy clouds in the upper 60%, distant misty ridges in the midground, jungle treetops in the lower 30%. This IS the 'looking out the open door of the plane right before jumping' POV. It directly answers Nirit's two complaints: (a) real sky with real clouds (not gradient), (b) suggests altitude/plane-window POV without showing plane interior. We do NOT need to use bg_M1.mp4 (which is the cargo-bay shot Nirit killed).\n\nFor Phase 2 I prefer bg_jungle_clearing.mp4 over bg_M5.mp4. bg_jungle_clearing is ground-level — wet ground, stones, a clear path through palms, sky barely visible through the canopy. The pose at this beat is pose_03 (landing crouch, hands-on-ground). The character lands ON the ground, so the bg should show GROUND. bg_M5 is more 'walking through canopy at face level' — wrong perspective for a crouched-on-floor landing.\n\nOverlays: add competitors_in_air.png on Phase 1 (positioned upper-third, scaled small ~12% width, slow horizontal drift) — this REPLACES the v4 'CSS dots' with REAL figures and literally illustrates 'המתחרים כבר באוויר'. This is the killer detail: the player SEES the competitors instead of imagining them.",
+      "voice_b": "Reasonable case but I want to stress-test two assumptions:\n\n(1) bg_airplane.mp4 — the filename is bg_airplane but the content is aerial-jungle. Will Nirit see this and think we're recycling a generic landscape, not specifically 'a jump scene'? The answer hinges on whether the visual reads as 'altitude POV' (= jump scene) or 'random scenic flyover' (= no scene). The keyframe shows the camera looking DOWN-AND-OUT toward jungle below with sky filling above. That IS the canonical 'I'm about to jump' shot. Plus, with competitors_in_air.png floating in the upper sky as parallax overlay, the read becomes unambiguously 'pre-jump'. Approved.\n\n(2) bg_jungle_clearing vs bg_M5: I push back lightly. bg_M5 is what v4 specified and the director's brief is consistent with it ('foreground = dense foliage, midground = open landing area, background = canopy + sky'). However, bg_jungle_clearing arguably matches the brief BETTER because it has a true open clearing with a path (= 'landing area'), wet stones (= recently disturbed ground = freshly landed), and visible distant trees (= midground depth). Either works; bg_jungle_clearing is the cleaner read for a landing crouch. Accepted.\n\nOne addition I'd require: a tiny `dust_clouds.png` puff at the player's feet at touchdown (jump_apex+landing_complete) for visual impact-anchor. Cheap, existing, sells the landing.",
+      "moderator_summary": "Both voices converge on Phase 1 = bg_airplane.mp4 with competitors_in_air.png overlay (replaces v4 CSS dots), and Phase 2 = bg_jungle_clearing.mp4. Voice B added: dust_clouds.png puff at touchdown. No conflict to resolve — proceed to round 2 to lock CSS positions and timing."
+    },
+    {
+      "round": 2,
+      "voice_a": "Round 2 — locking specifics:\n\nPHASE 1 (bg_airplane.mp4):\n- bg_video: full-bleed cover, looped\n- bg_image: null\n- Overlay competitors_in_air.png: position upper-third (top:6%, left:5%, width:90%), scale 0.85, opacity 0.78 (slight haze for distance), z_index 3, slow drift animation 18s linear infinite (translateX 2vw). Chroma-key the green at runtime (existing chroma keyer handles ~#00B140).\n- No other scenery for Phase 1. Sky + competitors = complete.\n\nPHASE 2 (bg_jungle_clearing.mp4):\n- bg_video: full-bleed cover, looped\n- bg_image: null\n- Overlay two_jungle_trees.png as foreground frame: bottom:0%, left:-5%, width:35%, opacity 0.95, z_index 4. Light parallax — anchors the 'dense jungle' read of the checkpoint text.\n- Overlay dust_clouds.png at landing impact: bottom:8%, right:30% (matches player landing position), width:18%, opacity 0.0 -> 0.6 -> 0 (300ms in, 600ms out), trigger=jump_apex+1800ms (~touchdown), z_index 6 (above player feet, below player body).\n\nTRANSITION:\n- Phase 1 -> Phase 2: crossfade 400ms triggered at 'jump_apex' event (= catch_complete + 300ms per scene_M1.json line 451). Note: scene_M1.json says bg_swap_duration_ms=500 — I propose 400ms because the player canvas itself is also doing a 600ms CSS jump and we want bg to land slightly before the pose-03 crouch begins. 400ms tightens the cut.\n\nPlayer composition unchanged from scene_M1 v4. set_list does NOT touch player layer — composition_root will read scene_M1.json for poses.",
+      "voice_b": "Locked. One nit: I'd flag that competitors_in_air.png shows SIX rival figures while scene_M1.json rivals.count = 5. Set_manager note this in _human_review_note so the builder knows the asset count > scene_brief count is OK (more rivals = more visceral 'they're ahead of me' feel; chroma-keyed silhouettes in distance are felt-not-counted).\n\nAlso confirm: builder must apply chroma-keyer to competitors_in_air.png at runtime (it's on green #00B140 per project convention per project memory). The existing chroma keyer in the player canvas pipeline already handles green; same shader can apply to scenery PNG layers if builder wires them through it. Note this in _human_review_note.\n\nFinal proposal stands. Pass to file write.",
+      "moderator_summary": "Final lock: Phase 1 = bg_airplane.mp4 + competitors_in_air.png drift overlay. Phase 2 = bg_jungle_clearing.mp4 + two_jungle_trees.png foreground + dust_clouds.png landing puff. Crossfade 400ms at jump_apex. Two flags for human review: (a) competitors_in_air.png contains 6 rivals vs scene_M1 rivals.count=5 — acceptable; (b) builder must run scenery PNGs through the chroma keyer (green #00B140) just like tools/poses. NO Nano Banana, NO new generation. All files verified to exist."
+    }
+  ],
+  "final_decision": {
+    "phase_1_bg": "C:/emerald/backgrounds/bg_airplane.mp4",
+    "phase_1_overlays": ["C:/emerald/assets/scenery/competitors_in_air.png"],
+    "phase_2_bg": "C:/emerald/backgrounds/bg_jungle_clearing.mp4",
+    "phase_2_overlays": ["C:/emerald/scenery/two_jungle_trees.png", "C:/emerald/assets/scenery/dust_clouds.png"],
+    "transition_ms": 400,
+    "transition_trigger": "jump_apex",
+    "transition_type": "crossfade",
+    "no_new_generation": true,
+    "decision": "pass"
+  }
+}

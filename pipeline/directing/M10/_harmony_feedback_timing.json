@@ -1,0 +1,8 @@
+{
+  "stage": "timing",
+  "feedback_round": 1,
+  "fixes": [
+    "- Tool A enters at 800ms, which is less than entry_transition_ms (450ms) + safe margin; should be >= 450ms but ideally >= 600ms to avoid appearing during transition.\n  fix: Shift tool A in_ms from 800ms to at least 600ms (preferably 650ms or later) to ensure it appears after entry transition completes."
+  ],
+  "_written_at": "2026-04-25 14:37:59"
+}
