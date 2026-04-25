@@ -1,0 +1,119 @@
+{
+  "_generated_at": "2026-04-25",
+  "_generated_by": "asset_cataloger (M1 scope — initial run)",
+  "_scope": "M1 only — full catalog runs as M2-M15 progress",
+  "_source_directories": [
+    "backgrounds/",
+    "assets/backgrounds/",
+    "assets/player/",
+    "assets/tools/",
+    "rivals/"
+  ],
+  "files": {
+    "backgrounds/bg_airplane.mp4": {
+      "category": "background_video",
+      "actual_content": "תצפית אווירית מלמעלה על יער ג'ונגל סמוך. שמיים תכולים בהירים תופסים את החלק העליון, ענני נוצה דקים. אופק כחלחל באמצע. צמרות עצים ירוקים מטה, ערפל קל בנקיקים. אין מטוס נראה לעין, אין ראיה לכלי קרקע, מצלמה גבוהה ונטויה אופקית.",
+      "ground_line_y_pct": null,
+      "horizon_y_pct": 50,
+      "sky_zone_y_pct": "0-50",
+      "ground_zone_y_pct": "50-100 (treetops, not standable)",
+      "has_chroma_green": false,
+      "dominant_colors": ["#7BAEC8", "#3A5A3D", "#A8C2D4"],
+      "duration_sec_estimate": 8,
+      "loop_friendly": true,
+      "suggested_uses": [
+        "skydive POV אחרי קפיצה — תצפית בזמן נפילה",
+        "תצפית אווירית כללית מעל יער"
+      ],
+      "NOT_suitable_for": [
+        "M1 setup phase — אין מטוס בפריים, הדמות תרחף בלי משטח",
+        "כל סצנה שדורשת עמידה על קרקע מוצקה"
+      ],
+      "filename_misleading": true,
+      "filename_misleading_note": "השם 'airplane' רומז למטוס אבל אין מטוס בקובץ — זה תצפית מתוך מטוס/מצנח, לא מטוס עצמו",
+      "_v5_failure_record": "scene_composer + human_review הקודמים בחרו את הקובץ הזה ל-M1 כי השם תאם. הדמות יצאה מרחפת באוויר (אין ground_line). Nirit דחתה את התוצאה."
+    },
+    "assets/backgrounds/bg_M1.mp4": {
+      "category": "background_video",
+      "actual_content": "פנים מטוס תובלה צבאי, מבט מהקצה הקדמי של תא המטען לעבר הרמפה האחורית הפתוחה. בתקרה — לוחות מתכת, תאורת נורות, אזורי בקרה. בצדדים — מושבי קומנדו עם רצועות בטיחות צהובות. במרכז־אחור — פתח מרובע גדול עם קצוות מתכת קרועים (כאילו הותכו או נופצו), דרך הפתח רואים שמיים בהירים, ערפל מטוס, אופק כחלחל ויער ג'ונגל ירוק תופס כשליש מהפתח. רצפת המטל היא רשת אנטי־החלקה צהובה־ירקרקה עם פסי גומי כתומים בקצוות, פזורים עליה צרורות וחבלים.",
+      "ground_line_y_pct": 78,
+      "horizon_y_pct_through_opening": 45,
+      "sky_zone_y_pct": "0-30",
+      "opening_zone_y_pct": "20-65",
+      "ground_zone_y_pct": "65-100 (cargo floor — anchorable)",
+      "actress_anchor_zone": "y=65-78 stand at edge of opening; y=85 stand mid-bay close to camera",
+      "has_chroma_green": false,
+      "dominant_colors": ["#3A3A35", "#7BAEC8", "#5C6A4E"],
+      "duration_sec_estimate": 10,
+      "loop_friendly": true,
+      "suggested_uses": [
+        "M1 setup phase — דמות עומדת על רצפת המטוס מול הפתח שעומדת לקפוץ ממנו",
+        "סצנת דרמה לפני קפיצה כללית"
+      ],
+      "NOT_suitable_for": [],
+      "filename_misleading": false,
+      "_keyframe_inspected": "pipeline/asset_keyframes/bg_M1.jpg"
+    },
+    "assets/player/pose_05.mp4": {
+      "category": "player_pose",
+      "actual_content": "שחקנית עומדת חזיתית לקמרה, ידיים משוחררות לצדדים, מבט קל ימינה (לא ישר לקמרה). חולצה אדומה־כהה (חאקי־בורגונדי), מכנסי קרגו אפורים, נעלי טיפוס חומות גבוהות, תיק גב גדול־עליון עם רצועות בז' צהבהבות. שיער כהה אסוף לקוקו. רקע ירוק chroma מלא ((((לא נקי לחלוטין — יש שינויים קלים בגוון בין top לbottom)))). הדמות תופסת את כל גובה הפריים — ראש בערך y=8% (קוקו), רגליים תחתונות בערך y=95-97%.",
+      "feet_y_pct_in_canvas": 96,
+      "head_y_pct_in_canvas": 8,
+      "facing": "frontal_slight_right",
+      "has_chroma_green": true,
+      "chroma_color_hex": "#5C8642",
+      "implicit_ground_contact": true,
+      "duration_sec_estimate": 8,
+      "key_frames_estimate": {
+        "0.5_sec": "best static frame — hands settled at sides, gentle micro-motion",
+        "5+_sec": "may start small movement — verify per use"
+      },
+      "suggested_uses": [
+        "M1 setup phase — דמות במצב המתנה לפני קליק על כלי",
+        "כל סצנה שדורשת עמידה סטטית חזיתית"
+      ],
+      "_keyframe_inspected": "pipeline/asset_keyframes/pose_05.jpg"
+    },
+    "assets/tools/מצנח_מ01.png": {
+      "category": "tool_icon",
+      "mission": "M1",
+      "slot": "A",
+      "label": "מצנח עגול רחב",
+      "actual_content_pending": "to inspect",
+      "has_chroma_green_assumed": true
+    },
+    "assets/tools/גלשן_מ01.png": {
+      "category": "tool_icon",
+      "mission": "M1",
+      "slot": "B",
+      "label": "גלשן רחיפה",
+      "actual_content_pending": "to inspect",
+      "has_chroma_green_assumed": true
+    },
+    "assets/tools/כנפיים_מ01.png": {
+      "category": "tool_icon",
+      "mission": "M1",
+      "slot": "C",
+      "label": "חליפת כנפיים",
+      "actual_content_pending": "to inspect",
+      "has_chroma_green_assumed": true
+    },
+    "rivals/rival_female_run_1.png": {
+      "category": "rival_silhouette",
+      "actual_content_pending": "to inspect",
+      "suggested_uses": [
+        "M1 — מתחרה זעירה ברקע השמיים בפתח המטוס"
+      ]
+    }
+  },
+  "_indices": {
+    "by_suggested_use": {
+      "M1 setup phase": ["assets/backgrounds/bg_M1.mp4"]
+    },
+    "by_category": {
+      "background_video": ["backgrounds/bg_airplane.mp4", "assets/backgrounds/bg_M1.mp4"],
+      "player_pose": ["assets/player/pose_05.mp4"]
+    },
+    "filename_misleading_files": ["backgrounds/bg_airplane.mp4"]
+  }
+}
