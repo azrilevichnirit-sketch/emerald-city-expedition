@@ -69,7 +69,9 @@
     .tool-tooltip.visible { opacity:1; }
     .tool-label { display:block; color:#fff; font-size:clamp(0.65rem,1.6vw,0.9rem);
       text-align:center; margin-top:3px; white-space:nowrap;
-      font-family:'Heebo','Assistant',sans-serif; opacity:0.9; letter-spacing:0.01em; }
+      font-family:'Heebo','Assistant',sans-serif; opacity:0; letter-spacing:0.01em;
+      transition:opacity 150ms; }
+    .tool-btn:hover .tool-label, .tool-btn:focus-within .tool-label { opacity:0.95; }
     .tool-clone { position:fixed; z-index:11; pointer-events:none;
       filter:drop-shadow(0 4px 8px rgba(0,0,0,0.6)); will-change:transform; }
     #fade-overlay { position:fixed; inset:0; background:#000; opacity:0;
@@ -110,8 +112,8 @@
     // palm anchor — setup pose (nirit_alpha.png) hip/belt dock for setup; replaced at click+200ms
     // with catch-pose anchor (raised palm) from pipeline/palm_anchor_M1_catch.json before flight calc.
     let PALM_ANCHOR = { x_pct: 47, y_pct: 60 };
-    // catch-pose palm anchor — anim_reach_forward.mp4 t=3.3 (single-arm extend, right arm out)
-    const PALM_ANCHOR_CATCH = { x_pct: 8.61, y_pct: 32.81 };
+    // catch-pose palm anchor — anim_reach_forward.mp4 t=2.8 (single-arm, hand fully in frame)
+    const PALM_ANCHOR_CATCH = { x_pct: 11.94, y_pct: 47.27 };
     const CATCH_POSE_SRC = '../../master_player/nirit_catch_M1_alpha.png';
     const REDIRECT_TARGET = './M2.html';
 

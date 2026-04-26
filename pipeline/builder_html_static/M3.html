@@ -68,7 +68,9 @@
     .tool-tooltip.visible { opacity:1; }
         .tool-label { display:block; color:#fff; font-size:clamp(0.65rem,1.6vw,0.9rem);
       text-align:center; margin-top:3px; white-space:nowrap;
-      font-family:'Heebo','Assistant',sans-serif; opacity:0.9; letter-spacing:0.01em; }
+      font-family:'Heebo','Assistant',sans-serif; opacity:0; letter-spacing:0.01em;
+      transition:opacity 150ms; }
+    .tool-btn:hover .tool-label, .tool-btn:focus-within .tool-label { opacity:0.95; }
     .tool-clone { position:fixed; z-index:11; pointer-events:none;
       filter:drop-shadow(0 4px 8px rgba(0,0,0,0.6)); will-change:transform; }
     #fade-overlay { position:fixed; inset:0; background:#000; opacity:0;
