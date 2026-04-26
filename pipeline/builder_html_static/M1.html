@@ -112,8 +112,8 @@
     // palm anchor — setup pose (nirit_alpha.png) hip/belt dock for setup; replaced at click+200ms
     // with catch-pose anchor (raised palm) from pipeline/palm_anchor_M1_catch.json before flight calc.
     let PALM_ANCHOR = { x_pct: 47, y_pct: 60 };
-    // catch-pose palm anchor — anim_reach_forward.mp4 t=2.8 (single-arm, hand fully in frame)
-    const PALM_ANCHOR_CATCH = { x_pct: 11.94, y_pct: 47.27 };
+    // catch-pose palm anchor — anim_reach_forward.mp4 t=3.3 + 100px left pad (full hand visible)
+    const PALM_ANCHOR_CATCH = { x_pct: 16.83, y_pct: 32.73 };
     const CATCH_POSE_SRC = '../../master_player/nirit_catch_M1_alpha.png';
     const REDIRECT_TARGET = './M2.html';
 
