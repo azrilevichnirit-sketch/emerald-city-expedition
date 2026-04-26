@@ -1,0 +1,274 @@
+{
+  "_source": "C:/Users/azril/OneDrive/Desktop/fincail_game/old/spec-emerald-city-expedition (1).md.txt (UTF-16)",
+  "_authority": "GROUND TRUTH per Nirit. content_lock.json was modified WITHOUT authorization (rewritten to first-person 'אני' instead of original 'אנחנו/מה נבחר'). All agents READ FROM HERE, not content_lock.json.",
+  "_extracted_at": "2026-04-26",
+  "_extracted_by": "Claude main session per Nirit's directive",
+
+  "missions": {
+    "M1": {
+      "scene_setting": "מטוס פתוח באוויר, סבך ירוק למטה, מתחרים כנקודות באוויר",
+      "narrative": "דלת המטוס נפתחת בבת אחת ורוח פרצים שואבת הכל החוצה. המתחרים כבר באוויר, הופכים לנקודות קטנות מעל הג'ונגל הירוק. הקרקע מתקרבת במהירות וחייבים לקפוץ עכשיו כדי לא לפספס את אזור הנחיתה.",
+      "question": "איך נתקדם?",
+      "tools": [
+        {"slot":"A","label":"מצנח עגול רחב","points":1,"metric":"סיכון"},
+        {"slot":"B","label":"גלשן רחיפה","points":2,"metric":"סיכון"},
+        {"slot":"C","label":"חליפת כנפיים","points":3,"metric":"סיכון"}
+      ],
+      "expected_bg": "airplane interior with view of sky+jungle below"
+    },
+    "M2": {
+      "scene_setting": "סבך ירוק עבות, שמש שוקעת, מבנה אבן עתיק רעוע, סערה טרופית מתקרבת",
+      "narrative": "הנחיתה הושלמה בלב סבך עבות והשמש שוקעת. ממול עומד מבנה אבן עתיק ששימש פעם כבסיס צבאי; חצי מהגג קרס והוא נראה רעוע. סערה טרופית עומדת להתפרץ, הברקים כבר מעל וצריך פתרון מיידי ללילה הקרוב.",
+      "question": "יש לך רעיון מה לעשות?",
+      "tools": [
+        {"slot":"A","label":"יריעת ברזנט","points":1,"metric":"יציבות"},
+        {"slot":"B","label":"פטיש ומסמרים","points":2,"metric":"יציבות"},
+        {"slot":"C","label":"אוהל סיירים","points":3,"metric":"יציבות"}
+      ],
+      "expected_bg": "jungle clearing dusk + storm clouds + ruined stone military building"
+    },
+    "M3": {
+      "scene_setting": "צ'ק-פוינט נטוש בלב הג'ונגל, בוקר, שביל צר מול דרך עפר רחבה עם עקבות צמיגים ורעש מנועים",
+      "narrative": "הבוקר עלה והגעה לעמדת צ'ק-פוינט נטושה בלב הג'ונגל. המפה מורה על שביל הליכה צר וישר, אבל מצד שמאל נחשף ציר עפר רחב עם עשרות עקבות צמיגים טריות ורעש מנועים שמתרחק.",
+      "question": "הקבוצות האחרות בורחות שמאלה. מה נבחר",
+      "tools": [
+        {"slot":"A","label":"המפה המקומטת","points":1,"metric":"FOMO"},
+        {"slot":"B","label":"משקפת שדה","points":2,"metric":"FOMO"},
+        {"slot":"C","label":"מפתח לטרקטורון מונע","points":3,"metric":"FOMO"}
+      ],
+      "expected_bg": "jungle morning + abandoned checkpoint + path divergence (narrow vs wide dirt road)"
+    },
+    "M4": {
+      "scene_setting": "תהום עמוקה, גשר חבלים רעוע ללא לוחות עץ, הצוות המוביל נראה בצד השני",
+      "narrative": "השביל נקטע בתהום עמוקה. גשר חבלים רעוע תלוי מצד לצד, לוחות העץ שלו חסרים והרוח מטלטלת אותו בחוזקה. ערימת קרשים זרוקה בפתח הגשר. הצוות המוביל כבר נמצא בצד השני, מנפנף לשלום וממשיך להיעלם בתוך היער.",
+      "question": "איך עוברים לצד השני?",
+      "tools": [
+        {"slot":"A","label":"לוחות עץ ופטיש","points":1,"metric":"סיכון"},
+        {"slot":"B","label":"רתמת אבטחה","points":2,"metric":"סיכון"},
+        {"slot":"C","label":"רובה חבלים","points":3,"metric":"סיכון"}
+      ],
+      "expected_bg": "deep chasm + dilapidated rope bridge + plank pile + far side jungle with team"
+    },
+    "M5": {
+      "scene_setting": "סבך עצים שקט שפתאום השיח מימין רועד עם נשימות כבדות וענפים נשברים",
+      "narrative": "הליכה שקטה בין העצים ופתאום השיח מימין מתחיל לרעוד בטירוף. משהו גדול זז שם בפנים, נשימות כבדות נשמעות והענפים נשברים. זינוק עלול לקרות בכל שנייה.",
+      "question": "מה שולפים מהחגורה?",
+      "tools": [
+        {"slot":"A","label":"פנס עוצמתי","points":1,"metric":"אימפולסיביות"},
+        {"slot":"B","label":"רשת הגנה","points":2,"metric":"אימפולסיביות"},
+        {"slot":"C","label":"לפיד בוער","points":3,"metric":"אימפולסיביות"}
+      ],
+      "expected_bg": "dense jungle interior + shaking right-side bushes (motion blur/effect)"
+    },
+    "M6": {
+      "scene_setting": "ג'יפ ישן בשולי דרך עפר, מנוע מעשן, ענני אבק של מתחרים באופק",
+      "narrative": "ג'יפ ישן עומד בשולי הדרך. המנוע משתעל ומוציא עשן סמיך, והוא בקושי סוחב בעליות התלולות. ענני האבק של המתחרים נראים רחוק קדימה באופק.",
+      "question": "איך ממשיכים מכאן?",
+      "tools": [
+        {"slot":"A","label":"ג'ריקן שמן","points":1,"metric":"יציבות"},
+        {"slot":"B","label":"ערכת כלי עבודה","points":2,"metric":"יציבות"},
+        {"slot":"C","label":"אופני הרים","points":3,"metric":"יציבות"}
+      ],
+      "expected_bg": "dirt road + smoking jeep + uphill terrain + distant dust clouds"
+    },
+    "M7": {
+      "scene_setting": "כניסה חבויה למקדש קטן, 3 רכבים של מתחרים חונים, מכשיר קשר עם קולות התלהבות",
+      "narrative": "בזמן הדהירה לעבר היעד המרכזי, מתגלה כניסה חבויה למקדש קטן. שלושה רכבים של מתחרים אחרים כבר חונים שם. מכשיר קשר זרוק ליד הכניסה משמיע קולות התלהבות של הצוותים שנמצאים בפנים.",
+      "question": "כולם כבר בפנים. איך נתקדם?",
+      "tools": [
+        {"slot":"A","label":"דגל המשימה המקורי","points":1,"metric":"FOMO"},
+        {"slot":"B","label":"פריסקופ","points":2,"metric":"FOMO"},
+        {"slot":"C","label":"לום ברזל","points":3,"metric":"FOMO"}
+      ],
+      "expected_bg": "small temple entrance hidden in jungle + 3 parked vehicles + radio device"
+    },
+    "M8": {
+      "scene_setting": "סלע אנכי חלק בגובה של בניין, גשם, סימני נעליים טריים על האבן",
+      "narrative": "סלע אנכי חלק בגובה של בניין חוסם את הדרך. הגשם שהתחיל לרדת הופך את האבן לחלקה כמו קרח, אבל סימני נעליים טריים נראים על האבן — מישהו טיפס כאן ממש עכשיו.",
+      "question": "במה נאחזים כדי לעלות?",
+      "tools": [
+        {"slot":"A","label":"סולם חבלים","points":1,"metric":"סיכון"},
+        {"slot":"B","label":"חבל עם קשרים","points":2,"metric":"סיכון"},
+        {"slot":"C","label":"טפרי טיפוס ממתכת","points":3,"metric":"סיכון"}
+      ],
+      "expected_bg": "vertical sheer cliff face + rain + fresh footprints"
+    },
+    "M9": {
+      "scene_setting": "שער פלדה מסיבי, לוח מקשים מהבהב באדום, ספירה לאחור 60 שניות",
+      "narrative": "הגעה לשער פלדה מסיבי שחוסם את הכניסה למנהרות העיר. לוח המקשים הישן מהבהב באדום; ללא הקשת הקוד הנכון ב-60 השניות הקרובות, השער יינעל הרמטית וייחסם לכל היום.",
+      "question": "איך פותחים את המעבר?",
+      "tools": [
+        {"slot":"A","label":"שמן לשימון צירים","points":1,"metric":"יציבות"},
+        {"slot":"B","label":"רב-כלי","points":2,"metric":"יציבות"},
+        {"slot":"C","label":"מבער ריתוך","points":3,"metric":"יציבות"}
+      ],
+      "expected_bg": "massive steel gate + flashing red keypad + stone tunnel entrance"
+    },
+    "M10": {
+      "scene_setting": "מנהרה חשוכה, קופסה שחורה רועדת עם תקתוק וצג ספירה לאחור 3-2-1",
+      "narrative": "בתוך המנהרה החשוכה נמצאה קופסה שחורה שרועדת ומשמיעה קולות תקתוק מהירים. הצג הדיגיטלי עליה סופר לאחור: 3... 2... 1... חייבים להגיב עכשיו.",
+      "question": "מה נעשה?",
+      "tools": [
+        {"slot":"A","label":"מצלמה זעירה","points":1,"metric":"אימפולסיביות"},
+        {"slot":"B","label":"שמיכת מיגון","points":2,"metric":"אימפולסיביות"},
+        {"slot":"C","label":"קאטר לחיתוך חוטים","points":3,"metric":"אימפולסיביות"}
+      ],
+      "expected_bg": "dark tunnel + black ticking box + glowing countdown display"
+    },
+    "M11": {
+      "scene_setting": "מצוק בגובה 50 מטר מעל מפל מים, סירת מילוט בתחתית מתרחקת",
+      "narrative": "המנהרה נגמרת במצוק בגובה 50 מטר מעל מפל מים אדיר. בתחתית המפל נראית סירת המילוט האחרונה. המנוע שלה כבר פועל והיא מתחילה להתרחק מהגדה.",
+      "question": "איך יורדים למים למטה?",
+      "tools": [
+        {"slot":"A","label":"חבל סנפלינג עם רתמה","points":1,"metric":"סיכון"},
+        {"slot":"B","label":"חבל בנג'י","points":2,"metric":"סיכון"},
+        {"slot":"C","label":"מצנח בסיס","points":3,"metric":"סיכון"}
+      ],
+      "expected_bg": "cliff edge 50m + waterfall below + escape boat departing"
+    },
+    "M12": {
+      "scene_setting": "גדת נהר, סירת מילוט מחכה, סירת מתחרים עוגנת בפתח מערה חשוכה מאחורי המפל",
+      "narrative": "סירת המילוט מחכה בגדה, אבל סירה של צוות מתחרה עוגנת בפתח מערה חשוכה מאחורי המפל. עקבות רטובים מובילים פנימה אל תוך החושך בזמן שהסירה המרכזית עומדת לעזוב.",
+      "question": "הצוות המוביל נעלם במערה. לאן פונים?",
+      "tools": [
+        {"slot":"A","label":"כרטיס עלייה לסירה","points":1,"metric":"FOMO"},
+        {"slot":"B","label":"מצלמה עם פלאש","points":2,"metric":"FOMO"},
+        {"slot":"C","label":"לפיד יד בוער","points":3,"metric":"FOMO"}
+      ],
+      "expected_bg": "river shore + escape boat + dark cave entrance + competitor boat"
+    },
+    "M13": {
+      "scene_setting": "סבך סמיך, חושך מתקרב, מפה מזויפת, קו הסיום קרוב אבל הכיוון אבד",
+      "narrative": "במנוחה קצרה מתגלה שהמפה הייתה זיוף — היא הובילה לנקודה לא נכונה. קו הסיום קרוב, אבל הכיוון אבד לגמרי בתוך הסבך הסמיך והחושך מתקרב.",
+      "question": "איך מוצאים את הדרך?",
+      "tools": [
+        {"slot":"A","label":"סרגל ומחק","points":1,"metric":"יציבות"},
+        {"slot":"B","label":"מצפן כיס","points":2,"metric":"יציבות"},
+        {"slot":"C","label":"רחפן ניווט","points":3,"metric":"יציבות"}
+      ],
+      "expected_bg": "dense dark jungle thicket + torn fake map + encroaching darkness"
+    },
+    "M14": {
+      "scene_setting": "חדר מרכזי של עיר אבודה, מזבח עם 3 אפשרויות, שומרים מתקרבים",
+      "narrative": "הגעה לחדר המרכזי של העיר האבודה. על המזבח מונחות שלוש אפשרויות: שקית מטבעות פתוחה, תיבת עץ כבדה ונעולה, וכדור בדולח שחור שלא ניתן לראות מה בתוכו. שומרים מתקרבים.",
+      "question": "מה מרימים מהמזבח?",
+      "tools": [
+        {"slot":"A","label":"שקית מטבעות קטנה","points":1,"metric":"סיכון"},
+        {"slot":"B","label":"תיבת עץ נעולה","points":2,"metric":"סיכון"},
+        {"slot":"C","label":"כדור בדולח כהה","points":3,"metric":"סיכון"}
+      ],
+      "expected_bg": "central altar room of lost city + stone altar with 3 items + approaching guards"
+    },
+    "M15": {
+      "scene_setting": "קו הסיום ריק ושקט, זיקוקים נורים מכיוון אחר, מוזיקה וצחוק של מתחרים",
+      "narrative": "קו הסיום נמצא ממש ממול, ריק ושקט. פתאום זיקוקים נורים מכיוון אחר, רחוק משם. צלילי מוזיקה חזקה וצחוק נשמעים — נראה שכל שאר המתחרים מצאו נקודה אחרת וכולם שם עכשיו.",
+      "question": "כולם שם, רק כאן ריק. מה נעשה?",
+      "tools": [
+        {"slot":"A","label":"דגל סיום לבן","points":1,"metric":"FOMO"},
+        {"slot":"B","label":"מגאפון","points":2,"metric":"FOMO"},
+        {"slot":"C","label":"זיקוק צבעוני","points":3,"metric":"FOMO"}
+      ],
+      "expected_bg": "empty finish line + distant fireworks + lights from other location"
+    }
+  },
+
+  "metrics_taxonomy": {
+    "סיכון": {"missions":[1,4,8,11,14], "range":"5-15"},
+    "יציבות": {"missions":[2,6,9,13], "range":"4-12"},
+    "אימפולסיביות": {"missions":[5,10], "range":"2-6"},
+    "FOMO": {"missions":[3,7,12,15], "range":"4-12"}
+  },
+
+  "player_profiles": [
+    {"score_range":"1.0-1.5","name":"הסלע האיתן","desc":"לא מזיזים אותך מהמסלול. אתה משקיע שקול, רגוע, שיודע בדיוק לאן הוא הולך מבלי להסתכל לצדדים."},
+    {"score_range":"1.6-2.4","name":"הנווט הגמיש","desc":"אתה יודע מתי להאיץ ומתי לעצור. השילוב המושלם בין זהירות להעזה הופך אותך למשקיע חכם ומאוזן."},
+    {"score_range":"2.5-3.0","name":"הצ'יטה מהג'ונגל","desc":"אתה חי על הקצה. זיהוי הזדמנויות מהיר, תעוזה מקסימלית ותגובה חדה הופכים אותך לטורף פיננסי אמיתי."}
+  ],
+
+  "interface_rules": [
+    "אין לציין כמה זמן לוקח המשחק",
+    "אין לציין שזהו כלי לאיבחון או הערכה",
+    "אין לציין שמות מדדים (סיכון/יציבות/FOMO/אימפולסיביות) בממשק השחקן",
+    "המשחק מוצג כחוויה הרפתקנית בלבד",
+    "מד התקדמות ללא מספרים (לא 1/15)"
+  ],
+
+  "progress_bar_spec": {
+    "_section": "spec §3 — מד התקדמות",
+    "design": "קו אופקי בסגנון חבל או שביל עפר, בנוי מ-CSS בלבד (ללא תמונות)",
+    "icon": "נקודת אור קטנה או אייקון דמות זעיר שנמצא על השביל ומתקדם קדימה עם כל משימה שהושלמה",
+    "animation": "האייקון זז חלק קדימה עם כל בחירה, השביל מאחוריו מואר או נחצה",
+    "no_numbers": "לא מופיע כמה משימות יש בסך הכל, לא מופיע 1/15 או כל ספירה אחרת",
+    "no_text_score": "לא מופיע 'M{N} · ניקוד: X' או כל טקסט מספרי",
+    "mobile": "פס אופקי דק - מותאם לרוחב המסך בכל גודל",
+    "placeholder_note": "Builder ב-CSS מלא. עיצוב גרפי יוחלף בשלב מאוחר"
+  },
+
+  "story_structure": {
+    "_section": "spec §4 — מבנה המסע",
+    "act_1_dive_and_landing": {
+      "missions": [1, 2],
+      "opening_scene": "המשחק נפתח בתוך מטוס רועש. דלת המטוס נפתחת.",
+      "M1_mission": "בחירת כלי הצניחה",
+      "M1_to_M2_transition": "אנימציית נחיתה מהירה אל תוך סבך הג'ונגל. השמיים מתקדרים.",
+      "M2_mission": "מציאת המבנה הצבאי הישן ובחירת פתרון הלינה"
+    },
+    "act_2_jungle_chase": {
+      "missions": [3, 4, 5],
+      "opening": "אור ראשון. הדמות מתחילה לצעוד במהירות. השביל נפתח לצומת רחב.",
+      "M3_to_M4_transition": "התקדמות בנתיב שנבחר עד להגעה לצוק שבו השביל נגמר",
+      "M4_to_M5_transition": "כניסה לצמחייה סבוכה וחשוכה יותר. המצלמה מתקרבת אל פני הדמות."
+    },
+    "act_3_motorized_race": {
+      "missions": [6, 7, 8],
+      "opening": "יציאה מהסבך אל דרך עפר. ג'יפ ישן מחכה שם.",
+      "M6_to_M7_transition": "נסיעה מהירה. בדרך עוברים ליד מבנה עתיק מרשים.",
+      "M7_to_M8_transition": "הגעה לקיר סלע ענק שחוסם את המעבר לעמק הנסתר"
+    },
+    "act_4_underground": {
+      "missions": [9, 10, 11],
+      "opening": "הגעה לפסגת הצוק. כניסה למנהרה עם שער פלדה מודרני.",
+      "M9_to_M10_transition": "הליכה במנהרה חשוכה עם הדים של מים זורמים. על הרצפה חפץ מוזר.",
+      "M10_to_M11_transition": "אור בקצה המנהרה. יציאה למרפסת סלע מעל מפל אדיר."
+    },
+    "act_5_emerald_city": {
+      "missions": [12, 13, 14, 15],
+      "opening": "הגעה לגדת הנהר. המים גועשים.",
+      "M12_to_M13_transition": "הגעה לשערי העיר המוזהבת. הכל נראה כמבוך סבוך.",
+      "M13_to_M14_transition": "כניסה להיכל המזבח המרכזי. דממה. השומרים נשמעים ברקע.",
+      "M14_to_M15_transition": "ריצה מטורפת לעבר היציאה מהעיר. קו הסיום נראה באופק."
+    }
+  },
+
+  "after_M15_lead_capture": {
+    "_section": "spec §8 — מסך איסוף פרטים",
+    "trigger": "אחרי משימה 15 ולפני מסך התוצאות",
+    "fields": [
+      {"name":"שם מלא","type":"text","required":true},
+      {"name":"מייל","type":"email","required":true,"validation":true},
+      {"name":"נייד","type":"tel","required":true},
+      {"name":"אני רוצה לקבל עדכונים","type":"checkbox","required":false,"default":false}
+    ],
+    "submit_button": "גלה את הפרופיל שלי",
+    "after_submit": "המשחק עובר ישירות למסך התוצאות. הנתונים נשמרים מקומית בלבד (localStorage), אין שליחה לשרת חיצוני."
+  },
+
+  "tooltip_spec": {
+    "_section": "spec §2 (tools section)",
+    "desktop": "מופיע בריחוף (hover)",
+    "mobile": "מופיע בלחיצה (tap), נעלם אחרי 2 שניות או בהזזת עכבר בדסקטופ",
+    "content": "שם הכלי בלבד (לדוגמה: 'מצלמה זעירה', 'רתמת אבטחה')",
+    "design": "רקע כהה, טקסט לבן, עברית RTL"
+  },
+
+  "scoring_logic": {
+    "raw_score_per_tool": "כלי 1 = 1 נקודה, כלי 2 = 2 נקודות, כלי 3 = 3 נקודות",
+    "final_score": "ממוצע כל הנקודות מכל 15 המשימות",
+    "metric_ranges": {
+      "סיכון": "5-15 (5 missions: 1,4,8,11,14)",
+      "יציבות": "4-12 (4 missions: 2,6,9,13)",
+      "אימפולסיביות": "2-6 (2 missions: 5,10)",
+      "FOMO": "4-12 (4 missions: 3,7,12,15)"
+    }
+  }
+}

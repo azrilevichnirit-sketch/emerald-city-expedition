@@ -1,0 +1,119 @@
+{
+  "_meta": {
+    "agent": "actor_director",
+    "scene": "M1_static",
+    "created_at": "2026-04-26",
+    "supersedes": null,
+    "does_not_overwrite": "pipeline/pose_map.json (v2 — preserved as canonical pose vocabulary for animated builds)",
+    "authoritative_upstream": [
+      "C:/emerald/pipeline/_team_context.md (static contract)",
+      "C:/emerald/pipeline/scene_briefs/scene_M1_static.json (director brief)",
+      "C:/emerald/pipeline/_spec_original.json M1 (verbatim narrative)",
+      "C:/emerald/master_player/nirit_alpha.png (visually inspected by actor_director)"
+    ]
+  },
+
+  "_iron_rule_acknowledged": "Nirit verbatim: 'אין בspec לופ, אתמול בלילה עודכן שהכל עובר לסטטי'. Player = single <img>. No <video>, no <canvas>, no segment manager, no micro-idle, no breath-loop. The ONLY motion in scene M1 is the tool-flight bezier arc. Period.",
+
+  "setup_pose": {
+    "asset": "C:/emerald/master_player/nirit_alpha.png",
+    "render_as": "img",
+    "rationale": "Confirms director's choice. Visually inspected: Nirit stands frontal-to-camera, full-body, with backpack, arms relaxed at sides. The composition reads instantly as 'standing on the threshold, ready' — perfect for the silent pre-jump pause that scene_M1_static.json _intent describes ('פתיחת המשחק כתמונה חיה כמעט-נייחת'). Extracting a frame from anim_waiting.mp4 was considered and rejected: anim_waiting is a 3/4 idle with subtle body rotation — extracting a single frame yields an awkward mid-rotation pose, whereas nirit_alpha.png is a deliberately-composed master portrait. The master PNG also has a transparent alpha (visual_editor output), which anim_waiting.mp4 lacks (would require chroma-key pipeline, explicitly forbidden by the static contract).",
+    "facing": "frontal_to_camera",
+    "alpha": true,
+    "no_video_no_canvas_no_chroma": true
+  },
+
+  "catch_reaction": {
+    "option": "A_no_change",
+    "decision": "Player <img> src does NOT change at any point during scene M1. The static PNG remains identical from scene-entry through tool-flight, through tool-arrival at palm anchor, through post-catch hold, through fade-to-black, until window.location redirect to M2.",
+    "rationale": "Validated against _spec_original.json M1 narrative — the verbatim text describes the world ('דלת המטוס נפתחת', 'המתחרים כבר באוויר, הופכים לנקודות קטנות', 'הקרקע מתקרבת') and asks 'איך נתקדם?'. The narrative is descriptive of the SITUATION, not of any specific player gesture. There is no verbatim cue requiring a reach-forward action. Option B (swap to a 2nd PNG extracted from anim_reach_forward.mp4 frame ~5.5s) was considered and rejected for three reasons: (1) That second PNG does not exist as a master asset and producing it via Veo/visual_editor is out of scope for today's investor demo. (2) A 1-frame src-swap on a frontal full-body still is more visually jarring than no swap at all — it reads as a 'glitch' not a gesture. (3) The brief's _builder_contract_short rule 1 explicitly forbids changing the player <img>. Maintaining option A protects the iron rule.",
+    "tool_arrival_visual_unchanged": "Tool image lands at the declared palm anchor and stays at z-index:11 (over player). The 200ms scale-pulse on the tool itself (1.0 → 1.05 → 1.0) IS allowed and provides 'thud' feedback without touching the player figure.",
+    "rejected_alternative": {
+      "option": "B_swap_to_reach_forward_png",
+      "rejection_reason": "Asset doesn't exist; src-swap on a static frontal full-body figure reads as a glitch; violates _builder_contract_short rule 1."
+    }
+  },
+
+  "palm_anchor_verification": {
+    "declared_in_brief": {"x_pct": 40, "y_pct": 32},
+    "verified": false,
+    "actual_visual_inspection": {
+      "nirit_alpha_png_anatomy_pct_of_image_canvas": {
+        "head_top": {"x_pct": 50, "y_pct": 6},
+        "face": {"x_pct": 50, "y_pct": 14},
+        "shoulders_line": {"x_pct": 50, "y_pct": 28},
+        "right_shoulder": {"x_pct": 32, "y_pct": 28},
+        "left_shoulder_with_backpack_strap": {"x_pct": 65, "y_pct": 28},
+        "chest_center": {"x_pct": 45, "y_pct": 38},
+        "right_hand_at_side": {"x_pct": 30, "y_pct": 62},
+        "left_hand_at_side": {"x_pct": 55, "y_pct": 62},
+        "hip_line": {"x_pct": 47, "y_pct": 60},
+        "feet": {"x_pct": 50, "y_pct": 96}
+      },
+      "what_is_at_40_32": "Upper-right-chest / collarbone area — between the right shoulder and the sternum. NOT an open palm. There is no raised, open palm anywhere in this image; both hands hang at the sides near hip-level.",
+      "closest_actual_hand_position": {
+        "right_hand": {"x_pct": 30, "y_pct": 62, "openness": "relaxed_at_side_partly_closed"},
+        "left_hand": {"x_pct": 55, "y_pct": 62, "openness": "relaxed_at_side_partly_closed"}
+      }
+    },
+    "recommendation": {
+      "primary": "OVERRIDE the brief's anchor to (47, 60) — center-hip — and cinematically frame the tool-arrival as the tool 'docking onto the backpack/belt' rather than 'landing in an open palm'. This matches the actual figure: standing-with-pack ready to gear-up. This requires updating _builder_contract_short rule 5 in the director's brief from (40, 32) → (47, 60), or preferably parameterizing the anchor in the builder so this JSON is the source of truth.",
+      "alternative_if_director_insists_on_palm_metaphor": "Use right_hand anchor (30, 62) — tool arrives AT her hand even though the hand isn't raised. Reads as 'she takes the offered tool'. Less ideal than belt-dock but acceptable.",
+      "do_NOT_do": "Keep (40, 32). Tool would arrive at her collarbone — visually nonsensical, will read as broken on the pitch screen."
+    },
+    "anchor_for_builder": {"x_pct": 47, "y_pct": 60, "anchor_metaphor": "belt/hip — gear-up dock point"},
+    "notes": "This is the single most important correction in this pose_map. The brief inherited (40, 32) from v5, where the player was a chroma-keyed VIDEO of anim_reach_forward.mp4 paused at frame 5.5s — which DID have a raised open palm at roughly (40, 32). For the static PNG (nirit_alpha.png), that anchor is wrong. The hip-belt anchor (47, 60) preserves the design intent (tool flies to player and 'attaches') while matching the actual figure pose. Builder MUST read this anchor, not the brief's anchor."
+  },
+
+  "gaze_direction": {
+    "direction": "frontal_to_camera",
+    "actual_eye_target_in_png": "She looks directly at the camera (and through it, at the player at home).",
+    "text_placement_ok": true,
+    "text_placement_analysis": "Mission text appears in Zone C (per design_system.md, below Zone B at ~60vh). The figure's gaze is forward-to-camera, NOT down toward Zone C. This is acceptable for a 2D static composition because: (a) frontal gaze creates direct connection with the player at home, which is the dominant intent for an opening scene ('ניריט פונה אלייך'); (b) in 2D static layout, sight-line direction is decorative not load-bearing — the player at home reads the text regardless of where the figure looks; (c) the brief's _open_for_actor_director Q3 listed 'forward-and-slightly-up' as a director preference, which the master PNG roughly matches (gaze is level-to-slightly-up, not down). No action needed.",
+    "rejected_alternatives": {
+      "down_to_text": "Would require a different master PNG with downward gaze. Out of scope; nirit_alpha.png is locked.",
+      "side_glance": "Breaks frontal symmetry director established."
+    }
+  },
+
+  "micro_idle": {
+    "enabled": false,
+    "rationale": "LOCKED OFF. The brief's _open_for_actor_director Q4 floated a 1-2% scale-breathing CSS loop. Rejected. Reasoning: (1) Nirit's iron rule per _team_context.md §4 — 'STATIC = תמונת PNG אחת קפואה לדמות. לא וידאו, לא לופ.' A scale-breathing loop is a loop. (2) On a 52vh tall figure, a 2% scale pulse at 4s period IS visible motion — it would draw the eye and contradict the 'time paused' feel from _six_question_audit.scene_q2_feel. (3) The bg video (bg_airplane.mp4) already provides ambient motion that sells 'altitude' — adding figure-motion is redundant and risky. (4) The single signature motion of M1 is the tool-flight bezier; everything else must be still so that motion reads as decisive. Director leaned toward NO; actor_director CONFIRMS NO.",
+    "css_filter_brightness_match_with_bg": {
+      "decision": "DEFER to set_manager — set_manager Q4 owns lighting match between nirit_alpha.png and bg_airplane.mp4. If a static brightness/contrast CSS filter is needed, that is a STATIC adjustment (no animation) and is permissible. No transform-loop, no opacity-loop, no scale-loop."
+    }
+  },
+
+  "summary_for_builder": {
+    "one_line": "Player = static <img> nirit_alpha.png, frontal, no animation ever, tool flies to anchor (47,60) which is the belt/hip — NOT (40,32) — and player image stays exactly identical from scene-entry to redirect.",
+    "explicit_overrides_to_brief": [
+      "OVERRIDE brief.phase_2_click_to_catch.tool_flight_bezier.to_anchor.x_pct_of_player_canvas: 40 → 47",
+      "OVERRIDE brief.phase_2_click_to_catch.tool_flight_bezier.to_anchor.y_pct_of_player_canvas: 32 → 60",
+      "OVERRIDE brief.phase_2_click_to_catch.tool_flight_bezier.to_anchor._meaning: 'belt/hip dock point — gear-up metaphor — matches actual figure pose with hands at sides'"
+    ],
+    "explicit_confirmations_of_brief": [
+      "CONFIRM brief.phase_1_setup.player.render_as = 'img' (NOT video)",
+      "CONFIRM brief.phase_2_click_to_catch.catch_reaction.decision = 'NO POSE CHANGE'",
+      "CONFIRM brief._open_for_actor_director.Q4 micro_idle = NO"
+    ]
+  },
+
+  "_consumed_inputs": [
+    "C:/emerald/pipeline/_team_context.md",
+    "C:/emerald/agents/actor_director.md",
+    "C:/emerald/agents/debate_protocol.md",
+    "C:/emerald/pipeline/_spec_original.json (M1)",
+    "C:/emerald/pipeline/scene_briefs/scene_M1_static.json",
+    "C:/emerald/poses_video/list.txt",
+    "C:/emerald/pipeline/pose_map.json",
+    "C:/emerald/master_player/nirit_alpha.png (visual inspection via Read tool)"
+  ],
+
+  "_handoff_to": ["builder", "set_manager"],
+
+  "_handoff_notes": {
+    "to_builder": "Read summary_for_builder.explicit_overrides_to_brief. The (40,32) anchor in the director's brief is WRONG for this PNG. Use (47,60). Player <img> never swaps src.",
+    "to_set_manager": "Confirms your Q4 (lighting match) is the right place for any static CSS filter on the player. No animation/loop allowed; brightness/contrast adjustment OK."
+  }
+}

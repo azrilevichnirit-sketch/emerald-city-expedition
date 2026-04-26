@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Emerald City Expedition — M1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body { width:100vw; height:100vh; overflow:hidden; background:#000;
+      font-family:'Heebo','Assistant',sans-serif; color:#fff; user-select:none; }
+    #zone-a { position:fixed; top:0; left:0; width:100%; height:6vh; min-height:28px; max-height:44px;
+      z-index:100; pointer-events:none; display:flex; align-items:center; padding:0 4vw; }
+    /* spec §3: rope/path style, no numbers, no 1/15 */
+    #progress-rope { position:relative; width:100%; height:3px;
+      background:linear-gradient(to right, rgba(218,165,32,0.45) 0%, rgba(160,120,60,0.45) 50%, rgba(218,165,32,0.45) 100%);
+      border-radius:2px; box-shadow:0 0 6px rgba(0,0,0,0.5); }
+    #progress-trail { position:absolute; top:0; left:0; height:100%;
+      background:linear-gradient(to right, rgba(255,220,140,0.95), rgba(255,180,80,0.85));
+      box-shadow:0 0 8px rgba(255,200,100,0.7); border-radius:2px;
+      transition:width 600ms cubic-bezier(0.16,1,0.3,1); width:0%; }
+    #progress-dot { position:absolute; top:50%; left:0%;
+      width:10px; height:10px; border-radius:50%;
+      background:radial-gradient(circle, #fff 30%, #ffb84d 70%, #d68a1a 100%);
+      box-shadow:0 0 10px rgba(255,200,100,0.9), 0 0 4px rgba(255,255,255,0.9);
+      transform:translate(-50%,-50%); transition:left 600ms cubic-bezier(0.16,1,0.3,1); }
+    #zone-b { position:fixed; top:0; left:0; width:100%; height:60vh; z-index:1; overflow:hidden; }
+    #bg-static { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; pointer-events:none; }
+    .rival { position:absolute; height:auto; z-index:5; pointer-events:none; filter:blur(0.5px); }
+    #player { position:absolute; bottom:0; left:50%; transform:translateX(-50%); height:55vh;
+      max-height:520px; width:auto; z-index:10; pointer-events:none; user-select:none;
+      filter:drop-shadow(0 8px 14px rgba(0,0,0,0.45));
+      transition:none; }
+    @media (max-width:480px){ #player{ height:48vh; max-height:380px; } }
+    #zone-c { position:fixed; left:0; right:0; bottom:24vh; height:16vh; padding:1.2vh 5vw;
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.4rem;
+      direction:rtl; text-align:center; z-index:30; pointer-events:none;
+      background:#0a0a0a; border-top:1px solid rgba(255,255,255,0.08);
+      border-bottom:1px solid rgba(255,255,255,0.08); }
+    #mission-narrative { color:#fff; font-weight:400; font-size:clamp(0.95rem,2.4vw,1.35rem);
+      line-height:1.5; text-align:justify; text-align-last:center;
+      opacity:0; transition:opacity 400ms ease-out;
+      text-shadow:0 1px 3px rgba(0,0,0,0.95), 0 2px 8px rgba(0,0,0,0.75); }
+    #zone-d { position:fixed; left:0; right:0; bottom:0; height:24vh; min-height:120px;
+      padding:1.2vh 4vw; display:flex; flex-direction:row; justify-content:space-evenly;
+      align-items:center; gap:2vw; background:#0a0a0a;
+      border-top:2px solid rgba(255,255,255,0.25); direction:rtl; z-index:20;
+      box-shadow:0 -8px 24px rgba(0,0,0,0.6); }
+    .tool-btn { position:relative; flex:1 1 28vw; max-width:28vw; min-width:80px;
+      height:calc(20vh); max-height:180px; min-height:80px; background:transparent; border:none;
+      padding:0.6vh 0.8vw; cursor:pointer; opacity:0;
+      transition:opacity 350ms ease-out, transform 200ms ease-out; }
+    .tool-btn img { width:100%; height:100%; object-fit:contain; pointer-events:none;
+      filter:drop-shadow(0 2px 6px rgba(0,0,0,0.55)); }
+    .tool-btn.dim { opacity:0.3 !important; pointer-events:none; }
+    .tool-btn.selected { transform:scale(1.1); }
+    .tool-info-icon { position:absolute; top:6px; right:6px; width:20px; height:20px;
+      background:rgba(0,0,0,0.6); color:#fff; border-radius:50%; font-size:0.7rem; font-weight:700;
+      display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:21;
+      border:1px solid rgba(255,255,255,0.4); }
+    .tool-tooltip { position:absolute; bottom:calc(100% + 8px); right:0;
+      background:rgba(0,0,0,0.85); color:#fff; padding:5px 10px; border-radius:6px;
+      font-size:0.8rem; white-space:nowrap; direction:rtl; opacity:0;
+      transition:opacity 150ms; pointer-events:none; z-index:50; }
+    .tool-info-icon:hover + .tool-tooltip,
+    .tool-info-icon:focus + .tool-tooltip,
+    .tool-tooltip.visible { opacity:1; }
+    .tool-clone { position:fixed; z-index:11; pointer-events:none;
+      filter:drop-shadow(0 4px 8px rgba(0,0,0,0.6)); will-change:transform; }
+    #fade-overlay { position:fixed; inset:0; background:#000; opacity:0;
+      transition:opacity 800ms linear; z-index:200; pointer-events:none; }
+  </style>
+</head>
+<body>
+  <div id="zone-a">
+    <div id="progress-rope"><div id="progress-trail"></div><div id="progress-dot"></div></div>
+  </div>
+
+  <div id="zone-b">
+    <img id="bg-static" src="../bg_keyframes/bg_M1_t1.jpg"
+      alt="פנים מטוס משא עם דלת אחורית קרועה ופתוחה — מבט אל הג'ונגל מבעד לפתח">
+    <img id="player" src="../../master_player/nirit_alpha.png"
+      alt="ניריט עומדת על סף דלת המטוס, פרונטלית, מוכנה לקפוץ">
+  </div>
+
+  <div id="zone-c">
+    <p id="mission-narrative">דלת המטוס נפתחת בבת אחת ורוח פרצים שואבת הכל החוצה. המתחרים כבר באוויר, הופכים לנקודות קטנות מעל הג'ונגל הירוק. הקרקע מתקרבת במהירות וחייבים לקפוץ עכשיו כדי לא לפספס את אזור הנחיתה. איך נתקדם?</p>
+  </div>
+
+  <div id="zone-d"></div>
+  <div id="fade-overlay"></div>
+
+  <!-- Preload catch-pose PNG so it's fully decoded before any user interaction -->
+  <img src="../../master_player/nirit_catch_M1_alpha.png" style="display:none" alt="" decoding="async" fetchpriority="high">
+
+  <script>
+  (function(){
+    'use strict';
+    // ── Tool data (verbatim from _spec_original.json M1.tools) ──
+    const TOOLS = [
+      { slot:'A', label:'מצנח עגול רחב', file:'../../assets/tools_final/מצנח_מ01.png', points:1, sfx:'fabric_whoosh_snap', vol:0.8 },
+      { slot:'B', label:'גלשן רחיפה',     file:'../../assets/tools_final/גלשן_מ01.png',  points:2, sfx:'metallic_glider_snap', vol:0.8 },
+      { slot:'C', label:'חליפת כנפיים',   file:'../../assets/tools_final/כנפיים_מ01.png', points:3, sfx:'whoosh_acceleration', vol:0.9 }
+    ];
+    // palm anchor — setup pose (nirit_alpha.png) hip/belt dock for setup; replaced at click+200ms
+    // with catch-pose anchor (raised palm) from pipeline/palm_anchor_M1_catch.json before flight calc.
+    let PALM_ANCHOR = { x_pct: 47, y_pct: 60 };
+    // catch-pose palm anchor from detect_palm_anchor_M1_catch.py (anim_climbing.mp4 t=1.0)
+    const PALM_ANCHOR_CATCH = { x_pct: 37.52, y_pct: 3.86 };
+    const CATCH_POSE_SRC = '../../master_player/nirit_catch_M1_alpha.png';
+    const REDIRECT_TARGET = './M2.html';
+
+    // ── Sound subsystem (silent fallback for missing files) ──
+    const audioCache = {};
+    const ambientNodes = {};
+    function tryPlaySound(key, vol, loop){
+      if (audioCache[key] === false) return null;
+      try {
+        let a = audioCache[key];
+        if (!a) {
+          a = new Audio('../../assets/audio/M1/'+key+'.mp3');
+          a.volume = (vol!=null?vol:0.6);
+          a.loop = !!loop;
+          a.addEventListener('error', ()=>{ audioCache[key] = false; console.info('[sound] missing: '+key); });
+          audioCache[key] = a;
+        }
+        const p = a.play();
+        if (p && p.catch) p.catch(()=>{ console.info('[sound] missing: '+key); audioCache[key]=false; });
+        return a;
+      } catch(e){ console.info('[sound] missing: '+key); audioCache[key]=false; return null; }
+    }
+    function fadeOutAmbient(key, ms){
+      const a = ambientNodes[key]; if (!a || !a.volume) return;
+      const startVol = a.volume; const t0 = performance.now();
+      function step(){
+        const t = performance.now() - t0; const k = Math.min(1, t/ms);
+        try { a.volume = Math.max(0, startVol*(1-k)); } catch(e){}
+        if (k < 1) requestAnimationFrame(step); else { try{ a.pause(); }catch(e){} }
+      }
+      requestAnimationFrame(step);
+    }
+
+    // ── Score / progress ──
+    function readScore(){ return parseInt(localStorage.getItem('emerald_score')||'0', 10) || 0; }
+    function renderProgress(){
+      const prog = JSON.parse(localStorage.getItem('emerald_progress')||'[]');
+      const completed = Array.isArray(prog) ? prog.length : 0;
+      // M1 is mission 1 of 15. After completing M1, dot is at 1/15. Before, 0/15.
+      const pct = Math.min(100, (completed/15)*100);
+      const trail = document.getElementById('progress-trail');
+      const dot   = document.getElementById('progress-dot');
+      if (trail) trail.style.width = pct + '%';
+      if (dot)   dot.style.left    = pct + '%';
+    }
+
+    // ── Build tool buttons ──
+    function buildTools(){
+      const zd = document.getElementById('zone-d');
+      TOOLS.forEach(t=>{
+        const btn = document.createElement('button');
+        btn.className = 'tool-btn'; btn.dataset.slot = t.slot;
+        const img = document.createElement('img'); img.src = t.file; img.alt = t.label;
+        const icon = document.createElement('span'); icon.className = 'tool-info-icon'; icon.textContent = 'ⓘ'; icon.tabIndex = 0;
+        const tip = document.createElement('span'); tip.className = 'tool-tooltip'; tip.textContent = t.label;
+        icon.addEventListener('click', e=>{ e.stopPropagation(); tip.classList.add('visible');
+          setTimeout(()=>tip.classList.remove('visible'), 2000); });
+        btn.addEventListener('click', ()=>handleToolClick(t, btn, img));
+        btn.append(img, icon, tip);
+        zd.appendChild(btn);
+      });
+    }
+
+    // ── Tool click handler ──
+    let clickLocked = false;
+    function handleToolClick(tool, btn, img){
+      if (clickLocked) return; clickLocked = true;
+      const clickT = performance.now();
+      // Visual feedback
+      btn.classList.add('selected');
+      document.querySelectorAll('.tool-btn').forEach(b=>{ if (b !== btn) b.classList.add('dim'); });
+      document.getElementById('mission-narrative').style.opacity = '0';
+      // Per-slot SFX
+      tryPlaySound(tool.sfx, tool.vol, false);
+      // Score save at click+200ms
+      setTimeout(()=>{
+        const s = readScore(); localStorage.setItem('emerald_score', String(s + tool.points));
+        let prog; try { prog = JSON.parse(localStorage.getItem('emerald_progress')||'[]'); }
+        catch(e){ prog = []; }
+        if (!Array.isArray(prog)) prog = [];
+        if (prog.indexOf('M1') === -1) prog.push('M1');
+        localStorage.setItem('emerald_progress', JSON.stringify(prog));
+        localStorage.setItem('emerald_M1_choice', JSON.stringify({slot:tool.slot, label:tool.label, ts:Date.now()}));
+        renderProgress();
+      }, 200);
+      // At click+200ms: swap player to catch pose AND update PALM_ANCHOR, THEN start flight.
+      // Order matters: PALM_ANCHOR must be the catch-pose value BEFORE flyToolToPalm reads it.
+      // Also: wait one rAF after src swap so layout (player rect from new pose) is settled
+      // before flyToolToPalm reads getBoundingClientRect — the catch PNG is preloaded
+      // (hidden <img> in body) so the swap is instant; rAF guarantees layout commit.
+      setTimeout(()=>{
+        document.getElementById('player').src = CATCH_POSE_SRC;
+        PALM_ANCHOR = PALM_ANCHOR_CATCH;
+        requestAnimationFrame(()=>{
+          flyToolToPalm(img, tool);
+        });
+      }, 200);
+      // Fade-to-black at click+1800ms
+      setTimeout(()=>{
+        document.getElementById('fade-overlay').style.opacity = '1';
+        fadeOutAmbient('wind_rush_loop', 600);
+      }, 1800);
+      // Redirect at click+2200ms
+      setTimeout(()=>{ window.location.href = REDIRECT_TARGET; }, 2200);
+    }
+
+    function flyToolToPalm(toolImg, tool){
+      const playerEl = document.getElementById('player');
+      const pr = playerEl.getBoundingClientRect();
+      const tr = toolImg.getBoundingClientRect();
+      // Palm/hip target — anchor (47, 60) from pose_map_M1_static
+      const targetX = pr.left + pr.width  * (PALM_ANCHOR.x_pct/100);
+      const targetY = pr.top  + pr.height * (PALM_ANCHOR.y_pct/100);
+      const startX = tr.left + tr.width/2;
+      const startY = tr.top  + tr.height/2;
+      // Build the floating clone
+      const clone = document.createElement('img');
+      clone.src = tool.file; clone.className = 'tool-clone';
+      clone.style.width = tr.width+'px'; clone.style.height = tr.height+'px';
+      clone.style.left = (startX - tr.width/2)+'px';
+      clone.style.top  = (startY - tr.height/2)+'px';
+      document.body.appendChild(clone);
+      const dx = targetX - startX;
+      const dy = targetY - startY;
+      const arcY = Math.min(startY, targetY) - 80 - startY; // peak offset
+      clone.animate([
+        { transform: 'translate(0px, 0px) scale(1.0)',                            offset: 0 },
+        { transform: 'translate('+(dx*0.5)+'px, '+arcY+'px) scale(1.1)',          offset: 0.45 },
+        { transform: 'translate('+dx+'px, '+dy+'px) scale(0.85)',                 offset: 1 }
+      ], { duration: 1300, easing: 'cubic-bezier(0.34,1.56,0.64,1)', fill: 'forwards' });
+      // tool_at_palm event — thud pulse + sound at click+1500ms (= flight start +1300ms)
+      setTimeout(()=>{
+        clone.animate([
+          { transform: 'translate('+dx+'px, '+dy+'px) scale(0.85)' },
+          { transform: 'translate('+dx+'px, '+dy+'px) scale(0.90)' },
+          { transform: 'translate('+dx+'px, '+dy+'px) scale(0.85)' }
+        ], { duration: 200, easing: 'ease-out', fill: 'forwards' });
+        tryPlaySound('palm_grab_thud_soft', 0.6, false);
+      }, 1300);
+    }
+
+    // ── Init / event timeline ──
+    function init(){
+      renderProgress();
+      buildTools();
+      // scene_entry — try ambient + door SFX
+      const wind = tryPlaySound('wind_rush_loop', 0.7, true);
+      if (wind) ambientNodes['wind_rush_loop'] = wind;
+      tryPlaySound('metallic_creak_hiss_subtle', 0.35, false);
+      // mission_narrative fade-in @ 600ms (+ ui bell) — single paragraph block (narrative + question)
+      setTimeout(()=>{
+        document.getElementById('mission-narrative').style.opacity = '1';
+        tryPlaySound('ui_soft_bell', 0.4, false);
+      }, 600);
+      // tools fade-in @ 2000ms (all together, no stagger)
+      setTimeout(()=>{
+        document.querySelectorAll('.tool-btn').forEach(b=>{ b.style.opacity = '1'; });
+      }, 2000);
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+    else init();
+  })();
+  </script>
+</body>
+</html>

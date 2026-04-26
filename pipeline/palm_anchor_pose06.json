@@ -1,0 +1,19 @@
+{
+  "_agent": "anchor_calibrator",
+  "_image": "master_player/nirit_pose06_alpha.png",
+  "_image_size": [
+    400,
+    711
+  ],
+  "palm_pixel": {
+    "x": 42,
+    "y": 164
+  },
+  "palm_pct": {
+    "x": 10.5,
+    "y": 23.07
+  },
+  "detected_method": "skin_tone_upper_left_largest_cluster",
+  "pose": "catching_hand_raised",
+  "detected_at": "2026-04-26"
+}

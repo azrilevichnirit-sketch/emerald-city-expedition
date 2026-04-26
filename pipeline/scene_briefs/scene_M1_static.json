@@ -1,0 +1,260 @@
+{
+  "_meta": {
+    "scene_id": "M1_static",
+    "revision": "static_v1",
+    "created_at": "2026-04-26",
+    "created_by": "director",
+    "supersedes": null,
+    "does_not_overwrite": "scene_M1.json (interactive-movie v5 — preserved as alternate)",
+    "authoritative_upstream": [
+      "C:/emerald/pipeline/static_fallback/plan_M1.json (mode: demo_minimal)",
+      "C:/emerald/pipeline/_spec_original.json M1 (verbatim text + tools — REPLACES corrupted content_lock.json)",
+      "C:/emerald/design_system.md (zones, layer-stack, chroma)"
+    ]
+  },
+
+  "_intent": "פתיחת המשחק כתמונה חיה כמעט-נייחת: רקע מטוס/שמיים אמיתי, ניריט עומדת מולי כתמונה אחת בלבד (PNG עם alpha), המשימה והכלים נכנסים, לחיצה על כלי משלחת אותו לכף ידה ואז crossfade ל-M2 — בלי ריצה, בלי קפיצה, בלי לופ של pose.",
+
+  "_static_definition": {
+    "what_static_means_here": [
+      "Player = SINGLE PNG (master_player/nirit_alpha.png) rendered as <img> — NO <video>, NO <canvas>, NO chroma key on player.",
+      "NO pose timeline. NO running, no standing-loop, no catch animation, no jump CSS, no landing.",
+      "The ONLY motion of the player figure is the subtle catch reaction described in phase_2.",
+      "Background IS still a real video (bg_airplane.mp4 -> bg_jungle_clearing.mp4) — bg motion is acceptable and desirable; it sells 'altitude' and 'jungle' without requiring player animation.",
+      "Rivals = 1-2 small PNG overlays (rivals/rival_*_run_*.png) at low opacity, NO drift animation — fully static.",
+      "Tools = PNG buttons in Zone D, fade-in only.",
+      "Click = 1 tool flies on bezier arc to player palm; player figure does NOT change pose. (See phase_2 for the optional 1-frame catch reaction discussion.)"
+    ],
+    "what_demo_minimal_drops_from_v5": [
+      "All 5 pose tracks (anim_running, anim_waiting, anim_reach_forward, anim_crouch landings)",
+      "RAF-clamped segment manager",
+      "Chroma-key canvas pipeline for the player",
+      "CSS jump on wrapper",
+      "bg phase-swap timed to jump_apex (replaced with discrete crossfade-on-redirect)",
+      "checkpoint text overlay on M1 (M2 owns its own setup; M1 ends at crossfade)"
+    ]
+  },
+
+  "phase_1_setup": {
+    "_purpose": "Player sees the situation and reads the mission. Pure stillness with 1-2 motion cues from the bg video itself. Wait for click — no time limit.",
+    "duration": "until tool clicked (no auto-advance)",
+
+    "background": {
+      "type": "video",
+      "file": "C:/emerald/backgrounds/bg_airplane.mp4",
+      "html_attrs": "autoplay loop muted playsinline",
+      "css": "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;",
+      "_role": "altitude_pov_just_before_jump",
+      "_note": "Real aerial sky+canopy POV. Browser-native loop. ZERO JS for bg playback. Same file used in v5 — verified on disk."
+    },
+
+    "player": {
+      "render_as": "img",
+      "file": "C:/emerald/master_player/nirit_alpha.png",
+      "_status_at_brief_time": "BEING_PRODUCED_IN_PARALLEL by visual_editor — director assumes it will exist at builder integration time. If missing at build → builder MUST FAIL LOUDLY (per builder_contract rule 12 from v5).",
+      "_alt_text_he": "ניריט עומדת פרונטלית, מוכנה לקפוץ — תמונה אחת קפואה",
+      "css_position": "position:absolute; bottom:24vh; left:50%; transform:translateX(-50%); height:52vh; max-height:420px; z-index:10; pointer-events:none;",
+      "_position_rationale": "Center-bottom anchor per design_system.md §2 player-character spec. Centered (not right:35%) because she's static-frontal and the sky bg is symmetric — center reads as 'about to jump out of frame toward camera'. bottom:24vh keeps her above Zone D (24vh) per layer rule. height:52vh = desktop default; mobile breakpoints inherit design_system.md responsive values.",
+      "transform_extra": "scaleX(1) — frontal, no flip",
+      "facing": "פרונטלי — לכיוון המצלמה",
+      "z_index": 10,
+      "_critical": "<img> NOT <video>, NOT <canvas>. Single static frame. No chroma key needed (PNG already has transparent alpha)."
+    },
+
+    "rivals": [
+      {
+        "file": "C:/emerald/rivals/rival_female_run_1.png",
+        "css": "position:absolute; top:9%; right:6%; width:7%; opacity:0.5; z-index:5; pointer-events:none;",
+        "animation": null,
+        "_note": "Single small static silhouette in upper-right sky. Per director.md felt-not-seen rule: <8-10% screen height, opacity 0.4-0.6, periphery only. NO drift — keeps the demo truly static."
+      },
+      {
+        "file": "C:/emerald/rivals/rival_male_run_2.png",
+        "css": "position:absolute; top:14%; left:8%; width:6%; opacity:0.45; z-index:5; pointer-events:none;",
+        "animation": null,
+        "_note": "Second silhouette upper-left for compositional balance. Static."
+      }
+    ],
+
+    "scenery": [],
+    "_scenery_note": "Phase 1 has NO foreground scenery in static mode — the bg video carries the world; adding props would require chroma-keyed PNGs and contradict 'truly static'. Set_manager may add 1 subtle far-background prop if it exists pre-chroma-keyed; otherwise skip.",
+
+    "ui_overlays": {
+      "mission_text": {
+        "source": "content_lock.M1.mission_text",
+        "verbatim_he": "דלת המטוס נפרצה והרוח שואבת הכל החוצה! המתחרים כבר באוויר וצוברים יתרון מטורף. אני חייבת לקפוץ עכשיו כדי לא לפספס את אזור הנחיתה – איך אני מזנקת מכאן?",
+        "fade_in_delay_ms": 600,
+        "fade_in_duration_ms": 400,
+        "zone": "C (mission)",
+        "css_hint": "color:#fff; direction:rtl; text-align:center; font-size:clamp(0.95rem,2.6vw,1.1rem); text-shadow:0 1px 3px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.7); z-index:30; padding:0 5vw;"
+      },
+      "tools_zone_d": {
+        "source": "content_lock.M1.tools (verbatim, 3 tools, slot order A→B→C)",
+        "fade_in_delay_ms_relative_to_mission_text": 1000,
+        "_absolute_fade_in_delay_ms_from_scene_entry": 2000,
+        "fade_in_duration_ms": 350,
+        "stagger_ms": 0,
+        "_stagger_rationale": "Static demo: all 3 tools appear simultaneously. The 120ms stagger from v5 is a choreography cue — irrelevant when nothing else moves.",
+        "_zone_d_rules_inherit_design_system": "Zone D height 24vh, 3 tools horizontal, justify-content:space-evenly, max-width 28vw each, min 80px, rgba(0,0,0,0.65) bg, white border-top.",
+        "tool_buttons": [
+          {"slot": "A", "label_verbatim_he": "מצנח עגול רחב", "file": "C:/emerald/assets/tools/מצנח_מ01.png", "consequence_type": "deploy"},
+          {"slot": "B", "label_verbatim_he": "גלשן רחיפה",     "file": "C:/emerald/assets/tools/גלשן_מ01.png",  "consequence_type": "wear"},
+          {"slot": "C", "label_verbatim_he": "חליפת כנפיים",   "file": "C:/emerald/assets/tools/כנפיים_מ01.png", "consequence_type": "wear"}
+        ],
+        "tooltip_mechanism": "ⓘ icon top-right of each tool — hover (desktop) / tap (mobile, 2s timeout) shows label_verbatim_he. Per design_system.md §1 Zone D tooltip rules. NO description, NO points."
+      }
+    },
+
+    "timing_summary_phase_1": {
+      "scene_entry_ms": 0,
+      "bg_video_starts_ms": 0,
+      "player_img_visible_ms": 0,
+      "rivals_visible_ms": 0,
+      "mission_text_fade_in_starts_ms": 600,
+      "mission_text_fade_in_completes_ms": 1000,
+      "tools_fade_in_starts_ms": 2000,
+      "tools_fade_in_completes_ms": 2350,
+      "wait_for_click_indefinite_after_ms": 2350
+    }
+  },
+
+  "phase_2_click_to_catch": {
+    "_purpose": "Tool flies from button to player's palm. SHORT — 1500-1800ms total. Optional brief catch reaction; default = no pose change (truly static).",
+    "duration_ms": 1800,
+
+    "click_response": {
+      "selected_tool_button": "scale 1.0 → 1.1 over 200ms (pulse_in feedback)",
+      "non_selected_tools": "fade opacity 1.0 → 0.3 over 200ms",
+      "mission_text": "fade out over 300ms starting at click+0",
+      "_event_emit": "Builder emits 'tool_clicked' DOM event with detail:{slot,label,file}"
+    },
+
+    "tool_flight_bezier": {
+      "_purpose": "The single signature animation of M1 static. Selected tool image clones from Zone D button → flies in parabolic arc → reaches player palm.",
+      "from_anchor": "tool button getBoundingClientRect() at click moment (button center)",
+      "to_anchor": {
+        "_description": "Palm of static player figure — same anchor formula used by v5",
+        "_computed_at_click_time_via": "playerImgEl.getBoundingClientRect()",
+        "x_pct_of_player_canvas": 40,
+        "y_pct_of_player_canvas": 32,
+        "_meaning": "40% from left edge of player image, 32% from top of player image — corresponds to a raised hand/palm position on the static figure",
+        "_critical_for_visual_editor": "If nirit_alpha.png does NOT have palm at (40,32) of its canvas, the tool will arrive in the wrong place. visual_editor MUST verify palm position is at (40,32) ± 5%, OR adjust these anchor numbers in this brief before builder reads it."
+      },
+      "duration_ms": 1300,
+      "starts_at_offset_after_click_ms": 200,
+      "easing": "cubic-bezier(0.34,1.56,0.64,1)",
+      "arc_peak_y": "min(button.top, palm.top) - 80px",
+      "scale_keyframes": "1.0 at start → 1.1 at apex (45%) → 0.85 at arrival",
+      "_arc_spec_pulled_from_v5": "scene_M1.json builder_contract rule 11 — same formula, same easing"
+    },
+
+    "catch_reaction": {
+      "decision": "NO POSE CHANGE — player <img> stays exactly as-is throughout flight and arrival.",
+      "_rationale": "Nirit's directive: TRULY STATIC. A single still image. Switching <img> src to anim_reach_forward.mp4-paused-at-frame-X reintroduces a video element on the player and contradicts the static contract. The catch reaction in v5 was a chroma-keyed video swap — the very pipeline we're dropping.",
+      "_alternative_considered_and_rejected": "Briefly switching the player <img> src to a second pre-rendered PNG (nirit_alpha_catch.png) at tool arrival was considered but rejected: (a) it requires a second master asset that doesn't exist and isn't in scope today; (b) a 1-frame swap on a frontal still is more jarring than no swap at all; (c) Nirit's reject was 'no jump animation' and 'no looping video' — keeping ONE motion cue (the tool flight) is enough.",
+      "fallback_only_if_set_manager_or_actor_director_strongly_disagrees": "If both agree a tiny reaction is essential, swap the player <img> src to a static PNG extract from anim_reach_forward.mp4 frame ~4.5s — but ONLY a still PNG, never a playing video. This decision is OPEN — see _open_for_actor_director.",
+      "tool_arrival_visual": "Tool image lands at palm anchor and STAYS there (z-index 11 — over player). Brief 200ms scale-pulse on tool itself (1.0 → 1.05 → 1.0) is acceptable and desirable as 'thud' feedback."
+    },
+
+    "post_catch_hold_ms": 300,
+    "_post_catch_rationale": "300ms hold of player + arrived tool + faded mission text + faded other tools, before phase 3 crossfade starts. Lets the eye register the catch."
+  },
+
+  "phase_3_crossfade_to_M2": {
+    "_purpose": "Smooth transition out of M1 into M2. M1 does NOT show landing checkpoint text in demo_minimal mode (per plan_M1.json — that's M1-full territory). Instead M1 ends at fade-to-black, M2 begins from black with its own setup phase.",
+
+    "trigger_offset_after_click_ms": 1800,
+    "_trigger_breakdown": "click + 200ms (button pulse + tool flight starts) + 1300ms (flight arc) + 300ms (post-catch hold) = 1800ms total before phase 3 fires.",
+
+    "crossfade_duration_ms": 800,
+    "crossfade_type": "fade_to_black",
+    "_crossfade_rationale": "design_system.md §10 mandates cross-dissolve 800ms for scene transitions, no hard cuts. fade-to-black (vs cross-fade-to-M2-bg) is preferred here because M2 has its own setup-phase background which must load fresh; fade-to-black gives M2 a clean canvas.",
+
+    "score_increment_fire_at_offset_after_click_ms": 200,
+    "_score_increment_rationale": "Score for chosen tool (slot A=1pt, B=2pt, C=3pt per content_lock.M1.tools[].points) increments to game state IMMEDIATELY after click feedback registers (200ms after click) — does NOT wait for crossfade. This way, if the player closes the tab during crossfade their choice is preserved. Builder writes to localStorage or game-state object at this moment. NO visual score popup (forbidden per content_lock ui_rules + scoring._note — 'dimension names are NEVER shown to the player').",
+
+    "redirect_fire_at_offset_after_click_ms": 2200,
+    "_redirect_breakdown": "1800ms (phase 3 trigger) + 400ms (halfway through 800ms fade-to-black, screen is fully black) = 2200ms after click. Builder calls window.location = 'scene_M2_static.html' (or whatever M2's static-mode entry file is named) at this moment. The remaining 400ms of fade-to-black happens during M2's load and acts as M2's fade-from-black entry.",
+
+    "_handoff_to_M2": "M2's static-mode brief should mirror this structure: open from black, bg fades in, player image (potentially same nirit_alpha.png), mission text, tools. The 800ms total fade window is split 400ms (M1's blackout) + 400ms (M2's fade-in)."
+  },
+
+  "_six_question_audit": {
+    "_protocol_note": "Per debate_protocol.md, scene briefs use 4 scene-questions (not the 6 tool-questions). Listed both for completeness and because the prompt asked for 6. Tool-question 1+2+5 are answered relative to the M1 trio (already locked from v5 tool audits — no re-litigation here).",
+
+    "scene_q1_first_focus": {
+      "question": "Where does the player's eye go the moment the scene loads?",
+      "answer": "The PLAYER FIGURE — center-bottom, frontal, only fully-saturated element on screen. Bg is sky (low chroma), rivals are tiny periphery, no other props. Mission text doesn't appear for 600ms, tools for 2000ms — ensuring the player figure is the singular first-focus. This is INTENTIONAL for static demo: with no motion to attract gaze, the strongest contrast wins. Nirit's silhouette against open sky reads instantly as 'I am about to jump'."
+    },
+
+    "scene_q2_feel": {
+      "question": "What's the feel in one sentence?",
+      "answer": "שקט לפני קפיצה — ניריט עומדת על סף הדלת, הזמן עצר. (Calm before the leap — Nirit stands at the threshold, time paused.) Replaces v5's 'controlled panic / decisive motion' because static mode CANNOT carry frenetic energy without animation; the cinematic move is to lean INTO the stillness — make it feel chosen, not absent."
+    },
+
+    "scene_q3_transition_from_previous": {
+      "question": "What carries over from the previous scene, what changes emotionally?",
+      "answer": "M1 IS the first scene of the game (no prior scene). Entry transition = fade-from-black 400ms (the back half of any opening title fade or pure black on first paint). Emotional baseline = neutral anticipation; the mission text introduces tension."
+    },
+
+    "scene_q4_consequence_pitfalls": {
+      "question": "Tool consequence types: wear/use/deploy/hold — does the bg/pose support them?",
+      "answer": "In demo_minimal mode the consequence visual is DROPPED for M1 (per plan_M1.json — 'most missions don't need consequence change'). The tool simply arrives at the palm and crossfade fires before any deploy/wear visual would render. So consequence-type compatibility is not a concern HERE — but it IS a concern for the M1-full variant which preserves the deploy/wear post-catch visual. For M1-static demo: pose=static <img>, consequence=skipped. No conflict."
+    },
+
+    "tool_q1_instinct_check_M1_trio": {
+      "question": "Do the 3 tool icons read instantly as their Hebrew names?",
+      "answer": "Inherits from v5 audit — the 3 M1 tool PNGs (מצנח_מ01.png, גלשן_מ01.png, כנפיים_מ01.png) already passed phase-0E debate cycles (see styletest history). No re-debate in this brief — director assumes pass."
+    },
+
+    "tool_q2_visual_distinction_in_trio": {
+      "question": "Are the 3 tools visually distinct from each other?",
+      "answer": "Inherits from v5 audit. Round canopy (deploy) vs flat board silhouette (wear-glider) vs winged-suit silhouette (wear-wingsuit). All differ in shape, color, signature element. Pass."
+    },
+
+    "tool_q5_model_pitfalls": {
+      "question": "Render pitfalls?",
+      "answer": "PNGs already exist with chroma-key-friendly transparent alpha (per scenery green-screen project memory). No render risk in this brief — we're using existing files, not generating."
+    }
+  },
+
+  "_open_for_set_manager": [
+    "Q1: Should phase 1 include ANY foreground scenery overlay? Director says NO (truly static) but defers — if set_manager has a pre-chroma-keyed prop that genuinely SELLS the 'about to jump from plane' moment without adding motion, fine. Otherwise empty scenery array stands.",
+    "Q2: Confirm bg_airplane.mp4 first-frame composition is suitable as the 'long-pause' backdrop. The video loops; if the loop has a bright cloud burst at second 4 that distracts from the static player, set_manager may want to specify loop_segment_ms (e.g. [0,3000]) to keep bg activity calm.",
+    "Q3: Rival placement — director picked top:9% right:6% and top:14% left:8% for compositional balance. Set_manager should verify these don't collide with mission text box (Zone C, ~y_pct:14, width 64%).",
+    "Q4: Lighting match between nirit_alpha.png (when delivered) and bg_airplane.mp4 — set_manager owns this validation. If the master player PNG is lit from camera-front but the sky video has strong side light, a subtle CSS filter (brightness/contrast tweak) on the player <img> may be needed."
+  ],
+
+  "_open_for_actor_director": [
+    "Q1: CATCH REACTION DECISION — director's default = NO pose change (player <img> stays static through flight + arrival). Actor_director should confirm: (a) Is a frontal-static figure with arms-at-sides plausible as 'catching a tool that just flew to her palm at (40%, 32%)'? OR (b) Should we override to a single PNG-frame catch (extracted from anim_reach_forward.mp4 ~frame 4.5s) swapped in at flight-arrival? Decision impacts visual_editor's master PNG spec — if (b), we need a SECOND master PNG (nirit_alpha_catch.png) with hand at palm anchor.",
+    "Q2: PALM ANCHOR VERIFICATION — director declared (40%, 32%) of player canvas based on v5 inheritance. If the master nirit_alpha.png pose doesn't have a hand at that location (e.g. she's arms-down standing straight), actor_director must either (a) tell visual_editor to redraw the master with raised palm, OR (b) accept the tool arriving at her hip and update the anchor numbers in this brief (e.g. y_pct: 60).",
+    "Q3: GAZE — for a frontal static figure, where should her eyes look? Camera (engaging player), forward-down (showing 'I'm looking at the jump zone'), or up-distance (looking at the horizon)? Director's preference: forward-and-slightly-up — confident, anticipatory. Actor_director may override.",
+    "Q4: MICRO-IDLE — alternative to fully-static <img>: very subtle CSS animation on the player (1-2% scale breathing, 4s loop) to avoid the 'cardboard cutout' feel. Pure CSS, no video. Actor_director's call — director leans toward NO (truly static = truly static)."
+  ],
+
+  "_directors_note_he": "M1 סטטי הוא וויתור מודע: ויתור על ריצה, על קפיצה, על pose timeline. מה שנשאר זה תמונה אחת של ניריט (PNG) על רקע וידאו של שמיים, יריבים זעירים בשוליים, משימה, כלים, וקליק שגורר אנימציה אחת בלבד — קשת של כלי לכף יד. הסיבה שזה עובד למרות שזה 'נראה גרוע' (לציטוט ניריט): הסטטיות עצמה היא הכוח. במקום ניסיון להחיות ולמעוד, אנחנו עוצרים את הזמן ונותנים למשחק להתחיל מתוך השקט. הסיכון העיקרי: נירית_alpha.png בייצור, אם לא יגיע — Builder יכשל בקול. הסיכון השני: מיקום כף היד. אם ה-PNG לא תואם ל-(40%, 32%), הכלי מגיע למקום הלא נכון. שלוש החלטות פתוחות הולכות ל-actor_director (תגובת תפיסה, מיקום כף, מבט) ושלוש ל-set_manager (תפאורה, חיתוך לופ של רקע, התאמת תאורה).",
+
+  "_builder_contract_short": [
+    "1. Player = single <img src='master_player/nirit_alpha.png'>. NEVER <video> or <canvas> for player in this scene.",
+    "2. Bg = <video autoplay loop muted playsinline> with bg_airplane.mp4. Browser-native loop. Zero JS for bg.",
+    "3. Rivals = 2 <img> tags, position absolute, NO animations.",
+    "4. Tools = 3 <button><img></button> in Zone D. fade-in at t=2000ms. tooltip via ⓘ icon per design_system.md §1.",
+    "5. On click: pulse selected button (200ms), fade non-selected (200ms), fade mission text (300ms), increment score+localStorage at click+200ms, animate tool clone on cubic-bezier(0.34,1.56,0.64,1) arc to palm anchor (40%, 32% of player img rect) over 1300ms starting at click+200ms.",
+    "6. At click+1800ms: start 800ms fade-to-black overlay (z-index:200).",
+    "7. At click+2200ms: window.location.href to M2 static entry.",
+    "8. NO chroma-key pipeline. NO RAF segment manager. NO pose video preload. NO Nano Banana / Veo / Leonardo invocations. If master PNG missing — fail loudly per v5 builder_contract rule 12.",
+    "9. Mobile-first per design_system.md §9. Test 375px width minimum."
+  ],
+
+  "_estimated_builder_complexity": {
+    "lines_of_javascript": 80,
+    "_compared_to_v5_interactive": "v5 = 708 lines. plan_M1.json static_v2 = 350 lines (preserves catch+landing). M1_static demo_minimal = ~80 lines because: no chroma key, no pose timeline, no RAF clamping, no jump CSS, no bg phase swap, no checkpoint. Just: tool button click → score → tool clone arc animation → fade-to-black → redirect.",
+    "core_areas": [
+      "DOM setup + asset preload (10 lines)",
+      "Mission text + tools fade-in via setTimeout (15 lines)",
+      "Click handler: score, button feedback, tool clone, bezier arc via element.animate() (35 lines)",
+      "Fade-to-black + redirect via setTimeout (10 lines)",
+      "Tooltip ⓘ desktop+mobile per design_system.md (10 lines, can be extracted to shared util)"
+    ]
+  }
+}

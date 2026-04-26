@@ -1,0 +1,76 @@
+{
+  "_agent": "actor_director",
+  "_revision": "M1_static_catch_v1",
+  "_consumed_inputs": [
+    "C:/emerald/pipeline/_team_context.md",
+    "C:/emerald/agents/actor_director.md",
+    "C:/emerald/pipeline/_spec_original.json",
+    "C:/emerald/poses_video/list.txt",
+    "C:/emerald/agents/debate_protocol.md",
+    "C:/emerald/pipeline/pose_keyframes/pose_01_t1..t7.png",
+    "C:/emerald/pipeline/pose_keyframes/pose_02_t1..t7.png",
+    "C:/emerald/pipeline/pose_keyframes/pose_03_t1..t7.png",
+    "C:/emerald/pipeline/pose_keyframes/pose_04_t1..t7.png",
+    "C:/emerald/pipeline/pose_keyframes/pose_05_t1..t7.png",
+    "C:/emerald/pipeline/pose_keyframes/pose_06_t1..t7.png"
+  ],
+
+  "_library_audit": {
+    "pose_01": "anim_look_around (back-view) — character rotating with backpack to camera, hands at sides throughout. NOT for catch.",
+    "pose_02": "anim_climbing — both arms STRAIGHT UP overhead, body suspended/lifted (knee raised). 'Hanging from rope'. NOT for catch — too vertical/effortful, reads as climbing not receiving.",
+    "pose_03": "anim_crouch — frontal idle (t1) progressing to deep squat with hands toward ground (t5). Hands face DOWN/inward, not toward camera. NOT for catch.",
+    "pose_04": "anim_running — pure side-profile sprint cycle. Different backpack continuity. NOT for catch.",
+    "pose_05": "anim_look_around (frontal) — frontal idle, turns 3/4, returns frontal, ENDS with arms folded across chest (t7). Closest to setup but adds nothing for catch.",
+    "pose_06": "Intended anim_reach_forward but RENDERED AS STOP GESTURE — t1 frontal idle, t3 arm beginning to rise (mid-motion, neutral), t5/t7 left arm fully raised with PALM FLAT FORWARD facing camera at shoulder height. Body language reads 'HALT', not 'CATCH'."
+  },
+
+  "setup_pose": {
+    "file": "master_player/nirit_alpha.png",
+    "rationale": "Nirit-approved canonical frontal still, hands at sides, neutral idle. Anchor (64,52) of master_player_alpha lands tool at her hand-at-side palm. Use as M1 default state."
+  },
+
+  "catch_pose": {
+    "file": "pipeline/pose_keyframes/pose_06_t3.png",
+    "rationale": "PROFESSIONAL COMPROMISE — least-bad available frame. The library has NO true 'palm-cupped-up to receive' pose. pose_06_t3 captures arm in MID-RISE (between hip and chest, not yet locked into the rejected flat-palm halt). It reads as 'reaching to receive' rather than 'STOP'. Nirit explicitly identified the t5/t7 frames as 'yesterday's bad' — those are the defensive STOP variants. t3 is pre-stop, still neutral, and gives the editor a workable swap target until a true reach_forward asset is re-rendered.",
+    "second_choice": "pose_03_t1 — frontal idle with hands free (twin to setup_pose but slightly different stance). If the t3 arm-rise still reads wrong in builder preview, fall back to keeping setup_pose unchanged and letting tool simply land at her hand-at-side (honest 'no swap' approach).",
+    "veo_watermark_present": true,
+    "veo_watermark_concern": "YES — every keyframe has Veo watermark at top-right or bottom-right. master_player/nirit_alpha.png does NOT (already cleaned). visual_editor MUST chroma-clean #00B140 AND remove Veo mark before pose_06_t3 ships to builder.",
+    "swap_timing": "Swap from setup_pose → catch_pose at click+200ms (when tool flight bezier begins). Catch_pose holds for 600ms (tool flight duration). On tool arrival at palm: swap back to setup_pose at click+800ms with brief 100ms crossfade so the receive feels resolved, not abandoned.",
+    "palm_anchor_in_catch_pose": "REQUIRES anchor_calibrator measurement on cleaned pose_06_t3. Visual estimate from inspection: palm is approximately at (35% width, 38% height) of the cropped figure — left side, mid-upper torso. Calibrator must verify on chroma-cleaned PNG and update tool_consequence_map.json. Bezier endpoint of tool flight must retarget from (64,52) static-anchor to the new measured palm pixel."
+  },
+
+  "rejected_alternatives": [
+    {"file": "pose_06_t5.png", "reason": "DEFENSIVE STOP POSE — palm fully forward, fingers up, flat at shoulder. Body language = 'halt'. This is what Nirit rejected as 'yesterday's bad'. Do not use."},
+    {"file": "pose_06_t7.png", "reason": "Same STOP gesture as t5, slightly different micro-pose. Same rejection rationale."},
+    {"file": "pose_02_t1..t7.png", "reason": "anim_climbing — arms STRAIGHT UP overhead, body suspended. Reads as grabbing-from-above, not receiving-incoming. Wrong narrative for M1 (she is standing in plane doorway, not hanging from rope)."},
+    {"file": "pose_03_t5.png", "reason": "Deep crouch with hands near ground. Wrong — tool flies at chest height, hands must rise not lower."},
+    {"file": "pose_04_*", "reason": "Side-profile run. Wrong narrative state (M1 catch happens while she stands at door, not while running) AND backpack/clothing continuity differs from master_player."},
+    {"file": "pose_05_t7.png", "reason": "Arms folded across chest — closed body language, opposite of receptive."}
+  ],
+
+  "debate_protocol_audit": {
+    "_note": "Applied the 4 scene-decision questions (catch is a scene/action question, not a tool-icon question), plus 2 of the 6 tool questions adapted for pose decisions.",
+    "Q1_first_focus": "When the tool starts flying, viewer's eye tracks the tool. The pose swap must NOT pull focus from the tool itself — t3's mid-rise is subtle, t5/t7's full STOP gesture would HIJACK attention. t3 supports the tool, t5/t7 competes with it.",
+    "Q2_feel": "Receiving — open, willing, in-control. NOT defensive, NOT halting, NOT effortful. STOP pose feels defensive. Climbing feels effortful. Crouch feels submissive. Mid-rise (t3) feels intentional and ready.",
+    "Q3_continuity_from_setup_pose": "master_player has both arms relaxed at sides. pose_06_t3 has left arm just beginning to lift, right arm still at side. The transition reads as natural — minimal frame-jump.",
+    "Q4_consequence_type": "M1 tool consequence is WEAR (parachute) or DEPLOY (wingsuit/glider). Catch happens BEFORE wear/deploy. The catch is a transient receive-moment, not a final-action-pose. Catch pose only needs to plausibly hold the tool for ~600ms before next scene transition. t3 satisfies this minimally; STOP pose (t5/t7) suggests rejection of the tool.",
+    "Q5_model_default_traps": "Veo always paints a watermark, hand-at-shoulder palm-forward defaults to 'stop' gesture, palms-up cupped pose was NOT generated. Re-render directive needed: 'hand reaching forward at chest height, PALM CUPPED OPEN UPWARD as if to RECEIVE A FALLING OBJECT, not vertical halt-palm.'",
+    "Q6_consistency_with_pose_map_v2": "Existing pose_map.json says pose_03 = anim_reach_forward. Library inspection contradicts this — pose_03 is anim_crouch. pose_map.json needs correction in a follow-up pass. For NOW, pose_06_t3 is the operational catch frame; pose_map.json semantic labels need re-syncing afterward."
+  },
+
+  "open_issues_flagged_to_orchestrator": [
+    "ASSET GAP: A true anim_reach_forward (palm-cupped-up to receive incoming object) does NOT exist in the keyframe library. Recommend re-render via image_generator with corrected directive. Current pose_06 was prompted/rendered as STOP, not RECEIVE.",
+    "POSE_MAP DRIFT: pipeline/pose_map.json semantic labels do not match library reality (claims pose_03=reach_forward, actually crouch). Needs reconciliation pass.",
+    "VEO WATERMARK: All 21 keyframes carry Veo branding. visual_editor must clean before any frame ships."
+  ],
+
+  "swap_timing": "click+0ms: setup_pose. click+200ms: swap to catch_pose (pose_06_t3). click+800ms: tool arrives at palm, swap back to setup_pose with 100ms crossfade. click+1200ms: scene transition (next scene fade-in).",
+
+  "_handoff_to": [
+    "visual_editor — chroma clean #00B140 + Veo watermark removal on pose_06_t3.png; output to assets/player/catch_M1.png",
+    "anchor_calibrator — measure palm pixel on cleaned catch_M1.png; update tool_consequence_map.json with new endpoint",
+    "editor — implement 200/800/1200ms swap timing per swap_timing field",
+    "builder — img-src reassignment between master_player/nirit_alpha.png and assets/player/catch_M1.png at the timestamps; tool flight bezier endpoint from anchor_calibrator output",
+    "image_generator (FOLLOW-UP) — re-render anim_reach_forward with corrected prompt 'palm cupped up open to receive incoming object' for production-quality catch frame in next iteration"
+  ]
+}

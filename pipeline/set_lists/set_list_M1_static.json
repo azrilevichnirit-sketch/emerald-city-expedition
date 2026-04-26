@@ -1,0 +1,474 @@
+{
+  "_meta": {
+    "agent": "set_manager",
+    "scene": "M1_static",
+    "revision": "static_v1",
+    "created_at": "2026-04-26",
+    "consumed": [
+      "C:/emerald/pipeline/_team_context.md",
+      "C:/emerald/agents/set_manager.md",
+      "C:/emerald/agents/debate_protocol.md",
+      "C:/emerald/design_system.md",
+      "C:/emerald/pipeline/_spec_original.json (M1 narrative + question + tools + expected_bg)",
+      "C:/emerald/pipeline/scene_briefs/scene_M1_static.json",
+      "C:/emerald/pipeline/static_fallback/plan_M1.json",
+      "C:/emerald/pipeline/camera_bible.json",
+      "C:/emerald/pipeline/asset_manifest.json",
+      "C:/emerald/pipeline/tool_consequence_map.json (M1 slots A/B/C — palm anchor 40,32)",
+      "ls C:/emerald/rivals/, C:/emerald/effects/, C:/emerald/backgrounds/, C:/emerald/assets/tools/, C:/emerald/master_player/"
+    ],
+    "_authoritative_text_source": "_spec_original.json (NOT content_lock.json — corrupted per Nirit)",
+    "_static_contract": "Player = single <img>, no <video>/<canvas>. Bg = browser-native loop video. Rivals = static <img>. Tools = PNG buttons. Tool flight is the single JS animation."
+  },
+
+  "_files_verified_on_disk": {
+    "background_phase_1": "C:/emerald/backgrounds/bg_airplane.mp4 (exists)",
+    "background_phase_2": "C:/emerald/backgrounds/bg_jungle_clearing.mp4 (exists)",
+    "player": "C:/emerald/master_player/nirit_alpha.png (exists, ~1MB, 896x1344, full-body frontal, boots at bottom of canvas, hands at sides)",
+    "rival_female_run_2": "C:/emerald/rivals/rival_female_run_2.png (exists)",
+    "rival_male_run_3": "C:/emerald/rivals/rival_male_run_3.png (exists)",
+    "tool_A_parachute": "C:/emerald/assets/tools/מצנח_מ01.png (exists, chroma-cleaned)",
+    "tool_B_glider": "C:/emerald/assets/tools/גלשן_מ01.png (exists, chroma-cleaned)",
+    "tool_C_wingsuit": "C:/emerald/assets/tools/כנפיים_מ01.png (exists, chroma-cleaned)",
+    "effect_parachute": "C:/emerald/effects/parachute_loop.mp4 (exists — but NOT used in phase 1, see _effects_decision)"
+  },
+
+  "phase_1": {
+    "_purpose": "Setup / pre-click. Player sees situation, reads mission, picks tool. Truly static — only motion is bg video loop.",
+    "duration": "until tool clicked (no auto-advance)",
+
+    "background": {
+      "file": "C:/emerald/backgrounds/bg_airplane.mp4",
+      "render_as": "video",
+      "html_attrs": "autoplay loop muted playsinline preload='auto'",
+      "css": {
+        "position": "absolute",
+        "inset": "0",
+        "width": "100%",
+        "height": "100%",
+        "object-fit": "cover",
+        "z-index": "0",
+        "pointer-events": "none"
+      },
+      "_role": "altitude POV — open airplane door / sky + jungle canopy below. Browser-native loop, zero JS."
+    },
+
+    "player": {
+      "file": "C:/emerald/master_player/nirit_alpha.png",
+      "render_as": "img",
+      "alt_he": "ניריט עומדת על סף דלת המטוס, פרונטלית, מוכנה לקפוץ",
+      "_image_facts": {
+        "native_size_px": "896 x 1344 (height-dominant, ratio ~2:3)",
+        "boots_position_in_canvas": "bottom edge — no padding below feet",
+        "head_position_in_canvas": "top edge with minor margin",
+        "hands_in_canvas": "arms relaxed at sides; right hand (camera-left) at approx (38-42% X, 45-50% Y); LEFT hand (camera-right) at approx (62-66% X, 47-52% Y)",
+        "_palm_anchor_truth_check": "Director declared palm anchor (40%, 32%). The actual right-hand palm in this PNG sits closer to (40%, ~47%). Honoring director's (40, 32) per scene_brief; flagging discrepancy for actor_director — see _flags below."
+      },
+      "css": {
+        "position": "absolute",
+        "bottom": "24vh",
+        "left": "50%",
+        "transform": "translateX(-50%)",
+        "height": "70vh",
+        "max-height": "560px",
+        "width": "auto",
+        "z-index": "10",
+        "pointer-events": "none",
+        "user-select": "none",
+        "filter": "drop-shadow(0 8px 14px rgba(0,0,0,0.45))"
+      },
+      "_grounding_rationale": "bottom:24vh places her boots flush against the top of Zone D (Zone D = bottom 24vh of viewport). Because the PNG has zero padding below boots, this puts her standing ON the Zone-D rim, which reads as 'standing on the airplane deck' (the deck is implied — bg_airplane.mp4 covers it). height:70vh (above design_system default of 52vh) is a deliberate static-mode call: with no animation, presence comes from scale. max-height:560px clamps on tall desktops. Mobile breakpoints inherit responsive behavior via media queries handled by builder.",
+      "_responsive_overrides": {
+        "@media (max-width: 480px) — mobile portrait": {
+          "height": "60vh",
+          "max-height": "420px",
+          "bottom": "25vh"
+        },
+        "@media (max-height: 480px) — mobile landscape": {
+          "height": "65vh",
+          "bottom": "22vh"
+        }
+      },
+      "_critical": "<img> ONLY. No <video>, no <canvas>, no chroma key (PNG already has alpha). Single static frame for entire phase 1 + phase 2."
+    },
+
+    "rivals": [
+      {
+        "file": "C:/emerald/rivals/rival_female_run_2.png",
+        "_role": "felt-not-seen — distant figure already mid-air; sells 'others have already jumped'",
+        "css": {
+          "position": "absolute",
+          "top": "11%",
+          "right": "7%",
+          "width": "8%",
+          "height": "auto",
+          "opacity": "0.45",
+          "z-index": "5",
+          "pointer-events": "none",
+          "filter": "blur(0.5px)"
+        },
+        "animation": null,
+        "_no_drift_note": "No animation. Static silhouette per static-mode contract."
+      },
+      {
+        "file": "C:/emerald/rivals/rival_male_run_3.png",
+        "_role": "second tiny rival upper-left for compositional balance against rival 1",
+        "css": {
+          "position": "absolute",
+          "top": "16%",
+          "left": "9%",
+          "width": "7%",
+          "height": "auto",
+          "opacity": "0.40",
+          "z-index": "5",
+          "pointer-events": "none",
+          "filter": "blur(0.5px)"
+        },
+        "animation": null
+      }
+    ],
+    "_rivals_collision_check": {
+      "vs_player": "Player is centered (left:50%, translateX(-50%)) at 70vh height. Rivals at top:11-16% with width 7-8% sit in the upper-sky strip — well above player's head (which starts ~6vh from top of zone B, i.e. ~12vh from top of viewport given Zone A 6vh). NO overlap.",
+      "vs_zone_c_text": "Mission text lives in Zone C (height 16vh, starting at viewport y=60vh). Rivals are at top:11-16% (i.e. y ≈ 11-16vh). Vertical separation ~44vh. NO overlap.",
+      "vs_each_other": "Right rival at (right:7%, top:11%); left rival at (left:9%, top:16%). Horizontal separation ≥84% of viewport. NO overlap."
+    },
+
+    "effects": [],
+    "_effects_decision": {
+      "considered_file": "C:/emerald/effects/parachute_loop.mp4",
+      "decision": "DO NOT USE in phase 1",
+      "reasoning": [
+        "1. Static-mode contract (scene_brief _static_definition): 'Rivals = 1-2 small PNG overlays at low opacity, NO drift animation — fully static'. parachute_loop.mp4 is by definition a moving video loop.",
+        "2. _spec_original M1 narrative says rivals 'הופכים לנקודות קטנות מעל הג'ונגל הירוק' — points / specks. The PNG silhouettes already deliver 'specks'. Adding playing parachutes would over-state.",
+        "3. parachute_loop.mp4 is the M1 slot-A consequence visual (from plan_M1 and the v5 tool_consequence_map). Reusing it as ambient pre-click would steal punch from the post-click reveal IF a future M1-full variant ever uses it.",
+        "4. Per design_system layer-stack: effects sit at z=15 with mix-blend-mode:screen. In an open-sky bg this would lift the rival area too brightly and break the calm-before-leap feel that director's scene_q2 _feel locked in.",
+        "5. Phase-1 stays motion-free except the bg video. This is the entire point of static-demo mode."
+      ],
+      "_revisit_if": "Nirit on review says 'too empty / dead' — first remediation is opacity bump on rivals (0.45→0.55) before adding any video effect."
+    },
+
+    "mission_text": {
+      "text_verbatim_he": "דלת המטוס נפתחת בבת אחת ורוח פרצים שואבת הכל החוצה. המתחרים כבר באוויר, הופכים לנקודות קטנות מעל הג'ונגל הירוק. הקרקע מתקרבת במהירות וחייבים לקפוץ עכשיו כדי לא לפספס את אזור הנחיתה.",
+      "_source": "_spec_original.json missions.M1.narrative — verbatim, NOT content_lock.M1.mission_text (which has been corrupted to first-person 'אני')",
+      "zone": "C",
+      "css": {
+        "position": "absolute",
+        "bottom": "24vh",
+        "left": "0",
+        "right": "0",
+        "height": "16vh",
+        "padding": "1.2vh 5vw",
+        "display": "flex",
+        "align-items": "center",
+        "justify-content": "center",
+        "color": "#FFFFFF",
+        "direction": "rtl",
+        "text-align": "center",
+        "font-family": "'Heebo', 'Assistant', sans-serif",
+        "font-weight": "400",
+        "font-size": "clamp(0.95rem, 2.4vw, 1.35rem)",
+        "line-height": "1.45",
+        "text-shadow": "0 1px 3px rgba(0,0,0,0.95), 0 2px 8px rgba(0,0,0,0.75)",
+        "background": "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 70%, transparent 100%)",
+        "z-index": "30",
+        "pointer-events": "none",
+        "opacity": "0",
+        "transition": "opacity 400ms ease-out"
+      },
+      "fade_in_delay_ms": 600,
+      "fade_in_duration_ms": 400
+    },
+
+    "mission_question": {
+      "text_verbatim_he": "איך נתקדם?",
+      "_source": "_spec_original.json missions.M1.question — verbatim",
+      "zone": "C (sub-line below mission_text)",
+      "_render_note": "Renders as a second line inside the same Zone-C container, smaller and weight-600. Builder may inline this as a second <p> within the mission_text container or as a standalone overlay above tools_zone_d.",
+      "css": {
+        "position": "absolute",
+        "bottom": "calc(24vh - 0.4rem)",
+        "left": "0",
+        "right": "0",
+        "color": "#FFFFFF",
+        "direction": "rtl",
+        "text-align": "center",
+        "font-family": "'Heebo', 'Assistant', sans-serif",
+        "font-weight": "600",
+        "font-size": "clamp(1.0rem, 2.2vw, 1.1rem)",
+        "text-shadow": "0 1px 3px rgba(0,0,0,0.95), 0 2px 6px rgba(0,0,0,0.7)",
+        "z-index": "31",
+        "pointer-events": "none",
+        "opacity": "0",
+        "transition": "opacity 400ms ease-out"
+      },
+      "fade_in_delay_ms": 1200,
+      "fade_in_duration_ms": 350
+    },
+
+    "tools_zone_d": [
+      {
+        "slot": "A",
+        "label_verbatim_he": "מצנח עגול רחב",
+        "points": 1,
+        "metric": "סיכון",
+        "consequence_type": "deploy",
+        "file": "C:/emerald/assets/tools/מצנח_מ01.png",
+        "button_css": {
+          "position": "relative",
+          "flex": "1 1 28vw",
+          "max-width": "28vw",
+          "min-width": "80px",
+          "height": "calc(20vh)",
+          "max-height": "180px",
+          "min-height": "80px",
+          "background": "transparent",
+          "border": "none",
+          "padding": "0.6vh 0.8vw",
+          "cursor": "pointer",
+          "opacity": "0",
+          "transition": "opacity 350ms ease-out, transform 200ms ease-out"
+        },
+        "img_css": {
+          "width": "100%",
+          "height": "100%",
+          "object-fit": "contain",
+          "pointer-events": "none",
+          "filter": "drop-shadow(0 2px 6px rgba(0,0,0,0.55))"
+        },
+        "info_icon_he": "מצנח עגול רחב"
+      },
+      {
+        "slot": "B",
+        "label_verbatim_he": "גלשן רחיפה",
+        "points": 2,
+        "metric": "סיכון",
+        "consequence_type": "wear",
+        "file": "C:/emerald/assets/tools/גלשן_מ01.png",
+        "button_css": {
+          "position": "relative",
+          "flex": "1 1 28vw",
+          "max-width": "28vw",
+          "min-width": "80px",
+          "height": "calc(20vh)",
+          "max-height": "180px",
+          "min-height": "80px",
+          "background": "transparent",
+          "border": "none",
+          "padding": "0.6vh 0.8vw",
+          "cursor": "pointer",
+          "opacity": "0",
+          "transition": "opacity 350ms ease-out, transform 200ms ease-out"
+        },
+        "img_css": {
+          "width": "100%",
+          "height": "100%",
+          "object-fit": "contain",
+          "pointer-events": "none",
+          "filter": "drop-shadow(0 2px 6px rgba(0,0,0,0.55))"
+        },
+        "info_icon_he": "גלשן רחיפה"
+      },
+      {
+        "slot": "C",
+        "label_verbatim_he": "חליפת כנפיים",
+        "points": 3,
+        "metric": "סיכון",
+        "consequence_type": "wear",
+        "file": "C:/emerald/assets/tools/כנפיים_מ01.png",
+        "button_css": {
+          "position": "relative",
+          "flex": "1 1 28vw",
+          "max-width": "28vw",
+          "min-width": "80px",
+          "height": "calc(20vh)",
+          "max-height": "180px",
+          "min-height": "80px",
+          "background": "transparent",
+          "border": "none",
+          "padding": "0.6vh 0.8vw",
+          "cursor": "pointer",
+          "opacity": "0",
+          "transition": "opacity 350ms ease-out, transform 200ms ease-out"
+        },
+        "img_css": {
+          "width": "100%",
+          "height": "100%",
+          "object-fit": "contain",
+          "pointer-events": "none",
+          "filter": "drop-shadow(0 2px 6px rgba(0,0,0,0.55))"
+        },
+        "info_icon_he": "חליפת כנפיים"
+      }
+    ],
+    "_zone_d_container_css": {
+      "position": "absolute",
+      "left": "0",
+      "right": "0",
+      "bottom": "0",
+      "height": "24vh",
+      "min-height": "120px",
+      "padding": "1.2vh 4vw",
+      "display": "flex",
+      "flex-direction": "row",
+      "justify-content": "space-evenly",
+      "align-items": "center",
+      "gap": "2vw",
+      "background": "rgba(0,0,0,0.65)",
+      "border-top": "1px solid rgba(255,255,255,0.15)",
+      "direction": "rtl",
+      "z-index": "20"
+    },
+    "_tools_fade_in": {
+      "trigger_ms_after_scene_entry": 2000,
+      "duration_ms": 350,
+      "stagger_ms": 0,
+      "_stagger_rationale": "Static demo: all 3 tools appear simultaneously. design_system.md §10 stagger rule is for animated scenes; in pure-stillness mode synchronous appearance preserves the calm-before-leap feel."
+    },
+    "_tooltip_mechanism": "Per design_system.md §1 Zone D tooltip rules. Each button has a position:absolute ⓘ icon at top:6px right:6px (RTL), 20x20px, rgba(0,0,0,0.6) bg, white border. Desktop hover / mobile tap (2s timeout) reveals .tool-tooltip with the label_verbatim_he. NO description, NO points displayed."
+  },
+
+  "phase_2_transition": {
+    "_purpose": "Click-to-catch-to-crossfade. The single signature animation of M1 static.",
+    "duration_ms": 2200,
+
+    "click_response": {
+      "selected_button": "scale 1.0 → 1.1 over 200ms (pulse_in feedback)",
+      "non_selected_buttons": "opacity 1.0 → 0.3 over 200ms",
+      "mission_text_and_question": "opacity 1.0 → 0 over 300ms starting at click+0",
+      "score_increment_at_click_ms": 200
+    },
+
+    "fade_target_bg": {
+      "file": "C:/emerald/backgrounds/bg_jungle_clearing.mp4",
+      "_role": "Fade target — used as the M2 entry background that the redirect lands on. M1 itself does NOT render this video; the crossfade is fade-to-black 800ms (per scene_brief phase_3) and M2 boots up against bg_jungle_clearing.",
+      "_preload_hint_for_builder": "Builder MAY <link rel='preload' as='video' href='backgrounds/bg_jungle_clearing.mp4'> in the <head> of M1.html so M2 loads instantly on redirect. Optional optimization."
+    },
+
+    "tool_flight": {
+      "_purpose": "Selected tool image clones from its Zone-D button position, flies on a parabolic cubic-bezier arc to player palm, locks at palm anchor.",
+      "from": "selected_button.getBoundingClientRect() — center of the clicked button at click moment",
+      "to": "player_palm — see palm_anchor_pct below; computed at click time via player_img.getBoundingClientRect() then offset by palm_anchor_pct",
+      "palm_anchor_pct": {"x": 40, "y": 32},
+      "_palm_anchor_provenance": "Honored verbatim from director scene_brief phase_2_click_to_catch.tool_flight_bezier.to_anchor + tool_consequence_map.json M1.slot_*.attach_at_catch.point_on_player_pct (40, 32). Set_manager FLAG: this anchor was specified for the v5 raised-palm catch frame (pose_06 #4.5). The static nirit_alpha.png shows arms relaxed at sides — the PNG's actual right-hand palm sits closer to (40%, 47%). Tool will arrive ABOVE the actual hand by ~15% of player height. See _flags.",
+      "bezier": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+      "duration_ms": 1300,
+      "starts_at_offset_after_click_ms": 200,
+      "arc_peak_y_formula": "min(button.top, palm.top) - 80px",
+      "scale_keyframes": {
+        "start_t_0": {"transform": "translate(0,0) scale(1.0)"},
+        "apex_t_0.45": {"transform": "translate(${dx/2}px, ${arcY - tool.top}px) scale(1.1)"},
+        "arrival_t_1.0": {"transform": "translate(${dx}px, ${dy}px) scale(0.85)"}
+      },
+      "z_index_during_flight": 11,
+      "post_arrival": {
+        "thud_pulse_ms": 200,
+        "thud_scale_keyframes": "1.0 → 1.05 → 1.0",
+        "hold_at_palm_after_thud_ms": 100
+      }
+    },
+
+    "post_catch_hold_ms": 300,
+    "_post_catch_hold_rationale": "300ms hold of (arrived tool + faded mission text + faded other tools + unchanged player img) before fade-to-black starts. Lets the eye register the catch.",
+
+    "fade_to_black": {
+      "trigger_at_offset_after_click_ms": 1800,
+      "_trigger_breakdown": "200ms button pulse + 1300ms tool flight + 300ms post-catch hold = 1800ms",
+      "duration_ms": 800,
+      "type": "css opacity fade on a position:fixed inset:0 black overlay at z-index:200",
+      "css_overlay": {
+        "position": "fixed",
+        "inset": "0",
+        "background": "#000000",
+        "opacity": "0",
+        "transition": "opacity 800ms ease-in",
+        "z-index": "200",
+        "pointer-events": "none"
+      }
+    },
+
+    "redirect_at_offset_after_click_ms": 2200,
+    "_redirect_target": "M2 static entry HTML (filename TBD by builder/orchestrator — likely M2.html in same builder_html_static folder)"
+  },
+
+  "scenery": [],
+  "_scenery_decision": {
+    "phase_1_foreground_props": "NONE",
+    "rationale": "scene_brief _open_for_set_manager Q1 explicitly defers to set_manager. Decision: NO foreground scenery in phase 1. Reasons: (a) bg_airplane.mp4 already carries the airplane interior + sky+jungle POV; adding props duplicates information. (b) Static-mode contract says foreground scenery would require a chroma-keyed PNG composite, which adds Builder complexity for zero narrative gain. (c) The scene's emotional weight is in the player + the open-sky void — adding a doorframe or strut breaks the 'standing on the threshold of nothing' feel director's scene_q2 locked in.",
+    "phase_2_props": "NONE — phase 2 is just the fade-to-black + redirect; no scenery rendered."
+  },
+
+  "_continuity_check": {
+    "previous_scene": "NONE — M1 is the first scene of the game. Entry transition = fade-from-black 400ms (per scene_brief phase_3 _handoff_to_M2 split: M1 owns 0ms of opening fade since there's no prior scene; opening = pure black at first paint, then bg+player render in).",
+    "next_scene_M2": "M2 inherits the second 400ms of the 800ms fade-to-black as its fade-from-black entry. M2's bg = bg_jungle_clearing.mp4 (already validated — same file used as fade_target_bg here). Continuity: player img stays the same nirit_alpha.png between M1 and M2 (per scene_brief phase_3._handoff_to_M2 'player image potentially same nirit_alpha.png')."
+  },
+
+  "_design_system_compliance": {
+    "zone_a_progress_bar": "Reserved 6vh top — not rendered by set_manager but must not be obstructed. All set elements live in Zones B/C/D.",
+    "zone_b_scene": "54vh — bg_airplane (full viewport behind), player img, rivals all live here; topology respected.",
+    "zone_c_mission": "16vh — mission_text + mission_question container; padding, RTL, text-align center per spec.",
+    "zone_d_tools": "24vh — 3 tool buttons, justify-content:space-evenly, max 28vw each, min 80px, rgba(0,0,0,0.65) bg, 1px white-15% border-top — all per design_system.md §1.",
+    "z_index_stack": {
+      "0": "bg video",
+      "5": "rivals",
+      "10": "player img",
+      "11": "tool clone during flight + at palm rest",
+      "20": "tool buttons in Zone D",
+      "30": "mission_text",
+      "31": "mission_question",
+      "100": "progress bar (reserved)",
+      "200": "fade-to-black overlay"
+    },
+    "color_audit": "ALL backgrounds: black/dark only (#000, rgba(0,0,0,*)) — NO gold, NO yellow, NO orange. ALL text: #FFFFFF on dark — contrast 8:1+ (text-shadow guards against bg-video light areas). PASS.",
+    "language_audit": "Mission text uses 'אנחנו / נתקדם / חייבים' (collective voice) — NO 'את', NO 'אתה'. Question 'איך נתקדם?' — collective voice. PASS per design_system §11.",
+    "rtl_audit": "All Hebrew text containers have direction:rtl. Zone-D tool container also direction:rtl so slot A (1pt, label מצנח עגול רחב) renders rightmost — natural reading start. PASS."
+  },
+
+  "_six_question_audit_for_set_manager": {
+    "_protocol_note": "Per debate_protocol.md §'4 שאלות לדיון על סצנה' — set_manager is creative agent, runs the 4 scene-questions (not 6 tool-questions which are visual_prompt_writer territory).",
+    "scene_q1_first_focus": {
+      "answer": "PLAYER FIGURE. Centered, height 70vh, fully saturated, only highlight on a low-chroma sky bg. Mission text (600ms delay) and tools (2000ms delay) ensure player is singular first-focus during the opening read."
+    },
+    "scene_q2_feel": {
+      "answer": "שקט לפני קפיצה — היא עומדת בפתח הדלת והזמן עצר. (Calm before the leap.) The set supports this through stillness — no foreground props, no animated effects, only the bg-video carrying ambient motion."
+    },
+    "scene_q3_continuity_from_previous": {
+      "answer": "M1 IS the opening scene; no prior. Entry = fade-from-black on first paint (handled by builder)."
+    },
+    "scene_q4_consequence_compatibility": {
+      "answer": "In demo_minimal mode (per plan_M1) the consequence visual is DROPPED. Tool flies to palm and crossfade fires before any deploy/wear visual would render. Set is therefore consequence-agnostic. The 3 tool consequence_types (deploy/wear/wear) are recorded in tools_zone_d for completeness but no scenery accommodation needed in static mode."
+    }
+  },
+
+  "_flags_to_orchestrator": [
+    {
+      "severity": "P1",
+      "to": "actor_director",
+      "issue": "Palm anchor mismatch. Director's brief and tool_consequence_map specify palm anchor (40%, 32%) of the player img. The actual nirit_alpha.png pose has hands at sides — right hand at approx (40%, ~47%). Tool will visually arrive at the air ABOVE her right shoulder instead of in her palm.",
+      "options": [
+        "A. Override anchor to (40%, 47%) for the static figure — set_manager recommends this since it matches the asset on disk.",
+        "B. Keep (40%, 32%) and accept tool lands in front of her chest/face area — works as 'caught at chest, hands lift instinctively' read; less literal.",
+        "C. Have visual_editor produce a second master PNG (nirit_alpha_raised_palm.png) with right hand raised to (40%, 32%) — out of scope for today's demo."
+      ],
+      "set_manager_recommendation": "Option A. Palm at (40%, 47%) — adjust scene_brief phase_2 tool_flight_bezier.to_anchor before builder reads it. Single-line change."
+    },
+    {
+      "severity": "P2",
+      "to": "set_manager_self_or_director",
+      "issue": "bg_airplane.mp4 loop-segment unverified. If the loop has a bright cloud burst or a sharp altitude-shift mid-loop, it will distract from the static player. Director's scene_brief _open_for_set_manager Q2 raised this.",
+      "set_manager_action": "Defer to builder integration time. If on first browser render the bg has a distracting beat, set_manager will return with a loop_segment_ms range (e.g. start at 2000ms, restart at 6000ms via JS currentTime control) — but this contradicts the 'browser-native loop, zero JS' rule. Acceptable trade-off only if visual review fails. Default: full native loop."
+    },
+    {
+      "severity": "P3",
+      "to": "actor_director",
+      "issue": "Player height 70vh is above design_system §2 default of 52vh. Set_manager justified this as static-mode-presence-via-scale. Actor_director may push back if the figure feels oversized vs. the airplane bg's perspective.",
+      "fallback": "Drop to 60vh (mobile parity) if oversized; mission text/tools positions unaffected."
+    }
+  ],
+
+  "_handoff_to": ["actor_director", "builder", "editor"],
+  "_handoff_summary": {
+    "actor_director_action": "Resolve palm anchor flag (P1 above). Confirm gaze direction for the static figure — director suggested forward-and-slightly-up. Decide on micro-idle (set_manager leans NO, true static).",
+    "builder_action": "Implement HTML+CSS+JS per this set_list AND scene_brief phase 1/2/3 timing AND scene_script verbatim text. Builder uses _spec_original.json text, NOT content_lock. Mobile-first per design_system §9. Tool flight uses bezier+timing in phase_2_transition.tool_flight. Score increment at click+200ms. Redirect at click+2200ms.",
+    "editor_action": "Validate the timing chain: scene_entry → 600ms mission_text fade-in → 1200ms question fade-in → 2000ms tools fade-in → click → 200ms click feedback → 1300ms tool flight → 300ms hold → 800ms fade-to-black → redirect. Total post-click = 2200ms. Total pre-click min = 2350ms (then wait for click)."
+  }
+}

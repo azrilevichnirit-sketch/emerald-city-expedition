@@ -1,0 +1,218 @@
+{
+  "_meta": {
+    "agent": "editor",
+    "scene": "M1_static",
+    "revision": "static_v1",
+    "created_at": "2026-04-26",
+    "supersedes": null,
+    "purpose": "Single integrated timeline of TIMING + EVENTS for M1 static demo. Resolves the layered handoffs (director brief, sound_design v5, plan_M1 demo_minimal) into one ordered event list the builder can implement directly."
+  },
+
+  "_consumed_inputs": [
+    "C:/emerald/agents/editor.md",
+    "C:/emerald/pipeline/_team_context.md",
+    "C:/emerald/pipeline/scene_briefs/scene_M1_static.json",
+    "C:/emerald/pipeline/sound_design_M1.json",
+    "C:/emerald/pipeline/static_fallback/plan_M1.json",
+    "C:/emerald/effects/ (ls)",
+    "C:/emerald/assets/transitions/ (ls)"
+  ],
+
+  "_authority_resolution": {
+    "conflict_observed": "sound_design_M1.json is v5 (interactive-movie) with events for jump_apex, landing_complete, checkpoint_text_shown, catch_complete, multi-phase ambient crossfade. scene_briefs/scene_M1_static.json (current static brief) DROPS jump/landing/checkpoint entirely and uses fade-to-black with redirect to M2 at click+2200ms.",
+    "resolution_authority_order": [
+      "1. scene_briefs/scene_M1_static.json (most recent, scene-specific, demo_minimal aligned)",
+      "2. static_fallback/plan_M1.json _two_modes_now_supported.demo_minimal",
+      "3. sound_design_M1.json — events kept ONLY where they map to events that exist in static (scene_entry, mission_text_shown, tool_clicked, palm_contact). All jump/landing/checkpoint events DROPPED for M1 static."
+    ],
+    "events_dropped_from_sound_design_v5": [
+      "evt_jump_whoosh_up (no jump in static)",
+      "evt_landing_impact (no landing in static)",
+      "evt_checkpoint_confirm (no checkpoint in static — M1 ends at fade-to-black, M2 owns its own setup)",
+      "evt_catch_complete_confirm (no catch_complete event in static — replaced by simpler tool_at_palm + post_catch_hold)",
+      "phase_2_jungle ambient (no in-scene phase 2 — bg stays bg_airplane.mp4 until redirect)"
+    ]
+  },
+
+  "events_timeline": [
+    {
+      "t_ms": 0,
+      "event": "scene_loaded",
+      "actions": [
+        "bg_airplane.mp4 plays via <video autoplay loop muted playsinline> (browser-native loop, zero JS)",
+        "player <img src='master_player/nirit_alpha.png'> visible at bottom:24vh, height:52vh, centered",
+        "rivals visible — 2 small static <img>: rival_female_run_1.png top:9% right:6%, rival_male_run_2.png top:14% left:8%",
+        "ambient phase_1_sky (placeholder:wind_rush_loop.mp3) attempts load via Web Audio; if missing, console.info('[sound] missing: phase_1_sky') and proceed silently",
+        "scene_entry SFX (placeholder:metallic_creak_hiss_subtle.mp3) attempts to play once at vol 0.35; silent if missing",
+        "DOM 'scene_entry' event dispatched on shared EventTarget"
+      ],
+      "_note": "Per static_fallback/plan_M1.json demo_minimal: only ONE bg phase exists during M1 (bg_airplane). The phase_2_jungle bg is the responsibility of M2.html, NOT a phase swap mid-scene."
+    },
+    {
+      "t_ms": 600,
+      "event": "mission_text_fade_in",
+      "duration_ms": 400,
+      "actions": [
+        "Mission text fades in (opacity 0->1, 400ms ease-out) in Zone C with verbatim Hebrew from scene_brief.phase_1_setup.ui_overlays.mission_text.verbatim_he",
+        "DOM 'mission_text_shown' event dispatched at t=600ms (fade_in START — matches sound_designer contract)",
+        "ui_soft_bell SFX attempts to play at vol 0.4; silent if missing"
+      ],
+      "_completes_at_ms": 1000
+    },
+    {
+      "t_ms": 2000,
+      "event": "tools_fade_in",
+      "duration_ms": 350,
+      "stagger_ms": 0,
+      "actions": [
+        "All 3 tool buttons (slot A=מצנח, B=גלשן, C=כנפיים) fade in simultaneously in Zone D",
+        "Each button = <button><img src='assets/tools/<file>.png'></button> with ⓘ tooltip per design_system §1",
+        "After fade completes (t=2350ms), buttons are clickable and we wait indefinitely for click"
+      ],
+      "_note": "stagger=0 per scene_brief — static demo, no choreography stagger; all 3 appear together.",
+      "_completes_at_ms": 2350
+    },
+    {
+      "t_ms": "click_t (>= 2350ms, indefinite wait)",
+      "event": "tool_clicked",
+      "duration_ms": 200,
+      "actions": [
+        "Selected tool button: scale 1.0 -> 1.1 over 200ms (cubic-bezier ease-out) — pulse_in feedback",
+        "Other 2 tool buttons: opacity 1.0 -> 0.3 over 200ms",
+        "Mission text: opacity 1 -> 0 over 300ms (starts at click_t+0)",
+        "DOM 'tool_clicked' event dispatched with detail:{slot:'A'|'B'|'C', label, file}",
+        "Per-slot SFX attempts to play: A=fabric_whoosh_snap (0.8), B=metallic_glider_snap (0.8), C=whoosh_acceleration (0.9). Silent if missing.",
+        "Score saved IMMEDIATELY (see score_save event at click_t+200) — preserves player's choice if tab closed during transition"
+      ]
+    },
+    {
+      "t_ms": "click_t+200",
+      "event": "tool_flight_start",
+      "duration_ms": 1300,
+      "actions": [
+        "Clone selected tool image to fixed-position element at z-index:11",
+        "Initial position = tool button center (from getBoundingClientRect at click moment)",
+        "Animate via element.animate() on cubic-bezier(0.34, 1.56, 0.64, 1) parabolic arc",
+        "Target = player palm anchor (40% X, 32% Y of player <img> bounding rect)",
+        "Arc peak Y = min(button.top, palm.top) - 80px",
+        "Scale keyframes: 1.0 (start) -> 1.1 (45% apex) -> 0.85 (arrival)",
+        "Score increment + localStorage write fires AT click_t+200 (parallel to flight start)"
+      ],
+      "_note": "Score writes at click_t+200 (NOT at fade-to-black) per scene_brief.phase_3_crossfade_to_M2._score_increment_rationale — protects player choice if tab closed."
+    },
+    {
+      "t_ms": "click_t+200",
+      "event": "score_save",
+      "actions": [
+        "let s = parseInt(localStorage.getItem('emerald_score') || '0', 10)",
+        "let pts = {A:1, B:2, C:3}[selectedSlot]",
+        "localStorage.setItem('emerald_score', String(s + pts))",
+        "let prog = JSON.parse(localStorage.getItem('emerald_progress') || '[]')",
+        "if (!prog.includes('M1')) prog.push('M1')",
+        "localStorage.setItem('emerald_progress', JSON.stringify(prog))",
+        "localStorage.setItem('emerald_M1_choice', JSON.stringify({slot:selectedSlot, label, ts:Date.now()}))",
+        "NO visual score popup (forbidden per content_lock ui_rules — dimension names never shown)"
+      ]
+    },
+    {
+      "t_ms": "click_t+1500",
+      "event": "tool_at_palm",
+      "duration_ms": 200,
+      "actions": [
+        "Tool clone arrives at palm anchor; remains at z-index:11 (over player figure)",
+        "Brief scale-pulse on tool: 1.0 -> 1.05 -> 1.0 over 200ms (thud feedback)",
+        "Player <img> does NOT change pose — stays as nirit_alpha.png (per scene_brief catch_reaction.decision = NO POSE CHANGE)",
+        "palm_grab_thud_soft SFX attempts to play at vol 0.6, ~250ms; silent if missing"
+      ],
+      "_note": "scene_brief explicitly rejects pose swap on catch. Tool arrival + scale pulse + sound is the entire 'catch beat'."
+    },
+    {
+      "t_ms": "click_t+1800",
+      "event": "fade_to_black_start",
+      "duration_ms": 800,
+      "actions": [
+        "Black overlay <div id='fade-overlay'> at z-index:200, full-screen, pointer-events:none",
+        "Animate opacity 0 -> 1 over 800ms (linear)",
+        "ambient phase_1_sky (if playing): GainNode linearRampToValueAtTime to 0 over 600ms (mirrors sound_design exit_audio fadeout)",
+        "Tool clone + player + bg + UI all visually consumed by overlay — no further changes needed below"
+      ]
+    },
+    {
+      "t_ms": "click_t+2200",
+      "event": "score_save_and_redirect",
+      "actions": [
+        "Halfway through fade-to-black — screen is fully black, opacity = 1 (visually)",
+        "Final state checkpoint: localStorage already written at click_t+200 (re-verify scoreboard integrity here, no overwrite)",
+        "window.location.href = './M2.html'",
+        "Per scene_brief: M2 owns its own fade-from-black entry (the remaining 400ms of the 800ms fade window happens during M2's load)"
+      ],
+      "_note": "Redirect target='./M2.html' assumes builder produces sibling files in C:/emerald/pipeline/builder_html_static/. If M2 file does not yet exist, builder may use a placeholder hash route or display a stub — but the redirect call MUST fire here so M1's contract is whole."
+    }
+  ],
+
+  "transitions": {
+    "scene_to_scene": {
+      "file_for_M1_to_M2": "C:/emerald/assets/transitions/T_M1.mp4 — VERIFIED EXISTS",
+      "duration_ms": 800,
+      "type": "fade_to_black",
+      "_decision": "For demo_minimal we use simple opacity fade-to-black overlay, NOT the T_M1.mp4 video transition. Saves complexity, eliminates a video preload, and matches design_system.md §10 (cross-dissolve 800ms). T_M1.mp4 is reserved for v6+ polish.",
+      "_note": "Builder implements as <div> opacity animation, NOT <video> playback."
+    },
+    "missing_transitions_T_M2_T_M5_T_M8_T_M11_T_M15": {
+      "_observed_in_assets_transitions_dir": [
+        "T_M1.mp4 PRESENT",
+        "T_M3.mp4 PRESENT", "T_M4.mp4 PRESENT", "T_M6.mp4 PRESENT", "T_M7.mp4 PRESENT", "T_M9.mp4 PRESENT", "T_M10.mp4 PRESENT", "T_M12.mp4 PRESENT", "T_M13.mp4 PRESENT", "T_M14.mp4 PRESENT",
+        "T_M2.mp4 MISSING", "T_M5.mp4 MISSING", "T_M8.mp4 MISSING", "T_M11.mp4 MISSING", "T_M15.mp4 MISSING"
+      ],
+      "_decision": "ALL missions use fade-to-black opacity overlay for the demo. Whether the T_*.mp4 file exists or not is irrelevant to demo_minimal mode. The transition videos are reserve for v6+ polish."
+    }
+  },
+
+  "effects": {
+    "phase_1": {
+      "_decision": "NO effects in phase 1 — would distract from the still composition",
+      "_alternative": "If rivals look too small/lonely after human review, set_manager could add C:/emerald/effects/parachute_loop.mp4 at ~8% size as a tiny far-away parachute in the upper sky. Defer to set_manager.",
+      "_directors_note_he": "סטטיות הוא הרעיון — אפקט מיותר ישבור את השקט שהבמאי תכנן."
+    },
+    "phase_2": {
+      "_note": "There is NO phase_2 in M1 static (scene ends at fade-to-black, M2 begins fresh). Field kept for schema parity with full-mode M1 and future missions.",
+      "effects_list": []
+    }
+  },
+
+  "sound": {
+    "fallback_strategy": "Per sound_design_M1._builder_contract.missing_file_behavior + _audio_assets_disk_check: ZERO audio files exist on disk. Builder MUST implement the sound subsystem CODE (Web Audio API, GainNodes, event listeners) so when assets arrive it 'just works', but every load attempt that fails MUST log a single console.info('[sound] missing: <key>') and proceed silently — NO blocking errors, NO console.error.",
+    "events_to_implement": [
+      "scene_entry — once at t=0 (placeholder:metallic_creak_hiss_subtle.mp3, vol 0.35)",
+      "ambient_phase_1_sky — loop from t=0 to fade_to_black_start (placeholder:wind_rush_loop.mp3, vol 0.7)",
+      "mission_text_shown — once at t=600 (placeholder:ui_soft_bell.mp3, vol 0.4)",
+      "tool_clicked — once at click_t, slot-filtered: A=fabric_whoosh_snap (0.8) | B=metallic_glider_snap (0.8) | C=whoosh_acceleration (0.9)",
+      "tool_at_palm — once at click_t+1500 (placeholder:palm_grab_thud_soft.mp3, vol 0.6)",
+      "fade_to_black_start — phase_1_sky GainNode ramps to 0 over 600ms starting at click_t+1800"
+    ],
+    "events_NOT_to_implement_in_static": [
+      "catch_complete_confirm (no catch_complete event in static)",
+      "jump_whoosh_up (no jump in static)",
+      "landing_impact (no landing in static)",
+      "checkpoint_confirm (no checkpoint in static — M2 owns its own)"
+    ],
+    "concurrent_polyphony": "Up to 3 simultaneous sounds expected (ambient + tool click + palm thud). Builder MUST support concurrent playback — separate Audio elements or Web Audio nodes per sound.",
+    "_subsystem_code_must_exist_even_with_no_assets": true
+  },
+
+  "editor_timing_audit": {
+    "transition_duration_ms": 800,
+    "transition_duration_check": "PASS — matches editor.md mandatory 'crossfade 800ms exactly'",
+    "tool_stagger_ms": 0,
+    "tool_stagger_check": "PASS — static brief explicitly drops 120ms stagger; editor.md rule '0/120/240' is for INTERACTIVE mode; static demo overrides per scene_brief authority",
+    "post_choice_hold_ms_total_before_redirect": 2200,
+    "post_choice_hold_check": "click_t+1800 (fade start) to click_t+2200 (redirect) = 400ms blackout before redirect. Total time from click to redirect = 2200ms. Editor.md baseline is 1800-2500ms — PASS at 2200ms.",
+    "audio_video_sync_window_ms": 50,
+    "audio_video_sync_check": "All audio events fire on the same RAF tick as their visual counterparts (scene_entry @ t=0, mission_text_shown @ t=600, tool_clicked @ click_t, tool_at_palm @ click_t+1500). Drift well under 50ms.",
+    "no_hard_cuts_video": "PASS — bg is browser-native loop; M1->M2 is fade-to-black not hard cut",
+    "no_hard_cuts_audio": "PASS — phase_1_sky fades out 600ms, no abrupt stop"
+  },
+
+  "_handoff_to": ["builder"],
+  "_handoff_note": "Builder reads this file as the ONLY source of timing/event truth for M1 static. If this file conflicts with sound_design_M1.json, this file wins (it explicitly resolves the v5/static authority conflict). If this file conflicts with scene_briefs/scene_M1_static.json, scene_brief wins for visual/positioning details — this file owns timing/events only."
+}

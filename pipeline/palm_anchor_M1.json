@@ -1,0 +1,22 @@
+{
+  "_agent": "anchor_calibrator",
+  "_image": "master_player/nirit_alpha.png",
+  "_image_size": [
+    896,
+    1344
+  ],
+  "palm_pixel": {
+    "x": 573,
+    "y": 701
+  },
+  "palm_pct": {
+    "x": 63.95,
+    "y": 52.16
+  },
+  "detected_method": "skin_tone_lower_half_largest_cluster",
+  "previous_value": {
+    "x": 47,
+    "y": 60
+  },
+  "detected_at": "2026-04-26"
+}

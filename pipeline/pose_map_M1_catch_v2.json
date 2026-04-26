@@ -1,0 +1,120 @@
+{
+  "_authority": "actor_director senior casting decision for M1 tool-catch reaction. Supersedes all prior pose_06_t3 / pose_06_t5 selections.",
+  "_decided_at": "2026-04-26",
+  "_decided_by": "actor_director",
+  "_consumed_inputs": [
+    "C:/emerald/pipeline/_team_context.md",
+    "C:/emerald/agents/actor_director.md",
+    "C:/emerald/agents/editor.md",
+    "C:/emerald/pipeline/_spec_original.json",
+    "C:/emerald/poses_video/list.txt",
+    "C:/emerald/player/anim_reach_forward.mp4",
+    "C:/emerald/player/anim_climbing.mp4",
+    "C:/emerald/player/anim_crouch.mp4",
+    "C:/emerald/player/anim_running.mp4",
+    "C:/emerald/pipeline/extracted_frames/M1_reach_inspect_t{1..7}.0.png",
+    "C:/emerald/pipeline/extracted_frames/anim_climbing_t{1..3}.0.png"
+  ],
+  "_handoff_to": ["editor", "visual_editor", "anchor_calibrator", "builder"],
+
+  "rejection_of_prior_choice": {
+    "rejected_pose": "pose_06_t3 / pose_06_t5 (and any frame from anim_reach_forward.mp4)",
+    "reason_rejected": "Direct visual inspection of anim_reach_forward.mp4 across t=0.3 / 0.6 / 1.0 / 1.3 / 1.6 / 2.0 / 3.0 / 4.0 / 5.0 / 6.0 / 7.0 confirms the rendered animation does NOT show a 'reach forward at chest height' as the spec list.txt described. It shows idle -> raise-left-arm-to-shoulder-with-palm-out (STOP/HALT gesture) -> idle. Identical to the pose_06 STOP gesture Nirit explicitly rejected. The semantic filename misled the prior pass; the prior pass was bound to pre-extracted PNGs only and could not verify. With editor's ffmpeg extraction now in scope, the choice space is wider and a better casting exists.",
+    "supersedes": "All references to pose_06_t3 / pose_06_t5 in any prior pose_map_M1*.json must be ignored by builder."
+  },
+
+  "casting_decision": {
+    "pose_id": "M1_catch",
+    "source_video": "C:/emerald/player/anim_climbing.mp4",
+    "timestamp_seconds": 1.0,
+    "timestamp_rationale": "anim_climbing at t=1.0s captures BOTH arms fully extended overhead, hands at apex, palms open, fingers spread. Body straight and grounded (this is the start frame of climbing — before grip-and-pull begins, so the legs are still standing on ground rather than mid-pull). This reads visually as 'catching something from above' more clearly than as 'climbing a wall' when removed from a wall context. By t=2.0s and t=3.0s the body has lifted off the ground and one knee bends — wrong (reads as climbing). t=1.0s is the unique frame that is both arms-up AND grounded.",
+    "narrative_justification": "M1 scene = airplane door open, sky+jungle below, parachute / glider / wingsuit being deployed. The tool descends from above (sky -> her). A horizontal forward reach would be wrong physics — the tool isn't approaching head-on, it's coming DOWN from rigging above her. Both arms up, palms open is the cinematic catch for a parachute harness / glider strap dropping into her grip. This also reads identically across all 3 tool variants (slot A round chute, slot B glider, slot C wingsuit) — every one of them attaches via overhead rigging.",
+    "pose_features_verified": {
+      "arms": "both extended fully vertical, biceps next to ears",
+      "hands": "open, palms facing inward toward each other (not stop-sign outward — this is grasping geometry)",
+      "torso": "upright, frontal-three-quarter, matches nirit_alpha.png composition",
+      "feet": "both planted on ground (not mid-air like climbing later frames)",
+      "face": "looking up — gaze tracking the descending tool, narratively consistent",
+      "no_artifacts": "no STOP gesture, no Veo watermark in face area (watermark bottom-right only)"
+    },
+    "alternatives_considered_and_rejected": [
+      {"option": "anim_reach_forward at any t", "why_rejected": "All frames are stop-sign palm-out gesture. Same as pose_06 Nirit rejected."},
+      {"option": "anim_running at any t", "why_rejected": "Motion-blurred profile shot, no stable open palm, wrong axis (lateral travel not catching)."},
+      {"option": "anim_crouch t=2-3", "why_rejected": "Hands at knees, looking down. Right for M5 / M8 ground tools; wrong for M1 sky tool."},
+      {"option": "anim_climbing t=2.0 or t=3.0", "why_rejected": "Body lifted, knee bent, reads as 'pulling up wall'. Only t=1.0 is grounded + arms up."}
+    ]
+  },
+
+  "editor_directive": {
+    "agent": "editor",
+    "command": "ffmpeg -y -ss 1.0 -i \"C:/emerald/player/anim_climbing.mp4\" -frames:v 1 -q:v 1 \"C:/emerald/pipeline/extracted_frames/M1_catch_raw.png\"",
+    "input": "C:/emerald/player/anim_climbing.mp4",
+    "extract_at_seconds": 1.0,
+    "output_path": "C:/emerald/pipeline/extracted_frames/M1_catch_raw.png",
+    "verification": "After extraction, editor opens M1_catch_raw.png with Read tool and confirms: both arms vertical overhead, palms open, feet on ground, no Veo watermark in face/hand area. If Veo watermark overlaps either palm pixel, fall back to t=0.95s or t=1.05s and re-verify."
+  },
+
+  "visual_editor_directive": {
+    "agent": "visual_editor",
+    "input": "C:/emerald/pipeline/extracted_frames/M1_catch_raw.png",
+    "output": "C:/emerald/master_player/nirit_catch_M1_alpha.png",
+    "operations": [
+      "1. Chroma key #00B140 green removal with edge feathering (matches nirit_alpha.png pipeline used for the idle PNG).",
+      "2. Veo watermark removal — the watermark sits bottom-right; mask + content-aware fill or simple alpha-zero on bottom-right 80x40px region (transparent so it does not show on stage).",
+      "3. Edge cleanup: ensure no green halo around hair, backpack straps, or finger silhouettes.",
+      "4. Open output with Read tool. Verify: clean alpha around all 10 fingers (catching surface). No green leak into palm hollow. Hair/backpack edges feathered."
+    ],
+    "size_target": "preserve native source dimensions; builder will scale via CSS."
+  },
+
+  "anchor_calibrator_directive": {
+    "agent": "anchor_calibrator",
+    "input": "C:/emerald/master_player/nirit_catch_M1_alpha.png",
+    "task": "Locate the palm-center pixel of BOTH hands on the cleaned PNG. Output two anchor points: palm_left and palm_right (both available; builder picks closer to tool flight bezier endpoint).",
+    "output": "C:/emerald/pipeline/anchor_M1_catch.json",
+    "schema": {
+      "image_w_px": "<measured width>",
+      "image_h_px": "<measured height>",
+      "palm_left":  {"x_px": "<center of left palm>",  "y_px": "<...>"},
+      "palm_right": {"x_px": "<center of right palm>", "y_px": "<...>"},
+      "preferred_palm": "right",
+      "preferred_palm_reason": "right palm of catcher = left side of mirrored frame from viewer perspective; matches Hebrew RTL reading direction so tool flies in from viewer-left zone-d."
+    }
+  },
+
+  "builder_directive": {
+    "agent": "builder",
+    "scene": "M1",
+    "swap_timing": {
+      "click_offset_0ms":    "tool selected. mission_text begins fade-out (300ms duration).",
+      "click_offset_200ms":  "SWAP <img id='player'> src from 'master_player/nirit_alpha.png' to 'master_player/nirit_catch_M1_alpha.png'. Tool flight (bezier) starts simultaneously, origin = chosen tool icon current position, target = anchor_M1_catch.json.preferred_palm pixel.",
+      "click_offset_1500ms": "Tool reaches palm pixel. Tool fades to opacity 0 over 200ms (absorbed). Player IMG remains on nirit_catch_M1_alpha.png — pose held.",
+      "click_offset_1800ms": "Black overlay opacity 0 -> 1 over 400ms (fade to black).",
+      "click_offset_2200ms": "window.location redirect to next scene (M2)."
+    },
+    "img_src_state_machine": {
+      "state_idle":  {"src": "master_player/nirit_alpha.png",          "active_during": "scene load -> click_offset_200ms"},
+      "state_catch": {"src": "master_player/nirit_catch_M1_alpha.png", "active_during": "click_offset_200ms -> redirect"}
+    },
+    "no_video_element": "Per content_lock + design_system: NO <video> for player. Both states are <img src=...> swaps. No segment loop. No RAF clamp. Background may remain <video autoplay loop muted> per existing rule.",
+    "anchor_consumption": "Read C:/emerald/pipeline/anchor_M1_catch.json at build time. Use preferred_palm.x_px / .y_px scaled by current rendered <img> CSS width/height ratio for the bezier endpoint.",
+    "fallback": "If nirit_catch_M1_alpha.png missing at runtime, do NOT swap — keep idle PNG and log warning to console. Never crash the scene."
+  },
+
+  "handoff_chain_explicit": [
+    {"step": 1, "agent": "editor",            "produces": "C:/emerald/pipeline/extracted_frames/M1_catch_raw.png"},
+    {"step": 2, "agent": "visual_editor",     "produces": "C:/emerald/master_player/nirit_catch_M1_alpha.png"},
+    {"step": 3, "agent": "anchor_calibrator", "produces": "C:/emerald/pipeline/anchor_M1_catch.json"},
+    {"step": 4, "agent": "qa_supervisor",     "verifies": "all three outputs exist + visual sanity (Read tool on PNG, JSON has non-null x/y)"},
+    {"step": 5, "agent": "builder",           "produces": "C:/emerald/pipeline/builder_html_static/M1.html (updated)"}
+  ],
+
+  "qa_supervisor_checkpoints": {
+    "after_editor":            "Read M1_catch_raw.png. Confirm: both arms vertical, palms open, feet grounded, watermark NOT on face/palm area.",
+    "after_visual_editor":     "Read nirit_catch_M1_alpha.png. Confirm: alpha clean, no green halo, watermark erased, fingers crisp.",
+    "after_anchor_calibrator": "Read anchor_M1_catch.json. Confirm: x_px / y_px integers, both within image bounds, preferred_palm == right.",
+    "after_builder":           "Open M1.html in Preview MCP. Click slot B tool. Confirm at click+200ms the IMG src changes to nirit_catch_M1_alpha.png (network tab) and tool bezier ends within 8px of declared palm anchor."
+  },
+
+  "_orchestrator_note": "This file is the SOURCE OF TRUTH for the M1 catch reaction chain. Orchestrator (Claude main) hands this file to each agent in handoff_chain_explicit order. No mid-chain consultation needed — each agent has its complete directive embedded above."
+}

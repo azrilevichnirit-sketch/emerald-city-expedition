@@ -1,0 +1,10 @@
+{
+  "x": 270.2,
+  "y": 49.4,
+  "x_pct": 37.52,
+  "y_pct": 3.86,
+  "w": 720,
+  "h": 1280,
+  "source_pose": "anim_climbing.mp4 @ t=1.0",
+  "method": "skin-tone topmost cluster, top-third centroid"
+}
