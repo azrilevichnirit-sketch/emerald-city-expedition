@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Emerald City Expedition — סיום</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;900&family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body { width:100vw; height:100vh; overflow:hidden;
+      font-family:'Heebo','Assistant',sans-serif; color:#fff; user-select:none;
+      background:radial-gradient(ellipse at center, #1a1f2e 0%, #0a0d14 60%, #000 100%); }
+    /* Sparkle field — pure CSS, no asset */
+    .sparkle { position:absolute; width:2px; height:2px; border-radius:50%;
+      background:#fff; box-shadow:0 0 6px rgba(255,255,255,0.85), 0 0 12px rgba(180,210,255,0.6);
+      opacity:0; animation:twinkle 3s ease-in-out infinite; pointer-events:none; }
+    @keyframes twinkle {
+      0%,100% { opacity:0; transform:scale(0.6); }
+      50% { opacity:0.95; transform:scale(1.3); }
+    }
+    #stage { position:fixed; inset:0; display:flex; flex-direction:column;
+      align-items:center; justify-content:center; padding:6vh 6vw;
+      direction:rtl; text-align:center; z-index:10; }
+    #title { font-size:clamp(1.5rem, 4.5vw, 2.6rem); font-weight:700;
+      margin-bottom:2vh; opacity:0; transform:translateY(12px);
+      transition:opacity 700ms ease-out, transform 700ms ease-out;
+      text-shadow:0 2px 10px rgba(0,0,0,0.85); letter-spacing:0.02em; }
+    #score-block { display:flex; flex-direction:column; align-items:center; gap:0.6vh;
+      margin:2vh 0 3vh; opacity:0; transition:opacity 600ms ease-out 400ms; }
+    #score-label { font-size:clamp(0.95rem, 2.4vw, 1.2rem); color:#cdd5e3;
+      letter-spacing:0.05em; }
+    #score-value { font-size:clamp(3.2rem, 9vw, 5.5rem); font-weight:900;
+      line-height:1; color:#fff; text-shadow:0 4px 20px rgba(120,160,255,0.45),
+      0 0 40px rgba(255,255,255,0.18); font-variant-numeric:tabular-nums; }
+    #profile-block { max-width:680px; opacity:0;
+      transition:opacity 600ms ease-out 1100ms; margin-bottom:3vh; }
+    #profile-name { font-size:clamp(1.3rem, 3.8vw, 2rem); font-weight:700;
+      margin-bottom:1vh; color:#fff; text-shadow:0 2px 8px rgba(0,0,0,0.7); }
+    #profile-desc { font-size:clamp(0.95rem, 2.4vw, 1.15rem); line-height:1.55;
+      color:#dde3ee; text-shadow:0 1px 3px rgba(0,0,0,0.85); }
+    #narrative { max-width:600px; font-size:clamp(0.9rem, 2.2vw, 1.05rem);
+      line-height:1.55; color:#aab2c0; opacity:0;
+      transition:opacity 600ms ease-out 1500ms; margin-bottom:4vh; }
+    #restart-btn { padding:1.2vh 5vw; min-height:48px; min-width:200px;
+      background:#1f2738; border:2px solid rgba(160,180,220,0.35);
+      color:#fff; font-family:inherit; font-size:clamp(0.95rem, 2.4vw, 1.1rem);
+      font-weight:600; border-radius:8px; cursor:pointer; opacity:0;
+      transition:opacity 600ms ease-out 1900ms,
+                 background 200ms, border-color 200ms, transform 150ms; direction:rtl; }
+    #restart-btn:hover, #restart-btn:focus {
+      background:#2a3550; border-color:rgba(180,210,255,0.65); outline:none; }
+    #restart-btn:active { transform:scale(0.97); }
+    .visible { opacity:1 !important; transform:translateY(0) !important; }
+  </style>
+</head>
+<body>
+  <!-- Sparkle field generated via CSS — no image -->
+  <div id="stage">
+    <h1 id="title">המסע הסתיים</h1>
+    <div id="score-block">
+      <div id="score-label">הניקוד שלך</div>
+      <div id="score-value">0</div>
+    </div>
+    <div id="profile-block">
+      <div id="profile-name"></div>
+      <div id="profile-desc"></div>
+    </div>
+    <p id="narrative">חזרת מהג'ונגל עם 15 בחירות מאחוריך. כל בחירה ספרה משהו עליך — איך את שוקלת סיכון, איך את מחליטה כשאחרים בורחים לכיוון אחר, ומה את שולפת מהחגורה כשהזמן נגמר.</p>
+    <button id="restart-btn" type="button">להתחיל מחדש</button>
+  </div>
+
+  <script>
+  (function(){
+    'use strict';
+    // Generate sparkle field
+    const NUM_SPARKLES = 60;
+    for (let i=0; i<NUM_SPARKLES; i++){
+      const s = document.createElement('span');
+      s.className = 'sparkle';
+      s.style.left = (Math.random()*100) + '%';
+      s.style.top = (Math.random()*100) + '%';
+      s.style.animationDelay = (Math.random()*3) + 's';
+      s.style.animationDuration = (2 + Math.random()*2.5) + 's';
+      document.body.appendChild(s);
+    }
+
+    // Read score + progress from localStorage
+    const rawScore = parseInt(localStorage.getItem('emerald_score')||'0', 10) || 0;
+    let progress = [];
+    try { progress = JSON.parse(localStorage.getItem('emerald_progress')||'[]'); }
+    catch(e){ progress = []; }
+    if (!Array.isArray(progress)) progress = [];
+    const completedCount = progress.length;
+    // Final score = average across completed missions (per spec scoring_logic.final_score).
+    // If user took the demo without finishing, divide by completedCount, not 15.
+    const denom = completedCount > 0 ? completedCount : 15;
+    const finalScore = rawScore / denom;
+
+    // Player profile per spec player_profiles
+    function profileFor(score){
+      if (score <= 1.5) return {
+        name: 'הסלע האיתן',
+        desc: 'לא מזיזים אותך מהמסלול. אתה משקיע שקול, רגוע, שיודע בדיוק לאן הוא הולך מבלי להסתכל לצדדים.'
+      };
+      if (score <= 2.4) return {
+        name: 'הנווט הגמיש',
+        desc: 'אתה יודע מתי להאיץ ומתי לעצור. השילוב המושלם בין זהירות להעזה הופך אותך למשקיע חכם ומאוזן.'
+      };
+      return {
+        name: "הצ'יטה מהג'ונגל",
+        desc: 'אתה חי על הקצה. זיהוי הזדמנויות מהיר, תעוזה מקסימלית ותגובה חדה הופכים אותך לטורף פיננסי אמיתי.'
+      };
+    }
+    const prof = profileFor(finalScore);
+
+    // Reveal sequence
+    const titleEl = document.getElementById('title');
+    const scoreBlk = document.getElementById('score-block');
+    const scoreVal = document.getElementById('score-value');
+    const profileBlk = document.getElementById('profile-block');
+    const profileName = document.getElementById('profile-name');
+    const profileDesc = document.getElementById('profile-desc');
+    const narrativeEl = document.getElementById('narrative');
+    const btn = document.getElementById('restart-btn');
+
+    // Animated count-up over 1800ms
+    function countUp(target, durationMs){
+      const start = performance.now();
+      const t0 = 0;
+      function step(now){
+        const t = Math.min(1, (now-start)/durationMs);
+        // ease-out cubic
+        const eased = 1 - Math.pow(1-t, 3);
+        const v = t0 + (target - t0) * eased;
+        scoreVal.textContent = v.toFixed(2);
+        if (t < 1) requestAnimationFrame(step);
+        else scoreVal.textContent = target.toFixed(2);
+      }
+      requestAnimationFrame(step);
+    }
+
+    // Sequence
+    requestAnimationFrame(()=>{
+      titleEl.classList.add('visible');
+    });
+    setTimeout(()=>{
+      scoreBlk.classList.add('visible');
+      countUp(finalScore, 1800);
+    }, 500);
+    setTimeout(()=>{
+      profileName.textContent = prof.name;
+      profileDesc.textContent = prof.desc;
+      profileBlk.classList.add('visible');
+    }, 1500);
+    setTimeout(()=>{ narrativeEl.classList.add('visible'); }, 2200);
+    setTimeout(()=>{ btn.classList.add('visible'); }, 2700);
+
+    // Restart handler — clear localStorage + go to M1
+    btn.addEventListener('click', ()=>{
+      try {
+        localStorage.removeItem('emerald_score');
+        localStorage.removeItem('emerald_progress');
+        for (let i=1; i<=15; i++){
+          localStorage.removeItem('emerald_M'+i+'_choice');
+        }
+      } catch(e){ /* no-op if storage blocked */ }
+      window.location.href = './M1.html';
+    });
+  })();
+  </script>
+</body>
+</html>

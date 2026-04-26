@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>Emerald City Expedition — M1</title>
+  <title>Emerald City Expedition — M7</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
@@ -13,7 +13,6 @@
       font-family:'Heebo','Assistant',sans-serif; color:#fff; user-select:none; }
     #zone-a { position:fixed; top:0; left:0; width:100%; height:6vh; min-height:28px; max-height:44px;
       z-index:100; pointer-events:none; display:flex; align-items:center; padding:0 4vw; }
-    /* spec §3: rope/path style, no numbers, no 1/15 */
     #progress-rope { position:relative; width:100%; height:3px;
       background:linear-gradient(to right, rgba(218,165,32,0.45) 0%, rgba(160,120,60,0.45) 50%, rgba(218,165,32,0.45) 100%);
       border-radius:2px; box-shadow:0 0 6px rgba(0,0,0,0.5); }
@@ -67,7 +66,7 @@
     .tool-info-icon:hover + .tool-tooltip,
     .tool-info-icon:focus + .tool-tooltip,
     .tool-tooltip.visible { opacity:1; }
-    .tool-label { display:block; color:#fff; font-size:clamp(0.65rem,1.6vw,0.9rem);
+        .tool-label { display:block; color:#fff; font-size:clamp(0.65rem,1.6vw,0.9rem);
       text-align:center; margin-top:3px; white-space:nowrap;
       font-family:'Heebo','Assistant',sans-serif; opacity:0.9; letter-spacing:0.01em; }
     .tool-clone { position:fixed; z-index:11; pointer-events:none;
@@ -82,40 +81,35 @@
   </div>
 
   <div id="zone-b">
-    <img id="bg-static" src="../bg_keyframes/bg_M1_t1.jpg"
-      alt="פנים מטוס משא עם דלת אחורית קרועה ופתוחה — מבט אל הג'ונגל מבעד לפתח">
+    <img id="bg-static" src="../bg_keyframes/bg_07_t1.8.png"
+      alt="כניסה חבויה למקדש קטן, שלושה רכבים חונים, מכשיר קשר ליד הכניסה">
     <img id="player" src="../../master_player/nirit_alpha.png"
-      alt="ניריט עומדת על סף דלת המטוס, פרונטלית, מוכנה לקפוץ">
+      alt="ניריט עומדת פרונטלית, מוכנה לפעולה">
   </div>
 
   <div id="zone-c">
-    <p id="mission-narrative">דלת המטוס נפתחת בבת אחת ורוח פרצים שואבת הכל החוצה. המתחרים כבר באוויר, הופכים לנקודות קטנות מעל הג'ונגל הירוק. הקרקע מתקרבת במהירות וחייבים לקפוץ עכשיו כדי לא לפספס את אזור הנחיתה. איך נתקדם?</p>
+    <p id="mission-narrative">בזמן הדהירה לעבר היעד המרכזי, מתגלה כניסה חבויה למקדש קטן. שלושה רכבים של מתחרים אחרים כבר חונים שם. מכשיר קשר זרוק ליד הכניסה משמיע קולות התלהבות של הצוותים שנמצאים בפנים. כולם כבר בפנים. איך נתקדם?</p>
   </div>
 
   <div id="zone-d"></div>
   <div id="fade-overlay"></div>
 
-  <!-- Preload catch-pose PNG so it's fully decoded before any user interaction -->
   <img src="../../master_player/nirit_catch_M1_alpha.png" style="display:none" alt="" decoding="async" fetchpriority="high">
 
   <script>
   (function(){
     'use strict';
-    // ── Tool data (verbatim from _spec_original.json M1.tools) ──
     const TOOLS = [
-      { slot:'A', label:'מצנח עגול רחב', file:'../../assets/tools_final/מצנח_מ01.png', points:1, sfx:'fabric_whoosh_snap', vol:0.8 },
-      { slot:'B', label:'גלשן רחיפה',     file:'../../assets/tools_final/גלשן_מ01.png',  points:2, sfx:'metallic_glider_snap', vol:0.8 },
-      { slot:'C', label:'חליפת כנפיים',   file:'../../assets/tools_final/כנפיים_מ01.png', points:3, sfx:'whoosh_acceleration', vol:0.9 }
+      { slot:'A', label:'דגל המשימה המקורי', file:'../../assets/tools_final/דגל_מ07.png',     points:1, sfx:'fabric_flap', vol:0.7 },
+      { slot:'B', label:'פריסקופ',            file:'../../assets/tools_final/פריסקופ_מ07.png', points:2, sfx:'lens_click',  vol:0.6 },
+      { slot:'C', label:'לום ברזל',           file:'../../assets/tools_final/לום_מ07.png',     points:3, sfx:'metal_clang', vol:0.8 }
     ];
-    // palm anchor — setup pose (nirit_alpha.png) hip/belt dock for setup; replaced at click+200ms
-    // with catch-pose anchor (raised palm) from pipeline/palm_anchor_M1_catch.json before flight calc.
     let PALM_ANCHOR = { x_pct: 47, y_pct: 60 };
-    // catch-pose palm anchor — anim_reach_forward.mp4 t=3.3 (single-arm extend, right arm out)
-    const PALM_ANCHOR_CATCH = { x_pct: 8.61, y_pct: 32.81 };
+    const PALM_ANCHOR_CATCH = { x_pct: 37.52, y_pct: 3.86 };
     const CATCH_POSE_SRC = '../../master_player/nirit_catch_M1_alpha.png';
-    const REDIRECT_TARGET = './M2.html';
+    const REDIRECT_TARGET = './M8.html';
+    const MISSION_ID = 'M7';
 
-    // ── Sound subsystem (silent fallback for missing files) ──
     const audioCache = {};
     const ambientNodes = {};
     function tryPlaySound(key, vol, loop){
@@ -123,7 +117,7 @@
       try {
         let a = audioCache[key];
         if (!a) {
-          a = new Audio('../../assets/audio/M1/'+key+'.mp3');
+          a = new Audio('../../assets/audio/'+MISSION_ID+'/'+key+'.mp3');
           a.volume = (vol!=null?vol:0.6);
           a.loop = !!loop;
           a.addEventListener('error', ()=>{ audioCache[key] = false; console.info('[sound] missing: '+key); });
@@ -145,14 +139,11 @@
       requestAnimationFrame(step);
     }
 
-    // ── Score / progress ──
     function readScore(){ return parseInt(localStorage.getItem('emerald_score')||'0', 10) || 0; }
     function renderProgress(){
       const prog = JSON.parse(localStorage.getItem('emerald_progress')||'[]');
-      // M1 is the current mission — never count it as already complete on this page
-      const filtered = prog.filter(id => id !== 'M1');
+      const filtered = prog.filter(id => id !== 'M7');
       const completed = Array.isArray(filtered) ? filtered.length : 0;
-      // M1 is mission 1 of 15. After completing M1, dot is at 1/15. Before, 0/15.
       const pct = Math.min(100, (completed/15)*100);
       const trail = document.getElementById('progress-trail');
       const dot   = document.getElementById('progress-dot');
@@ -160,7 +151,6 @@
       if (dot)   dot.style.left    = pct + '%';
     }
 
-    // ── Build tool buttons ──
     function buildTools(){
       const zd = document.getElementById('zone-d');
       TOOLS.forEach(t=>{
@@ -172,55 +162,38 @@
         icon.addEventListener('click', e=>{ e.stopPropagation(); tip.classList.add('visible');
           setTimeout(()=>tip.classList.remove('visible'), 2000); });
         btn.addEventListener('click', ()=>handleToolClick(t, btn, img));
+        const labelEl = document.createElement('span'); labelEl.className = 'tool-label'; labelEl.textContent = t.label; btn.appendChild(labelEl);
         btn.append(img, icon, tip);
-        const labelEl = document.createElement('span');
-        labelEl.className = 'tool-label';
-        labelEl.textContent = t.label;
-        btn.appendChild(labelEl);
         zd.appendChild(btn);
       });
     }
 
-    // ── Tool click handler ──
     let clickLocked = false;
     function handleToolClick(tool, btn, img){
       if (clickLocked) return; clickLocked = true;
-      const clickT = performance.now();
-      // Visual feedback
       btn.classList.add('selected');
       document.querySelectorAll('.tool-btn').forEach(b=>{ if (b !== btn) b.classList.add('dim'); });
       document.getElementById('mission-narrative').style.opacity = '0';
-      // Per-slot SFX
       tryPlaySound(tool.sfx, tool.vol, false);
-      // Score save at click+200ms
       setTimeout(()=>{
         const s = readScore(); localStorage.setItem('emerald_score', String(s + tool.points));
         let prog; try { prog = JSON.parse(localStorage.getItem('emerald_progress')||'[]'); }
         catch(e){ prog = []; }
         if (!Array.isArray(prog)) prog = [];
-        if (prog.indexOf('M1') === -1) prog.push('M1');
+        if (prog.indexOf(MISSION_ID) === -1) prog.push(MISSION_ID);
         localStorage.setItem('emerald_progress', JSON.stringify(prog));
-        localStorage.setItem('emerald_M1_choice', JSON.stringify({slot:tool.slot, label:tool.label, ts:Date.now()}));
+        localStorage.setItem('emerald_'+MISSION_ID+'_choice', JSON.stringify({slot:tool.slot, label:tool.label, ts:Date.now()}));
         renderProgress();
       }, 200);
-      // At click+200ms: swap player to catch pose AND update PALM_ANCHOR, THEN start flight.
-      // Order matters: PALM_ANCHOR must be the catch-pose value BEFORE flyToolToPalm reads it.
-      // Also: wait one rAF after src swap so layout (player rect from new pose) is settled
-      // before flyToolToPalm reads getBoundingClientRect — the catch PNG is preloaded
-      // (hidden <img> in body) so the swap is instant; rAF guarantees layout commit.
       setTimeout(()=>{
         document.getElementById('player').src = CATCH_POSE_SRC;
         PALM_ANCHOR = PALM_ANCHOR_CATCH;
-        requestAnimationFrame(()=>{
-          flyToolToPalm(img, tool);
-        });
+        requestAnimationFrame(()=>{ flyToolToPalm(img, tool); });
       }, 200);
-      // Fade-to-black at click+1800ms
       setTimeout(()=>{
         document.getElementById('fade-overlay').style.opacity = '1';
-        fadeOutAmbient('wind_rush_loop', 600);
+        fadeOutAmbient('ambient_loop', 600);
       }, 1800);
-      // Redirect at click+2200ms
       setTimeout(()=>{ window.location.href = REDIRECT_TARGET; }, 2200);
     }
 
@@ -228,12 +201,10 @@
       const playerEl = document.getElementById('player');
       const pr = playerEl.getBoundingClientRect();
       const tr = toolImg.getBoundingClientRect();
-      // Palm/hip target — anchor (47, 60) from pose_map_M1_static
       const targetX = pr.left + pr.width  * (PALM_ANCHOR.x_pct/100);
       const targetY = pr.top  + pr.height * (PALM_ANCHOR.y_pct/100);
       const startX = tr.left + tr.width/2;
       const startY = tr.top  + tr.height/2;
-      // Build the floating clone
       const clone = document.createElement('img');
       clone.src = tool.file; clone.className = 'tool-clone';
       clone.style.width = tr.width+'px'; clone.style.height = tr.height+'px';
@@ -242,13 +213,12 @@
       document.body.appendChild(clone);
       const dx = targetX - startX;
       const dy = targetY - startY;
-      const arcY = Math.min(startY, targetY) - 80 - startY; // peak offset
+      const arcY = Math.min(startY, targetY) - 80 - startY;
       clone.animate([
         { transform: 'translate(0px, 0px) scale(1.0)',                            offset: 0 },
         { transform: 'translate('+(dx*0.5)+'px, '+arcY+'px) scale(1.1)',          offset: 0.45 },
         { transform: 'translate('+dx+'px, '+dy+'px) scale(0.85)',                 offset: 1 }
       ], { duration: 1300, easing: 'cubic-bezier(0.34,1.56,0.64,1)', fill: 'forwards' });
-      // tool_at_palm event — thud pulse + sound at click+1500ms (= flight start +1300ms)
       setTimeout(()=>{
         clone.animate([
           { transform: 'translate('+dx+'px, '+dy+'px) scale(0.85)' },
@@ -259,15 +229,11 @@
       }, 1300);
     }
 
-    // ── Init / event timeline ──
     function init(){
       renderProgress();
       buildTools();
-      // scene_entry — try ambient + door SFX
-      const wind = tryPlaySound('wind_rush_loop', 0.7, true);
-      if (wind) ambientNodes['wind_rush_loop'] = wind;
-      tryPlaySound('metallic_creak_hiss_subtle', 0.35, false);
-      // narrative + tools fade in together at 800ms
+      const amb = tryPlaySound('ambient_loop', 0.6, true);
+      if (amb) ambientNodes['ambient_loop'] = amb;
       setTimeout(()=>{
         document.getElementById('mission-narrative').style.opacity = '1';
         document.querySelectorAll('.tool-btn').forEach(b=>{ b.style.opacity = '1'; });
