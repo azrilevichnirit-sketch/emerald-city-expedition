@@ -80,16 +80,15 @@
   <div id="zone-b">
     <img id="bg-static" src="../bg_keyframes/bg_06_t1.8.png"
       alt="תהום עמוקה עם גשר חבלים רעוע, ערימת קרשים בפתח">
-    <!-- scenery: wood plank pile at bridge entrance — set_manager M4 placement -->
-    <img class="rival" src="../../scenery/wood_pile_alpha.png"
-      alt="ערימת קרשים ועצים בפתח הגשר"
-      style="height:28vh; bottom:0; right:6vw; left:auto; filter:drop-shadow(0 4px 12px rgba(0,0,0,0.5)) brightness(0.85);">
+    
+    
+    <img class="rival" src="../../rivals/rival_male_run_1.png" alt="מתחרה בצד השני של התהום" style="height:8vh; bottom:12vh; right:3vw; opacity:0.4; filter:blur(1.5px);">
     <img id="player" src="../../master_player/nirit_alpha.png"
       alt="ניריט עומדת פרונטלית, מוכנה לפעולה">
   </div>
 
   <div id="zone-c">
-    <p id="mission-narrative">השביל נקטע בתהום עמוקה. גשר חבלים רעוע תלוי מצד לצד, לוחות העץ שלו חסרים והרוח מטלטלת אותו בחוזקה. ערימת קרשים זרוקה בפתח הגשר. הצוות המוביל כבר נמצא בצד השני, מנפנף לשלום וממשיך להיעלם בתוך היער. איך עוברים לצד השני?</p>
+    <p id="mission-narrative">השביל נקטע בתהום! גשר החבלים רעוע והרוח מטלטלת אותו בחוזקה, בזמן שהצוות המוביל כבר בצד השני וממשיך להיעלם בתוך היער. איך אני צולחת את התהום הזו עכשיו?</p>
   </div>
 
   <div id="zone-d"></div>
@@ -101,8 +100,8 @@
   (function(){
     'use strict';
     const TOOLS = [
-      { slot:'A', label:'לוחות עץ ופטיש', file:'../../assets/tools_final/קרשים_מ04.png',     points:1, sfx:'metal_clang', vol:0.8 },
-      { slot:'B', label:'רתמת אבטחה',     file:'../../assets/tools_final/רתמה_מ04.png',      points:2, sfx:'strap_click', vol:0.7 },
+      { slot:'A', label:'לוחות עץ ופטיש', file:'tools/לוחות_עץ_פטיש_מ04.png',     points:1, sfx:'metal_clang', vol:0.8 },
+      { slot:'B', label:'רתמת אבטחה',     file:'tools/רתמת_אבטחה_מ04.png',      points:2, sfx:'strap_click', vol:0.7 },
       { slot:'C', label:'רובה חבלים',     file:'../../assets/tools_final/רובה_חבלים_מ04.png', points:3, sfx:'metal_clang', vol:0.8 }
     ];
     let PALM_ANCHOR = { x_pct: 47, y_pct: 60 };

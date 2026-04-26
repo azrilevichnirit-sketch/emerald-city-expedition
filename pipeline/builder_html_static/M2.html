@@ -80,16 +80,15 @@
   <div id="zone-b">
     <img id="bg-static" src="../bg_keyframes/bg_05_t1.8.png"
       alt="סבך ירוק עבות בשעת בין-ערביים, מבנה אבן עתיק רעוע, סערה מתקרבת">
-    <!-- scenery: ruined building (מבנה רעועה) — set_manager M2 placement -->
-    <img class="rival" src="../../scenery/מבנה_רעועה_מלפנים_02_alpha.png"
-      alt="מבנה עץ רעוע עם גג קורס"
-      style="height:38vh; bottom:0; right:4vw; left:auto; filter:drop-shadow(0 4px 12px rgba(0,0,0,0.5)) brightness(0.88);">
+    
+    
+    <img class="rival" src="../../scenery/מבנה_רעועה_מלפנים_02_alpha.png" alt="מבנה עץ רעוע" style="height:38vh; bottom:0; left:3vw; opacity:0.82; filter:blur(0.5px) drop-shadow(0 4px 12px rgba(0,0,0,0.5));">
     <img id="player" src="../../master_player/nirit_alpha.png"
       alt="ניריט עומדת פרונטלית, מוכנה לפעולה">
   </div>
 
   <div id="zone-c">
-    <p id="mission-narrative">הנחיתה הושלמה בלב סבך עבות והשמש שוקעת. ממול עומד מבנה אבן עתיק ששימש פעם כבסיס צבאי; חצי מהגג קרס והוא נראה רעוע. סערה טרופית עומדת להתפרץ, הברקים כבר מעל וצריך פתרון מיידי ללילה הקרוב. יש לך רעיון מה לעשות?</p>
+    <p id="mission-narrative">הברקים כבר מעליי וסערה טרופית עומדת להתפרץ. אם לא אמצא מחסה יבש לציוד עכשיו, כל היתרון שלי ייהרס. מה הדרך הטובה ביותר לאלתר פתרון ללילה?</p>
   </div>
 
   <div id="zone-d"></div>
@@ -102,7 +101,7 @@
     'use strict';
     const TOOLS = [
       { slot:'A', label:'יריעת ברזנט',   file:'../../assets/tools_final/ברזנט_מ02.png', points:1, sfx:'fabric_unfold', vol:0.7 },
-      { slot:'B', label:'פטיש ומסמרים', file:'../../assets/tools_final/פטיש_מ02.png',  points:2, sfx:'metal_clang',   vol:0.8 },
+      { slot:'B', label:'פטיש ומסמרים', file:'tools/פטיש_מ02.jpg',  points:2, sfx:'metal_clang',   vol:0.8 },
       { slot:'C', label:'אוהל סיירים',  file:'../../assets/tools_final/אוהל_מ02.png',  points:3, sfx:'fabric_unfold', vol:0.75 }
     ];
     let PALM_ANCHOR = { x_pct: 47, y_pct: 60 };

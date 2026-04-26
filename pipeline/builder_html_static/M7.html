@@ -80,12 +80,14 @@
   <div id="zone-b">
     <img id="bg-static" src="../bg_keyframes/bg_M7_t1.8.png"
       alt="כניסה חבויה למקדש קטן, שלושה רכבים חונים, מכשיר קשר ליד הכניסה">
+    
+    
     <img id="player" src="../../master_player/nirit_alpha.png"
       alt="ניריט עומדת פרונטלית, מוכנה לפעולה">
   </div>
 
   <div id="zone-c">
-    <p id="mission-narrative">בזמן הדהירה לעבר היעד המרכזי, מתגלה כניסה חבויה למקדש קטן. שלושה רכבים של מתחרים אחרים כבר חונים שם. מכשיר קשר זרוק ליד הכניסה משמיע קולות התלהבות של הצוותים שנמצאים בפנים. כולם כבר בפנים. איך נתקדם?</p>
+    <p id="mission-narrative">כניסה למקדש חבוי. רכבי המתחרים כבר חונים כאן ומכשיר הקשר משמיע קולות התלהבות של הצוותים שבפנים. כולם כבר שם. האם אני עוצרת לבדוק מה הם מצאו?</p>
   </div>
 
   <div id="zone-d"></div>
@@ -97,9 +99,9 @@
   (function(){
     'use strict';
     const TOOLS = [
-      { slot:'A', label:'דגל המשימה המקורי', file:'../../assets/tools_final/דגל_מ07.png',     points:1, sfx:'fabric_flap', vol:0.7 },
+      { slot:'A', label:'דגל המשימה המקורי', file:'tools/דגל_משימה_מ07.png',     points:1, sfx:'fabric_flap', vol:0.7 },
       { slot:'B', label:'פריסקופ',            file:'../../assets/tools_final/פריסקופ_מ07.png', points:2, sfx:'lens_click',  vol:0.6 },
-      { slot:'C', label:'לום ברזל',           file:'../../assets/tools_final/לום_מ07.png',     points:3, sfx:'metal_clang', vol:0.8 }
+      { slot:'C', label:'לום ברזל',           file:'tools/לום_ברזל_מ07.png',     points:3, sfx:'metal_clang', vol:0.8 }
     ];
     let PALM_ANCHOR = { x_pct: 47, y_pct: 60 };
     const PALM_ANCHOR_CATCH = { x_pct: 16.83, y_pct: 32.73 };

@@ -80,12 +80,15 @@
   <div id="zone-b">
     <img id="bg-static" src="../bg_keyframes/bg_03_t1.8.png"
       alt="שער פלדה מסיבי עם לוח מקשים מהבהב באדום, ספירה לאחור">
+    
+    
+    <img class="rival" src="../../assets/scenery/flashing_keypad_alpha.png" alt="לוח מקשים מהבהב" style="height:22vh; bottom:14vh; left:10vw; filter:drop-shadow(0 0 12px rgba(220,50,50,0.7));">
     <img id="player" src="../../master_player/nirit_alpha.png"
       alt="ניריט עומדת פרונטלית, מוכנה לפעולה">
   </div>
 
   <div id="zone-c">
-    <p id="mission-narrative">הגעה לשער פלדה מסיבי שחוסם את הכניסה למנהרות העיר. לוח המקשים הישן מהבהב באדום; ללא הקשת הקוד הנכון ב-60 השניות הקרובות, השער יינעל הרמטית וייחסם לכל היום. איך פותחים את המעבר?</p>
+    <p id="mission-narrative">לוח המקשים מהבהב באדום. אם לא אקיש את הקוד ב-60 השניות הקרובות, השער יינעל הרמטית וייחסם לכל היום. איך אני מפצחת את המעבר הזה תחת לחץ?</p>
   </div>
 
   <div id="zone-d"></div>
@@ -97,9 +100,9 @@
   (function(){
     'use strict';
     const TOOLS = [
-      { slot:'A', label:'שמן לשימון צירים', file:'../../assets/tools_final/שמן_מ09.png',    points:1, sfx:'liquid_pour', vol:0.6 },
+      { slot:'A', label:'שמן לשימון צירים', file:'tools/שמן_לשימון_מ09.png',    points:1, sfx:'liquid_pour', vol:0.6 },
       { slot:'B', label:'רב-כלי',            file:'../../assets/tools_final/רב_כלי_מ09.png', points:2, sfx:'toolbox_open',vol:0.7 },
-      { slot:'C', label:'מבער ריתוך',        file:'../../assets/tools_final/מבער_מ09.png',   points:3, sfx:'fire_whoosh', vol:0.85 }
+      { slot:'C', label:'מבער ריתוך',        file:'tools/מבער_ריתוך_מ09.png',   points:3, sfx:'fire_whoosh', vol:0.85 }
     ];
     let PALM_ANCHOR = { x_pct: 47, y_pct: 60 };
     const PALM_ANCHOR_CATCH = { x_pct: 16.83, y_pct: 32.73 };

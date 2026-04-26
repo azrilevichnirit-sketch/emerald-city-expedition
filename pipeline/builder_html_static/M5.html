@@ -80,16 +80,14 @@
   <div id="zone-b">
     <img id="bg-static" src="../bg_keyframes/bg_M5_t1.8.png"
       alt="סבך עצים סבוך, השיח מימין רועד — משהו גדול זז שם">
-    <!-- scenery: jungle trees on right — reinforces shaking bush narrative — set_manager M5 placement -->
-    <img class="rival" src="../../scenery/two_jungle_trees_alpha.png"
-      alt="עצי ג'ונגל מימין, משהו זז מאחוריהם"
-      style="height:55vh; bottom:0; right:0; left:auto; filter:drop-shadow(0 4px 16px rgba(0,0,0,0.6)) brightness(0.70);">
+    
+    
     <img id="player" src="../../master_player/nirit_alpha.png"
       alt="ניריט עומדת פרונטלית, מוכנה לפעולה">
   </div>
 
   <div id="zone-c">
-    <p id="mission-narrative">הליכה שקטה בין העצים ופתאום השיח מימין מתחיל לרעוד בטירוף. משהו גדול זז שם בפנים, נשימות כבדות נשמעות והענפים נשברים. זינוק עלול לקרות בכל שנייה. מה שולפים מהחגורה?</p>
+    <p id="mission-narrative">השיח מימין רועד בטירוף. משהו גדול זז שם, נשימות כבדות נשמעות וענפים נשברים. זינוק עלול לקרות בכל שנייה – מה אני שולפת מהחגורה כדי להגיב ראשונה?</p>
   </div>
 
   <div id="zone-d"></div>
@@ -102,8 +100,8 @@
     'use strict';
     const TOOLS = [
       { slot:'A', label:'פנס עוצמתי', file:'../../assets/tools_final/פנס_עוצמתי_מ05.png', points:1, sfx:'flashlight_click', vol:0.7 },
-      { slot:'B', label:'רשת הגנה',   file:'../../assets/tools_final/רשת_מ05.png',         points:2, sfx:'rope_swish',       vol:0.75 },
-      { slot:'C', label:'לפיד בוער',  file:'../../assets/tools_final/לפיד_מ05.png',        points:3, sfx:'fire_whoosh',      vol:0.85 }
+      { slot:'B', label:'רשת הגנה',   file:'tools/רשת_הגנה_מ05.png',         points:2, sfx:'rope_swish',       vol:0.75 },
+      { slot:'C', label:'לפיד בוער',  file:'tools/לפיד_בוער_מ05.png',        points:3, sfx:'fire_whoosh',      vol:0.85 }
     ];
     let PALM_ANCHOR = { x_pct: 47, y_pct: 60 };
     const PALM_ANCHOR_CATCH = { x_pct: 16.83, y_pct: 32.73 };

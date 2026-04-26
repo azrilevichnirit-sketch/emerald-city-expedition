@@ -79,16 +79,16 @@
 
   <div id="zone-b">
     <img id="bg-static" src="../bg_keyframes/bg_M14_t1.8.png" alt="">
-    <!-- scenery: stone altar — the central altar of the lost city — set_manager M14 placement -->
-    <img class="rival" src="../../scenery/altar_stone_alpha.png"
-      alt="מזבח אבן חרוט בחדר המרכזי של העיר האבודה"
-      style="height:32vh; bottom:0; left:5vw; right:auto; filter:drop-shadow(0 6px 16px rgba(0,0,0,0.7)) brightness(0.80);">
+    
+    
+    <img class="rival" src="../../scenery/altar_stone_alpha.png" alt="מזבח אבן עם חפצים" style="height:26vh; bottom:0; left:8vw; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.65));">
+    <img class="rival" src="../../assets/scenery/_orig_backup/guard_shadows.png" alt="צללי שומרים מתקרבים" style="width:90%; bottom:0; left:5%; mix-blend-mode:multiply; opacity:0.5; filter:none; z-index:6;">
     <img id="player" src="../../master_player/nirit_alpha.png"
       alt="ניריט עומדת פרונטלית, מוכנה לפעולה">
   </div>
 
   <div id="zone-c">
-    <p id="mission-narrative">הגעה לחדר המרכזי של העיר האבודה. על המזבח מונחות שלוש אפשרויות: שקית מטבעות פתוחה, תיבת עץ כבדה ונעולה, וכדור בדולח שחור שלא ניתן לראות מה בתוכו. שומרים מתקרבים. מה מרימים מהמזבח?</p>
+    <p id="mission-narrative">הגעתי להיכל. על המזבח מונחות שלוש אפשרויות והשומרים כבר נשמעים ברקע. אני חייבת לקחת משהו ולברוח – מה אני מרימה מהמזבח ברגע האחרון?</p>
   </div>
 
   <div id="zone-d"></div>
@@ -100,8 +100,8 @@
   (function(){
     'use strict';
     const TOOLS = [
-      { slot:'A', label:'שקית מטבעות קטנה', file:'../../assets/tools_final/מטבעות_מ14.png',     points:1, sfx:'coins_jingle', vol:0.7 },
-      { slot:'B', label:'תיבת עץ נעולה',    file:'../../assets/tools_final/תיבה_מ14.png',        points:2, sfx:'wood_thunk',   vol:0.7 },
+      { slot:'A', label:'שקית מטבעות קטנה', file:'tools/שקית_מטבעות_מ14.png',     points:1, sfx:'coins_jingle', vol:0.7 },
+      { slot:'B', label:'תיבת עץ נעולה',    file:'tools/תיבת_עץ_מ14.png',        points:2, sfx:'wood_thunk',   vol:0.7 },
       { slot:'C', label:'כדור בדולח כהה',   file:'../../assets/tools_final/כדור_בדולח_מ14.png', points:3, sfx:'wood_thunk',   vol:0.7 }
     ];
     let PALM_ANCHOR = { x_pct: 47, y_pct: 60 };

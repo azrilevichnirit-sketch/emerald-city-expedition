@@ -79,12 +79,15 @@
 
   <div id="zone-b">
     <img id="bg-static" src="../bg_keyframes/bg_M10_t1.8.png" alt="">
+    
+    
+    <img class="rival" src="../../assets/scenery/scenery_black_box_alpha.png" alt="קופסה שחורה רועדת על הרצפה" style="height:16vh; bottom:0; left:12vw; filter:drop-shadow(0 2px 8px rgba(0,0,0,0.8));">
     <img id="player" src="../../master_player/nirit_alpha.png"
       alt="ניריט עומדת פרונטלית, מוכנה לפעולה">
   </div>
 
   <div id="zone-c">
-    <p id="mission-narrative">בתוך המנהרה החשוכה נמצאה קופסה שחורה שרועדת ומשמיעה קולות תקתוק מהירים. הצג הדיגיטלי עליה סופר לאחור: 3... 2... 1... חייבים להגיב עכשיו. מה נעשה?</p>
+    <p id="mission-narrative">קופסה שחורה רועדת על הרצפה ומשמיעה תקתוק מהיר. הצג סופר לאחור: 3... 2... 1... אני חייבת להגיב בשבריר שנייה! מה הפעולה המיידית שלי?</p>
   </div>
 
   <div id="zone-d"></div>
@@ -97,7 +100,7 @@
     'use strict';
     const TOOLS = [
       { slot:'A', label:'מצלמה זעירה',       file:'../../assets/tools_final/מצלמה_זעירה_מ10.png', points:1, sfx:'camera_shutter', vol:0.8 },
-      { slot:'B', label:'שמיכת מיגון',       file:'../../assets/tools_final/שמיכה_מ10.png',       points:2, sfx:'fabric_unfold',  vol:0.7 },
+      { slot:'B', label:'שמיכת מיגון',       file:'tools/שמיכת_מיגון_מ10.png',       points:2, sfx:'fabric_unfold',  vol:0.7 },
       { slot:'C', label:'קאטר לחיתוך חוטים', file:'../../assets/tools_final/קאטר_מ10.png',         points:3, sfx:'metal_clang',    vol:0.8 }
     ];
     let PALM_ANCHOR = { x_pct: 47, y_pct: 60 };

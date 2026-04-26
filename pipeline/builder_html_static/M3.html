@@ -78,18 +78,18 @@
   </div>
 
   <div id="zone-b">
-    <img id="bg-static" src="../bg_keyframes/bg_01_t1.8.png"
-      alt="צ'ק-פוינט נטוש בלב הג'ונגל בבוקר, פיצול דרך — שביל צר מול ציר עפר רחב">
-    <!-- scenery: two jungle trees framing the jungle checkpoint — set_manager M3 placement -->
-    <img class="rival" src="../../scenery/two_jungle_trees_alpha.png"
-      alt="שני עצי ג'ונגל גבוהים"
-      style="height:50vh; bottom:0; left:2vw; right:auto; filter:drop-shadow(0 4px 12px rgba(0,0,0,0.5)) brightness(0.80);">
+    <img id="bg-static" src="../bg_keyframes/bg_04_t1.8.png"
+      alt="שביל ג'ונגל קרקעי בבוקר, נתיב טבעי רחב עם נהר ועצמת ירוק עשיר, אור בוקר חם">
+    
+    
+    <img class="rival" src="../../scenery/signpost_arrows_alpha.png" alt="שלט חצים בצומת" style="height:45vh; bottom:0; left:4vw; filter:drop-shadow(0 4px 12px rgba(0,0,0,0.55));">
+    <img class="rival" src="../../rivals/rival_male_run_1.png" alt="מתחרה רץ קדימה" style="height:9vh; bottom:4vh; right:4vw; opacity:0.5; filter:blur(1px);">
     <img id="player" src="../../master_player/nirit_alpha.png"
       alt="ניריט עומדת פרונטלית, מוכנה לפעולה">
   </div>
 
   <div id="zone-c">
-    <p id="mission-narrative">הבוקר עלה והגעה לעמדת צ'ק-פוינט נטושה בלב הג'ונגל. המפה מורה על שביל הליכה צר וישר, אבל מצד שמאל נחשף ציר עפר רחב עם עשרות עקבות צמיגים טריות ורעש מנועים שמתרחק. הקבוצות האחרות בורחות שמאלה. מה נבחר</p>
+    <p id="mission-narrative">הבוקר עלה. המפה מראה שביל ישר, אבל משמאל יש עשרות עקבות צמיגים טריות ורעש מנועים של הקבוצות האחרות שבורחות קדימה. האם אני נצמדת למפה או דוהרת אחריהם?</p>
   </div>
 
   <div id="zone-d"></div>
@@ -101,9 +101,9 @@
   (function(){
     'use strict';
     const TOOLS = [
-      { slot:'A', label:'המפה המקומטת',       file:'../../assets/tools_final/מפה_מ03.png',    points:1, sfx:'paper_rustle',    vol:0.6 },
-      { slot:'B', label:'משקפת שדה',          file:'../../assets/tools_final/משקפת_מ03.png',  points:2, sfx:'lens_click',       vol:0.6 },
-      { slot:'C', label:'מפתח לטרקטורון מונע', file:'../../assets/tools_final/מפתח_מ03.png',  points:3, sfx:'key_jingle',       vol:0.7 }
+      { slot:'A', label:'המפה המקומטת',       file:'tools/מפה_מקומטת_מ03.png',    points:1, sfx:'paper_rustle',    vol:0.6 },
+      { slot:'B', label:'משקפת שדה',          file:'tools/משקפת_שדה_מ03.png',  points:2, sfx:'lens_click',       vol:0.6 },
+      { slot:'C', label:'מפתח לטרקטורון מונע', file:'tools/מפתח_טרקטורון_מ03.png',  points:3, sfx:'key_jingle',       vol:0.7 }
     ];
     let PALM_ANCHOR = { x_pct: 47, y_pct: 60 };
     const PALM_ANCHOR_CATCH = { x_pct: 16.83, y_pct: 32.73 };

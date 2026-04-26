@@ -1,7 +1,7 @@
 {
-  "x_pct": 8.61,
-  "y_pct": 32.81,
-  "source": "anim_reach_forward_t3.3_single_arm",
-  "w": 720,
+  "x_pct": 16.83,
+  "y_pct": 32.73,
+  "source": "anim_reach_forward_t3.3_padded_100px",
+  "w": 820,
   "h": 1280
 }

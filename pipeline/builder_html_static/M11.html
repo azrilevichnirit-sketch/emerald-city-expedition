@@ -79,16 +79,16 @@
 
   <div id="zone-b">
     <img id="bg-static" src="../bg_keyframes/bg_04_t1.8.png" alt="">
-    <!-- scenery: escape boat departing below cliff waterfall — set_manager M11 placement -->
-    <img class="rival" src="../../scenery/boat_escape_alpha.png"
-      alt="סירת המילוט מתרחקת מהגדה מתחת למפל"
-      style="height:18vh; bottom:2vh; left:4vw; right:auto; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.6)) brightness(0.80);">
+    
+    
+    <img class="rival" src="../../scenery/rappel_rope_alpha.png" alt="חבל ריסון תלוי מלמעלה" style="height:55vh; bottom:0; right:6vw; filter:drop-shadow(0 2px 8px rgba(0,0,0,0.5));">
+    <img class="rival" src="../../assets/scenery/escape_boat_distant_alpha.png" alt="סירת המילוט מתרחקת" style="height:12vh; bottom:8vh; left:5vw; opacity:0.72; filter:blur(1.8px);">
     <img id="player" src="../../master_player/nirit_alpha.png"
       alt="ניריט עומדת פרונטלית, מוכנה לפעולה">
   </div>
 
   <div id="zone-c">
-    <p id="mission-narrative">המנהרה נגמרת במצוק בגובה 50 מטר מעל מפל מים אדיר. בתחתית המפל נראית סירת המילוט האחרונה. המנוע שלה כבר פועל והיא מתחילה להתרחק מהגדה. איך יורדים למים למטה?</p>
+    <p id="mission-narrative">מצוק של 50 מטר מעל מפל מים. בתחתית נראית סירת המילוט האחרונה, המנוע שלה פועל והיא מתחילה להתרחק. איך אני מגיעה למים למטה לפני שהיא נעלמת?</p>
   </div>
 
   <div id="zone-d"></div>
@@ -101,8 +101,8 @@
     'use strict';
     const TOOLS = [
       { slot:'A', label:'חבל סנפלינג עם רתמה', file:'../../assets/tools_final/סנפלינג_מ11.png',     points:1, sfx:'rope_swish',       vol:0.7 },
-      { slot:'B', label:"חבל בנג'י",            file:'../../assets/tools_final/בנגי_מ11.png',         points:2, sfx:'rope_swish',       vol:0.75 },
-      { slot:'C', label:'מצנח בסיס',            file:'../../assets/tools_final/מצנח_בסיס_מ11.png',    points:3, sfx:'fabric_whoosh_snap', vol:0.85 }
+      { slot:'B', label:"חבל בנג'י",            file:"tools/בנג'י_מ11.png",         points:2, sfx:'rope_swish',       vol:0.75 },
+      { slot:'C', label:'מצנח בסיס',            file:'tools/מצנח_מ11.png',    points:3, sfx:'fabric_whoosh_snap', vol:0.85 }
     ];
     let PALM_ANCHOR = { x_pct: 47, y_pct: 60 };
     const PALM_ANCHOR_CATCH = { x_pct: 16.83, y_pct: 32.73 };
