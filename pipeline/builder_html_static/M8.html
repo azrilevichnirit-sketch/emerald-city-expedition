@@ -73,7 +73,7 @@
     .tool-btn:hover .tool-label, .tool-btn:focus-within .tool-label { opacity:0.95; }
     .tool-clone { position:fixed; z-index:11; pointer-events:none;
       filter:drop-shadow(0 4px 8px rgba(0,0,0,0.6)); will-change:transform; }
-    #fade-overlay { position:fixed; inset:0; background:#000; opacity:0;
+    #fade-overlay { position:fixed; inset:0; background:#000; opacity:1;
       transition:opacity 800ms linear; z-index:200; pointer-events:none; }
   </style>
 </head>
@@ -85,6 +85,10 @@
   <div id="zone-b">
     <img id="bg-static" src="../bg_keyframes/bg_M8_t1.8.png"
       alt="קיר סלע אנכי חלק בגובה בניין בגשם, סימני נעליים טריים על האבן">
+    <!-- scenery: rappel rope hanging on cliff face — set_manager M8 placement -->
+    <img class="rival" src="../../scenery/rappel_rope_alpha.png"
+      alt="חבל ראפל עם קרבינר תלוי על קיר הסלע"
+      style="height:55vh; bottom:0; right:8vw; left:auto; filter:drop-shadow(0 2px 8px rgba(0,0,0,0.7)) brightness(0.88);">
     <img id="player" src="../../master_player/nirit_alpha.png"
       alt="ניריט עומדת פרונטלית, מוכנה לפעולה">
   </div>
@@ -107,7 +111,7 @@
       { slot:'C', label:'טפרי טיפוס ממתכת', file:'../../assets/tools_final/טפרי_טיפוס_מ08.png', points:3, sfx:'metal_clang',  vol:0.8 }
     ];
     let PALM_ANCHOR = { x_pct: 47, y_pct: 60 };
-    const PALM_ANCHOR_CATCH = { x_pct: 37.52, y_pct: 3.86 };
+    const PALM_ANCHOR_CATCH = { x_pct: 16.83, y_pct: 32.73 };
     const CATCH_POSE_SRC = '../../master_player/nirit_catch_M1_alpha.png';
     const REDIRECT_TARGET = './M9.html';
     const MISSION_ID = 'M8';
@@ -196,7 +200,7 @@
         document.getElementById('fade-overlay').style.opacity = '1';
         fadeOutAmbient('ambient_loop', 600);
       }, 1800);
-      setTimeout(()=>{ window.location.href = REDIRECT_TARGET; }, 2200);
+      setTimeout(()=>{ window.location.href = REDIRECT_TARGET; }, 2800);
     }
 
     function flyToolToPalm(toolImg, tool){
@@ -232,6 +236,10 @@
     }
 
     function init(){
+      // Fade in from black — arriving from previous mission's exit fade
+      requestAnimationFrame(()=>{ requestAnimationFrame(()=>{
+        document.getElementById('fade-overlay').style.opacity = '0';
+      }); });
       renderProgress();
       buildTools();
       const amb = tryPlaySound('ambient_loop', 0.6, true);

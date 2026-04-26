@@ -53,9 +53,12 @@
       background:#2a3550; border-color:rgba(180,210,255,0.65); outline:none; }
     #restart-btn:active { transform:scale(0.97); }
     .visible { opacity:1 !important; transform:translateY(0) !important; }
+    #fade-overlay { position:fixed; inset:0; background:#000; opacity:1;
+      transition:opacity 800ms linear; z-index:9999; pointer-events:none; }
   </style>
 </head>
 <body>
+  <div id="fade-overlay"></div>
   <!-- Sparkle field generated via CSS — no image -->
   <div id="stage">
     <h1 id="title">המסע הסתיים</h1>
@@ -74,6 +77,11 @@
   <script>
   (function(){
     'use strict';
+    // Fade in from black — arriving from M15's exit fade
+    requestAnimationFrame(()=>{ requestAnimationFrame(()=>{
+      document.getElementById('fade-overlay').style.opacity = '0';
+    }); });
+
     // Generate sparkle field
     const NUM_SPARKLES = 60;
     for (let i=0; i<NUM_SPARKLES; i++){

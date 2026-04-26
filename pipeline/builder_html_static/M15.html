@@ -73,7 +73,7 @@
     .tool-btn:hover .tool-label, .tool-btn:focus-within .tool-label { opacity:0.95; }
     .tool-clone { position:fixed; z-index:11; pointer-events:none;
       filter:drop-shadow(0 4px 8px rgba(0,0,0,0.6)); will-change:transform; }
-    #fade-overlay { position:fixed; inset:0; background:#000; opacity:0;
+    #fade-overlay { position:fixed; inset:0; background:#000; opacity:1;
       transition:opacity 800ms linear; z-index:200; pointer-events:none; }
   </style>
 </head>
@@ -106,7 +106,7 @@
       { slot:'C', label:'זיקוק צבעוני', file:'../../assets/tools_final/זיקוק_מ15.png',    points:3, sfx:'fire_whoosh',     vol:0.85 }
     ];
     let PALM_ANCHOR = { x_pct: 47, y_pct: 60 };
-    const PALM_ANCHOR_CATCH = { x_pct: 37.52, y_pct: 3.86 };
+    const PALM_ANCHOR_CATCH = { x_pct: 16.83, y_pct: 32.73 };
     const CATCH_POSE_SRC = '../../master_player/nirit_catch_M1_alpha.png';
     const REDIRECT_TARGET = './_finale.html';
     const MISSION_ID = 'M15';
@@ -195,7 +195,7 @@
         document.getElementById('fade-overlay').style.opacity = '1';
         fadeOutAmbient('ambient_loop', 600);
       }, 1800);
-      setTimeout(()=>{ window.location.href = REDIRECT_TARGET; }, 2200);
+      setTimeout(()=>{ window.location.href = REDIRECT_TARGET; }, 2800);
     }
 
     function flyToolToPalm(toolImg, tool){
@@ -231,6 +231,10 @@
     }
 
     function init(){
+      // Fade in from black — arriving from previous mission's exit fade
+      requestAnimationFrame(()=>{ requestAnimationFrame(()=>{
+        document.getElementById('fade-overlay').style.opacity = '0';
+      }); });
       renderProgress();
       buildTools();
       const amb = tryPlaySound('ambient_loop', 0.6, true);

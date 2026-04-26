@@ -106,7 +106,7 @@
       { slot:'C', label:'קאטר לחיתוך חוטים', file:'../../assets/tools_final/קאטר_מ10.png',         points:3, sfx:'metal_clang',    vol:0.8 }
     ];
     let PALM_ANCHOR = { x_pct: 47, y_pct: 60 };
-    const PALM_ANCHOR_CATCH = { x_pct: 37.52, y_pct: 3.86 };
+    const PALM_ANCHOR_CATCH = { x_pct: 16.83, y_pct: 32.73 };
     const CATCH_POSE_SRC = '../../master_player/nirit_catch_M1_alpha.png';
     const REDIRECT_TARGET = './M11.html';
     const MISSION_ID = 'M10';
@@ -195,7 +195,7 @@
         document.getElementById('fade-overlay').style.opacity = '1';
         fadeOutAmbient('ambient_loop', 600);
       }, 1800);
-      setTimeout(()=>{ window.location.href = REDIRECT_TARGET; }, 2200);
+      setTimeout(()=>{ window.location.href = REDIRECT_TARGET; }, 2800);
     }
 
     function flyToolToPalm(toolImg, tool){
@@ -231,6 +231,10 @@
     }
 
     function init(){
+      // Fade in from black — arriving from previous mission's exit fade
+      requestAnimationFrame(()=>{ requestAnimationFrame(()=>{
+        document.getElementById('fade-overlay').style.opacity = '0';
+      }); });
       renderProgress();
       buildTools();
       const amb = tryPlaySound('ambient_loop', 0.6, true);

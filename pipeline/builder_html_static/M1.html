@@ -222,8 +222,8 @@
         document.getElementById('fade-overlay').style.opacity = '1';
         fadeOutAmbient('wind_rush_loop', 600);
       }, 1800);
-      // Redirect at click+2200ms
-      setTimeout(()=>{ window.location.href = REDIRECT_TARGET; }, 2200);
+      // Redirect at click+2800ms — wait full 800ms fade + 200ms buffer
+      setTimeout(()=>{ window.location.href = REDIRECT_TARGET; }, 2800);
     }
 
     function flyToolToPalm(toolImg, tool){
