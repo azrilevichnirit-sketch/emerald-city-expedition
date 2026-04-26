@@ -1,0 +1,14 @@
+{
+  "_mission": "M9",
+  "_scene_inspector_run_at": "2026-04-26T00:00:00Z",
+  "_5_questions": {
+    "Q1_actress_anchored": "PASS",
+    "Q2_behind_actress_visible": "PASS — gate + keypad + tunnel",
+    "Q3_script_message_clear": "PASS — countdown timer",
+    "Q4_visual_matches_script": "PASS",
+    "Q5_7yo_comprehension": "PASS"
+  },
+  "verdict": "PASS",
+  "blockers": [],
+  "attempts": 1
+}

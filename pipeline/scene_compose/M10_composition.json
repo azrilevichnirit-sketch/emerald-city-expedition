@@ -1,0 +1,38 @@
+{
+  "_mission": "M10",
+  "_scene_composer_run_at": "2026-04-26T00:00:00Z",
+  "_revision": "M10 V6 build — replicates M1 V6 single-position-anchor pattern",
+  "_bg_chosen": "../../assets/backgrounds/bg_M10.mp4",
+  "_bg_phase_2": "../../backgrounds/bg_cave.mp4",
+  "bg": {
+    "file": "../../assets/backgrounds/bg_M10.mp4",
+    "phase_2_file": "../../backgrounds/bg_cave.mp4",
+    "ground_line_y_pct": 78,
+    "actress_target_y_on_bg": 79,
+    "_anchor_proof": "bottom:19% + height:75% places feet at tunnel floor."
+  },
+  "actress": {
+    "pose_file": "assets/player/pose_05.mp4",
+    "container": "scene_b",
+    "css": "position:absolute;bottom:19%;left:50%;height:75%;transform:translateX(-50%);z-index:10;",
+    "facing": "frontal",
+    "chroma_key": true
+  },
+  "tools_zone_d": [
+    {"slot": "A", "file": "assets/tools/מצלמה_זעירה_מ10.png", "label": "מצלמה זעירה", "type": "hold", "render_mode": "canvas + chroma_key"},
+    {"slot": "B", "file": "assets/tools/שמיכה_מ10.png", "label": "שמיכת מיגון", "type": "deploy", "render_mode": "canvas + chroma_key"},
+    {"slot": "C", "file": "assets/tools/קאטר_מ10.png", "label": "קאטר לחיתוך חוטים", "type": "use", "render_mode": "canvas + chroma_key"}
+  ],
+  "scenery_overlays": ["scenery_black_box.png", "scenery_tunnel_walls.png", "scenery_tunnel_floor.png"],
+  "ui_overlays": {
+    "mission_text": {"verbatim": "קופסה שחורה רועדת על הרצפה ומשמיעה תקתוק מהיר. הצג סופר לאחור: 3... 2... 1... אני חייבת להגיב בשבריר שנייה! מה הפעולה המיידית שלי?"},
+    "checkpoint_text": {"verbatim": "הסיכון חלף. אור בקצה המנהרה, מפל אדיר נחשף."}
+  },
+  "_5_question_self_check": {
+    "Q1_actress_on_surface": "YES",
+    "Q2_what_behind_actress": "Tunnel walls + ticking black box on floor.",
+    "Q3_what_does_script_say": "קופסה שחורה רועדת על הרצפה...",
+    "Q4_match_script_to_visual": "MATCH — camera/blanket/cutter = document/contain/disarm.",
+    "Q5_will_a_7yo_understand": "YES — danger box + three responses."
+  }
+}

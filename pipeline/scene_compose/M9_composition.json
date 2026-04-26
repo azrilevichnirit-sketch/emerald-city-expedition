@@ -1,0 +1,38 @@
+{
+  "_mission": "M9",
+  "_scene_composer_run_at": "2026-04-26T00:00:00Z",
+  "_revision": "M9 V6 build — replicates M1 V6 single-position-anchor pattern",
+  "_bg_chosen": "../../assets/backgrounds/bg_M9.mp4",
+  "_bg_phase_2": "../../backgrounds/bg_cave.mp4",
+  "bg": {
+    "file": "../../assets/backgrounds/bg_M9.mp4",
+    "phase_2_file": "../../backgrounds/bg_cave.mp4",
+    "ground_line_y_pct": 78,
+    "actress_target_y_on_bg": 79,
+    "_anchor_proof": "bottom:19% + height:75% places feet at floor before steel gate."
+  },
+  "actress": {
+    "pose_file": "assets/player/pose_05.mp4",
+    "container": "scene_b",
+    "css": "position:absolute;bottom:19%;left:50%;height:75%;transform:translateX(-50%);z-index:10;",
+    "facing": "frontal",
+    "chroma_key": true
+  },
+  "tools_zone_d": [
+    {"slot": "A", "file": "assets/tools/שמן_מ09.png", "label": "שמן לשימון צירים", "type": "use", "render_mode": "canvas + chroma_key"},
+    {"slot": "B", "file": "assets/tools/רב_כלי_מ09.png", "label": "רב-כלי", "type": "use", "render_mode": "canvas + chroma_key"},
+    {"slot": "C", "file": "assets/tools/מבער_מ09.png", "label": "מבער ריתוך", "type": "use", "render_mode": "canvas + chroma_key"}
+  ],
+  "scenery_overlays": ["steel_gate.png", "flashing_keypad.png", "dark_tunnel_entrance.png"],
+  "ui_overlays": {
+    "mission_text": {"verbatim": "לוח המקשים מהבהב באדום. אם לא אקיש את הקוד ב-60 השניות הקרובות, השער יינעל הרמטית וייחסם לכל היום. איך אני מפצחת את המעבר הזה תחת לחץ?"},
+    "checkpoint_text": {"verbatim": "השער נפתח. הליכה במנהרה חשוכה עם הדים של מים."}
+  },
+  "_5_question_self_check": {
+    "Q1_actress_on_surface": "YES",
+    "Q2_what_behind_actress": "Massive steel gate with flashing red keypad before dark tunnel.",
+    "Q3_what_does_script_say": "לוח המקשים מהבהב באדום. אם לא אקיש את הקוד ב-60 השניות הקרובות...",
+    "Q4_match_script_to_visual": "MATCH — oil/multitool/torch = three gate-bypass tactics.",
+    "Q5_will_a_7yo_understand": "YES — locked door + three keys."
+  }
+}

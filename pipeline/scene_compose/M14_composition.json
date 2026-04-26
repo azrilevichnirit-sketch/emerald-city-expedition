@@ -1,0 +1,38 @@
+{
+  "_mission": "M14",
+  "_scene_composer_run_at": "2026-04-26T00:00:00Z",
+  "_revision": "M14 V6 build — replicates M1 V6 single-position-anchor pattern",
+  "_bg_chosen": "../../assets/backgrounds/bg_M14.mp4",
+  "_bg_phase_2": "../../backgrounds/bg_temple.mp4",
+  "bg": {
+    "file": "../../assets/backgrounds/bg_M14.mp4",
+    "phase_2_file": "../../backgrounds/bg_temple.mp4",
+    "ground_line_y_pct": 78,
+    "actress_target_y_on_bg": 79,
+    "_anchor_proof": "bottom:19% + height:75% places feet at altar floor."
+  },
+  "actress": {
+    "pose_file": "assets/player/pose_05.mp4",
+    "container": "scene_b",
+    "css": "position:absolute;bottom:19%;left:50%;height:75%;transform:translateX(-50%);z-index:10;",
+    "facing": "frontal",
+    "chroma_key": true
+  },
+  "tools_zone_d": [
+    {"slot": "A", "file": "assets/tools/מטבעות_מ14.png", "label": "שקית מטבעות קטנה", "type": "hold", "render_mode": "canvas + chroma_key"},
+    {"slot": "B", "file": "assets/tools/תיבה_מ14.png", "label": "תיבת עץ נעולה", "type": "hold", "render_mode": "canvas + chroma_key"},
+    {"slot": "C", "file": "assets/tools/כדור_בדולח_מ14.png", "label": "כדור בדולח כהה", "type": "hold", "render_mode": "canvas + chroma_key"}
+  ],
+  "scenery_overlays": ["altar_stone.png", "guard_shadows.png", "temple_entrance_m14.png"],
+  "ui_overlays": {
+    "mission_text": {"verbatim": "הגעתי להיכל. על המזבח מונחות שלוש אפשרויות והשומרים כבר נשמעים ברקע. אני חייבת לקחת משהו ולברוח – מה אני מרימה מהמזבח ברגע האחרון?"},
+    "checkpoint_text": {"verbatim": "האוצר בידי. ריצה מטורפת לעבר היציאה."}
+  },
+  "_5_question_self_check": {
+    "Q1_actress_on_surface": "YES",
+    "Q2_what_behind_actress": "Altar stone with three treasures + guard shadows + temple entrance.",
+    "Q3_what_does_script_say": "הגעתי להיכל. על המזבח מונחות שלוש אפשרויות...",
+    "Q4_match_script_to_visual": "MATCH — coins/box/orb = three treasure choices.",
+    "Q5_will_a_7yo_understand": "YES — clear treasure pickup decision."
+  }
+}

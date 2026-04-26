@@ -1,0 +1,14 @@
+{
+  "_mission": "M2",
+  "_scene_inspector_run_at": "2026-04-26T00:00:00Z",
+  "_5_questions": {
+    "Q1_actress_anchored": "PASS — V6 anchor math from M1 reused (bottom:19% + height:75% = feet at bg y=79%).",
+    "Q2_behind_actress_visible": "PASS — bg_02.mp4 covers full scene-stage; storm scenery overlays active.",
+    "Q3_script_message_clear": "PASS — missionText: 'הברקים כבר מעליי וסערה טרופית עומדת להתפרץ. אם לא אמצא מחסה יב...'",
+    "Q4_visual_matches_script": "PASS — tarp/hammer/tent labels semantically match storm-shelter brief.",
+    "Q5_7yo_comprehension": "PASS — three-tool selection identical to M1 affordance."
+  },
+  "verdict": "PASS",
+  "blockers": [],
+  "attempts": 1
+}

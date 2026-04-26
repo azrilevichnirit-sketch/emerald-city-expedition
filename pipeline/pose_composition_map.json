@@ -165,6 +165,20 @@
           "comment": "v4 preserved unchanged in v5 — Nirit's 'floating in standing position' complaint targeted the time AFTER click before landing, which v5 fixes by keeping pose_06 brief (catch 2500ms + jump 600ms = 3100ms total post-click before landing starts) and IMMEDIATELY transitioning to pose_03 landing on jump_apex. NO floaty pose_05 between catch and landing — pose_05 is only used pre-click. pose_03 #3.0=upright, #5.0=crouch with hands touching ground (per pose_map.catch_note: 'הרגע בו השחקנית למטה עם ידיים לרצפה'). Plays as the player canvas CSS-translates down to bottom:5%. Builder RAF-clamps at to_sec=5.0, pauses, emits landing_complete event. Checkpoint text fires landing_complete+200ms — never before."
         }
       ]
-    }
+    },
+    "M2": {"_intent": "M2 reuses M1 V6 pose timeline: pose_04 run -> pose_05 wait -> pose_06 catch -> CSS jump -> pose_03 land.", "_source_brief": "scene_briefs/scene_M2.json", "tracks_ref": "M1.tracks (identical timing per V6 contract)"},
+    "M3": {"_intent": "M3 reuses M1 V6 pose timeline.", "_source_brief": "scene_briefs/scene_M3.json", "tracks_ref": "M1.tracks"},
+    "M4": {"_intent": "M4 reuses M1 V6 pose timeline.", "_source_brief": "scene_briefs/scene_M4.json", "tracks_ref": "M1.tracks"},
+    "M5": {"_intent": "M5 reuses M1 V6 pose timeline.", "_source_brief": "scene_briefs/scene_M5.json", "tracks_ref": "M1.tracks"},
+    "M6": {"_intent": "M6 reuses M1 V6 pose timeline.", "_source_brief": "scene_briefs/scene_M6.json", "tracks_ref": "M1.tracks"},
+    "M7": {"_intent": "M7 reuses M1 V6 pose timeline.", "_source_brief": "scene_briefs/scene_M7.json", "tracks_ref": "M1.tracks"},
+    "M8": {"_intent": "M8 reuses M1 V6 pose timeline.", "_source_brief": "scene_briefs/scene_M8.json", "tracks_ref": "M1.tracks"},
+    "M9": {"_intent": "M9 reuses M1 V6 pose timeline.", "_source_brief": "scene_briefs/scene_M9.json", "tracks_ref": "M1.tracks"},
+    "M10": {"_intent": "M10 reuses M1 V6 pose timeline.", "_source_brief": "scene_briefs/scene_M10.json", "tracks_ref": "M1.tracks"},
+    "M11": {"_intent": "M11 reuses M1 V6 pose timeline.", "_source_brief": "scene_briefs/scene_M11.json", "tracks_ref": "M1.tracks"},
+    "M12": {"_intent": "M12 reuses M1 V6 pose timeline.", "_source_brief": "scene_briefs/scene_M12.json", "tracks_ref": "M1.tracks"},
+    "M13": {"_intent": "M13 reuses M1 V6 pose timeline.", "_source_brief": "scene_briefs/scene_M13.json", "tracks_ref": "M1.tracks"},
+    "M14": {"_intent": "M14 reuses M1 V6 pose timeline.", "_source_brief": "scene_briefs/scene_M14.json", "tracks_ref": "M1.tracks"},
+    "M15": {"_intent": "M15 reuses M1 V6 pose timeline (finale).", "_source_brief": "scene_briefs/scene_M15.json", "tracks_ref": "M1.tracks"}
   }
 }

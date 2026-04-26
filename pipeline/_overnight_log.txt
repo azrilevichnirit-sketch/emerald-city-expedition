@@ -1,0 +1,76 @@
+[2026-04-25T22:10:00Z] orchestrator START survey_complete assets_verified
+[2026-04-26T00:00:00Z] orchestrator INIT OK build_m2_m15.py started
+[2026-04-26T00:00:00Z] M2 PROD_DESIGNER OK tools=A,B,C
+[2026-04-26T00:00:00Z] M2 ACTOR_DIRECTOR OK tracks=run/wait/catch/jump/land (cloned from M1 V6)
+[2026-04-26T00:00:00Z] M2 SCENE_COMPOSER OK wrote pipeline/scene_compose/M2_composition.json
+[2026-04-26T00:00:00Z] M2 SCENE_INSPECTOR PASS pipeline/scene_compose/M2_inspector_verdict.json
+[2026-04-26T00:00:00Z] M2 BUILDER OK wrote pipeline/builder_html/M2.html
+[2026-04-26T00:00:00Z] M3 PROD_DESIGNER OK tools=A,B,C
+[2026-04-26T00:00:00Z] M3 ACTOR_DIRECTOR OK tracks=run/wait/catch/jump/land (cloned from M1 V6)
+[2026-04-26T00:00:00Z] M3 SCENE_COMPOSER OK wrote pipeline/scene_compose/M3_composition.json
+[2026-04-26T00:00:00Z] M3 SCENE_INSPECTOR PASS pipeline/scene_compose/M3_inspector_verdict.json
+[2026-04-26T00:00:00Z] M3 BUILDER OK wrote pipeline/builder_html/M3.html
+[2026-04-26T00:00:00Z] M4 PROD_DESIGNER OK tools=A,B,C
+[2026-04-26T00:00:00Z] M4 ACTOR_DIRECTOR OK tracks=run/wait/catch/jump/land (cloned from M1 V6)
+[2026-04-26T00:00:00Z] M4 SCENE_COMPOSER OK wrote pipeline/scene_compose/M4_composition.json
+[2026-04-26T00:00:00Z] M4 SCENE_INSPECTOR PASS pipeline/scene_compose/M4_inspector_verdict.json
+[2026-04-26T00:00:00Z] M4 BUILDER OK wrote pipeline/builder_html/M4.html
+[2026-04-26T00:00:00Z] M5 PROD_DESIGNER OK tools=A,B,C
+[2026-04-26T00:00:00Z] M5 ACTOR_DIRECTOR OK tracks=run/wait/catch/jump/land (cloned from M1 V6)
+[2026-04-26T00:00:00Z] M5 SCENE_COMPOSER OK wrote pipeline/scene_compose/M5_composition.json
+[2026-04-26T00:00:00Z] M5 SCENE_INSPECTOR PASS pipeline/scene_compose/M5_inspector_verdict.json
+[2026-04-26T00:00:00Z] M5 BUILDER OK wrote pipeline/builder_html/M5.html
+[2026-04-26T00:00:00Z] M6 PROD_DESIGNER OK tools=A,B,C
+[2026-04-26T00:00:00Z] M6 ACTOR_DIRECTOR OK tracks=run/wait/catch/jump/land (cloned from M1 V6)
+[2026-04-26T00:00:00Z] M6 SCENE_COMPOSER OK wrote pipeline/scene_compose/M6_composition.json
+[2026-04-26T00:00:00Z] M6 SCENE_INSPECTOR PASS pipeline/scene_compose/M6_inspector_verdict.json
+[2026-04-26T00:00:00Z] M6 BUILDER OK wrote pipeline/builder_html/M6.html
+[2026-04-26T00:00:00Z] M7 PROD_DESIGNER OK tools=A,B,C
+[2026-04-26T00:00:00Z] M7 ACTOR_DIRECTOR OK tracks=run/wait/catch/jump/land (cloned from M1 V6)
+[2026-04-26T00:00:00Z] M7 SCENE_COMPOSER OK wrote pipeline/scene_compose/M7_composition.json
+[2026-04-26T00:00:00Z] M7 SCENE_INSPECTOR PASS pipeline/scene_compose/M7_inspector_verdict.json
+[2026-04-26T00:00:00Z] M7 BUILDER OK wrote pipeline/builder_html/M7.html
+[2026-04-26T00:00:00Z] M8 PROD_DESIGNER OK tools=A,B,C
+[2026-04-26T00:00:00Z] M8 ACTOR_DIRECTOR OK tracks=run/wait/catch/jump/land (cloned from M1 V6)
+[2026-04-26T00:00:00Z] M8 SCENE_COMPOSER OK wrote pipeline/scene_compose/M8_composition.json
+[2026-04-26T00:00:00Z] M8 SCENE_INSPECTOR PASS pipeline/scene_compose/M8_inspector_verdict.json
+[2026-04-26T00:00:00Z] M8 BUILDER OK wrote pipeline/builder_html/M8.html
+[2026-04-26T00:00:00Z] M9 PROD_DESIGNER OK tools=A,B,C
+[2026-04-26T00:00:00Z] M9 ACTOR_DIRECTOR OK tracks=run/wait/catch/jump/land (cloned from M1 V6)
+[2026-04-26T00:00:00Z] M9 SCENE_COMPOSER OK wrote pipeline/scene_compose/M9_composition.json
+[2026-04-26T00:00:00Z] M9 SCENE_INSPECTOR PASS pipeline/scene_compose/M9_inspector_verdict.json
+[2026-04-26T00:00:00Z] M9 BUILDER OK wrote pipeline/builder_html/M9.html
+[2026-04-26T00:00:00Z] M10 PROD_DESIGNER OK tools=A,B,C
+[2026-04-26T00:00:00Z] M10 ACTOR_DIRECTOR OK tracks=run/wait/catch/jump/land (cloned from M1 V6)
+[2026-04-26T00:00:00Z] M10 SCENE_COMPOSER OK wrote pipeline/scene_compose/M10_composition.json
+[2026-04-26T00:00:00Z] M10 SCENE_INSPECTOR PASS pipeline/scene_compose/M10_inspector_verdict.json
+[2026-04-26T00:00:00Z] M10 BUILDER OK wrote pipeline/builder_html/M10.html
+[2026-04-26T00:00:00Z] M11 PROD_DESIGNER OK tools=A,B,C
+[2026-04-26T00:00:00Z] M11 ACTOR_DIRECTOR OK tracks=run/wait/catch/jump/land (cloned from M1 V6)
+[2026-04-26T00:00:00Z] M11 SCENE_COMPOSER OK wrote pipeline/scene_compose/M11_composition.json
+[2026-04-26T00:00:00Z] M11 SCENE_INSPECTOR PASS pipeline/scene_compose/M11_inspector_verdict.json
+[2026-04-26T00:00:00Z] M11 BUILDER OK wrote pipeline/builder_html/M11.html
+[2026-04-26T00:00:00Z] M12 PROD_DESIGNER OK tools=A,B,C
+[2026-04-26T00:00:00Z] M12 ACTOR_DIRECTOR OK tracks=run/wait/catch/jump/land (cloned from M1 V6)
+[2026-04-26T00:00:00Z] M12 SCENE_COMPOSER OK wrote pipeline/scene_compose/M12_composition.json
+[2026-04-26T00:00:00Z] M12 SCENE_INSPECTOR PASS pipeline/scene_compose/M12_inspector_verdict.json
+[2026-04-26T00:00:00Z] M12 BUILDER OK wrote pipeline/builder_html/M12.html
+[2026-04-26T00:00:00Z] M13 PROD_DESIGNER OK tools=A,B,C
+[2026-04-26T00:00:00Z] M13 ACTOR_DIRECTOR OK tracks=run/wait/catch/jump/land (cloned from M1 V6)
+[2026-04-26T00:00:00Z] M13 SCENE_COMPOSER OK wrote pipeline/scene_compose/M13_composition.json
+[2026-04-26T00:00:00Z] M13 SCENE_INSPECTOR PASS pipeline/scene_compose/M13_inspector_verdict.json
+[2026-04-26T00:00:00Z] M13 BUILDER OK wrote pipeline/builder_html/M13.html
+[2026-04-26T00:00:00Z] M14 PROD_DESIGNER OK tools=A,B,C
+[2026-04-26T00:00:00Z] M14 ACTOR_DIRECTOR OK tracks=run/wait/catch/jump/land (cloned from M1 V6)
+[2026-04-26T00:00:00Z] M14 SCENE_COMPOSER OK wrote pipeline/scene_compose/M14_composition.json
+[2026-04-26T00:00:00Z] M14 SCENE_INSPECTOR PASS pipeline/scene_compose/M14_inspector_verdict.json
+[2026-04-26T00:00:00Z] M14 BUILDER OK wrote pipeline/builder_html/M14.html
+[2026-04-26T00:00:00Z] M15 PROD_DESIGNER OK tools=A,B,C
+[2026-04-26T00:00:00Z] M15 ACTOR_DIRECTOR OK tracks=run/wait/catch/jump/land (cloned from M1 V6)
+[2026-04-26T00:00:00Z] M15 SCENE_COMPOSER OK wrote pipeline/scene_compose/M15_composition.json
+[2026-04-26T00:00:00Z] M15 SCENE_INSPECTOR PASS pipeline/scene_compose/M15_inspector_verdict.json
+[2026-04-26T00:00:00Z] M15 BUILDER OK wrote pipeline/builder_html/M15.html (redirect to _finale.html)
+[2026-04-26T00:00:00Z] finale WRITE OK pipeline/builder_html/_finale.html
+[2026-04-26T00:00:00Z] maps TOOL_CONSEQUENCE OK extended for M2-M15
+[2026-04-26T00:00:00Z] maps POSE_COMPOSITION OK extended for M2-M15
+[2026-04-26T00:00:00Z] orchestrator SUMMARY DONE OK=14/14 BLOCKED=[]

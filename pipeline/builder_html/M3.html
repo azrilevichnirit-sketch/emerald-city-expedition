@@ -2,377 +2,124 @@
 <html dir="rtl" lang="he">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>M3 — משלחת אל עיר האזמרגד</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100vw;height:100vh;overflow:hidden;background:#000;font-family:'Heebo','Assistant',sans-serif;color:#fff}
-
-/* Zone A — Progress Bar (6vh, min 28px) */
-#zone-a{position:fixed;top:0;left:0;width:100%;height:6vh;min-height:28px;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 4%;background:linear-gradient(180deg,rgba(0,0,0,0.65),rgba(0,0,0,0));
-  pointer-events:none}
-#zone-a .score{font-size:clamp(0.85rem,2.2vw,1rem);font-weight:700;
-  text-shadow:0 1px 3px rgba(0,0,0,0.9)}
-#zone-a .progress-bar{flex:1;max-width:50%;height:6px;margin:0 16px;
-  background:rgba(255,255,255,0.15);border-radius:3px;overflow:hidden}
-#zone-a .progress-fill{height:100%;background:#4A90E2;width:0;transition:width 400ms}
-
-/* Zone B — Scene (54vh, top 6vh) */
-#zone-b{position:fixed;top:6vh;left:0;width:100%;height:54vh;z-index:1;overflow:hidden;background:#000}
-#bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.scenery{position:absolute;z-index:5}
-#player-source{display:none}
-#player-canvas{position:absolute;left:50%;top:70%;transform:translate(-50%,-50%);
-  height:90%;width:auto;z-index:10;pointer-events:none}
-
-/* Zone C — Mission Text (16vh, top 60vh) */
-#zone-c{position:fixed;top:60vh;left:0;width:100%;height:16vh;z-index:30;
-  display:flex;align-items:center;justify-content:center;padding:0 5%}
-#mission-text{direction:rtl;text-align:center;font-size:clamp(0.9rem,2.5vw,1.1rem);
-  font-weight:600;line-height:1.5;
-  text-shadow:0 1px 3px rgba(0,0,0,0.9),0 2px 8px rgba(0,0,0,0.7);
-  opacity:0;transition:opacity 400ms}
+#zone-a{position:fixed;top:0;left:0;width:100%;height:6vh;min-height:28px;z-index:100;background:#1a1a1a;display:flex;align-items:center;padding:0 16px}
+#zone-a .score{font-size:0.95rem;font-weight:700;opacity:0.85}
+#zone-b{position:fixed;top:6vh;left:0;width:100%;height:54vh;z-index:1;overflow:hidden}
+#zone-c{position:fixed;top:60vh;left:0;width:100%;height:16vh;z-index:30;display:flex;align-items:center;justify-content:center;padding:0 5%;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,0.55) 30%,rgba(0,0,0,0.55) 70%,rgba(0,0,0,0) 100%)}
+#zone-d{position:fixed;bottom:0;left:0;width:100%;height:24vh;min-height:120px;z-index:20;background:rgba(0,0,0,0.65);border-top:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:space-evenly;padding:0 5%}
+.bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:opacity 400ms ease-in-out}
+#bg-phase-1{opacity:1}#bg-phase-2{opacity:0}
+.scenery-canvas{position:absolute;pointer-events:none;transition:opacity 400ms ease-in-out}
+#rivals-canvas{top:5%;left:8%;width:84%;height:20%;opacity:0.5;z-index:3;filter:blur(0.8px);animation:rivalsDriftA 18s linear infinite}
+#trees-canvas{bottom:0;left:-5%;width:35%;height:80%;opacity:0;z-index:4}
+#dust-canvas{bottom:8%;right:30%;width:18%;height:25%;opacity:0;z-index:15}
+@keyframes rivalsDriftA{0%{transform:translateX(0)}50%{transform:translateX(2vw)}100%{transform:translateX(0)}}
+#player-wrapper{position:absolute;bottom:19%;left:50%;height:75%;z-index:10;transform:translateX(-50%);transition:none;will-change:transform,bottom,left,height;pointer-events:none}
+#player-wrapper.facing-frontal{transform:translateX(-50%)}
+#player-wrapper.jumping{animation:player-jump 600ms cubic-bezier(0.16,1,0.3,1) forwards}
+#player-wrapper.landing-anchor{bottom:5%;right:30%;height:55%;transition:bottom 2000ms cubic-bezier(0.4,0,0.2,1),right 2000ms cubic-bezier(0.4,0,0.2,1),height 2000ms cubic-bezier(0.4,0,0.2,1)}
+@keyframes player-jump{0%{transform:translateX(-50%) translateY(0) scale(1) rotate(0)}50%{transform:translateX(-50%) translateY(-12vh) scale(1.04) rotate(-2deg)}100%{transform:translateX(-50%) translateY(-6vh) scale(1.02) rotate(-1deg)}}
+#player-canvas{width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 200ms linear}
+#player-canvas.visible{opacity:1}
+.hidden-video{display:none}
+#mission-text{color:#fff;direction:rtl;text-align:center;font-size:clamp(1.05rem,2.6vw,1.35rem);font-weight:700;line-height:1.55;text-shadow:0 1px 4px rgba(0,0,0,1),0 2px 12px rgba(0,0,0,0.95),0 0 18px rgba(0,0,0,0.8);opacity:0;transition:opacity 400ms ease-in-out;max-width:80%}
 #mission-text.visible{opacity:1}
-
-/* Zone D — Tools (24vh, bottom 0) */
-#zone-d{position:fixed;bottom:0;left:0;width:100%;height:24vh;min-height:120px;z-index:20;
-  display:flex;align-items:center;justify-content:space-evenly;padding:0 5%;
-  background:rgba(0,0,0,0.65);border-top:1px solid rgba(255,255,255,0.15)}
-.tool-wrapper{position:relative;cursor:pointer;display:flex;align-items:center;justify-content:center;
-  min-width:44px;min-height:44px;transition:opacity 200ms}
+.tool-wrapper{position:relative;width:max(80px,min(28vw,20vh,140px));height:max(80px,min(28vw,20vh,140px));cursor:pointer;opacity:0;transform:translateY(20px);transition:opacity 350ms ease-out,transform 350ms ease-out;pointer-events:none}
+.tool-wrapper.visible{opacity:1;transform:translateY(0);pointer-events:auto}
 .tool-wrapper.dimmed{opacity:0.3;pointer-events:none}
-.tool-wrapper img{max-width:100%;max-height:100%;object-fit:contain;display:block}
-.tool-info-icon{position:absolute;top:6px;right:6px;width:22px;height:22px;border-radius:50%;
-  background:rgba(0,0,0,0.6);color:#fff;font-size:0.75rem;font-weight:700;
-  display:flex;align-items:center;justify-content:center;
-  border:1px solid rgba(255,255,255,0.4);z-index:21;cursor:pointer;user-select:none}
-.tool-tooltip{position:absolute;bottom:calc(100% + 8px);right:0;
-  background:rgba(0,0,0,0.85);color:#fff;padding:6px 10px;border-radius:6px;
-  font-size:0.8rem;white-space:nowrap;direction:rtl;
-  opacity:0;transition:opacity 150ms;pointer-events:none;z-index:50}
-.tool-tooltip.visible,.tool-info-icon:hover + .tool-tooltip,
-.tool-info-icon:focus + .tool-tooltip{opacity:1}
-.points-popup{position:fixed;font-size:1.5rem;font-weight:700;
-  text-shadow:0 1px 4px rgba(0,0,0,0.9);pointer-events:none;z-index:200;
-  transition:transform 800ms cubic-bezier(0.25,0.46,0.45,0.94),opacity 800ms ease}
-
-/* Checkpoint text (overlay near scene bottom, fades in late) */
-#checkpoint-text{position:fixed;left:50%;bottom:25vh;transform:translateX(-50%);
-  width:70%;text-align:center;direction:rtl;
-  font-size:clamp(0.85rem,2.2vw,1rem);font-weight:600;line-height:1.4;color:#fff;
-  background:rgba(0,0,0,0.7);padding:10px 18px;border-radius:8px;
-  text-shadow:0 1px 3px rgba(0,0,0,0.9);z-index:35;
-  opacity:0;transition:opacity 400ms;pointer-events:none}
+.tool-wrapper.flying{position:fixed;left:0;top:0;pointer-events:none;transition:none;z-index:25}
+.tool-wrapper.attached{position:absolute;left:0;top:0;pointer-events:none;transition:none;z-index:20}
+.tool-wrapper img{width:100%;height:100%;object-fit:contain;user-select:none;-webkit-user-drag:none}
+.tool-canvas{width:100%;height:100%;display:block;user-select:none}
+.tool-info-icon{position:absolute;top:6px;right:6px;width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,0.6);color:#fff;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.4);z-index:21;cursor:pointer}
+.tool-tooltip{position:absolute;bottom:calc(100% + 8px);right:0;background:rgba(0,0,0,0.85);color:#fff;padding:5px 10px;border-radius:6px;font-size:0.85rem;white-space:nowrap;direction:rtl;opacity:0;transition:opacity 150ms;pointer-events:none;z-index:50}
+.tool-tooltip.visible{opacity:1}
+#checkpoint-text{position:fixed;bottom:26vh;left:0;width:100%;text-align:center;color:#fff;direction:rtl;font-size:clamp(0.95rem,2.2vw,1.05rem);font-weight:500;text-shadow:0 1px 3px rgba(0,0,0,0.9),0 2px 8px rgba(0,0,0,0.7);opacity:0;transition:opacity 400ms ease-in-out;z-index:30;padding:0 5%}
 #checkpoint-text.visible{opacity:1}
-
-/* Transition overlay (crossfade out) */
-#transition-overlay{position:fixed;inset:0;background:#000;opacity:0;
-  pointer-events:none;z-index:300;transition:opacity 800ms}
-#transition-overlay.active{opacity:1}
+#fade-overlay{position:fixed;inset:0;background:#000;opacity:0;transition:opacity 600ms linear;z-index:200;pointer-events:none}
+#fade-overlay.visible{opacity:1}
 </style>
 </head>
 <body>
-  <!-- ZONE A -->
-  <div id="zone-a">
-    <span class="score" id="score">ניקוד: 0</span>
-    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
-    <span class="score" id="mission-counter">M3</span>
+<div id="zone-a"><span class="score" id="score-display">M3 · ניקוד: 0</span></div>
+<div id="zone-b">
+  <video id="bg-phase-1" class="bg-video" src="../../assets/backgrounds/bg_03.mp4" autoplay muted playsinline></video>
+  <video id="bg-phase-2" class="bg-video" src="../../backgrounds/bg_jungle_path.mp4" autoplay muted playsinline></video>
+  <img id="rivals-img" src="../../assets/scenery/tire_tracks.png" style="display:none" alt="">
+  <img id="trees-img" src="../../assets/scenery/path_straight.png" style="display:none" alt="">
+  <img id="dust-img" src="../../assets/scenery/parked_vehicles.png" style="display:none" alt="">
+  <canvas id="rivals-canvas" class="scenery-canvas"></canvas>
+  <canvas id="trees-canvas" class="scenery-canvas"></canvas>
+  <canvas id="dust-canvas" class="scenery-canvas"></canvas>
+  <div class="hidden-video">
+  <video id="pose-03" src="../../assets/player/pose_03.mp4" muted playsinline preload="auto" crossorigin="anonymous"></video>
+  <video id="pose-04" src="../../assets/player/pose_04.mp4" muted playsinline preload="auto" crossorigin="anonymous"></video>
+  <video id="pose-05" src="../../assets/player/pose_05.mp4" muted playsinline preload="auto" crossorigin="anonymous"></video>
+  <video id="pose-06" src="../../assets/player/pose_06.mp4" muted playsinline preload="auto" crossorigin="anonymous"></video>
   </div>
-
-  <!-- ZONE B -->
-  <div id="zone-b">
-    <video id="bg-video" autoplay muted playsinline preload="auto" src="../../assets/backgrounds/bg_03.mp4"></video>
-
-    <video id="player-source" muted playsinline preload="auto"></video>
-    <canvas id="player-canvas"></canvas>
-    <div id="checkpoint-text"></div>
-  </div>
-
-  <!-- ZONE C -->
-  <div id="zone-c">
-    <p id="mission-text"></p>
-  </div>
-
-  <!-- ZONE D -->
-  <div id="zone-d"></div>
-
-  <div id="transition-overlay"></div>
-
+  <div id="player-wrapper"><canvas id="player-canvas"></canvas></div>
+</div>
+<div id="zone-c"><p id="mission-text"></p></div>
+<div id="zone-d"></div>
+<p id="checkpoint-text"></p>
+<div id="fade-overlay"></div>
 <script>
 "use strict";
-
-const SCENE = {
-  "missionId": "M3",
-  "missionText": "הבוקר עלה. המפה מראה שביל ישר, אבל משמאל יש עשרות עקבות צמיגים טריות ורעש מנועים של הקבוצות האחרות שבורחות קדימה. האם אני נצמדת למפה או דוהרת אחריהם?",
-  "checkpointText": "הנתיב נבחר. אני מרגישה את המתחרים נושפת בעורפי.",
-  "durationMs": 12000
+const PAYLOAD = {
+  "missionId":"M3",
+  "tracks":[
+    {"pose_file":"pose_04.mp4","phase":"running_entry","from_sec":2.0,"to_sec":3.5,"trigger":"scene_entry","loop_until_event":null,"one_shot":true,"is_pose_hold":false,"is_landing":false,"duration_ms":1500,"blend_in_ms":0,"blend_out_ms":200},
+    {"pose_file":"pose_05.mp4","phase":"standing_wait","from_sec":1.0,"to_sec":2.0,"trigger":"mission_text_shown","loop_until_event":"tool_clicked","one_shot":false,"is_pose_hold":false,"is_landing":false,"duration_ms":null,"blend_in_ms":200,"blend_out_ms":100},
+    {"pose_file":"pose_06.mp4","phase":"catch_one_shot","from_sec":3.0,"to_sec":5.5,"trigger":"tool_clicked","loop_until_event":null,"one_shot":true,"is_pose_hold":false,"is_landing":false,"duration_ms":2500,"blend_in_ms":200,"blend_out_ms":0},
+    {"pose_file":"pose_06.mp4","phase":"jump_css_overlay","from_sec":5.5,"to_sec":5.5,"trigger":"catch_complete","loop_until_event":null,"one_shot":false,"is_pose_hold":true,"is_landing":false,"duration_ms":600,"blend_in_ms":0,"blend_out_ms":0},
+    {"pose_file":"pose_03.mp4","phase":"landing","from_sec":3.0,"to_sec":5.0,"trigger":"jump_apex","loop_until_event":null,"one_shot":true,"is_pose_hold":false,"is_landing":true,"duration_ms":2000,"blend_in_ms":200,"blend_out_ms":0}
+  ],
+  "tools":[
+    {"slot":"A","label":"המפה המקומטת","file":"../../assets/tools/מפה_מ03.png","type":"hold","in_ms":2500,"stagger_offset_ms":0,"attach_at_catch":{"point_on_player_pct":{"x":40,"y":32},"scale_factor":0.55,"behind_player":false},"attach_at_landing":{"point_on_player_pct":{"x":42,"y":42},"scale_factor":0.55,"behind_player":false}},
+    {"slot":"B","label":"משקפת שדה","file":"../../assets/tools/משקפת_מ03.png","type":"hold","in_ms":2620,"stagger_offset_ms":120,"attach_at_catch":{"point_on_player_pct":{"x":40,"y":32},"scale_factor":0.55,"behind_player":false},"attach_at_landing":{"point_on_player_pct":{"x":42,"y":42},"scale_factor":0.55,"behind_player":false}},
+    {"slot":"C","label":"מפתח לטרקטורון מונע","file":"../../assets/tools/מפתח_מ03.png","type":"hold","in_ms":2740,"stagger_offset_ms":240,"attach_at_catch":{"point_on_player_pct":{"x":40,"y":32},"scale_factor":0.55,"behind_player":false},"attach_at_landing":{"point_on_player_pct":{"x":42,"y":42},"scale_factor":0.55,"behind_player":false}}
+  ],
+  "missionText":"הבוקר עלה. המפה מראה שביל ישר, אבל משמאל יש עשרות עקבות צמיגים טריות ורעש מנועים של הקבוצות האחרות שבורחות קדימה. האם אני נצמדת למפה או דוהרת אחריהם?",
+  "checkpointText":"הנתיב נבחר. אני מרגישה את המתחרים נושפת בעורפי.",
+  "poseBaseFiles":["pose_03.mp4","pose_04.mp4","pose_05.mp4","pose_06.mp4"],
+  "soundAmbients":{"phase_1_sky":{"audio_file":"placeholder:morning_jungle.mp3","volume":0.6,"loop":true,"active_from_event":"scene_entry","active_until_event":"jump_apex","fade_in_ms":0,"fade_out_ms":800},"phase_2_jungle":{"audio_file":"placeholder:engine_distant.mp3","volume":0.5,"loop":true,"active_from_event":"jump_apex","active_until_event":null,"fade_in_ms":800,"fade_out_ms":600}},
+  "soundEvents":[{"id":"evt_scene_entry","trigger":"scene_entry","delay_after_trigger_ms":0,"audio_file":"placeholder:dawn.mp3","volume":0.35,"duration_ms_estimate":700,"loop":false},{"id":"evt_mission_text","trigger":"mission_text_shown","delay_after_trigger_ms":0,"audio_file":"placeholder:ui_bell.mp3","volume":0.4,"duration_ms_estimate":600,"loop":false},{"id":"evt_palm_contact","trigger":"tool_clicked","delay_after_trigger_ms":1500,"audio_file":"placeholder:palm_grab.mp3","volume":0.6,"duration_ms_estimate":250,"loop":false},{"id":"evt_catch_complete","trigger":"catch_complete","delay_after_trigger_ms":0,"audio_file":"placeholder:catch_confirm.mp3","volume":0.45,"duration_ms_estimate":400,"loop":false},{"id":"evt_jump_whoosh","trigger":"catch_complete","delay_after_trigger_ms":0,"audio_file":"placeholder:whoosh.mp3","volume":0.7,"duration_ms_estimate":600,"loop":false},{"id":"evt_landing_impact","trigger":"landing_complete","delay_after_trigger_ms":0,"audio_file":"placeholder:dirt_thud.mp3","volume":0.7,"duration_ms_estimate":600,"loop":false},{"id":"evt_checkpoint","trigger":"checkpoint_text_shown","delay_after_trigger_ms":0,"audio_file":"placeholder:checkpoint.mp3","volume":0.5,"duration_ms_estimate":700,"loop":false}],
+  "timing":{"missionTextAppearsMs":1500,"missionTextFadeInMs":400,"toolsFirstAppearMs":2500,"toolStaggerMs":120,"toolFlightMs":1500,"catchDurationMs":2500,"jumpDurationMs":600,"jumpApexOffsetFromCatchCompleteMs":300,"bgSwapDurationMs":400,"landingDurationMs":2000,"landingTranslateDurationMs":2000,"dustOffsetFromJumpApexMs":1800,"dustDurationMs":900,"checkpointOffsetAfterLandingMs":200,"checkpointHoldMs":1500,"fadeToBlackMs":600}
 };
-const POSE  = {
-  "file": "../../assets/player/pose_01.mp4",
-  "loopStart": 0.0,
-  "loopEnd": 8.0,
-  "holdFrame": null,
-  "isOneShot": false
-};
-const TOOLS = [
-  {
-    "slot": "A",
-    "label": "המפה המקומטת",
-    "file": "../../assets/tools/מפה_מ03.png",
-    "points": 1,
-    "consequence": "hold"
-  },
-  {
-    "slot": "B",
-    "label": "משקפת שדה",
-    "file": "../../assets/tools/משקפת_מ03.png",
-    "points": 2,
-    "consequence": "hold"
-  },
-  {
-    "slot": "C",
-    "label": "מפתח לטרקטורון מונע",
-    "file": "../../assets/tools/מפתח_מ03.png",
-    "points": 3,
-    "consequence": "hold"
-  }
-];
-
-// ── helpers ──
-const $ = (sel) => document.querySelector(sel);
-const delay = (ms) => new Promise((r) => setTimeout(r, ms));
-
-// ── Background segment loop (NO video.loop=true) ──
-function startBgLoop() {
-  const v = $("#bg-video");
-  v.addEventListener("loadedmetadata", () => {
-    const end = v.duration;
-    v.currentTime = 0;
-    v.play().catch(() => {});
-    v.addEventListener("timeupdate", () => {
-      if (v.currentTime >= end - 0.05) v.currentTime = 0;
-    });
-  });
-}
-
-// ── Player chroma key on canvas ──
-function setupPlayer() {
-  const v = $("#player-source");
-  const c = $("#player-canvas");
-  const ctx = c.getContext("2d", { willReadFrequently: true });
-  v.src = POSE.file;
-
-  v.addEventListener("loadedmetadata", () => {
-    c.width = v.videoWidth;
-    c.height = v.videoHeight;
-    if (POSE.isOneShot) {
-      v.currentTime = 0;
-    } else {
-      v.currentTime = POSE.loopStart;
-    }
-    v.play().catch(() => {});
-  });
-
-  v.addEventListener("timeupdate", () => {
-    if (!POSE.isOneShot && v.currentTime >= POSE.loopEnd - 0.03) {
-      v.currentTime = POSE.loopStart;
-    }
-  });
-
-  function processFrame() {
-    if (v.paused || v.ended) {
-      requestAnimationFrame(processFrame);
-      return;
-    }
-    if (v.videoWidth === 0) {
-      requestAnimationFrame(processFrame);
-      return;
-    }
-    ctx.drawImage(v, 0, 0, c.width, c.height);
-    const frame = ctx.getImageData(0, 0, c.width, c.height);
-    const d = frame.data;
-    for (let i = 0; i < d.length; i += 4) {
-      const r = d[i], g = d[i+1], b = d[i+2];
-      // chroma threshold: green dominant + bright
-      if (g > 100 && g > r * 1.4 && g > b * 1.4) d[i+3] = 0;
-    }
-    ctx.putImageData(frame, 0, 0);
-    requestAnimationFrame(processFrame);
-  }
-  requestAnimationFrame(processFrame);
-}
-
-// ── Tools ──
-let SCORE = 0;
-function updateScore(pts) {
-  SCORE += pts;
-  $("#score").textContent = `ניקוד: ${SCORE}`;
-}
-
-function buildTools() {
-  const container = $("#zone-d");
-  // Each tool fits within Zone D (24vh ~ 192px on a 800px screen).
-  // Cap to keep readable across resolutions.
-  TOOLS.forEach((tool, idx) => {
-    const wrapper = document.createElement("div");
-    wrapper.className = "tool-wrapper";
-    wrapper.style.width = "min(22vw, 18vh, 140px)";
-    wrapper.style.height = "min(22vw, 18vh, 140px)";
-    wrapper.dataset.slot = tool.slot;
-
-    const img = document.createElement("img");
-    img.src = tool.file;
-    img.alt = tool.label;
-
-    const icon = document.createElement("div");
-    icon.className = "tool-info-icon";
-    icon.textContent = "i";
-    icon.tabIndex = 0;
-    icon.setAttribute("aria-label", "מידע על הכלי");
-
-    const tooltip = document.createElement("div");
-    tooltip.className = "tool-tooltip";
-    tooltip.textContent = `${tool.label}  ·  +${tool.points}`;
-
-    // mobile tap reveals for 2s; desktop hover handled in CSS
-    icon.addEventListener("click", (e) => {
-      e.stopPropagation();
-      tooltip.classList.add("visible");
-      setTimeout(() => tooltip.classList.remove("visible"), 2000);
-    });
-
-    img.addEventListener("click", () => handleToolSelection(tool, wrapper, img));
-
-    wrapper.append(img, icon, tooltip);
-    container.appendChild(wrapper);
-  });
-}
-
-// ── Gear toss + per-type consequence ──
-function gearToss(toolEl, playerCanvas) {
-  return new Promise((resolve) => {
-    const pr = playerCanvas.getBoundingClientRect();
-    const tr = toolEl.getBoundingClientRect();
-    const toX = (pr.left + pr.width * 0.55) - tr.left;
-    const toY = (pr.top + pr.height * 0.35) - tr.top;
-    const arcY = Math.min(tr.top, pr.top) - 80 - tr.top;
-    toolEl.animate([
-      { transform: "translate(0,0) scale(1)", offset: 0 },
-      { transform: `translate(${toX/2}px,${arcY}px) scale(1.1)`, offset: 0.45 },
-      { transform: `translate(${toX}px,${toY}px) scale(0.85)`, offset: 1 }
-    ], { duration: 380, easing: "cubic-bezier(0.25,0.46,0.45,0.94)", fill: "forwards" })
-      .finished.then(() => resolve());
-  });
-}
-
-function applyHold(toolEl, ms = 1800) { return delay(ms); }
-
-function applyUse(toolEl) {
-  return toolEl.animate([
-    { transform: "rotate(0deg) scale(0.85)", offset: 0 },
-    { transform: "rotate(-35deg) scale(1.0)", offset: 0.3 },
-    { transform: "rotate(25deg) scale(0.9)", offset: 0.7 },
-    { transform: "rotate(0deg) scale(0.85)", offset: 1 }
-  ], { duration: 600, easing: "ease-in-out", fill: "forwards" }).finished;
-}
-
-function applyWear(toolEl, playerCanvas) {
-  const pr = playerCanvas.getBoundingClientRect();
-  const tr = toolEl.getBoundingClientRect();
-  const bodyX = (pr.left + pr.width * 0.40) - tr.left;
-  const bodyY = (pr.top + pr.height * 0.50) - tr.top;
-  return toolEl.animate([
-    { transform: toolEl.style.transform || "translate(0,0) scale(0.85)", offset: 0 },
-    { transform: `translate(${bodyX}px,${bodyY}px) scale(1.15)`, offset: 1 }
-  ], { duration: 400, easing: "ease-out", fill: "forwards" }).finished;
-}
-
-function applyDeploy(toolEl, playerCanvas) {
-  const pr = playerCanvas.getBoundingClientRect();
-  const tr = toolEl.getBoundingClientRect();
-  const dX = (pr.left + pr.width * 0.5) - tr.left;
-  const dY = (pr.top - pr.height * 0.25) - tr.top;
-  toolEl.style.zIndex = "9";
-  return toolEl.animate([
-    { transform: (toolEl.style.transform || "") + " scale(0.85)", offset: 0 },
-    { transform: `translate(${dX}px,${dY}px) scale(2.2)`, offset: 0.6 },
-    { transform: `translate(${dX}px,${dY - 20}px) scale(2.0)`, offset: 1 }
-  ], { duration: 700, easing: "cubic-bezier(0.34,1.56,0.64,1)", fill: "forwards" }).finished;
-}
-
-async function handleToolSelection(tool, wrapper, img) {
-  // dim other tools
-  document.querySelectorAll("#zone-d .tool-wrapper").forEach((w) => {
-    if (w !== wrapper) w.classList.add("dimmed");
-  });
-
-  updateScore(tool.points);
-  spawnPointsPopup(tool, wrapper);
-
-  const canvas = $("#player-canvas");
-  await gearToss(wrapper, canvas);
-
-  switch (tool.consequence) {
-    case "hold":   await applyHold(wrapper); break;
-    case "use":    await applyUse(wrapper); await applyHold(wrapper, 1200); break;
-    case "wear":   await applyWear(wrapper, canvas); await applyHold(wrapper, 1500); break;
-    case "deploy": await applyDeploy(wrapper, canvas); await applyHold(wrapper, 1500); break;
-    default:       await applyHold(wrapper);
-  }
-
-  showCheckpoint();
-  await delay(2200);
-  transitionOut();
-}
-
-function spawnPointsPopup(tool, wrapper) {
-  const r = wrapper.getBoundingClientRect();
-  const target = $("#score").getBoundingClientRect();
-  const popup = document.createElement("div");
-  popup.className = "points-popup";
-  popup.textContent = `+${tool.points}`;
-  popup.style.color = tool.points >= 3 ? "#E94B3C"
-                      : tool.points === 2 ? "#7FB069" : "#4A90E2";
-  popup.style.left = `${r.left + r.width / 2}px`;
-  popup.style.top  = `${r.top}px`;
-  document.body.appendChild(popup);
-  requestAnimationFrame(() => {
-    popup.style.transform = `translate(${target.left - r.left}px,${target.top - r.top}px) scale(0.7)`;
-    popup.style.opacity = "0";
-  });
-  setTimeout(() => popup.remove(), 900);
-}
-
-function showMissionText() {
-  $("#mission-text").textContent = SCENE.missionText;
-  requestAnimationFrame(() => $("#mission-text").classList.add("visible"));
-}
-
-function showCheckpoint() {
-  if (!SCENE.checkpointText) return;
-  const el = $("#checkpoint-text");
-  el.textContent = SCENE.checkpointText;
-  el.classList.add("visible");
-}
-
-function transitionOut() {
-  const o = $("#transition-overlay");
-  o.classList.add("active");
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  startBgLoop();
-  setupPlayer();
-  buildTools();
-  setTimeout(showMissionText, 700);
-  // progress placeholder — Builder will receive real flow from main game
-  $("#progress-fill").style.width = "20%";
-});
+const POSE_BASE="../../assets/player/";
+const sceneBus=new EventTarget();
+const PLAYER={awaitingEvent:null};
+function emit(name,detail){sceneBus.dispatchEvent(new CustomEvent(name,{detail}));document.dispatchEvent(new CustomEvent(name,{detail}));}
+const SOUND={enabled:true,ambientNodes:{}};
+function tryPlayAudio(file,volume){if(!file||file.startsWith('placeholder:'))return null;try{const a=new Audio(file);a.volume=volume!=null?volume:0.6;a.play().catch(()=>{});return a;}catch(e){return null;}}
+function bindSoundEvents(){for(const ev of PAYLOAD.soundEvents||[]){sceneBus.addEventListener(ev.trigger,(e)=>{if(ev.trigger_filter&&ev.trigger_filter.slot&&(!e.detail||e.detail.slot!==ev.trigger_filter.slot))return;const d=ev.delay_after_trigger_ms||0;setTimeout(()=>tryPlayAudio(ev.audio_file,ev.volume),d);});}const a1=(PAYLOAD.soundAmbients||{}).phase_1_sky;const a2=(PAYLOAD.soundAmbients||{}).phase_2_jungle;if(a1)sceneBus.addEventListener('scene_entry',()=>SOUND.ambientNodes.a1=tryPlayAudio(a1.audio_file,a1.volume));if(a2)sceneBus.addEventListener('jump_apex',()=>{if(SOUND.ambientNodes.a1){try{SOUND.ambientNodes.a1.pause();}catch(e){}}SOUND.ambientNodes.a2=tryPlayAudio(a2.audio_file,a2.volume);});}
+function chromaCanvasFromVideo(canvasEl,getActiveVideo){const ctx=canvasEl.getContext('2d');function tick(){const v=getActiveVideo();if(v&&v.readyState>=2){if(canvasEl.width!==v.videoWidth||canvasEl.height!==v.videoHeight){canvasEl.width=v.videoWidth;canvasEl.height=v.videoHeight;}try{ctx.drawImage(v,0,0,canvasEl.width,canvasEl.height);const frame=ctx.getImageData(0,0,canvasEl.width,canvasEl.height);const d=frame.data;for(let i=0;i<d.length;i+=4){const r=d[i],g=d[i+1],b=d[i+2];if(g>100&&g>r*1.4&&g>b*1.4)d[i+3]=0;}ctx.putImageData(frame,0,0);}catch(e){}canvasEl.classList.add('visible');}requestAnimationFrame(tick);}requestAnimationFrame(tick);}
+function chromaCanvasFromImage(canvasEl,imgEl){function bake(){if(!imgEl.complete||!imgEl.naturalWidth)return;canvasEl.width=imgEl.naturalWidth;canvasEl.height=imgEl.naturalHeight;const ctx=canvasEl.getContext('2d');try{ctx.drawImage(imgEl,0,0);const frame=ctx.getImageData(0,0,canvasEl.width,canvasEl.height);const d=frame.data;for(let i=0;i<d.length;i+=4){const r=d[i],g=d[i+1],b=d[i+2];if(g>100&&g>r*1.4&&g>b*1.4)d[i+3]=0;}ctx.putImageData(frame,0,0);}catch(e){}}if(imgEl.complete)bake();else imgEl.addEventListener('load',bake,{once:true});}
+const POSES={};let activePoseVideo=null;let currentTrack=null;
+function getPoseVideo(filename){const id='pose-'+filename.replace('pose_','').replace('.mp4','');return document.getElementById(id);}
+function preloadAllPoses(){const ids=(PAYLOAD.poseBaseFiles||[]).map(f=>'pose-'+f.replace('pose_','').replace('.mp4',''));return Promise.all(ids.map(id=>new Promise(resolve=>{const v=document.getElementById(id);POSES[id]=v;if(!v)return resolve();v.loop=false;v.muted=true;v.playsInline=true;if(v.readyState>=2)return resolve();const onReady=()=>{v.removeEventListener('loadedmetadata',onReady);resolve();};v.addEventListener('loadedmetadata',onReady);v.addEventListener('canplay',onReady,{once:true});setTimeout(resolve,1500);})));}
+function startTrack(track){if(activePoseVideo&&activePoseVideo!==getPoseVideo(track.pose_file)){try{activePoseVideo.pause();}catch(e){}}currentTrack=track;const v=getPoseVideo(track.pose_file);activePoseVideo=v;if(!v)return;v.loop=false;const startSeek=()=>{try{v.currentTime=track.from_sec;}catch(e){}if(track.is_pose_hold&&track.from_sec===track.to_sec){v.pause();}else{v.play().catch(()=>{});}};if(v.readyState>=1)startSeek();else v.addEventListener('loadedmetadata',startSeek,{once:true});const wrapper=document.getElementById('player-wrapper');if(track.phase==='running_entry'){wrapper.classList.remove('facing-frontal');}else{wrapper.classList.add('facing-frontal');}}
+function poseRafTick(){const v=activePoseVideo;const t=currentTrack;if(v&&t&&!v.paused&&v.readyState>=2){if(v.currentTime>=t.to_sec-0.005){const isLoop=!!t.loop_until_event&&PLAYER.awaitingEvent===t.loop_until_event;if(isLoop){try{v.currentTime=t.from_sec;}catch(e){}}else if(t.is_pose_hold){try{v.currentTime=t.to_sec;}catch(e){}v.pause();}else if(t.is_landing){try{v.currentTime=t.to_sec;}catch(e){}v.pause();const justEnded=t;currentTrack=null;emit('landing_complete',{phase:justEnded.phase});}else if(t.one_shot){try{v.currentTime=t.to_sec;}catch(e){}v.pause();const justEnded=t;currentTrack=null;emitTrackComplete(justEnded);}}}requestAnimationFrame(poseRafTick);}
+function emitTrackComplete(track){if(track.phase==='catch_one_shot'){emit('catch_complete',{});}}
+function setupBgPhaseSwap(){sceneBus.addEventListener('jump_apex',()=>{document.getElementById('bg-phase-1').style.opacity='0';document.getElementById('bg-phase-2').style.opacity='1';});}
+function getRect(el){return el.getBoundingClientRect();}
+function flyToolToPalm(toolEl,slot){const wrapper=document.getElementById('player-wrapper');const wRect=getRect(wrapper);const palmX=wRect.left+wRect.width*0.40;const palmY=wRect.top+wRect.height*0.32;const startRect=getRect(toolEl);const startX=startRect.left,startY=startRect.top,startW=startRect.width,startH=startRect.height;toolEl.classList.add('flying');toolEl.style.left=startX+'px';toolEl.style.top=startY+'px';toolEl.style.width=startW+'px';toolEl.style.height=startH+'px';const peakY=Math.min(startY,palmY)-80;const targetW=startW*0.50,targetH=startH*0.50;const targetX=palmX-targetW/2;const duration=PAYLOAD.timing.toolFlightMs;const startTime=performance.now();function tick(now){const linear=Math.min(1,(now-startTime)/duration);const t=linear;let eased=1-Math.pow(1-t,3);if(t<0.85)eased+=Math.sin(t*Math.PI)*0.08;eased=Math.max(0,Math.min(1.05,eased));const yArc=(1-t)*(1-t)*startY+2*(1-t)*t*peakY+t*t*(palmY-targetH/2);const x=startX+(targetX-startX)*eased;const w=startW+(targetW-startW)*eased;const h=startH+(targetH-startH)*eased;toolEl.style.left=x+'px';toolEl.style.top=yArc+'px';toolEl.style.width=w+'px';toolEl.style.height=h+'px';if(linear<1)requestAnimationFrame(tick);else attachToolToWrapper(toolEl,slot);}requestAnimationFrame(tick);}
+function attachToolToWrapper(toolEl,slot){const wrapper=document.getElementById('player-wrapper');toolEl.classList.remove('flying');toolEl.classList.add('attached');wrapper.appendChild(toolEl);const tool=PAYLOAD.tools.find(t=>t.slot===slot);const a=tool.attach_at_catch;toolEl.style.left=`calc(${a.point_on_player_pct.x}% - ${(a.scale_factor*100)/2}%)`;toolEl.style.top=`calc(${a.point_on_player_pct.y}% - ${(a.scale_factor*100)/2}%)`;toolEl.style.width=`${a.scale_factor*100}%`;toolEl.style.height=`${a.scale_factor*100}%`;toolEl.style.zIndex='20';}
+function applyToolUnfurl(slot){const tool=PAYLOAD.tools.find(t=>t.slot===slot);if(!tool)return;const wrapper=document.getElementById('player-wrapper');const toolEl=wrapper.querySelector('.tool-wrapper.attached');if(!toolEl)return;const a=tool.attach_at_catch,b=tool.attach_at_landing;const dur=400;const start=performance.now();if(tool.type==='deploy'||tool.type==='wear'){toolEl.style.zIndex='9';}function step(now){const t=Math.min(1,(now-start)/dur);const e=1-Math.pow(1-t,2);const x=a.point_on_player_pct.x+(b.point_on_player_pct.x-a.point_on_player_pct.x)*e;const y=a.point_on_player_pct.y+(b.point_on_player_pct.y-a.point_on_player_pct.y)*e;const s=a.scale_factor+(b.scale_factor-a.scale_factor)*e;toolEl.style.left=`calc(${x}% - ${(s*100)/2}%)`;toolEl.style.top=`calc(${y}% - ${(s*100)/2}%)`;toolEl.style.width=`${s*100}%`;toolEl.style.height=`${s*100}%`;if(t<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
+function buildTools(){const container=document.getElementById('zone-d');for(const tool of PAYLOAD.tools){const wrap=document.createElement('div');wrap.className='tool-wrapper';wrap.dataset.slot=tool.slot;const cvs=document.createElement('canvas');cvs.className='tool-canvas';wrap.appendChild(cvs);const img=new Image();img.crossOrigin='anonymous';img.alt=tool.label;img.draggable=false;img.onload=()=>chromaCanvasFromImage(cvs,img);img.src=tool.file;const ic=document.createElement('div');ic.className='tool-info-icon';ic.textContent='i';wrap.appendChild(ic);const tip=document.createElement('div');tip.className='tool-tooltip';tip.textContent=tool.label;wrap.appendChild(tip);ic.addEventListener('mouseenter',()=>tip.classList.add('visible'));ic.addEventListener('mouseleave',()=>tip.classList.remove('visible'));ic.addEventListener('click',(e)=>{e.stopPropagation();tip.classList.add('visible');setTimeout(()=>tip.classList.remove('visible'),2000);});wrap.addEventListener('click',(e)=>{if(e.target===ic)return;onToolClicked(tool.slot,wrap);});container.appendChild(wrap);}for(const tool of PAYLOAD.tools){setTimeout(()=>{const w=document.querySelector(`.tool-wrapper[data-slot="${tool.slot}"]`);if(w)w.classList.add('visible');},tool.in_ms);}}
+let toolHasBeenClicked=false;let currentClickedSlot=null;
+function onToolClicked(slot,wrapEl){if(toolHasBeenClicked)return;toolHasBeenClicked=true;PLAYER.awaitingEvent=null;emit('tool_clicked',{slot});document.querySelectorAll('.tool-wrapper').forEach(el=>{if(el!==wrapEl)el.classList.add('dimmed');});wrapEl.animate([{transform:'scale(1)'},{transform:'scale(1.1)'},{transform:'scale(1)'}],{duration:200,easing:'ease-out'});document.getElementById('mission-text').classList.remove('visible');flyToolToPalm(wrapEl,slot);const catchTrack=PAYLOAD.tracks.find(t=>t.phase==='catch_one_shot');startTrack(catchTrack);}
+const __busSlotListener=(e)=>{currentClickedSlot=e.detail&&e.detail.slot;};
+function setupSequence(){const tracks=PAYLOAD.tracks;const T=id=>tracks.find(t=>t.phase===id);sceneBus.addEventListener('tool_clicked',__busSlotListener);sceneBus.addEventListener('catch_complete',()=>{const wrapper=document.getElementById('player-wrapper');const jumpHold=T('jump_css_overlay');startTrack(jumpHold);wrapper.classList.add('jumping');if(currentClickedSlot)applyToolUnfurl(currentClickedSlot);setTimeout(()=>emit('jump_apex',{}),PAYLOAD.timing.jumpApexOffsetFromCatchCompleteMs);});sceneBus.addEventListener('jump_apex',()=>{const wrapper=document.getElementById('player-wrapper');wrapper.classList.add('landing-anchor');const landTrack=T('landing');startTrack(landTrack);const rivals=document.getElementById('rivals-canvas');const trees=document.getElementById('trees-canvas');if(rivals)rivals.style.opacity='0';if(trees)trees.style.opacity='0.95';setTimeout(()=>{const dust=document.getElementById('dust-canvas');dust.style.opacity='0.6';dust.style.transform='scale(1.0)';setTimeout(()=>{dust.style.opacity='0';dust.style.transform='scale(1.2)';},270);},PAYLOAD.timing.dustOffsetFromJumpApexMs);});sceneBus.addEventListener('landing_complete',()=>{setTimeout(()=>{const cp=document.getElementById('checkpoint-text');cp.textContent=PAYLOAD.checkpointText;cp.classList.add('visible');emit('checkpoint_text_shown',{});},PAYLOAD.timing.checkpointOffsetAfterLandingMs);setTimeout(()=>{document.getElementById('fade-overlay').classList.add('visible');},PAYLOAD.timing.checkpointOffsetAfterLandingMs+PAYLOAD.timing.checkpointHoldMs+200);});}
+function setupTimeline(){const tracks=PAYLOAD.tracks;const T=id=>tracks.find(t=>t.phase===id);sceneBus.addEventListener('scene_entry',()=>{PLAYER.awaitingEvent=null;startTrack(T('running_entry'));});setTimeout(()=>{const mt=document.getElementById('mission-text');mt.textContent=PAYLOAD.missionText;mt.classList.add('visible');emit('mission_text_shown',{});},PAYLOAD.timing.missionTextAppearsMs);sceneBus.addEventListener('mission_text_shown',()=>{PLAYER.awaitingEvent='tool_clicked';startTrack(T('standing_wait'));});}
+(function(){const NEXT_PAGE="./M4.html";const MISSION_ID="M3";const SLOT_POINTS={A:100,B:125,C:150};let lastSlot="A";try{const score=parseInt(localStorage.getItem('emerald_score')||'0',10);const el=document.getElementById('score-display');if(el)el.textContent=MISSION_ID+' · ניקוד: '+score;}catch(e){}document.addEventListener('tool_clicked',(e)=>{if(e.detail&&e.detail.slot)lastSlot=e.detail.slot;});document.addEventListener('checkpoint_text_shown',()=>{try{const score=parseInt(localStorage.getItem('emerald_score')||'0',10);localStorage.setItem('emerald_score',String(score+(SLOT_POINTS[lastSlot]||100)));const prog=JSON.parse(localStorage.getItem('emerald_progress')||'[]');if(!prog.includes(MISSION_ID))prog.push(MISSION_ID);localStorage.setItem('emerald_progress',JSON.stringify(prog));}catch(e){}setTimeout(()=>{window.location.href=NEXT_PAGE;},2500);},{once:true});})();
+async function init(){bindSoundEvents();setupBgPhaseSwap();chromaCanvasFromVideo(document.getElementById('player-canvas'),()=>activePoseVideo);chromaCanvasFromImage(document.getElementById('rivals-canvas'),document.getElementById('rivals-img'));chromaCanvasFromImage(document.getElementById('trees-canvas'),document.getElementById('trees-img'));chromaCanvasFromImage(document.getElementById('dust-canvas'),document.getElementById('dust-img'));await preloadAllPoses();buildTools();setupSequence();setupTimeline();requestAnimationFrame(poseRafTick);document.getElementById('bg-phase-1').play().catch(()=>{});document.getElementById('bg-phase-2').play().catch(()=>{});emit('scene_entry',{});}
+document.addEventListener('DOMContentLoaded',init);
 </script>
 </body>
 </html>

@@ -1,58 +1,118 @@
 {
   "_mission": "M1",
-  "_scene_composer_run_at": "2026-04-25T18:55:00Z",
+  "_scene_composer_run_at": "2026-04-25T20:55:00Z",
+  "_revision": "v4 — fixes responsive layout failure flagged by scene_inspector_verdict.json. Anchor math (feet on deck at bg y=85%) preserved verbatim from v3. Tool paths, palm anchor, mission text, rival overlay zone — all preserved verbatim from v3. ONLY the CSS structure changed: zone-b now hosts a 16:9 inscribed #scene-stage and a blurred #bg-backdrop fills any letterbox area.",
   "_bg_chosen": "assets/backgrounds/bg_M1.mp4",
-  "_bg_chosen_reason": "asset_catalog.json suggested_uses includes 'M1 setup phase — דמות עומדת על רצפת המטוס מול הפתח שעומדת לקפוץ ממנו'. ground_line_y_pct=78 supports anchored standing on cargo deck. NOT_suitable_for is empty. filename_misleading=false.",
-  "_bg_NOT_chosen": "backgrounds/bg_airplane.mp4 — listed in asset_catalog as filename_misleading=true (aerial canopy, no plane). NOT_suitable_for explicitly includes 'M1 setup phase'. This is the file v5 mistakenly used; we explicitly avoid it.",
+  "_bg_chosen_reason": "Cargo plane interior, 16:9 source. asset_catalog suggested_uses includes 'M1 setup phase'. Visual re-inspection of pipeline/asset_keyframes/bg_M1.jpg (1280x720) confirms: deck-line at y≈85%, opening at y=20-65% × x=37-63%. v4 keeps this bg unchanged but renders it inside a scene-stage container that is GUARANTEED to match the bg's 16:9 aspect — so object-fit:cover becomes a no-op (no zoom, no crop), and percentages on the scene-stage map 1:1 to bg pixel coordinates on EVERY viewport.",
   "_proof_image": "pipeline/scene_compose/M1_proof.jpg",
-  "_keyframe_inspected": "pipeline/asset_keyframes/bg_M1.jpg (1280x720)",
+  "_keyframe_inspected": "pipeline/asset_keyframes/bg_M1.jpg (1280x720, aspect 16:9 = 1.778)",
+
+  "_responsive_layout_pattern": {
+    "_problem_solved": "Previous v3 implementation placed bg inside zone-b (which is 100vw × 54vh, aspect varies with viewport). object-fit:cover stretched/cropped bg to fill zone-b — on 16:10 and wider laptops, bg's TOP got cropped (ceiling lost). Earlier object-fit:contain attempt produced visible BLACK BARS that Nirit rejected ('חצי מסך שחור'). Earlier object-position:50% 100% fix cropped bg's TOP (Nirit: 'כל הרקע חתוך למעלה').",
+    "_industry_pattern": "YouTube / Netflix / film websites all face the same problem and solve it with a TWO-LAYER inscribed-stage pattern: (1) a backdrop fill (blurred, dimmed, scaled-up copy of the same media) covers the full container; (2) the actual media is inscribed in its true aspect ratio, centered. The result: no hard black bars, no media cropping.",
+    "_geometry": {
+      "zone_b_size": "100vw × 54vh (fixed)",
+      "scene_stage_aspect": "16:9 (must match bg.mp4 aspect exactly)",
+      "scene_stage_width_formula": "min(100%, calc(54vh * 16 / 9))",
+      "scene_stage_height_formula": "min(54vh, calc(100vw * 9 / 16))",
+      "scene_stage_centering": "left:50% top:50% transform:translate(-50%,-50%)",
+      "_proof_for_1920x1080_viewport": "viewport 100vw=1920px, 54vh=583px. scene-stage width = min(1920, 583*16/9) = min(1920, 1037) = 1037px. scene-stage height = min(583, 1920*9/16) = min(583, 1080) = 583px. aspect 1037/583 = 1.778 ✓ (16:9). Letterbox bars: (1920-1037)/2 = 442px each side, filled by blurred backdrop.",
+      "_proof_for_1366x768_viewport": "viewport 100vw=1366px, 54vh=415px. scene-stage width = min(1366, 415*16/9) = min(1366, 738) = 738px. scene-stage height = min(415, 1366*9/16) = min(415, 769) = 415px. aspect 738/415 = 1.778 ✓. Letterbox: (1366-738)/2 = 314px each side, blurred.",
+      "_proof_for_768x1024_viewport_tablet_portrait": "viewport 100vw=768px, 54vh=553px. scene-stage width = min(768, 553*16/9) = min(768, 983) = 768px. scene-stage height = min(553, 768*9/16) = min(553, 432) = 432px. aspect 768/432 = 1.778 ✓. Pillarbox: (553-432)/2 = 60.5px top+bottom, blurred.",
+      "_proof_for_375x812_viewport_phone_portrait": "viewport 100vw=375px, 54vh=438px. scene-stage width = min(375, 438*16/9) = min(375, 778) = 375px. scene-stage height = min(438, 375*9/16) = min(438, 211) = 211px. aspect 375/211 = 1.777 ✓. Pillarbox top+bottom (438-211)/2 = 113.5px each, blurred."
+    },
+    "_actress_anchor_proof_v4": "Inside scene-stage (which is 1:1 with bg pixel grid), bottom:12.8% places canvas-bottom at y=87.2% of scene-stage = 87.2% of bg. With pose feet_y_pct_in_canvas=96 and chosen height 55%: feet_y_on_bg = 87.2 - 0.04*55 = 87.2 - 2.2 = 85.0%. ✓ matches bg.ground_line_y_pct=85. head_y_on_bg = 87.2 - 0.92*55 = 36.6%. ✓ inside opening_zone (20-65%). MATHEMATICALLY IDENTICAL to v3, but now ROBUST across viewports because scene-stage = bg pixel grid 1:1."
+  },
 
   "bg": {
     "file": "assets/backgrounds/bg_M1.mp4",
-    "css": "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;",
-    "html_attrs": "autoplay loop muted playsinline",
-    "ground_line_y_pct": 78,
+    "is_static_frame": true,
+    "static_frame_at_seconds": 0.5,
+    "_static_bg_reason": "M1 setup phase background must be FROZEN. Visible loop seam in bg_M1.mp4 ruins immersion (Nirit feedback 2026-04-25). Builder MUST emit muted+playsinline+preload only — NO autoplay, NO loop — and seek+pause at static_frame_at_seconds in JS init.",
+    "css_inside_scene_stage": "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;",
+    "css_backdrop_layer": "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(20px) brightness(0.55);transform:scale(1.1);z-index:0;pointer-events:none;",
+    "html_attrs": "muted playsinline preload=\"auto\"",
+    "ground_line_y_pct": 85,
     "horizon_y_pct_through_opening": 45,
     "opening_zone_y_pct": "20-65 (the jagged tear/ramp through which jungle is visible)",
-    "actress_target_y_on_bg": 78
+    "opening_zone_x_pct": "37-63 (center of frame)",
+    "actress_target_y_on_bg": 85,
+    "_two_layer_render": "Builder emits TWO <video> elements pointing at the same src. (1) #bg-backdrop is the blurred fill behind scene-stage. (2) #bg-phase-1 is the sharp inscribed bg inside scene-stage. Both seek+pause at 0.5s in initStaticBg()."
+  },
+
+  "scene_stage": {
+    "_role": "16:9 inscribed wrapper inside zone-b. ALL scene-anchored elements (bg-phase-1, player-wrapper, rivals-canvas, scenery overlays) live inside this wrapper. Percentages are of scene-stage, which IS the bg pixel grid.",
+    "css": "position:absolute;left:50%;top:50%;width:min(100%, calc(54vh * 16 / 9));height:min(54vh, calc(100vw * 9 / 16));transform:translate(-50%,-50%);overflow:hidden;z-index:1;background:#000;"
+  },
+
+  "bg_backdrop": {
+    "_role": "Blurred, scaled, dimmed copy of bg fills any letterbox area in zone-b so user never sees hard black bars. Industry pattern (YouTube, Netflix).",
+    "file": "assets/backgrounds/bg_M1.mp4",
+    "is_static_frame": true,
+    "static_frame_at_seconds": 0.5,
+    "css": "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(20px) brightness(0.55);transform:scale(1.1);z-index:0;pointer-events:none;",
+    "html_attrs": "muted playsinline preload=\"auto\""
   },
 
   "actress": {
     "pose_file": "assets/player/pose_05.mp4",
+    "is_static_pose": true,
     "currentTime_pause_at": 0.5,
-    "css": "position:absolute;bottom:18.4%;left:50%;transform:translateX(-50%);height:60%;z-index:10;",
+    "_static_pose_reason": "M1 setup phase = waiting for player decision. Actress is VISUALLY FROZEN on a single frame (pose_05 currentTime=0.5s, hands settled at sides). Builder MUST set track is_pose_hold=true with from_sec=to_sec=0.5 — NO loop_until_event for this phase.",
+    "container": "scene_stage",
+    "css": "position:absolute;bottom:12.8%;left:50%;height:55%;aspect-ratio:9/16;transform:translateX(-50%);z-index:10;",
     "_anchor_proof": {
       "input": {
-        "ground_y_pct_on_bg": 78,
+        "ground_y_pct_on_bg": 85,
         "feet_y_pct_in_pose_canvas": 96,
-        "chosen_actress_height_pct_of_bg": 60
+        "chosen_actress_height_pct_of_bg": 55,
+        "head_y_pct_in_pose_canvas": 8,
+        "opening_top_y_pct_on_bg": 20,
+        "opening_bottom_y_pct_on_bg": 65
       },
-      "calculation": "canvas_bottom_y_on_bg = (100 - bottom_pct) = 81.6.   feet_y_on_bg = canvas_bottom_y_on_bg - (1 - feet_y_pct_in_pose_canvas/100) * height_pct_of_bg = 81.6 - (1 - 0.96) * 60 = 81.6 - 2.4 = 79.2.   Target was 78.   Off by 1.2 pp — within acceptable tolerance (±2pp).",
-      "verdict": "feet land at bg y=79% which is on the cargo deck, ~1pp below the marked ground line. ANCHORED CORRECTLY.",
-      "math_double_check_with_bottom_15": "if bottom_pct=15, canvas_bottom=85, feet=85-2.4=82.6 (4.6 below ground) -- too low. bottom=18.4 is correct."
+      "calculation": "Inside scene-stage (= bg 1:1), canvas_bottom_y_on_stage = 100 - bottom_pct = 100 - 12.8 = 87.2. feet_y_on_bg = 87.2 - (1 - 96/100)*55 = 87.2 - 0.04*55 = 87.2 - 2.2 = 85.0. ✓. head_y_on_bg = 87.2 - (1 - 8/100)*55 = 87.2 - 0.92*55 = 87.2 - 50.6 = 36.6. ✓ inside opening 20-65%.",
+      "verdict": "feet land on cargo deck at bg y=85%. Head at bg y=36.6% inside opening, silhouettes against bright sky+jungle. ANCHORED CORRECTLY ON ALL VIEWPORTS because scene-stage is always 1:1 with bg.",
+      "v3_to_v4_diff": "Anchor numbers IDENTICAL. Only the container changed: v3 percentages were of zone-b (which had variable aspect → broke at runtime). v4 percentages are of scene-stage (always 16:9 → correct at runtime)."
     },
     "chroma_key": true,
     "facing": "frontal_slight_right",
-    "pose_visual_role": "she stands on cargo floor, framed by metal tear / open ramp behind her. Body silhouettes against bright sky+jungle visible through the opening."
+    "pose_visual_role": "stands on cargo floor inside plane, framed by metal tear / open ramp behind her. Body silhouettes against bright sky+jungle visible through the opening. Head inside opening (y=36%), feet on deck (y=85%)."
+  },
+
+  "actress_catch_pose": {
+    "pose_file": "assets/player/pose_06.mp4",
+    "play_from_sec": 3.0,
+    "play_to_sec": 5.5,
+    "hold_at_sec": 5.5,
+    "_inspected_frames": [
+      "pipeline/asset_keyframes/pose_06_t4s.jpg",
+      "pipeline/asset_keyframes/pose_06_t5s.jpg",
+      "pipeline/asset_keyframes/pose_06_t5_5s.jpg"
+    ],
+    "_pose_06_motion": "actress raises her LEFT arm extending palm forward. By t=5.5s arm is fully extended.",
+    "palm_anchor_at_catch_complete_pct": {
+      "x_in_canvas": 11,
+      "y_in_canvas": 22
+    },
+    "_palm_anchor_reason": "Tool ends up TOUCHING the raised palm. Pose_06 at currentTime 5.5s shows her left palm at canvas (11%, 22%). Preserved verbatim from v3 (Nirit-confirmed)."
   },
 
   "rivals_overlay": {
-    "container_css": "position:absolute;top:8%;left:5%;width:90%;height:55%;opacity:0.45;z-index:3;filter:blur(1px);pointer-events:none;",
-    "_zone_check": "top:8% to bottom_of_zone:63% spans the opening area (y=20-65 on bg). Rivals appear as small distant figures visible through the open ramp — felt-not-seen rule (8-10% width each, opacity 0.45).",
-    "render_mode": "canvas — chroma keyed silhouettes drawn at 4 random positions inside the zone",
-    "rival_files": [
-      "rivals/rival_female_run_1.png",
-      "rivals/rival_male_run_2.png"
-    ],
-    "rival_size_pct": "8% width each, scattered, not overlapping actress"
+    "container": "scene_stage",
+    "container_css": "position:absolute;top:22%;left:38%;width:24%;height:14%;opacity:0.45;z-index:3;filter:blur(1px);pointer-events:none;",
+    "_zone_check": "Rivals confined to the SKY portion of the cargo-bay opening (y=22-36% on bg, x=38-62% on bg). Same as v3 — preserved.",
+    "render_mode": "canvas — chroma keyed silhouettes drawn at 4 random positions",
+    "rival_files": ["assets/scenery/competitors_in_air.png"],
+    "rival_size_pct": "25% width of container each, scattered, opacity 0.45"
   },
 
   "tools_zone_d": {
+    "_source_correction": "tool source path = assets/tools_final/ (Nirit-confirmed v3, preserved).",
     "container_css": "position:fixed;bottom:0;left:0;width:100%;height:24vh;background:rgba(0,0,0,0.65);display:flex;justify-content:space-evenly;align-items:center;z-index:20;",
     "tools": [
       {
         "slot": "A",
-        "file": "tools/מצנח_מ01.png",
+        "file": "assets/tools_final/מצנח_מ01.png",
         "label": "מצנח עגול רחב",
         "wrapper_css": "width:max(80px,min(28vw,20vh,140px));aspect-ratio:1;display:flex;align-items:center;justify-content:center;",
         "render_mode": "canvas + chroma_key (runtime)",
@@ -61,7 +121,7 @@
       },
       {
         "slot": "B",
-        "file": "tools/גלשן_מ01.png",
+        "file": "assets/tools_final/גלשן_מ01.png",
         "label": "גלשן רחיפה",
         "wrapper_css": "width:max(80px,min(28vw,20vh,140px));aspect-ratio:1;",
         "render_mode": "canvas + chroma_key (runtime)",
@@ -70,7 +130,7 @@
       },
       {
         "slot": "C",
-        "file": "tools/כנפיים_מ01.png",
+        "file": "assets/tools_final/כנפיים_מ01.png",
         "label": "חליפת כנפיים",
         "wrapper_css": "width:max(80px,min(28vw,20vh,140px));aspect-ratio:1;",
         "render_mode": "canvas + chroma_key (runtime)",
@@ -89,10 +149,12 @@
   },
 
   "_5_question_self_check": {
-    "Q1_actress_on_surface": "YES — bottom:18.4% + height:60% places feet at bg y=79% which is on the cargo floor (rebbed metal deck with netting). Ground line was 78. Anchor proof above shows the math.",
-    "Q2_what_behind_actress": "פנים מטוס תובלה: לוחות מתקרה מתכת, מושבי קומנדו עם רצועות בצדדים, ובאמצע־אחור הפתח המרובע הקרוע שדרכו רואים שמיים בהירים, ערפל מטוס, אופק כחלחל ויער ג'ונגל ירוק.",
+    "Q1_actress_on_surface": "YES — bottom:12.8% + height:55% places feet at bg y=85% on EVERY viewport because scene-stage is always inscribed at the bg's true aspect (16:9). Verified via geometry proofs at 1920x1080, 1366x768, 768x1024, 375x812.",
+    "Q2_what_behind_actress": "פנים מטוס תובלה: לוחות מתקרה מתכת, מושבי קומנדו עם רצועות בצדדים, ובאמצע־אחור הפתח המרובע הקרוע שדרכו רואים שמיים בהירים, אופק כחלחל-הרים, ויער ג'ונגל ירוק.",
     "Q3_what_does_script_say": "דלת המטוס נפרצה והרוח שואבת הכל החוצה! המתחרים כבר באוויר וצוברים יתרון מטורף. אני חייבת לקפוץ עכשיו כדי לא לפספס את אזור הנחיתה – איך אני מזנקת מכאן?",
-    "Q4_match_script_to_visual": "MATCH — keywords ['מטוס','דלת/פתח','נפרצה','המתחרים באוויר','אזור הנחיתה'] all have visual correspondents: cargo plane interior visible, jagged torn opening (door 'נפרצה'), rivals overlay in sky zone of opening, jungle below opening = landing area.",
-    "Q5_will_a_7yo_understand": "YES. Subject: actress with backpack center-frame, large enough to read. Situation: she's inside a plane with a torn opening, jungle below, sky outside. Choice: 3 tools at bottom (parachute, glider, wingsuit) — kid clicks one, she catches+jumps."
-  }
+    "Q4_match_script_to_visual": "MATCH on every viewport — keywords ['מטוס','דלת/פתח','נפרצה','המתחרים באוויר','אזור הנחיתה'] all preserved. The full bg (ceiling+walls+opening+jungle+sky) is visible inside scene-stage on every viewport. The blurred backdrop fills letterbox area without distracting (blur(20px) + brightness(0.55)).",
+    "Q5_will_a_7yo_understand": "YES on every viewport. Subject: actress feet on deck, head in opening — anchored. Situation: cargo plane interior with torn opening to jungle/sky — fully visible. Choice: 3 tools at bottom."
+  },
+
+  "_v3_to_v4_changelog": "ONLY responsive layout fixed. NO change to: bg file, ground_line_y_pct, opening_zone, actress pose/static behavior, palm_anchor, rivals zone, tools (paths, labels, points), mission text, mission text CSS, soundEvents, soundAmbients, timing, palm_anchor scale_factor. ADDED: scene_stage block, bg_backdrop block, _responsive_layout_pattern documentation. CHANGED: actress.css and rivals_overlay.container_css now reference container='scene_stage' (semantic only — the percentages are unchanged)."
 }

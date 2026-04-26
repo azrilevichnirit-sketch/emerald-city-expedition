@@ -152,9 +152,9 @@ html, body { width:100vw; height:100vh; overflow:hidden; background:#000;
 <div id="zone-b">
   <!-- BG videos: BOTH in DOM, opacity-toggled at jump_apex (NO src reassignment) -->
   <video id="bg-phase-1" class="bg-video" src="../../assets/backgrounds/bg_M1.mp4"
-         autoplay loop muted playsinline></video>
+         autoplay muted playsinline></video>
   <video id="bg-phase-2" class="bg-video" src="../../backgrounds/bg_jungle_clearing.mp4"
-         autoplay loop muted playsinline></video>
+         autoplay muted playsinline></video>
 
   <!-- Hidden source images for chroma key (drawn into canvases) -->
   <img id="rivals-img" src="../../assets/scenery/competitors_in_air.png" style="display:none" alt="">
@@ -299,7 +299,9 @@ function chromaCanvasFromVideo(canvasEl, getActiveVideo) {
   const ctx = canvasEl.getContext('2d');
   function tick() {
     const v = getActiveVideo();
-    if (v && v.readyState >= 2 && !v.paused) {
+    // Draw even when paused — a static pose (seek+pause) needs the canvas
+    // to keep showing the chroma-keyed frame, otherwise it goes blank/sticks.
+    if (v && v.readyState >= 2) {
       if (canvasEl.width !== v.videoWidth || canvasEl.height !== v.videoHeight) {
         canvasEl.width = v.videoWidth;
         canvasEl.height = v.videoHeight;

@@ -1,0 +1,64 @@
+{
+  "_mission": "M1",
+  "_inspector_run_at": "2026-04-25T20:42:00Z",
+  "_revision": "v3-responsive-pass — re-inspection after Nirit reported viewport-dependent breakage",
+  "_proof_image_examined": "pipeline/scene_compose/M1_proof.jpg",
+  "_html_under_test": "pipeline/builder_html/M1.html",
+  "_keyframe_re_examined": "pipeline/asset_keyframes/bg_M1.jpg (1280x720, 16:9)",
+
+  "verdict": "FAIL",
+
+  "five_questions": {
+    "Q1_where_actress_stands": {
+      "surface_name": "רצפת מטוס תובלה (deck של ה-cargo bay) — אבל רק ב-proof.jpg",
+      "y_pct_observed_in_proof_jpg": 85,
+      "y_pct_observed_in_live_html": "תלוי viewport — נכון רק כש-zone-b אספקט יחס מדויק 16:9 (54vh × (16/9 × ~1) ≈ ~96vh רוחב). ב-laptops רגילים (1366x768, 1920x1080) zone-b הוא 100vw × 54vh ≈ aspect 2.5:1, רחב מ-16:9. ה-bg משתמש ב-object-fit:cover + object-position:50% 100% — מה שמעגן את התחתית של ה-bg לתחתית zone-b אבל חותך את החלק העליון של ה-bg (התקרה של המטוס נעלמת). הדמות נשארת ב-bottom:12.8% של zone-b, כלומר ~7vh מעל תחתית zone-b. אבל קו הרצפה (y=85% של ה-bg) עכשיו לא יושב ב-y=12.8% של zone-b — הוא ממוקם איפשהו אחר תלוי בכמה ה-cover scale מגדיל. תוצאה: רגליים בכלל לא על הרצפה החתוכה.",
+      "verdict": "FAIL — ה-mapping bottom:12.8% of zone-b → y=85% of bg נכון רק אם bg ממולא 1:1 ב-zone-b. עם object-fit:cover על viewport >16:9, ה-bg נמתח ונחתך, וה-anchor mathematics מתבטלת."
+    },
+    "Q2_what_behind": {
+      "description_in_hebrew": "פנים מטוס תובלה: לוחות מתקרה מתכת, מושבי קומנדו עם רצועות בצדדים, ובאמצע הפתח המרובע הקרוע. דרך הפתח: שמיים בהירים בחלק העליון, אופק כחלחל-הרים באמצע, ויער ג'ונגל ירוק תחתון.",
+      "verdict": "PASS (descriptive)"
+    },
+    "Q3_what_script_says": {
+      "verbatim_quote": "דלת המטוס נפרצה והרוח שואבת הכל החוצה! המתחרים כבר באוויר וצוברים יתרון מטורף. אני חייבת לקפוץ עכשיו כדי לא לפספס את אזור הנחיתה – איך אני מזנקת מכאן?",
+      "verdict": "PASS (quote)"
+    },
+    "Q4_match_check": {
+      "script_keywords": ["מטוס", "דלת/פתח", "נפרצה", "המתחרים באוויר", "אזור הנחיתה"],
+      "visual_elements_when_bg_uncropped": ["פנים מטוס", "פתח קרוע במרכז", "שמיים+ג'ונגל דרך הפתח", "מתחרים בשמיים של הפתח"],
+      "visual_elements_in_live_html_on_wide_viewport": ["רק חלק תחתון של פנים המטוס + הרצפה", "הפתח עצמו חתוך — רק החלק התחתון שלו (ג'ונגל) נראה, השמיים נחתכו"],
+      "match_assessment": "MISMATCH on wide viewports — keyword 'המתחרים באוויר' לא מקבל תואם ויזואלי כי השמיים של הפתח חתוכים. הסיפור הויזואלי שובר.",
+      "verdict": "FAIL"
+    },
+    "Q5_seven_year_old_test": {
+      "subject_clear_when_anchored": "YES — שחקנית במרכז עם רגליים על הרצפה.",
+      "subject_clear_in_live_html": "PARTIAL — היא נראית, אבל הרגליים עלולות להיראות 'מרחפות' כי קו הרצפה לא במקום הצפוי תחתיה.",
+      "situation_clear": "MAYBE NO — אם השמיים של הפתח חתוכים, ילד לא יבין מאיפה 'המתחרים באוויר' או מאיפה היא קופצת.",
+      "choice_clear": "YES — 3 כלים בתחתית.",
+      "verdict": "FAIL — situation לא ברור על viewports רחבים."
+    }
+  },
+
+  "supplementary_checks": {
+    "bg_in_suggested_uses": true,
+    "bg_not_in_NOT_suitable_for": true,
+    "anchor_proof_has_real_numbers": true,
+    "composer_self_check_all_yes": true,
+    "_note": "ה-checks 6-9 כולם PASS. הבעיה היא לא בבחירת ה-bg ולא במתמטיקה — הבעיה היא ב-CSS implementation שלא משמרת את ה-aspect ratio של ה-bg ב-runtime."
+  },
+
+  "blockers": [
+    {
+      "issue": "Responsive layout failure: bg uses object-fit:cover + object-position:50% 100% inside zone-b which is 100vw × 54vh. On viewports wider than 16:9 (aspect 1.78), zone-b becomes wider than 16:9 — bg is scaled to fill width, top of bg gets cropped (ceiling+top of opening lost). On viewports narrower than 16:9 (tablet portrait, phone), height is the bottleneck — left/right edges of bg get cropped (rivets, ceiling lights lost). EITHER WAY the actress's bottom:12.8%/height:55% percentages of zone-b stop mapping to bg's y=85% pixel-correct.",
+      "fix": "scene_composer must adopt a 16:9 inscribed scene-stage pattern: a #scene-stage div sized as min(100%, calc(54vh * 16/9)) × min(54vh, calc(100vw * 9/16)), centered in zone-b. The bg-video (object-fit:cover, but inside a 16:9 container so cover == contain == 1:1) lives inside scene-stage. ALL element positions (player-wrapper, rivals-canvas) become percentages of scene-stage, NOT zone-b. Behind scene-stage, place a #bg-backdrop element (same bg source, blurred + dimmed + scaled 1.1x) filling zone-b — this fills any letterbox area with continuation imagery so user sees no hard black bars. This is the YouTube/Netflix industry-standard pattern for 16:9 video on non-16:9 viewports. With this pattern, bottom:12.8% / height:55% map to bg pixel y=85% / y=36.6% on EVERY viewport because scene-stage IS the bg's pixel grid 1:1."
+    },
+    {
+      "issue": "object-position:50% 100% in current CSS specifically chosen to anchor the deck — but it sacrifices the top of the bg. Nirit's earlier feedback 'כל הרקע חתוך למעלה' was exactly this.",
+      "fix": "Remove object-position trick. Inside the new scene-stage 16:9 wrapper, bg with object-fit:cover does not crop because container aspect == media aspect. Remove from CSS."
+    }
+  ],
+
+  "verdict_rationale": "FAIL. The composition.json v3 anchor MATH is correct (verified: 87.2 - 0.04*55 = 85.0 → feet on deck). The PROOF IMAGE is correct (pipeline/scene_compose/M1_proof.jpg renders the cyan box with feet on the red ground line at bg y=85%). But the BUILDER's CSS implementation does NOT preserve the assumption that bg fills its container 1:1 — on real viewports the bg is cropped/zoomed by object-fit:cover, and the percentages decouple from bg pixels. Resolution: composition v4 must specify the inscribed 16:9 scene-stage pattern + blurred backdrop fill, and builder must render exactly that structure. Q1 and Q4 (and consequently Q5) all fail until this is fixed.",
+
+  "next_action": "Return to scene_composer with the fix instruction in blockers[0]. Composer produces v4 of composition.json with the new CSS pattern documented. Builder rebuilds M1.html as a deterministic transform of v4."
+}

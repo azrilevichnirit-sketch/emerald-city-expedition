@@ -1,0 +1,38 @@
+{
+  "_mission": "M6",
+  "_scene_composer_run_at": "2026-04-26T00:00:00Z",
+  "_revision": "M6 V6 build — replicates M1 V6 single-position-anchor pattern",
+  "_bg_chosen": "../../assets/backgrounds/bg_M6.mp4",
+  "_bg_phase_2": "../../backgrounds/bg_jungle_path.mp4",
+  "bg": {
+    "file": "../../assets/backgrounds/bg_M6.mp4",
+    "phase_2_file": "../../backgrounds/bg_jungle_path.mp4",
+    "ground_line_y_pct": 78,
+    "actress_target_y_on_bg": 79,
+    "_anchor_proof": "bottom:19% + height:75% places feet at bg y=79% near broken jeep."
+  },
+  "actress": {
+    "pose_file": "assets/player/pose_05.mp4",
+    "container": "scene_b",
+    "css": "position:absolute;bottom:19%;left:50%;height:75%;transform:translateX(-50%);z-index:10;",
+    "facing": "frontal",
+    "chroma_key": true
+  },
+  "tools_zone_d": [
+    {"slot": "A", "file": "assets/tools/גריקן_מ06.png", "label": "ג'ריקן שמן", "type": "hold", "render_mode": "canvas + chroma_key"},
+    {"slot": "B", "file": "assets/tools/ערכה_מ06.png", "label": "ערכת כלי עבודה", "type": "use", "render_mode": "canvas + chroma_key"},
+    {"slot": "C", "file": "assets/tools/אופניים_מ06.png", "label": "אופני הרים", "type": "wear", "render_mode": "canvas + chroma_key"}
+  ],
+  "scenery_overlays": ["smoking_jeep.png", "uphill_road.png", "dust_clouds.png"],
+  "ui_overlays": {
+    "mission_text": {"verbatim": "הג'יפ מוציא עשן סמיך ובקושי סוחב בעליות, כשאבק המתחרים כבר נראה רחוק באופק. אני חייבת להחליט אם לתקן או לשנות אסטרטגיה – איך אני ממשיכה מכאן?"},
+    "checkpoint_text": {"verbatim": "אנחנו דוהרים קדימה. מבנה עתיק מרשים מופיע בדרך."}
+  },
+  "_5_question_self_check": {
+    "Q1_actress_on_surface": "YES",
+    "Q2_what_behind_actress": "Smoking jeep on uphill road with distant dust clouds.",
+    "Q3_what_does_script_say": "הג'יפ מוציא עשן סמיך ובקושי סוחב בעליות...",
+    "Q4_match_script_to_visual": "MATCH — oil/toolkit/bike map to refuel/repair/swap-vehicle.",
+    "Q5_will_a_7yo_understand": "YES — broken jeep, three remedies."
+  }
+}

@@ -247,3 +247,24 @@
 - [ ] Zone D: אף פעם לא חורגת מ-24vh
 - [ ] כפתורים: `#1a3a5c` או `#000` — אין זהב
 - [ ] `min-height:44px` על כל כפתור
+
+---
+
+## חוזה חדש: STATIC fields ב‑composition.json
+
+ה‑builder חייב לכבד את השדות האלה (יוצאים מ‑scene_composer):
+
+### `bg.is_static_frame: true`
+* **אסור** לתת ל‑bg את האטריביוטים `autoplay` או `loop`. רק `muted playsinline preload="auto"`.
+* בקוד init JavaScript — לחפש את ה‑bg, לעשות `currentTime = bg.static_frame_at_seconds`, לחכות ל‑seeked event, ואז `pause()`.
+* אסור לקרוא ל‑`bg.play()` בשום מקום.
+
+### `actress.is_static_pose: true`
+* טראק של standing/wait phase חייב להיות `is_pose_hold: true` עם `from_sec === to_sec === currentTime_pause_at`.
+* ה‑builder לא יוצר track של `loop_until_event` עבור pose שמסומן סטטי.
+* ה‑chroma key tick חייב לצייר גם כשהוידאו ב‑pause (וודא שיש `lastV/lastT` או דומה — אחרת הקנבס יישאר עם הפריים הקודם).
+
+### בדיקה לפני delivery
+* `grep -E "autoplay|loop" generated.html` — לא צריך להופיע על ה‑bg אם is_static_frame=true.
+* `grep "loop_until_event" generated.html` עם match — צריך להיות רק עבור פוזות שלא מסומנות סטטיות.
+* טסט ידני: לטעון את העמוד, לחכות 5 שניות, לוודא שאין שום תנועה (לא של דמות, לא של bg).

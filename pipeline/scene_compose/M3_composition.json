@@ -1,0 +1,38 @@
+{
+  "_mission": "M3",
+  "_scene_composer_run_at": "2026-04-26T00:00:00Z",
+  "_revision": "M3 V6 build — replicates M1 V6 single-position-anchor pattern",
+  "_bg_chosen": "../../assets/backgrounds/bg_03.mp4",
+  "_bg_phase_2": "../../backgrounds/bg_jungle_path.mp4",
+  "bg": {
+    "file": "../../assets/backgrounds/bg_03.mp4",
+    "phase_2_file": "../../backgrounds/bg_jungle_path.mp4",
+    "ground_line_y_pct": 78,
+    "actress_target_y_on_bg": 79,
+    "_anchor_proof": "bottom:19% + height:75% places feet at bg y=79% on jungle path."
+  },
+  "actress": {
+    "pose_file": "assets/player/pose_05.mp4",
+    "container": "scene_b",
+    "css": "position:absolute;bottom:19%;left:50%;height:75%;transform:translateX(-50%);z-index:10;",
+    "facing": "frontal",
+    "chroma_key": true
+  },
+  "tools_zone_d": [
+    {"slot": "A", "file": "assets/tools/מפה_מ03.png", "label": "המפה המקומטת", "type": "hold", "render_mode": "canvas + chroma_key"},
+    {"slot": "B", "file": "assets/tools/משקפת_מ03.png", "label": "משקפת שדה", "type": "hold", "render_mode": "canvas + chroma_key"},
+    {"slot": "C", "file": "assets/tools/מפתח_מ03.png", "label": "מפתח לטרקטורון מונע", "type": "hold", "render_mode": "canvas + chroma_key"}
+  ],
+  "scenery_overlays": ["tire_tracks.png", "path_straight.png", "parked_vehicles.png"],
+  "ui_overlays": {
+    "mission_text": {"verbatim": "הבוקר עלה. המפה מראה שביל ישר, אבל משמאל יש עשרות עקבות צמיגים טריות ורעש מנועים של הקבוצות האחרות שבורחות קדימה. האם אני נצמדת למפה או דוהרת אחריהם?"},
+    "checkpoint_text": {"verbatim": "הנתיב נבחר. אני מרגישה את המתחרים נושפת בעורפי."}
+  },
+  "_5_question_self_check": {
+    "Q1_actress_on_surface": "YES — feet on jungle dirt path at y=79%.",
+    "Q2_what_behind_actress": "Morning jungle with two diverging paths; tire_tracks scenery overlay shows competitor evidence; parked_vehicles in distance.",
+    "Q3_what_does_script_say": "הבוקר עלה. המפה מראה שביל ישר, אבל משמאל יש עשרות עקבות צמיגים טריות...",
+    "Q4_match_script_to_visual": "MATCH — מפה/משקפת/מפתח tools align with route-decision dilemma (study/scout/follow).",
+    "Q5_will_a_7yo_understand": "YES — three clear tools, dawn jungle path, choice obvious."
+  }
+}

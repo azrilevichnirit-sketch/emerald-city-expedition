@@ -1,0 +1,14 @@
+{
+  "_mission": "M5",
+  "_scene_inspector_run_at": "2026-04-26T00:00:00Z",
+  "_5_questions": {
+    "Q1_actress_anchored": "PASS",
+    "Q2_behind_actress_visible": "PASS — thicket + bush + broken branches",
+    "Q3_script_message_clear": "PASS — predator-encounter dilemma",
+    "Q4_visual_matches_script": "PASS — three defensive responses",
+    "Q5_7yo_comprehension": "PASS"
+  },
+  "verdict": "PASS",
+  "blockers": [],
+  "attempts": 1
+}

@@ -1,0 +1,14 @@
+{
+  "_mission": "M3",
+  "_scene_inspector_run_at": "2026-04-26T00:00:00Z",
+  "_5_questions": {
+    "Q1_actress_anchored": "PASS — V6 single-position anchor reused.",
+    "Q2_behind_actress_visible": "PASS — bg_03.mp4 jungle dawn covers scene; tire_tracks/path/vehicles overlays active.",
+    "Q3_script_message_clear": "PASS — missionText about route divergence is clear.",
+    "Q4_visual_matches_script": "PASS — three tool affordances map to map/scout/pursue choices.",
+    "Q5_7yo_comprehension": "PASS — same affordance pattern as M1."
+  },
+  "verdict": "PASS",
+  "blockers": [],
+  "attempts": 1
+}

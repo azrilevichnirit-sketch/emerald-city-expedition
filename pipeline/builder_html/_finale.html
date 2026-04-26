@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>סיום המסע — משלחת אל עיר האזמרגד</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100vw;height:100vh;overflow:hidden;background:#000;font-family:'Heebo','Assistant',sans-serif;color:#fff}
+.bg{position:fixed;inset:0;background:radial-gradient(ellipse at center,#1a3a2e 0%,#0a1f17 60%,#000 100%);z-index:0}
+.stars{position:fixed;inset:0;background-image:radial-gradient(2px 2px at 20% 30%,#9be39d 0,transparent 50%),radial-gradient(1.5px 1.5px at 70% 80%,#7ed3a0 0,transparent 50%),radial-gradient(2px 2px at 40% 60%,#a8f0c0 0,transparent 50%),radial-gradient(1px 1px at 85% 25%,#fff 0,transparent 50%),radial-gradient(1.5px 1.5px at 15% 75%,#c4f5d4 0,transparent 50%);z-index:1;animation:twinkle 4s ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:0.6}to{opacity:1}}
+.container{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:5vh 6vw;text-align:center}
+h1{font-size:clamp(2rem,6vw,4rem);font-weight:900;margin-bottom:3vh;color:#7ed3a0;text-shadow:0 0 24px rgba(126,211,160,0.6),0 2px 8px rgba(0,0,0,0.9);letter-spacing:0.02em}
+.score-box{background:rgba(0,0,0,0.6);border:2px solid #7ed3a0;border-radius:18px;padding:2.5vh 5vw;margin-bottom:4vh;box-shadow:0 0 32px rgba(126,211,160,0.35),inset 0 0 24px rgba(126,211,160,0.08)}
+.score-label{font-size:clamp(1rem,2.4vw,1.3rem);font-weight:500;opacity:0.85;margin-bottom:1vh}
+.score-value{font-size:clamp(3rem,9vw,5.5rem);font-weight:900;color:#fff;text-shadow:0 0 20px rgba(126,211,160,0.8)}
+.message{max-width:800px;font-size:clamp(1.05rem,2.6vw,1.4rem);line-height:1.8;font-weight:500;color:#e8f5ed;text-shadow:0 1px 4px rgba(0,0,0,0.95),0 2px 12px rgba(0,0,0,0.7);direction:rtl;margin-bottom:4vh}
+.signature{font-size:clamp(0.95rem,2vw,1.15rem);font-weight:700;color:#a8f0c0;margin-top:2vh;letter-spacing:0.05em}
+.completion-stats{margin-top:3vh;font-size:clamp(0.85rem,1.8vw,1rem);opacity:0.75}
+.btn-restart{margin-top:5vh;padding:14px 36px;background:transparent;border:2px solid #7ed3a0;color:#7ed3a0;font-family:inherit;font-size:1rem;font-weight:700;border-radius:10px;cursor:pointer;transition:all 200ms ease;direction:rtl}
+.btn-restart:hover{background:#7ed3a0;color:#0a1f17;box-shadow:0 0 24px rgba(126,211,160,0.6)}
+.fireworks{position:fixed;width:100%;height:100%;top:0;left:0;pointer-events:none;z-index:5}
+.spark{position:absolute;width:3px;height:3px;border-radius:50%;background:#7ed3a0;box-shadow:0 0 8px 2px #7ed3a0;animation:sparkFly 3s ease-out infinite}
+.spark:nth-child(1){top:20%;left:15%;animation-delay:0s;background:#a8f0c0;box-shadow:0 0 8px 2px #a8f0c0}
+.spark:nth-child(2){top:30%;left:80%;animation-delay:0.6s}
+.spark:nth-child(3){top:60%;left:25%;animation-delay:1.2s;background:#fff;box-shadow:0 0 8px 2px #fff}
+.spark:nth-child(4){top:15%;left:65%;animation-delay:1.8s}
+.spark:nth-child(5){top:75%;left:70%;animation-delay:2.4s;background:#c4f5d4;box-shadow:0 0 8px 2px #c4f5d4}
+@keyframes sparkFly{0%{transform:translateY(0) scale(1);opacity:0}20%{opacity:1}100%{transform:translateY(-40vh) scale(0.3);opacity:0}}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="stars"></div>
+<div class="fireworks">
+  <div class="spark"></div>
+  <div class="spark"></div>
+  <div class="spark"></div>
+  <div class="spark"></div>
+  <div class="spark"></div>
+</div>
+<div class="container">
+  <h1>הגעת לעיר האזמרגד</h1>
+  <div class="score-box">
+    <div class="score-label">הניקוד הסופי שלך</div>
+    <div class="score-value" id="final-score">0</div>
+  </div>
+  <p class="message" id="finale-message">
+    עברת חמש‑עשרה משימות, בחרת בחירות בלתי אפשריות, נשאת את התוצאות שלהן ולא ויתרת. הסיפור הזה לא נגמר בקו הסיום – הוא רק התחיל בו. האזמרגד שמצאת זה אתה אחרי המסע. תודה שהלכת איתי עד כאן.
+  </p>
+  <div class="signature">— ניריט</div>
+  <div class="completion-stats" id="completion-stats"></div>
+  <button class="btn-restart" onclick="restartJourney()">להתחיל מסע מחדש</button>
+</div>
+<script>
+"use strict";
+(function(){
+  let score=0;
+  let progress=[];
+  try{
+    score=parseInt(localStorage.getItem('emerald_score')||'0',10);
+    progress=JSON.parse(localStorage.getItem('emerald_progress')||'[]');
+  }catch(e){}
+  const scoreEl=document.getElementById('final-score');
+  const statsEl=document.getElementById('completion-stats');
+  const target=score;
+  const duration=1800;
+  const start=performance.now();
+  function tickScore(now){
+    const t=Math.min(1,(now-start)/duration);
+    const e=1-Math.pow(1-t,3);
+    scoreEl.textContent=Math.round(target*e);
+    if(t<1)requestAnimationFrame(tickScore);
+  }
+  if(target>0)requestAnimationFrame(tickScore);
+  if(statsEl){
+    const completed=Array.isArray(progress)?progress.length:0;
+    statsEl.textContent='השלמת '+completed+' מתוך 15 משימות';
+  }
+})();
+function restartJourney(){
+  try{
+    localStorage.removeItem('emerald_score');
+    localStorage.removeItem('emerald_progress');
+  }catch(e){}
+  window.location.href='./M1.html';
+}
+</script>
+</body>
+</html>

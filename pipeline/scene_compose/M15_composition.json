@@ -1,0 +1,38 @@
+{
+  "_mission": "M15",
+  "_scene_composer_run_at": "2026-04-26T00:00:00Z",
+  "_revision": "M15 V6 build — replicates M1 V6 single-position-anchor pattern; finale mission",
+  "_bg_chosen": "../../assets/backgrounds/bg_M15.mp4",
+  "_bg_phase_2": "../../assets/backgrounds/bg_M15.mp4",
+  "bg": {
+    "file": "../../assets/backgrounds/bg_M15.mp4",
+    "phase_2_file": "../../assets/backgrounds/bg_M15.mp4",
+    "ground_line_y_pct": 78,
+    "actress_target_y_on_bg": 79,
+    "_anchor_proof": "bottom:19% + height:75% places feet at finish line ground."
+  },
+  "actress": {
+    "pose_file": "assets/player/pose_05.mp4",
+    "container": "scene_b",
+    "css": "position:absolute;bottom:19%;left:50%;height:75%;transform:translateX(-50%);z-index:10;",
+    "facing": "frontal",
+    "chroma_key": true
+  },
+  "tools_zone_d": [
+    {"slot": "A", "file": "assets/tools/דגל_סיום_מ15.png", "label": "דגל סיום לבן", "type": "use", "render_mode": "canvas + chroma_key"},
+    {"slot": "B", "file": "assets/tools/מגאפון_מ15.png", "label": "מגאפון", "type": "use", "render_mode": "canvas + chroma_key"},
+    {"slot": "C", "file": "assets/tools/זיקוק_מ15.png", "label": "זיקוק צבעוני", "type": "use", "render_mode": "canvas + chroma_key"}
+  ],
+  "scenery_overlays": ["finish_line.png", "fireworks.png", "distant_celebration_lights.png"],
+  "ui_overlays": {
+    "mission_text": {"verbatim": "קו הסיום מולי, ריק ושקט. פתאום זיקוקים ומוזיקה נשמעים מכיוון אחר – נראה שכל המתחרים מצאו נקודה אחרת וכולם חוגגים שם. כולם שם, ורק כאן ריק. מה אני עושה?"},
+    "checkpoint_text": {"verbatim": "סיום המסע. נסיעה הביתה עם סיפור חיים."}
+  },
+  "_5_question_self_check": {
+    "Q1_actress_on_surface": "YES — feet on finish line track.",
+    "Q2_what_behind_actress": "Empty finish line with distant celebration lights and fireworks elsewhere.",
+    "Q3_what_does_script_say": "קו הסיום מולי, ריק ושקט...",
+    "Q4_match_script_to_visual": "MATCH — flag/megaphone/firework = claim-quietly/announce/signal-celebration.",
+    "Q5_will_a_7yo_understand": "YES — empty finish line, three ways to mark arrival."
+  }
+}

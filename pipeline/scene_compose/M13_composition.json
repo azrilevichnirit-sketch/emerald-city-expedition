@@ -1,0 +1,38 @@
+{
+  "_mission": "M13",
+  "_scene_composer_run_at": "2026-04-26T00:00:00Z",
+  "_revision": "M13 V6 build — replicates M1 V6 single-position-anchor pattern",
+  "_bg_chosen": "../../assets/backgrounds/bg_M13.mp4",
+  "_bg_phase_2": "../../backgrounds/bg_temple.mp4",
+  "bg": {
+    "file": "../../assets/backgrounds/bg_M13.mp4",
+    "phase_2_file": "../../backgrounds/bg_temple.mp4",
+    "ground_line_y_pct": 78,
+    "actress_target_y_on_bg": 79,
+    "_anchor_proof": "bottom:19% + height:75% places feet at overgrown jungle path."
+  },
+  "actress": {
+    "pose_file": "assets/player/pose_05.mp4",
+    "container": "scene_b",
+    "css": "position:absolute;bottom:19%;left:50%;height:75%;transform:translateX(-50%);z-index:10;",
+    "facing": "frontal",
+    "chroma_key": true
+  },
+  "tools_zone_d": [
+    {"slot": "A", "file": "assets/tools/סרגל_מ13.png", "label": "סרגל ומחק", "type": "hold", "render_mode": "canvas + chroma_key"},
+    {"slot": "B", "file": "assets/tools/מצפן_מ13.png", "label": "מצפן כיס", "type": "hold", "render_mode": "canvas + chroma_key"},
+    {"slot": "C", "file": "assets/tools/רחפן_מ13.png", "label": "רחפן ניווט", "type": "deploy", "render_mode": "canvas + chroma_key"}
+  ],
+  "scenery_overlays": ["fake_map_torn.png", "encroaching_darkness.png", "overgrown_path.png"],
+  "ui_overlays": {
+    "mission_text": {"verbatim": "המפה הייתה זיוף! קו הסיום קרוב, אבל הכיוון אבד לגמרי בתוך הסבך והחושך מתקרב. אם לא אמצא נתיב עכשיו, הכל אבוד. איך אני מוצאת את הדרך החוצה?"},
+    "checkpoint_text": {"verbatim": "הדרך נמצאה. כניסה להיכל המזבח המרכזי. דממה."}
+  },
+  "_5_question_self_check": {
+    "Q1_actress_on_surface": "YES",
+    "Q2_what_behind_actress": "Overgrown jungle with torn fake map + encroaching darkness.",
+    "Q3_what_does_script_say": "המפה הייתה זיוף! קו הסיום קרוב...",
+    "Q4_match_script_to_visual": "MATCH — ruler/compass/drone = three navigation methods.",
+    "Q5_will_a_7yo_understand": "YES — lost in jungle, three navigation tools."
+  }
+}

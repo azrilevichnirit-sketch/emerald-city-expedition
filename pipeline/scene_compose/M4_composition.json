@@ -1,0 +1,38 @@
+{
+  "_mission": "M4",
+  "_scene_composer_run_at": "2026-04-26T00:00:00Z",
+  "_revision": "M4 V6 build — replicates M1 V6 single-position-anchor pattern",
+  "_bg_chosen": "../../assets/backgrounds/bg_04.mp4",
+  "_bg_phase_2": "../../backgrounds/bg_jungle_loop2.mp4",
+  "bg": {
+    "file": "../../assets/backgrounds/bg_04.mp4",
+    "phase_2_file": "../../backgrounds/bg_jungle_loop2.mp4",
+    "ground_line_y_pct": 78,
+    "actress_target_y_on_bg": 79,
+    "_anchor_proof": "bottom:19% + height:75% places feet at bg y=79% on cliff edge."
+  },
+  "actress": {
+    "pose_file": "assets/player/pose_05.mp4",
+    "container": "scene_b",
+    "css": "position:absolute;bottom:19%;left:50%;height:75%;transform:translateX(-50%);z-index:10;",
+    "facing": "frontal",
+    "chroma_key": true
+  },
+  "tools_zone_d": [
+    {"slot": "A", "file": "assets/tools/קרשים_מ04.png", "label": "לוחות עץ ופטיש", "type": "use", "render_mode": "canvas + chroma_key"},
+    {"slot": "B", "file": "assets/tools/רתמה_מ04.png", "label": "רתמת אבטחה", "type": "wear", "render_mode": "canvas + chroma_key"},
+    {"slot": "C", "file": "assets/tools/רובה_חבלים_מ04.png", "label": "רובה חבלים", "type": "use", "render_mode": "canvas + chroma_key"}
+  ],
+  "scenery_overlays": ["chasm_background.png", "rope_bridge_midground.png", "forest_far_side.png"],
+  "ui_overlays": {
+    "mission_text": {"verbatim": "השביל נקטע בתהום! גשר החבלים רעוע והרוח מטלטלת אותו בחוזקה, בזמן שהצוות המוביל כבר בצד השני וממשיך להיעלם בתוך היער. איך אני צולחת את התהום הזו עכשיו?"},
+    "checkpoint_text": {"verbatim": "אני בצד השני. הצמחייה סוגרת עליי, האווירה משתנה."}
+  },
+  "_5_question_self_check": {
+    "Q1_actress_on_surface": "YES — feet on cliff edge.",
+    "Q2_what_behind_actress": "Chasm background with shaking rope bridge; far forest visible.",
+    "Q3_what_does_script_say": "השביל נקטע בתהום! גשר החבלים רעוע...",
+    "Q4_match_script_to_visual": "MATCH — boards/harness/rope-gun map to repair/secure/launch crossing strategies.",
+    "Q5_will_a_7yo_understand": "YES — visible chasm, three tools, clear gap-crossing problem."
+  }
+}

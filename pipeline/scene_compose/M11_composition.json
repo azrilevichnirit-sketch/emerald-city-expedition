@@ -1,0 +1,38 @@
+{
+  "_mission": "M11",
+  "_scene_composer_run_at": "2026-04-26T00:00:00Z",
+  "_revision": "M11 V6 build — replicates M1 V6 single-position-anchor pattern",
+  "_bg_chosen": "../../assets/backgrounds/bg_M11.mp4",
+  "_bg_phase_2": "../../backgrounds/bg_river_shore.mp4",
+  "bg": {
+    "file": "../../assets/backgrounds/bg_M11.mp4",
+    "phase_2_file": "../../backgrounds/bg_river_shore.mp4",
+    "ground_line_y_pct": 78,
+    "actress_target_y_on_bg": 79,
+    "_anchor_proof": "bottom:19% + height:75% places feet at cliff edge above waterfall."
+  },
+  "actress": {
+    "pose_file": "assets/player/pose_05.mp4",
+    "container": "scene_b",
+    "css": "position:absolute;bottom:19%;left:50%;height:75%;transform:translateX(-50%);z-index:10;",
+    "facing": "frontal",
+    "chroma_key": true
+  },
+  "tools_zone_d": [
+    {"slot": "A", "file": "assets/tools/סנפלינג_מ11.png", "label": "חבל סנפלינג עם רתמה", "type": "wear", "render_mode": "canvas + chroma_key"},
+    {"slot": "B", "file": "assets/tools/בנגי_מ11.png", "label": "חבל בנג'י", "type": "wear", "render_mode": "canvas + chroma_key"},
+    {"slot": "C", "file": "assets/tools/מצנח_בסיס_מ11.png", "label": "מצנח בסיס", "type": "deploy", "render_mode": "canvas + chroma_key"}
+  ],
+  "scenery_overlays": ["cliff_waterfall.png", "escape_boat_distant.png", "churning_water_pool.png"],
+  "ui_overlays": {
+    "mission_text": {"verbatim": "מצוק של 50 מטר מעל מפל מים. בתחתית נראית סירת המילוט האחרונה, המנוע שלה פועל והיא מתחילה להתרחק. איך אני מגיעה למים למטה לפני שהיא נעלמת?"},
+    "checkpoint_text": {"verbatim": "אני בגדת הנהר. המים גועשים והזמן דוחק."}
+  },
+  "_5_question_self_check": {
+    "Q1_actress_on_surface": "YES",
+    "Q2_what_behind_actress": "50m cliff above waterfall pool with distant escape boat.",
+    "Q3_what_does_script_say": "מצוק של 50 מטר מעל מפל מים...",
+    "Q4_match_script_to_visual": "MATCH — rappel/bungee/parachute = three vertical-descent strategies.",
+    "Q5_will_a_7yo_understand": "YES — height, water below, boat leaving."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "_mission": "M12",
+  "_scene_composer_run_at": "2026-04-26T00:00:00Z",
+  "_revision": "M12 V6 build — replicates M1 V6 single-position-anchor pattern",
+  "_bg_chosen": "../../assets/backgrounds/bg_M12.mp4",
+  "_bg_phase_2": "../../backgrounds/bg_cave.mp4",
+  "bg": {
+    "file": "../../assets/backgrounds/bg_M12.mp4",
+    "phase_2_file": "../../backgrounds/bg_cave.mp4",
+    "ground_line_y_pct": 78,
+    "actress_target_y_on_bg": 79,
+    "_anchor_proof": "bottom:19% + height:75% places feet at riverbank."
+  },
+  "actress": {
+    "pose_file": "assets/player/pose_05.mp4",
+    "container": "scene_b",
+    "css": "position:absolute;bottom:19%;left:50%;height:75%;transform:translateX(-50%);z-index:10;",
+    "facing": "frontal",
+    "chroma_key": true
+  },
+  "tools_zone_d": [
+    {"slot": "A", "file": "assets/tools/כרטיס_מ12.png", "label": "כרטיס עלייה לסירה", "type": "hold", "render_mode": "canvas + chroma_key"},
+    {"slot": "B", "file": "assets/tools/מצלמה_פלאש_מ12.png", "label": "מצלמה עם פלאש", "type": "use", "render_mode": "canvas + chroma_key"},
+    {"slot": "C", "file": "assets/tools/לפיד_יד_מ12.png", "label": "לפיד יד בוער", "type": "use", "render_mode": "canvas + chroma_key"}
+  ],
+  "scenery_overlays": ["competitor_boat_at_cave.png", "wet_footprints_trail.png", "dark_cave_entrance.png"],
+  "ui_overlays": {
+    "mission_text": {"verbatim": "סירת מתחרים עוגנת בפתח מערה חשוכה ועקבות רטובים מובילים פנימה, בזמן שהסירה המרכזית עומדת לעזוב את הגדה. הצוות המוביל נעלם במערה – לאן אני פונה?"},
+    "checkpoint_text": {"verbatim": "הגענו לשערי העיר המוזהבת. הכל נראה כמבוך."}
+  },
+  "_5_question_self_check": {
+    "Q1_actress_on_surface": "YES",
+    "Q2_what_behind_actress": "Cave entrance with competitor boat + wet footprints leading in.",
+    "Q3_what_does_script_say": "סירת מתחרים עוגנת בפתח מערה חשוכה...",
+    "Q4_match_script_to_visual": "MATCH — boat-ticket/flash-cam/hand-torch = stay-on-route/document/explore-cave.",
+    "Q5_will_a_7yo_understand": "YES — fork in path, three responses."
+  }
+}

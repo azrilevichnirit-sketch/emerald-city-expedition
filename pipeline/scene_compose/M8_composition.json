@@ -1,0 +1,38 @@
+{
+  "_mission": "M8",
+  "_scene_composer_run_at": "2026-04-26T00:00:00Z",
+  "_revision": "M8 V6 build — replicates M1 V6 single-position-anchor pattern",
+  "_bg_chosen": "../../assets/backgrounds/bg_M8.mp4",
+  "_bg_phase_2": "../../backgrounds/bg_cliff.mp4",
+  "bg": {
+    "file": "../../assets/backgrounds/bg_M8.mp4",
+    "phase_2_file": "../../backgrounds/bg_cliff.mp4",
+    "ground_line_y_pct": 78,
+    "actress_target_y_on_bg": 79,
+    "_anchor_proof": "bottom:19% + height:75% places feet at base of vertical rock cliff."
+  },
+  "actress": {
+    "pose_file": "assets/player/pose_05.mp4",
+    "container": "scene_b",
+    "css": "position:absolute;bottom:19%;left:50%;height:75%;transform:translateX(-50%);z-index:10;",
+    "facing": "frontal",
+    "chroma_key": true
+  },
+  "tools_zone_d": [
+    {"slot": "A", "file": "assets/tools/סולם_חבלים_מ08.png", "label": "סולם חבלים", "type": "deploy", "render_mode": "canvas + chroma_key"},
+    {"slot": "B", "file": "assets/tools/חבל_קשרים_מ08.png", "label": "חבל עם קשרים", "type": "hold", "render_mode": "canvas + chroma_key"},
+    {"slot": "C", "file": "assets/tools/טפרי_טיפוס_מ08.png", "label": "טפרי טיפוס ממתכת", "type": "wear", "render_mode": "canvas + chroma_key"}
+  ],
+  "scenery_overlays": ["rock_cliff_m8.png", "fresh_footprints_m8.png", "rain_effect_m8.png"],
+  "ui_overlays": {
+    "mission_text": {"verbatim": "סלע אנכי חלק חוסם את הדרך. הגשם הופך אותו לחלק כמו קרח, אבל סימני נעליים טריים מעידים שמישהו טיפס כאן ממש עכשיו. במה אני נאחזת כדי לעלות ולא להחליק?"},
+    "checkpoint_text": {"verbatim": "אני למעלה. כניסה למנהרה עם שער פלדה מסיבי."}
+  },
+  "_5_question_self_check": {
+    "Q1_actress_on_surface": "YES",
+    "Q2_what_behind_actress": "Slick vertical rock cliff with fresh footprints and rain effect.",
+    "Q3_what_does_script_say": "סלע אנכי חלק חוסם את הדרך. הגשם הופך אותו לחלק כמו קרח...",
+    "Q4_match_script_to_visual": "MATCH — ladder/knot-rope/claws = three climbing strategies.",
+    "Q5_will_a_7yo_understand": "YES — wall, three climb tools, footprints proving it's possible."
+  }
+}

@@ -153,6 +153,90 @@
         "audio_hint": "Sonic whoosh on flight (click -> +1500ms) -> wing snap-open at catch_complete -> fabric settle on landing_complete. (Informational; sound_designer owns.)",
         "_human_review_open": "Wingsuit scale 1.7 at landing wrapper bounds (right:30%, bottom:5%, height:55%) — verify wings do not clip the right edge of the viewport. If clipping occurs, reduce scale to 1.5 OR shift point_on_player_pct.x from 50 to 45."
       }
+    },
+    "M2": {
+      "_scene_intent": "M2 storm-shelter scene. Same V6 flow: run -> stand -> click -> catch -> brief CSS jump -> land in night-storm jungle.",
+      "slot_A": {"tool_label": "יריעת ברזנט", "type": "deploy", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.50, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 50, "y": 18}, "scale_factor": 1.6, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_B": {"tool_label": "פטיש ומסמרים", "type": "use", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 45, "y": 38}, "scale_factor": 0.70, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_C": {"tool_label": "אוהל סיירים", "type": "deploy", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.50, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 50, "y": 18}, "scale_factor": 1.6, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"}
+    },
+    "M3": {
+      "_scene_intent": "M3 route-decision scene. Three hold-type tools (map/binoculars/key).",
+      "slot_A": {"tool_label": "המפה המקומטת", "type": "hold", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 42, "y": 42}, "scale_factor": 0.55, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_B": {"tool_label": "משקפת שדה", "type": "hold", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 42, "y": 42}, "scale_factor": 0.55, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_C": {"tool_label": "מפתח לטרקטורון מונע", "type": "hold", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 42, "y": 42}, "scale_factor": 0.55, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"}
+    },
+    "M4": {
+      "_scene_intent": "M4 chasm-crossing. Boards (use), harness (wear), rope-gun (use).",
+      "slot_A": {"tool_label": "לוחות עץ ופטיש", "type": "use", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 45, "y": 38}, "scale_factor": 0.70, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_B": {"tool_label": "רתמת אבטחה", "type": "wear", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.50, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 50, "y": 50}, "scale_factor": 1.5, "behind_player": true}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_C": {"tool_label": "רובה חבלים", "type": "use", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 45, "y": 38}, "scale_factor": 0.70, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"}
+    },
+    "M5": {
+      "_scene_intent": "M5 predator-encounter. Flashlight (hold), net (deploy), torch (use).",
+      "slot_A": {"tool_label": "פנס עוצמתי", "type": "hold", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 42, "y": 42}, "scale_factor": 0.55, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_B": {"tool_label": "רשת הגנה", "type": "deploy", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.50, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 50, "y": 18}, "scale_factor": 1.6, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_C": {"tool_label": "לפיד בוער", "type": "use", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 45, "y": 38}, "scale_factor": 0.70, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"}
+    },
+    "M6": {
+      "_scene_intent": "M6 vehicle-failure. Oil (hold), toolkit (use), bike (wear).",
+      "slot_A": {"tool_label": "ג'ריקן שמן", "type": "hold", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 42, "y": 42}, "scale_factor": 0.55, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_B": {"tool_label": "ערכת כלי עבודה", "type": "use", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 45, "y": 38}, "scale_factor": 0.70, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_C": {"tool_label": "אופני הרים", "type": "wear", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.50, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 50, "y": 50}, "scale_factor": 1.5, "behind_player": true}, "post_pose": "pose_03.mp4#3.0-5.0"}
+    },
+    "M7": {
+      "_scene_intent": "M7 temple-arrival. Flag (hold), periscope (hold), crowbar (use).",
+      "slot_A": {"tool_label": "דגל המשימה המקורי", "type": "hold", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 42, "y": 42}, "scale_factor": 0.55, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_B": {"tool_label": "פריסקופ", "type": "hold", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 42, "y": 42}, "scale_factor": 0.55, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_C": {"tool_label": "לום ברזל", "type": "use", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 45, "y": 38}, "scale_factor": 0.70, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"}
+    },
+    "M8": {
+      "_scene_intent": "M8 wet-cliff climb. Rope-ladder (deploy), knot-rope (hold), claws (wear).",
+      "slot_A": {"tool_label": "סולם חבלים", "type": "deploy", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.50, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 50, "y": 18}, "scale_factor": 1.6, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_B": {"tool_label": "חבל עם קשרים", "type": "hold", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 42, "y": 42}, "scale_factor": 0.55, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_C": {"tool_label": "טפרי טיפוס ממתכת", "type": "wear", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.50, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 50, "y": 50}, "scale_factor": 1.5, "behind_player": true}, "post_pose": "pose_03.mp4#3.0-5.0"}
+    },
+    "M9": {
+      "_scene_intent": "M9 keypad-gate. Three use-type bypass tools (oil/multitool/torch).",
+      "slot_A": {"tool_label": "שמן לשימון צירים", "type": "use", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 45, "y": 38}, "scale_factor": 0.70, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_B": {"tool_label": "רב-כלי", "type": "use", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 45, "y": 38}, "scale_factor": 0.70, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_C": {"tool_label": "מבער ריתוך", "type": "use", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 45, "y": 38}, "scale_factor": 0.70, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"}
+    },
+    "M10": {
+      "_scene_intent": "M10 bomb-countdown. Camera (hold), blanket (deploy), cutter (use).",
+      "slot_A": {"tool_label": "מצלמה זעירה", "type": "hold", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 42, "y": 42}, "scale_factor": 0.55, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_B": {"tool_label": "שמיכת מיגון", "type": "deploy", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.50, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 50, "y": 18}, "scale_factor": 1.6, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_C": {"tool_label": "קאטר לחיתוך חוטים", "type": "use", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 45, "y": 38}, "scale_factor": 0.70, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"}
+    },
+    "M11": {
+      "_scene_intent": "M11 cliff-descent. Rappel (wear), bungee (wear), parachute (deploy).",
+      "slot_A": {"tool_label": "חבל סנפלינג עם רתמה", "type": "wear", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.50, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 50, "y": 50}, "scale_factor": 1.5, "behind_player": true}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_B": {"tool_label": "חבל בנג'י", "type": "wear", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.50, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 50, "y": 50}, "scale_factor": 1.5, "behind_player": true}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_C": {"tool_label": "מצנח בסיס", "type": "deploy", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.50, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 50, "y": 18}, "scale_factor": 1.6, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"}
+    },
+    "M12": {
+      "_scene_intent": "M12 cave-fork. Boat-ticket (hold), flash-cam (use), hand-torch (use).",
+      "slot_A": {"tool_label": "כרטיס עלייה לסירה", "type": "hold", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 42, "y": 42}, "scale_factor": 0.55, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_B": {"tool_label": "מצלמה עם פלאש", "type": "use", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 45, "y": 38}, "scale_factor": 0.70, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_C": {"tool_label": "לפיד יד בוער", "type": "use", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 45, "y": 38}, "scale_factor": 0.70, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"}
+    },
+    "M13": {
+      "_scene_intent": "M13 fake-map navigation. Ruler (hold), compass (hold), drone (deploy).",
+      "slot_A": {"tool_label": "סרגל ומחק", "type": "hold", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 42, "y": 42}, "scale_factor": 0.55, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_B": {"tool_label": "מצפן כיס", "type": "hold", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 42, "y": 42}, "scale_factor": 0.55, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_C": {"tool_label": "רחפן ניווט", "type": "deploy", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.50, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 50, "y": 18}, "scale_factor": 1.6, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"}
+    },
+    "M14": {
+      "_scene_intent": "M14 altar-grab. Three hold-type treasure choices (coins/box/orb).",
+      "slot_A": {"tool_label": "שקית מטבעות קטנה", "type": "hold", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 42, "y": 42}, "scale_factor": 0.55, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_B": {"tool_label": "תיבת עץ נעולה", "type": "hold", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 42, "y": 42}, "scale_factor": 0.55, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_C": {"tool_label": "כדור בדולח כהה", "type": "hold", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 42, "y": 42}, "scale_factor": 0.55, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"}
+    },
+    "M15": {
+      "_scene_intent": "M15 finale. Three use-type celebration tools (flag/megaphone/firework).",
+      "slot_A": {"tool_label": "דגל סיום לבן", "type": "use", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 45, "y": 38}, "scale_factor": 0.70, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_B": {"tool_label": "מגאפון", "type": "use", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 45, "y": 38}, "scale_factor": 0.70, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"},
+      "slot_C": {"tool_label": "זיקוק צבעוני", "type": "use", "entry": {"from": "zone_d", "duration_ms": 1500}, "attach_at_catch": {"point_on_player_pct": {"x": 40, "y": 32}, "scale_factor": 0.55, "behind_player": false}, "attach_at_landing": {"point_on_player_pct": {"x": 45, "y": 38}, "scale_factor": 0.70, "behind_player": false}, "post_pose": "pose_03.mp4#3.0-5.0"}
     }
   }
 }

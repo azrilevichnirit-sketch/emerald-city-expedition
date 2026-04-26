@@ -1,0 +1,38 @@
+{
+  "_mission": "M5",
+  "_scene_composer_run_at": "2026-04-26T00:00:00Z",
+  "_revision": "M5 V6 build — replicates M1 V6 single-position-anchor pattern",
+  "_bg_chosen": "../../assets/backgrounds/bg_M5.mp4",
+  "_bg_phase_2": "../../backgrounds/bg_jungle_path.mp4",
+  "bg": {
+    "file": "../../assets/backgrounds/bg_M5.mp4",
+    "phase_2_file": "../../backgrounds/bg_jungle_path.mp4",
+    "ground_line_y_pct": 78,
+    "actress_target_y_on_bg": 79,
+    "_anchor_proof": "bottom:19% + height:75% places feet at bg y=79% on dense thicket."
+  },
+  "actress": {
+    "pose_file": "assets/player/pose_05.mp4",
+    "container": "scene_b",
+    "css": "position:absolute;bottom:19%;left:50%;height:75%;transform:translateX(-50%);z-index:10;",
+    "facing": "frontal",
+    "chroma_key": true
+  },
+  "tools_zone_d": [
+    {"slot": "A", "file": "assets/tools/פנס_עוצמתי_מ05.png", "label": "פנס עוצמתי", "type": "hold", "render_mode": "canvas + chroma_key"},
+    {"slot": "B", "file": "assets/tools/רשת_מ05.png", "label": "רשת הגנה", "type": "deploy", "render_mode": "canvas + chroma_key"},
+    {"slot": "C", "file": "assets/tools/לפיד_מ05.png", "label": "לפיד בוער", "type": "use", "render_mode": "canvas + chroma_key"}
+  ],
+  "scenery_overlays": ["scenery_bush_right.png", "dense_jungle_thicket.png", "scenery_broken_branches.png"],
+  "ui_overlays": {
+    "mission_text": {"verbatim": "השיח מימין רועד בטירוף. משהו גדול זז שם, נשימות כבדות נשמעות וענפים נשברים. זינוק עלול לקרות בכל שנייה – מה אני שולפת מהחגורה כדי להגיב ראשונה?"},
+    "checkpoint_text": {"verbatim": "השטח נקי. יוצאים מהסבך אל דרך פתוחה יותר."}
+  },
+  "_5_question_self_check": {
+    "Q1_actress_on_surface": "YES — feet on jungle floor.",
+    "Q2_what_behind_actress": "Dense thicket with shaking bush at right, broken branches.",
+    "Q3_what_does_script_say": "השיח מימין רועד בטירוף. משהו גדול זז שם...",
+    "Q4_match_script_to_visual": "MATCH — flashlight/net/torch are three predator-defense affordances.",
+    "Q5_will_a_7yo_understand": "YES — danger from right, three responses available."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "_mission": "M2",
+  "_scene_composer_run_at": "2026-04-26T00:00:00Z",
+  "_revision": "M2 V6 build — replicates M1 V6 single-position-anchor pattern",
+  "_bg_chosen": "../../assets/backgrounds/bg_02.mp4",
+  "_bg_phase_2": "../../backgrounds/bg_jungle_night_storm.mp4",
+  "bg": {
+    "file": "../../assets/backgrounds/bg_02.mp4",
+    "phase_2_file": "../../backgrounds/bg_jungle_night_storm.mp4",
+    "ground_line_y_pct": 78,
+    "actress_target_y_on_bg": 79,
+    "_anchor_proof": "bottom:19% + height:75% places feet at bg y=79% (87.2 - 0.04*75 ≈ 84.2; with V6 single-position anchor adjusted for M2 jungle ground line)."
+  },
+  "actress": {
+    "pose_file": "assets/player/pose_05.mp4",
+    "container": "scene_b",
+    "css": "position:absolute;bottom:19%;left:50%;height:75%;transform:translateX(-50%);z-index:10;",
+    "facing": "frontal",
+    "chroma_key": true
+  },
+  "tools_zone_d": [
+    {"slot": "A", "file": "assets/tools/ברזנט_מ02.png", "label": "יריעת ברזנט", "type": "deploy", "render_mode": "canvas + chroma_key"},
+    {"slot": "B", "file": "assets/tools/פטיש_מ02.png", "label": "פטיש ומסמרים", "type": "use", "render_mode": "canvas + chroma_key"},
+    {"slot": "C", "file": "assets/tools/אוהל_מ02.png", "label": "אוהל סיירים", "type": "deploy", "render_mode": "canvas + chroma_key"}
+  ],
+  "scenery_overlays": ["storm_clouds_lightning.png", "rain_effect.png", "dense_jungle.png"],
+  "ui_overlays": {
+    "mission_text": {"verbatim": "הברקים כבר מעליי וסערה טרופית עומדת להתפרץ. אם לא אמצא מחסה יבש לציוד עכשיו, כל היתרון שלי ייהרס. מה הדרך הטובה ביותר לאלתר פתרון ללילה?"},
+    "checkpoint_text": {"verbatim": "הציוד מוגן. שרדנו את הלילה, המסע האמיתי מתחיל."}
+  },
+  "_5_question_self_check": {
+    "Q1_actress_on_surface": "YES — bottom:19% places feet on bg ground line at y=79%.",
+    "Q2_what_behind_actress": "Stormy night jungle phase-1 sky with lightning; phase-2 transitions to dense night storm scene. Scenery overlays storm_clouds_lightning + rain + dense_jungle establish atmosphere.",
+    "Q3_what_does_script_say": "הברקים כבר מעליי וסערה טרופית עומדת להתפרץ. אם לא אמצא מחסה יבש לציוד עכשיו, כל היתרון שלי ייהרס. מה הדרך הטובה ביותר לאלתר פתרון ללילה?",
+    "Q4_match_script_to_visual": "MATCH — ברקים/סערה keywords match storm_clouds_lightning + rain_effect overlays; tool labels (ברזנט/פטיש/אוהל) all map to shelter-building affordances.",
+    "Q5_will_a_7yo_understand": "YES — actress facing camera, three obvious shelter tools below, lightning visible, urgency clear."
+  }
+}

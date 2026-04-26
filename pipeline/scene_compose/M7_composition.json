@@ -1,0 +1,38 @@
+{
+  "_mission": "M7",
+  "_scene_composer_run_at": "2026-04-26T00:00:00Z",
+  "_revision": "M7 V6 build — replicates M1 V6 single-position-anchor pattern",
+  "_bg_chosen": "../../assets/backgrounds/bg_M7.mp4",
+  "_bg_phase_2": "../../backgrounds/bg_temple.mp4",
+  "bg": {
+    "file": "../../assets/backgrounds/bg_M7.mp4",
+    "phase_2_file": "../../backgrounds/bg_temple.mp4",
+    "ground_line_y_pct": 78,
+    "actress_target_y_on_bg": 79,
+    "_anchor_proof": "bottom:19% + height:75% places feet at bg y=79% at temple entrance."
+  },
+  "actress": {
+    "pose_file": "assets/player/pose_05.mp4",
+    "container": "scene_b",
+    "css": "position:absolute;bottom:19%;left:50%;height:75%;transform:translateX(-50%);z-index:10;",
+    "facing": "frontal",
+    "chroma_key": true
+  },
+  "tools_zone_d": [
+    {"slot": "A", "file": "assets/tools/דגל_מ07.png", "label": "דגל המשימה המקורי", "type": "hold", "render_mode": "canvas + chroma_key"},
+    {"slot": "B", "file": "assets/tools/פריסקופ_מ07.png", "label": "פריסקופ", "type": "hold", "render_mode": "canvas + chroma_key"},
+    {"slot": "C", "file": "assets/tools/לום_מ07.png", "label": "לום ברזל", "type": "use", "render_mode": "canvas + chroma_key"}
+  ],
+  "scenery_overlays": ["temple_entrance_m7.png", "parked_vehicles.png", "walkie_talkie.png"],
+  "ui_overlays": {
+    "mission_text": {"verbatim": "כניסה למקדש חבוי. רכבי המתחרים כבר חונים כאן ומכשיר הקשר משמיע קולות התלהבות של הצוותים שבפנים. כולם כבר שם. האם אני עוצרת לבדוק מה הם מצאו?"},
+    "checkpoint_text": {"verbatim": "ההחלטה התקבלה. לפניי קיר סלע ענק שחוסם את המעבר."}
+  },
+  "_5_question_self_check": {
+    "Q1_actress_on_surface": "YES",
+    "Q2_what_behind_actress": "Hidden temple entrance with parked competitor vehicles + walkie-talkie scenery.",
+    "Q3_what_does_script_say": "כניסה למקדש חבוי. רכבי המתחרים כבר חונים כאן...",
+    "Q4_match_script_to_visual": "MATCH — flag/periscope/crowbar = stay-true/scout-discreetly/force-entry.",
+    "Q5_will_a_7yo_understand": "YES — temple, parked rivals, three approaches."
+  }
+}

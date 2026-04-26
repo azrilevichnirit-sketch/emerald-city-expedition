@@ -81,15 +81,20 @@ feet_y_pct_in_pose = catalog[pose_file]["feet_y_pct_in_canvas"]  # למשל 95
   
   "bg": {
     "file": "assets/backgrounds/bg_M1.mp4",
+    "is_static_frame": true,
+    "static_frame_at_seconds": 0.5,
+    "_static_bg_reason": "M1 setup phase background must be FROZEN. Visible loop seam ruins immersion (Nirit feedback 2026-04-25). Builder MUST emit muted+playsinline only — NO autoplay, NO loop — and seek+pause to static_frame_at_seconds in JS init.",
     "css": "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;",
-    "html_attrs": "autoplay loop muted playsinline",
+    "html_attrs": "muted playsinline preload=\"auto\"",
     "ground_line_y_pct": 85,
     "horizon_y_pct": 50
   },
   
   "actress": {
     "pose_file": "assets/player/pose_05.mp4",
-    "currentTime_pause_at": 2.0,
+    "is_static_pose": true,
+    "currentTime_pause_at": 0.5,
+    "_static_pose_reason": "M1 setup phase = waiting for player decision. Actress must be VISUALLY FROZEN on a single frame. NO loop. NO motion. The builder MUST seek+pause this video and forbid autoplay/loop attributes.",
     "css": "position:absolute;bottom:15%;left:50%;transform:translateX(-50%);height:55%;z-index:10;",
     "_anchor_proof": "pose_05.feet_y_pct_in_canvas=95. bg.ground_y_pct=85. bottom:15% places canvas-bottom at y=85% of bg, feet at y=85% bg = ON the floor of the plane.",
     "chroma_key": true,

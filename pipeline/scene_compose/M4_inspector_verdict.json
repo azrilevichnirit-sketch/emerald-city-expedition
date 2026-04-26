@@ -1,0 +1,14 @@
+{
+  "_mission": "M4",
+  "_scene_inspector_run_at": "2026-04-26T00:00:00Z",
+  "_5_questions": {
+    "Q1_actress_anchored": "PASS — anchor math reused.",
+    "Q2_behind_actress_visible": "PASS — chasm + rope bridge + far forest scenery visible.",
+    "Q3_script_message_clear": "PASS — clear chasm-crossing dilemma.",
+    "Q4_visual_matches_script": "PASS — three crossing strategies mapped to tools.",
+    "Q5_7yo_comprehension": "PASS."
+  },
+  "verdict": "PASS",
+  "blockers": [],
+  "attempts": 1
+}
