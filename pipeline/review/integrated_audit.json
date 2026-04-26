@@ -41,9 +41,7 @@
   },
   "M3": {
     "mission_label": "צ'ק-פוינט 3: בתוך המירוץ.",
-    "bg_delivered": [
-      "bg_01"
-    ],
+    "bg_delivered": [],
     "scenery_planned": [
       "path_straight",
       "tire_tracks",
@@ -61,9 +59,7 @@
   },
   "M4": {
     "mission_label": "צ'ק-פוינט 4: חציית הגבול.",
-    "bg_delivered": [
-      "bg_06"
-    ],
+    "bg_delivered": [],
     "scenery_planned": [
       "chasm_background",
       "rope_bridge_midground",
@@ -165,7 +161,7 @@
   "M9": {
     "mission_label": "צ'ק-פוינט 9: חדירה למתחם.",
     "bg_delivered": [
-      "bg_07"
+      "bg_M9"
     ],
     "scenery_planned": [
       "flashing_keypad",
@@ -204,7 +200,9 @@
   },
   "M11": {
     "mission_label": "צ'ק-פוינט 11: זינוק למים.",
-    "bg_delivered": [],
+    "bg_delivered": [
+      "bg_M11"
+    ],
     "scenery_planned": [
       "cliff_waterfall",
       "escape_boat_distant",
@@ -223,7 +221,9 @@
   },
   "M12": {
     "mission_label": "צ'ק-פוינט 12: המרדף האחרון.",
-    "bg_delivered": [],
+    "bg_delivered": [
+      "bg_M12"
+    ],
     "scenery_planned": [
       "competitor_boat_at_cave",
       "dark_cave_entrance",
