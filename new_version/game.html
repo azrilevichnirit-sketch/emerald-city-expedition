@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>משלחת אל עיר האזמרגד</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset ─────────────────────────────────────────── */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 100vw; height: 100vh; overflow: hidden;
+      background: #000;
+      font-family: 'Open Sans', Arial, sans-serif;
+      direction: rtl;
+    }
+
+    /* ── Screen base ───────────────────────────────────── */
+    .screen {
+      position: fixed; inset: 0;
+      opacity: 0; pointer-events: none;
+      transition: opacity 800ms ease;
+    }
+    .screen.active {
+      opacity: 1; pointer-events: all;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       SCREEN 1 — Intro
+    ══════════════════════════════════════════════════════ */
+    #screen-1 {
+      background: #000;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 1.6rem; padding: 2rem 1.5rem;
+      text-align: center;
+    }
+#screen-1 .intro-text {
+      color: #fff;
+      font-size: clamp(0.95rem, 2.4vw, 1.15rem);
+      line-height: 1.9; max-width: 460px;
+    }
+    #screen-1 .cta-btn {
+      margin-top: 0.5rem;
+      background: #000; color: #fff;
+      border: 2px solid #fff; border-radius: 50px;
+      padding: 0.85rem 2.8rem;
+      font-size: clamp(0.95rem, 2.4vw, 1.1rem);
+      font-weight: 700; font-family: inherit;
+      cursor: pointer; letter-spacing: 0.3px;
+      transition: background 180ms ease, color 180ms ease;
+      min-height: 48px;
+    }
+    #screen-1 .cta-btn:hover  { background: #fff; color: #000; }
+    #screen-1 .cta-btn:active { opacity: 0.85; }
+
+    /* ══════════════════════════════════════════════════════
+       MISSION SCREENS — Zone layout
+    ══════════════════════════════════════════════════════ */
+
+    /* Zone A — top bar (transparent, floats over frame) */
+    .zone-a {
+      position: fixed; top: 0; width: 100%; height: 6vh; min-height: 28px;
+      z-index: 100;
+      background: transparent;
+      display: flex; align-items: center;
+      padding: 0 1rem; gap: 0.75rem;
+    }
+    .mission-label {
+      color: rgba(255,255,255,0.9);
+      font-size: 0.72rem; font-weight: 700;
+      white-space: nowrap; flex-shrink: 0;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+    }
+    .progress-track {
+      flex: 1; height: 4px; max-width: 340px;
+      background: rgba(255,255,255,0.25); border-radius: 2px; overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%; background: #fff; border-radius: 2px;
+      transition: width 700ms ease;
+    }
+
+    /* Zone B — frame image (starts at 0 so it fills behind the transparent zone A) */
+    .zone-b {
+      position: fixed; top: 0; width: 100%; height: 68vh;
+      z-index: 1; overflow: hidden; background: #000;
+    }
+    .zone-b img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: opacity 200ms ease;
+    }
+
+    /* Zone C — mission text */
+    .zone-c {
+      position: fixed; top: 68vh; width: 100%; height: 12vh;
+      z-index: 30;
+      background: rgba(0,0,0,0.72);
+      display: flex; align-items: center; justify-content: center;
+      padding: 0.3rem 5%;
+    }
+    .zone-c p {
+      color: #fff; text-align: center; direction: rtl;
+      font-size: clamp(0.78rem, 2.1vw, 0.95rem);
+      font-weight: 600; line-height: 1.45;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.9);
+    }
+
+    /* Zone D — tools */
+    .zone-d {
+      position: fixed; bottom: 0; width: 100%; height: 20vh; min-height: 100px;
+      z-index: 40;
+      background: rgba(0,0,0,0.75);
+      border-top: 1px solid rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: space-evenly;
+      padding: 0 2%;
+    }
+
+    /* ── Tool items ─────────────────────────────────────── */
+    .tool-item {
+      position: relative; cursor: pointer;
+      display: flex; flex-direction: column; align-items: center;
+      transition: transform 200ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .tool-item:hover  { transform: scale(1.06); }
+    .tool-item:active { transform: scale(0.95); }
+    .tool-item.dimmed { opacity: 0.3; pointer-events: none; transition: opacity 500ms ease; }
+
+    .tool-img-wrap { position: relative; }
+    .tool-item img {
+      display: block; object-fit: contain; border-radius: 6px;
+    }
+
+    /* ⓘ info button */
+    .tool-info-btn {
+      position: absolute; top: 4px; left: 4px;
+      width: 22px; height: 22px; border-radius: 50%;
+      background: rgba(0,0,0,0.65); color: #fff;
+      font-size: 0.65rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(255,255,255,0.38);
+      cursor: pointer; z-index: 21;
+      user-select: none;
+    }
+
+    /* Tooltip — only visible on hover/tap of ⓘ */
+    .tool-tooltip {
+      position: absolute; bottom: calc(100% + 8px); left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.92); color: #fff;
+      padding: 5px 12px; border-radius: 6px;
+      font-size: 0.8rem; white-space: nowrap; direction: rtl;
+      opacity: 0; transition: opacity 150ms ease;
+      pointer-events: none; z-index: 200;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       TRANSITION SCREENS (3 & 5) — auto-advance, no click
+    ══════════════════════════════════════════════════════ */
+    .transition-frame {
+      position: fixed; inset: 0; z-index: 1;
+    }
+    .transition-frame img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .transition-overlay {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      z-index: 10;
+      padding: 2rem 8% 2.5rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.88) 40%);
+      text-align: center; direction: rtl;
+    }
+    .transition-overlay p {
+      color: #fff;
+      font-size: clamp(1rem, 2.8vw, 1.3rem);
+      font-weight: 700; line-height: 1.6;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+    }
+
+    /* ══════════════════════════════════════════════════════
+       SCREEN 7 — Form
+    ══════════════════════════════════════════════════════ */
+    #screen-7 {
+      background: #000;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 2rem 1.5rem; overflow-y: auto;
+      text-align: center;
+    }
+    #screen-7 h2 {
+      color: #fff;
+      font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+      font-weight: 800; margin-bottom: 0.4rem; line-height: 1.35;
+    }
+    #screen-7 .form-sub {
+      color: rgba(255,255,255,0.55);
+      font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+      margin-bottom: 1.6rem;
+    }
+    .form-group {
+      width: 100%; max-width: 400px; margin-bottom: 0.9rem; text-align: right;
+    }
+    .form-group label {
+      display: block; color: rgba(255,255,255,0.75);
+      font-size: 0.88rem; font-weight: 600; margin-bottom: 0.35rem;
+    }
+    .form-group input {
+      width: 100%; padding: 0.72rem 1rem;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 10px; color: #fff;
+      font-size: 1rem; font-family: inherit;
+      outline: none;
+      transition: border-color 200ms, background 200ms;
+    }
+    .form-group input:focus {
+      border-color: rgba(255,255,255,0.55);
+      background: rgba(255,255,255,0.12);
+    }
+    .form-group input::placeholder { color: rgba(255,255,255,0.28); }
+    .form-group input[type="email"],
+    .form-group input[type="tel"] { direction: ltr; text-align: left; }
+
+    .checkbox-row {
+      display: flex; align-items: center; gap: 0.6rem;
+      width: 100%; max-width: 400px;
+      margin: 0.4rem 0 1.4rem; cursor: pointer;
+    }
+    .checkbox-row input[type="checkbox"] {
+      width: 20px; height: 20px; flex-shrink: 0;
+      cursor: pointer; accent-color: #fff;
+    }
+    .checkbox-row span {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.92rem;
+    }
+    .submit-btn {
+      background: #000; color: #fff;
+      border: 2px solid #fff; border-radius: 50px;
+      padding: 0.85rem 2.4rem;
+      width: 100%; max-width: 400px;
+      font-size: 1.05rem; font-weight: 700; font-family: inherit;
+      cursor: pointer; min-height: 48px;
+      transition: background 180ms ease, color 180ms ease;
+    }
+    .submit-btn:hover  { background: #fff; color: #000; }
+    .submit-btn:active { opacity: 0.85; }
+    .form-error {
+      color: #ff7070; font-size: 0.82rem; margin-top: 0.3rem; display: none;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       SCREEN 8 — Results
+    ══════════════════════════════════════════════════════ */
+    #screen-8 {
+      background: #000;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 2rem 1.5rem; overflow-y: auto;
+      text-align: center; gap: 1rem;
+    }
+    #screen-8 h2 {
+      color: #fff;
+      font-size: clamp(1.15rem, 3.5vw, 1.55rem);
+      font-weight: 800; line-height: 1.35; max-width: 420px;
+    }
+    #screen-8 .results-greeting {
+      color: #fff;
+      font-size: clamp(1.05rem, 3vw, 1.35rem);
+      font-weight: 700;
+    }
+    #screen-8 .results-divider {
+      width: 48px; height: 2px; background: rgba(255,255,255,0.25);
+      border-radius: 1px;
+    }
+    #screen-8 .results-text {
+      color: #fff;
+      font-size: clamp(0.92rem, 2.4vw, 1.06rem);
+      line-height: 1.85; max-width: 440px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════
+     SCREEN 1 — Intro
+════════════════════════════════════════════════════ -->
+<div class="screen active" id="screen-1">
+  <div class="intro-text">
+    נבחרת להוביל נבחרת למציאת האוצר האבוד.<br>
+    אנחנו מתחרים מול קבוצה מאוד חזקה ומקצועית.<br>
+    בשביל לנצח אותם, אנחנו צריכים לעבור 15 משימות לא פשוטות.<br>
+    בכל משימה נוכל לבחור כלי אחד מתוך שלושה.<br>
+    שיהיה לנו בהצלחה במסע.
+  </div>
+  <button class="cta-btn" onclick="goToScreen(2)">יאללה, לדרך &gt;&gt;</button>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     SCREEN 2 — Mission 1
+════════════════════════════════════════════════════ -->
+<div class="screen" id="screen-2">
+  <div class="zone-a">
+    <span class="mission-label">משימה 1 / 15</span>
+    <div class="progress-track">
+      <div class="progress-fill" style="width:6.67%"></div>
+    </div>
+  </div>
+  <div class="zone-b">
+    <img id="frame-m1" src="frames/frame_2_m1.webp" alt="משימה 1">
+  </div>
+  <div class="zone-c">
+    <p>אמרתי לך שהם מהירים. הם כבר קפצו מהמטוס ונמצאים בדרך לנקודת המפגש הראשונה. אנחנו חייבים לקפוץ עכשיו ולצמצם את הפער, מה נבחר?</p>
+  </div>
+  <div class="zone-d" id="tools-m1"></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     SCREEN 3 — Transition after M1 (auto-advance)
+════════════════════════════════════════════════════ -->
+<div class="screen" id="screen-3">
+  <div class="transition-frame">
+    <img src="frames/frame_3.webp" alt="מעבר">
+  </div>
+  <div class="transition-overlay">
+    <p>וואו נחתנו אחלה בחירה של כלי</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     SCREEN 4 — Mission 2
+════════════════════════════════════════════════════ -->
+<div class="screen" id="screen-4">
+  <div class="zone-a">
+    <span class="mission-label">משימה 2 / 15</span>
+    <div class="progress-track">
+      <div class="progress-fill" style="width:13.33%"></div>
+    </div>
+  </div>
+  <div class="zone-b">
+    <img id="frame-m2" src="frames/frame_4_m2.webp" alt="משימה 2">
+  </div>
+  <div class="zone-c">
+    <p>אני רואה עננים מתקרבים וצריך להתארגן עם מקום מכסה. איזה מזל שיש פה את הבנה הזה, הוא קצת מתפרק, עכשיו רק נותר להחליט איך להתארגן פה, מה נראה לך?</p>
+  </div>
+  <div class="zone-d" id="tools-m2"></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     SCREEN 5 — Transition after M2 (auto-advance)
+════════════════════════════════════════════════════ -->
+<div class="screen" id="screen-5">
+  <div class="transition-frame">
+    <img src="frames/frame_5.webp" alt="מעבר">
+  </div>
+  <div class="transition-overlay">
+    <p>בוקר טוב, חייבים להזדרז להגיע לנקודת ציון הבאה.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     SCREEN 6 — Mission 3
+════════════════════════════════════════════════════ -->
+<div class="screen" id="screen-6">
+  <div class="zone-a">
+    <span class="mission-label">משימה 3 / 15</span>
+    <div class="progress-track">
+      <div class="progress-fill" style="width:20%"></div>
+    </div>
+  </div>
+  <div class="zone-b">
+    <img id="frame-m3" src="frames/frame_6.webp" alt="משימה 3">
+  </div>
+  <div class="zone-c">
+    <p>תראה אותם, הם שם באופק כנראה בתוך הג'פ, אבל המפה בכיס שלי והחצים מכוונים אותנו למקום אחר. חייבים להחליט עכשיו מה לעשות. יש לך רעיונות?</p>
+  </div>
+  <div class="zone-d" id="tools-m3"></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     SCREEN 7 — Form
+════════════════════════════════════════════════════ -->
+<div class="screen" id="screen-7">
+  <h2 class="form-title">לתוצאות המשחק</h2>
+  <div class="form-group">
+    <label for="input-name">שם מלא</label>
+    <input type="text" id="input-name" placeholder="שם מלא" autocomplete="name">
+    <div class="form-error" id="err-name">נא להזין שם מלא</div>
+  </div>
+  <div class="form-group">
+    <label for="input-email">דוא"ל</label>
+    <input type="email" id="input-email" placeholder="example@email.com" autocomplete="email">
+  </div>
+  <div class="form-group">
+    <label for="input-phone">נייד</label>
+    <input type="tel" id="input-phone" placeholder="050-0000000" autocomplete="tel">
+  </div>
+
+  <label class="checkbox-row">
+    <input type="checkbox" id="input-consent">
+    <span>אני רוצה לקבל פרטים</span>
+  </label>
+
+  <button class="submit-btn" onclick="submitForm()">מה האוצר שלי &gt;&gt;</button>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     SCREEN 8 — Results
+════════════════════════════════════════════════════ -->
+<div class="screen" id="screen-8">
+  <h2>נקודת הסיום היא רק התחלה חדשה</h2>
+  <p class="results-greeting" id="results-greeting"></p>
+  <div class="results-divider"></div>
+  <p class="results-text">
+    וואו יש לך את זה ובגדול, כל האצורות כבר נמצאים אצלך.
+    האינסטינקט לדעת מתי להאיץ ומתי לעצור.
+    השילוב אצלך בין זהירות להעזה, מה שהופך אותך למשקיע המושלם והמאוזן.
+  </p>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     SCRIPT
+════════════════════════════════════════════════════ -->
+<script>
+// ── Missions config ─────────────────────────────────────────────────────────
+const MISSIONS = {
+  1: {
+    frameEl:   'frame-m1',
+    frameBase: 'frames/frame_2_m1.webp',
+    toolsEl:   'tools-m1',
+    nextScreen: 3,
+    tools: [
+      { id: 1, img: 'tools/m1_tool_1.png', label: 'מצנח רחיפה',    frameSrc: 'frames/frame_2_m1_tool_1.webp' },
+      { id: 2, img: 'tools/m1_tool_2.png', label: 'גלשן',           frameSrc: 'frames/frame_2_m1_tool_2.webp' },
+      { id: 3, img: 'tools/m1_tool_3.png', label: 'חליפת כנפיים',  frameSrc: 'frames/frame_2_m1_tool_3.webp' },
+    ]
+  },
+  2: {
+    frameEl:   'frame-m2',
+    frameBase: 'frames/frame_4_m2.webp',
+    toolsEl:   'tools-m2',
+    nextScreen: 5,
+    tools: [
+      { id: 1, img: 'tools/m2_tool_1.png', label: 'אוהל',                 frameSrc: 'frames/frame_4_m2_tool_1.webp' },
+      { id: 2, img: 'tools/m2_tool_2.png', label: 'ברזנט',                frameSrc: 'frames/frame_4_m2_tool_2.webp' },
+      { id: 3, img: 'tools/m2_tool_3.png', label: 'חבלים, פטיש ומסמרים', frameSrc: 'frames/frame_4_m2_tool_3.webp' },
+    ]
+  },
+  3: {
+    frameEl:   'frame-m3',
+    frameBase: 'frames/frame_6.webp',
+    toolsEl:   'tools-m3',
+    nextScreen: 7,
+    tools: [
+      { id: 1, img: 'tools/m3_tool_1.png', label: 'מפת דרך',      frameSrc: 'frames/frame_6_m3_tool_1.webp' },
+      { id: 2, img: 'tools/m3_tool_2.png', label: 'משקפת',         frameSrc: 'frames/frame_6_m3_tool_2.webp' },
+      { id: 3, img: 'tools/m3_tool_3.png', label: "מפתחות לג'יפ", frameSrc: 'frames/frame_6_m3_tool_3.webp' },
+    ]
+  }
+};
+
+// ── State ────────────────────────────────────────────────────────────────────
+const state = {
+  current:      1,
+  choices:      [],   // { mission, toolId, timeMs }
+  missionStart: 0,
+  firstName:    ''
+};
+
+// ── Screen transition ────────────────────────────────────────────────────────
+function goToScreen(n) {
+  const prev = document.getElementById('screen-' + state.current);
+  const next = document.getElementById('screen-' + n);
+  if (!prev || !next || state.current === n) return;
+
+  prev.classList.remove('active');
+  next.classList.add('active');
+  state.current = n;
+
+  // Mission screens: reset frame + start timer after fade-in
+  if (n === 2) initMission(1);
+  if (n === 4) initMission(2);
+  if (n === 6) initMission(3);
+
+  // Transition screens: auto-advance after 3s
+  if (n === 3) setTimeout(() => goToScreen(4), 3000);
+  if (n === 5) setTimeout(() => goToScreen(6), 3000);
+}
+
+function initMission(missionId) {
+  const m = MISSIONS[missionId];
+  const img = document.getElementById(m.frameEl);
+  if (img) { img.style.opacity = '1'; img.src = m.frameBase; }
+  // Reset tool container lock
+  const container = document.getElementById(m.toolsEl);
+  if (container) delete container.dataset.locked;
+  // Timer starts after fade-in completes
+  setTimeout(() => { state.missionStart = Date.now(); }, 820);
+}
+
+// ── Build tool containers ────────────────────────────────────────────────────
+function buildTools(missionId) {
+  const m = MISSIONS[missionId];
+  const container = document.getElementById(m.toolsEl);
+  container.innerHTML = '';
+
+  const size = Math.min(
+    Math.floor(window.innerWidth  * 0.25),
+    Math.floor(window.innerHeight * 0.13),
+    100
+  );
+
+  m.tools.forEach(tool => {
+    const item = document.createElement('div');
+    item.className = 'tool-item';
+    item.dataset.toolId = tool.id;
+
+    const wrap = document.createElement('div');
+    wrap.className = 'tool-img-wrap';
+    wrap.style.cssText = `width:${size}px;height:${size}px`;
+
+    const img = document.createElement('img');
+    img.src = tool.img;
+    img.alt = tool.label;
+    img.style.cssText = `width:100%;height:100%;object-fit:contain`;
+    img.addEventListener('click', () => selectTool(missionId, tool));
+
+    // ⓘ button
+    const infoBtn = document.createElement('div');
+    infoBtn.className = 'tool-info-btn';
+    infoBtn.textContent = 'ⓘ';
+
+    // Tooltip — only on ⓘ hover/tap
+    const tooltip = document.createElement('div');
+    tooltip.className = 'tool-tooltip';
+    tooltip.textContent = tool.label;
+
+    infoBtn.addEventListener('mouseenter', () => { tooltip.style.opacity = '1'; });
+    infoBtn.addEventListener('mouseleave', () => { tooltip.style.opacity = '0'; });
+    infoBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      const visible = tooltip.style.opacity === '1';
+      tooltip.style.opacity = visible ? '0' : '1';
+      if (!visible) setTimeout(() => { tooltip.style.opacity = '0'; }, 2200);
+    });
+
+    wrap.append(img, infoBtn, tooltip);
+    item.appendChild(wrap);
+    container.appendChild(item);
+  });
+}
+
+// ── Tool selection ───────────────────────────────────────────────────────────
+function selectTool(missionId, tool) {
+  const m = MISSIONS[missionId];
+  const container = document.getElementById(m.toolsEl);
+
+  if (container.dataset.locked === '1') return;
+  container.dataset.locked = '1';
+
+  // Record choice + time
+  const elapsed = Date.now() - state.missionStart;
+  state.choices.push({ mission: missionId, toolId: tool.id, timeMs: elapsed });
+
+  // Dim other tools
+  container.querySelectorAll('.tool-item').forEach(el => {
+    if (parseInt(el.dataset.toolId) !== tool.id) el.classList.add('dimmed');
+  });
+
+  // Swap frame immediately — image is preloaded, no black flash
+  const frameImg = document.getElementById(m.frameEl);
+  frameImg.src = tool.frameSrc;
+
+  // Wait 1 second then advance
+  setTimeout(() => goToScreen(m.nextScreen), 1000);
+}
+
+// ── Form submission ──────────────────────────────────────────────────────────
+function submitForm() {
+  const nameVal = document.getElementById('input-name').value.trim();
+  const errName = document.getElementById('err-name');
+
+  if (!nameVal) {
+    errName.style.display = 'block';
+    document.getElementById('input-name').focus();
+    return;
+  }
+  errName.style.display = 'none';
+
+  state.firstName = nameVal.split(/\s+/)[0];
+
+  const submission = {
+    full_name:         nameVal,
+    first_name:        state.firstName,
+    email:             document.getElementById('input-email').value.trim(),
+    phone:             document.getElementById('input-phone').value.trim(),
+    consent:           document.getElementById('input-consent').checked,
+    choices:           state.choices,
+    m1_tool:           state.choices.find(c => c.mission === 1)?.toolId ?? null,
+    m2_tool:           state.choices.find(c => c.mission === 2)?.toolId ?? null,
+    m3_tool:           state.choices.find(c => c.mission === 3)?.toolId ?? null,
+    response_times_ms: state.choices.map(c => c.timeMs)
+  };
+  console.log('[Supabase ready]', submission);
+
+  document.getElementById('results-greeting').textContent = 'היי ' + state.firstName + ',';
+  goToScreen(8);
+}
+
+// ── Preload next frames ──────────────────────────────────────────────────────
+function preloadImages() {
+  [
+    'frames/frame_3.webp',
+    'frames/frame_4_m2.webp',
+    'frames/frame_4_m2_tool_1.webp', 'frames/frame_4_m2_tool_2.webp', 'frames/frame_4_m2_tool_3.webp',
+    'frames/frame_5.webp',
+    'frames/frame_6.webp',
+    'frames/frame_6_m3_tool_1.webp', 'frames/frame_6_m3_tool_2.webp', 'frames/frame_6_m3_tool_3.webp',
+    'frames/frame_2_m1_tool_1.webp', 'frames/frame_2_m1_tool_2.webp', 'frames/frame_2_m1_tool_3.webp'
+  ].forEach(src => { new Image().src = src; });
+}
+
+// ── Init ─────────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  buildTools(1);
+  buildTools(2);
+  buildTools(3);
+  preloadImages();
+});
+</script>
+</body>
+</html>

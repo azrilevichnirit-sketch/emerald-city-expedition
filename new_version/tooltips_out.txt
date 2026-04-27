@@ -1,0 +1,42 @@
+('A1', 'tool_file')
+('B1', 'tooltip')
+('A2', 'frame_2_m1_tool_1')
+('B2', 'מצנח רחיפה')
+('A3', 'frame_2_m1_tool_2')
+('B3', 'גלשן')
+('A4', 'frame_2_m1_tool_3')
+('B4', 'חליפת כנפיים')
+('A5', 'frame_4_m2_tool_1')
+('B5', 'אוהל')
+('A6', 'frame_4_m2_tool_2')
+('B6', 'ברזנט')
+('A7', 'frame_4_m2_tool_3')
+('B7', 'חבלים, פטיש ומסמרים')
+('A8', 'frame_6_m3_tool_1')
+('B8', 'מפת דרך')
+('A9', 'frame_6_m3_tool_2')
+('B9', 'משקפת')
+('A10', 'frame_6_m3_tool_3')
+('B10', "מפתחות לג'יפ")
+
+All strings:
+0: tool_file
+1: frame_2_m1_tool_1
+2: מצנח רחיפה
+3: frame_2_m1_tool_2
+4: גלשן
+5: חליפת כנפיים
+6: אוהל
+7: ברזנט
+8: חבלים, פטיש ומסמרים
+9: מפת דרך
+10: משקפת
+11: מפתחות לג'יפ
+12: frame_2_m1_tool_3
+13: frame_4_m2_tool_1
+14: frame_4_m2_tool_2
+15: frame_4_m2_tool_3
+16: frame_6_m3_tool_1
+17: frame_6_m3_tool_2
+18: frame_6_m3_tool_3
+19: tooltip
