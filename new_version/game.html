@@ -578,8 +578,58 @@ function selectTool(missionId, tool) {
   setTimeout(() => goToScreen(m.nextScreen), 1000);
 }
 
+// ── Score calculations ───────────────────────────────────────────────────────
+function calcScores(toolMap, timeMap) {
+  const choice = m => toolMap[m] != null ? toolMap[m] - 1 : null;
+
+  // Risk: missions 1,4,8,11,14
+  const riskChoices = [1,4,8,11,14].map(m => choice(m)).filter(v => v != null);
+  const riskScore = riskChoices.length
+    ? +( riskChoices.reduce((a,b) => a+b, 0) / 5 ).toFixed(2) : null;
+  const riskLabel = riskScore == null ? null
+    : riskScore < 0.7 ? 'שונא סיכון גבוה' : riskScore < 1.3 ? 'ניטרלי' : 'פתוח לסיכון';
+
+  // Stability: missions 2,6,9,13
+  const stabChoices = [2,6,9,13].map(m => choice(m)).filter(v => v != null);
+  const stabScore = stabChoices.length
+    ? +( stabChoices.reduce((a,b) => a+b, 0) / 4 ).toFixed(2) : null;
+  const stabLabel = stabScore == null ? null
+    : stabScore < 0.6 ? 'שומר על הקיים' : stabScore < 1.3 ? 'מאוזן' : 'נוטה לשינוי';
+
+  // FOMO: missions 3,7,12,15
+  const fomoChoices = [3,7,12,15].map(m => choice(m)).filter(v => v != null);
+  const fomoScore = fomoChoices.length
+    ? +( fomoChoices.reduce((a,b) => a+b, 0) / 4 ).toFixed(2) : null;
+  const fomoLabel = fomoScore == null ? null
+    : fomoScore < 0.4 ? 'עצמאי' : fomoScore < 1.2 ? 'בינוני' : 'מושפע מאוד';
+
+  // Impulse: missions 5,10 — median from 13 non-impulse missions
+  const nonImpulseTimes = [1,2,3,4,6,7,8,9,11,12,13,14,15]
+    .map(m => timeMap[m]).filter(v => v != null);
+  let medianTime = null;
+  if (nonImpulseTimes.length) {
+    const sorted = [...nonImpulseTimes].sort((a,b) => a-b);
+    const mid = Math.floor(sorted.length / 2);
+    medianTime = sorted.length % 2 ? sorted[mid]
+      : Math.round((sorted[mid-1] + sorted[mid]) / 2);
+  }
+  let impulseSum = 0;
+  [5,10].forEach(m => {
+    if (toolMap[m] != null && medianTime != null && timeMap[m] < medianTime) {
+      impulseSum += toolMap[m] === 3 ? 2 : toolMap[m] === 2 ? 1 : 0;
+    }
+  });
+  const impulseScore = medianTime != null ? +(impulseSum / 2).toFixed(2) : null;
+  const impulseLabel = impulseScore == null ? null
+    : impulseScore < 0.5 ? 'אימפולסיביות נמוכה'
+    : impulseScore < 1.2 ? 'בינונית' : 'אימפולסיביות גבוהה';
+
+  return { riskScore, riskLabel, stabScore, stabLabel,
+           fomoScore, fomoLabel, impulseScore, impulseLabel, medianTime };
+}
+
 // ── Form submission ──────────────────────────────────────────────────────────
-function submitForm() {
+async function submitForm() {
   const nameVal = document.getElementById('input-name').value.trim();
   const errName = document.getElementById('err-name');
 
@@ -590,21 +640,67 @@ function submitForm() {
   }
   errName.style.display = 'none';
 
-  state.firstName = nameVal.split(/\s+/)[0];
+  const nameParts = nameVal.split(/\s+/);
+  state.firstName = nameParts[0];
+  const lastName  = nameParts.slice(1).join(' ') || null;
 
-  const submission = {
-    full_name:         nameVal,
-    first_name:        state.firstName,
-    email:             document.getElementById('input-email').value.trim(),
-    phone:             document.getElementById('input-phone').value.trim(),
-    consent:           document.getElementById('input-consent').checked,
-    choices:           state.choices,
-    m1_tool:           state.choices.find(c => c.mission === 1)?.toolId ?? null,
-    m2_tool:           state.choices.find(c => c.mission === 2)?.toolId ?? null,
-    m3_tool:           state.choices.find(c => c.mission === 3)?.toolId ?? null,
-    response_times_ms: state.choices.map(c => c.timeMs)
+  // Build indexed maps
+  const toolMap = {}, timeMap = {};
+  state.choices.forEach(c => {
+    toolMap[c.mission] = c.toolId;
+    timeMap[c.mission] = c.timeMs;
+  });
+
+  const scores = calcScores(toolMap, timeMap);
+
+  // Generate run_id
+  const runId = (typeof crypto !== 'undefined' && crypto.randomUUID)
+    ? crypto.randomUUID()
+    : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+        const r = Math.random() * 16 | 0;
+        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+      });
+
+  const t = m => timeMap[m] ?? null;
+  const mTool = m => toolMap[m] ?? null;
+
+  const payload = {
+    run_id:     runId,
+    full_name:  nameVal,
+    first_name: state.firstName,
+    last_name:  lastName,
+    phone:      document.getElementById('input-phone').value.trim() || null,
+    email:      document.getElementById('input-email').value.trim() || null,
+    agree:      document.getElementById('input-consent').checked,
+    m1_tool:  mTool(1),  m2_tool:  mTool(2),  m3_tool:  mTool(3),
+    m4_tool:  mTool(4),  m5_tool:  mTool(5),  m6_tool:  mTool(6),
+    m7_tool:  mTool(7),  m8_tool:  mTool(8),  m9_tool:  mTool(9),
+    m10_tool: mTool(10), m11_tool: mTool(11), m12_tool: mTool(12),
+    m13_tool: mTool(13), m14_tool: mTool(14), m15_tool: mTool(15),
+    t1:  t(1),  t2:  t(2),  t3:  t(3),  t4:  t(4),  t5:  t(5),
+    t6:  t(6),  t7:  t(7),  t8:  t(8),  t9:  t(9),  t10: t(10),
+    t11: t(11), t12: t(12), t13: t(13), t14: t(14), t15: t(15),
+    median_time:      scores.medianTime,
+    risk_score:       scores.riskScore,    risk_label:      scores.riskLabel,
+    stability_score:  scores.stabScore,    stability_label: scores.stabLabel,
+    impulse_score:    scores.impulseScore, impulse_label:   scores.impulseLabel,
+    fomo_score:       scores.fomoScore,    fomo_label:      scores.fomoLabel
   };
-  console.log('[Supabase ready]', submission);
+
+  // Submit to Supabase (fire-and-forget — don't block UX on network)
+  fetch('https://vnfetyotkltonrmyyhkm.supabase.co/rest/v1/emerald_game_submissions', {
+    method:  'POST',
+    headers: {
+      'Content-Type':  'application/json',
+      'apikey':        'sb_publishable__dtUtTMQCyRKFWyAl09bUQ_7FjLUKcB',
+      'Authorization': 'Bearer sb_publishable__dtUtTMQCyRKFWyAl09bUQ_7FjLUKcB',
+      'Prefer':        'return=minimal'
+    },
+    body: JSON.stringify(payload)
+  }).then(res => {
+    if (!res.ok) res.text().then(t => console.error('[Supabase error]', res.status, t));
+    else console.log('[Supabase] submission saved', runId);
+  }).catch(e => console.error('[Supabase] network error', e));
 
   document.getElementById('results-greeting').textContent = 'היי ' + state.firstName + ',';
   goToScreen(8);
