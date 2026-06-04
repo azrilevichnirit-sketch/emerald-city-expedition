@@ -1,16 +1,16 @@
 {
-  "ts": "2026-06-03T08:28:34Z",
+  "ts": "2026-06-04T07:59:11Z",
   "model": "imagen-4.0-generate-001",
   "processed": [
     {
       "slug": "גלשן_מ01",
       "status": "HTTP_503",
-      "error": "{\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"Image generation failed with the following error: Fail to execute model for flow_id: flow-vertex-juno-v1-5-serving_default-uniserve_global\\nError: [monitoring=main-model,model=/vertex/vertex-juno-v1-5,target=anonymous_server]\",\n    \"status\": \"UNAVAILAB"
+      "error": "{\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"Deadline expired before operation could complete.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
     },
     {
       "slug": "מצנח_בסיס_מ11",
-      "status": "HTTP_503",
-      "error": "{\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"The service is currently unavailable.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      "status": "HTTP_429",
+      "error": "{\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429 for more details.\",\n    \"status\": \"RESOURCE_EXHAUSTED\"\n  }\n}\n"
     }
   ]
 }
