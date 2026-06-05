@@ -1,11 +1,11 @@
 {
-  "ts": "2026-06-04T07:59:11Z",
+  "ts": "2026-06-05T07:15:19Z",
   "model": "imagen-4.0-generate-001",
   "processed": [
     {
       "slug": "גלשן_מ01",
-      "status": "HTTP_503",
-      "error": "{\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"Deadline expired before operation could complete.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      "status": "HTTP_429",
+      "error": "{\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429 for more details.\",\n    \"status\": \"RESOURCE_EXHAUSTED\"\n  }\n}\n"
     },
     {
       "slug": "מצנח_בסיס_מ11",
