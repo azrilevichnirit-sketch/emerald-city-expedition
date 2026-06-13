@@ -1,16 +1,18 @@
 {
-  "ts": "2026-06-12T07:58:36Z",
+  "ts": "2026-06-13T07:04:50Z",
   "model": "imagen-4.0-generate-001",
   "processed": [
     {
       "slug": "גלשן_מ01",
-      "status": "HTTP_429",
-      "error": "{\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429 for more details.\",\n    \"status\": \"RESOURCE_EXHAUSTED\"\n  }\n}\n"
+      "status": "OK",
+      "raw": "pipeline/review/tools_qa_gemini_ci/גלשן_מ01_raw.png",
+      "final": "pipeline/review/tools_qa_gemini_ci/גלשן_מ01_final.png"
     },
     {
       "slug": "מצנח_בסיס_מ11",
-      "status": "HTTP_429",
-      "error": "{\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429 for more details.\",\n    \"status\": \"RESOURCE_EXHAUSTED\"\n  }\n}\n"
+      "status": "OK",
+      "raw": "pipeline/review/tools_qa_gemini_ci/מצנח_בסיס_מ11_raw.png",
+      "final": "pipeline/review/tools_qa_gemini_ci/מצנח_בסיס_מ11_final.png"
     }
   ]
 }
