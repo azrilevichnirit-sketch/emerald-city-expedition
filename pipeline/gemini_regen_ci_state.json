@@ -1,16 +1,18 @@
 {
-  "ts": "2026-06-16T08:55:06Z",
+  "ts": "2026-06-17T08:35:04Z",
   "model": "imagen-4.0-generate-001",
   "processed": [
     {
       "slug": "גלשן_מ01",
-      "status": "HTTP_503",
-      "error": "{\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"The service is currently unavailable.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+      "status": "OK",
+      "raw": "pipeline/review/tools_qa_gemini_ci/גלשן_מ01_raw.png",
+      "final": "pipeline/review/tools_qa_gemini_ci/גלשן_מ01_final.png"
     },
     {
       "slug": "מצנח_בסיס_מ11",
-      "status": "HTTP_503",
-      "error": "{\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"Image generation failed with the following error: Fail to execute model for flow_id: flow-vertex-juno-v1-5-serving_default-uniserve_global\\nError: [monitoring=main-model,model=/vertex/vertex-juno-v1-5,target=anonymous_server]\",\n    \"status\": \"UNAVAILAB"
+      "status": "OK",
+      "raw": "pipeline/review/tools_qa_gemini_ci/מצנח_בסיס_מ11_raw.png",
+      "final": "pipeline/review/tools_qa_gemini_ci/מצנח_בסיס_מ11_final.png"
     }
   ]
 }
