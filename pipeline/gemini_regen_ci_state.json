@@ -1,18 +1,16 @@
 {
-  "ts": "2026-08-01T06:06:58Z",
+  "ts": "2026-08-02T06:09:16Z",
   "model": "imagen-4.0-generate-001",
   "processed": [
     {
       "slug": "גלשן_מ01",
-      "status": "OK",
-      "raw": "pipeline/review/tools_qa_gemini_ci/גלשן_מ01_raw.png",
-      "final": "pipeline/review/tools_qa_gemini_ci/גלשן_מ01_final.png"
+      "status": "HTTP_400",
+      "error": "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Imagen 3 is only available on paid plans. Please upgrade your account at https://ai.dev/projects.\",\n    \"status\": \"INVALID_ARGUMENT\"\n  }\n}\n"
     },
     {
       "slug": "מצנח_בסיס_מ11",
-      "status": "OK",
-      "raw": "pipeline/review/tools_qa_gemini_ci/מצנח_בסיס_מ11_raw.png",
-      "final": "pipeline/review/tools_qa_gemini_ci/מצנח_בסיס_מ11_final.png"
+      "status": "HTTP_400",
+      "error": "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Imagen 3 is only available on paid plans. Please upgrade your account at https://ai.dev/projects.\",\n    \"status\": \"INVALID_ARGUMENT\"\n  }\n}\n"
     }
   ]
 }
