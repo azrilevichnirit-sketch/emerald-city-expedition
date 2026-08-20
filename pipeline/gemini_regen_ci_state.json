@@ -1,16 +1,16 @@
 {
-  "ts": "2026-08-19T03:52:23Z",
+  "ts": "2026-08-20T03:52:20Z",
   "model": "imagen-4.0-generate-001",
   "processed": [
     {
       "slug": "גלשן_מ01",
       "status": "HTTP_404",
-      "error": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/imagen-4.0-generate-001 is no longer available. Please update your code to use models/gemini-3.1-flash-image for the latest features and improvements.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n"
+      "error": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/imagen-4.0-generate-001 is not found for API version v1beta, or is not supported for predict. Call ModelService.ListModels to see the list of available models and their supported methods.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n"
     },
     {
       "slug": "מצנח_בסיס_מ11",
       "status": "HTTP_404",
-      "error": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/imagen-4.0-generate-001 is no longer available. Please update your code to use models/gemini-3.1-flash-image for the latest features and improvements.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n"
+      "error": "{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/imagen-4.0-generate-001 is not found for API version v1beta, or is not supported for predict. Call ModelService.ListModels to see the list of available models and their supported methods.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n"
     }
   ]
 }
